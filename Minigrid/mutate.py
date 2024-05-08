@@ -7,7 +7,6 @@ from environment import execute_instructions
 from datetime import datetime, timedelta
 from EnvironmentState import Agent, Door, Key, Object, Lava, State
 import traceback
-from InstructionData import *
 import requests
 # Action space
 action_space = {
@@ -157,7 +156,7 @@ class InstructionMutator:
 
         # Load the settings and create JSON storage
         logFile_Setting = loadSetting(os.path.join('.', 'Settings.xml'))
-        json_storage = JsonArrayStorage(logFile_Setting.Instruction_logs_path)
+        #json_storage = JsonArrayStorage(logFile_Setting.Instruction_logs_path)
 
         count = 0
         seed_pool = []  # List to store high-coverage instructions
@@ -225,8 +224,8 @@ class InstructionMutator:
 
                 # Save useful instructions
                 self.append_to_file(mutated_instruction)
-                if is_valid_instruction:
-                    json_storage.save_array(mutated_instruction)
+
+                    #json_storage.save_array(mutated_instruction)
 
                 print(count)
                 count += 1
@@ -248,7 +247,7 @@ class InstructionMutator:
 
         # Load the settings and create JSON storage
         logFile_Setting = loadSetting(os.path.join('.', 'Settings.xml'))
-        json_storage = JsonArrayStorage(logFile_Setting.Instruction_logs_path)
+        #json_storage = JsonArrayStorage(logFile_Setting.Instruction_logs_path)
 
         count = 0
         seed_pool = []
@@ -313,8 +312,7 @@ class InstructionMutator:
 
                 # Save useful instructions
                 self.append_to_file(mutated_instruction)
-                if is_valid_instruction:
-                    json_storage.save_array(mutated_instruction)
+
 
                 print(count)
                 count += 1
