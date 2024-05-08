@@ -87,7 +87,7 @@ class InstructionMutator:
         time_limit = timedelta(hours=1)  # Set a time limit of 3 hours
 
         logFile_Setting = loadSetting(os.path.join('.', 'Settings.xml'))
-        json_storage = JsonArrayStorage(logFile_Setting.Instruction_logs_path)
+        #json_storage = JsonArrayStorage(logFile_Setting.Instruction_logs_path)
 
         count = 0
 
@@ -133,7 +133,7 @@ class InstructionMutator:
 
                 if is_valid_instruction:
                     self.append_to_file(mutated_instruction)
-                    json_storage.save_array(mutated_instruction)
+                    #json_storage.save_array(mutated_instruction)
                 else:
                     self.append_to_file(mutated_instruction)
                 print(count)
