@@ -1,7 +1,7 @@
 import random
 import os
 import json
-from Code.LoadConfig import loadSetting, load_InitialState
+from LoadConfig import loadSetting, load_InitialState
 from environment import GetFuzzInstruction, send_slack_message, GetFuzzEnvInstruction
 from environment import execute_instructions
 from datetime import datetime, timedelta
