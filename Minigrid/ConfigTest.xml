@@ -1,0 +1,22 @@
+<Environment>
+    <Agent>
+        <InitialPosition x="5" y="3"/>
+        <InitialDirection theta="4"/>
+        <DestinationPosition x="13" y="14"/>
+        <DestinationDirection theta="3"/>
+        <Path>
+        </Path>
+    </Agent>
+    <Keys>
+        <Key x_init="1" y_init="1" status="0"/>
+    </Keys>
+    <Doors>
+        <Door x="5" y="5" status="1"/>
+    </Doors>
+    <Objects>
+        <Object x="2" y="2" pickStatus="0" v="3" w="3" dropStatus="0"/>
+    </Objects>
+    <LavaTiles>
+        <Lava x="5" y="4"/>
+    </LavaTiles>
+</Environment>
