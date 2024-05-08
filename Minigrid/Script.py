@@ -4,7 +4,7 @@ import shutil
 import xml.etree.ElementTree as ET
 import subprocess
 
-from Code.LoadConfig import load_InitialState
+from LoadConfig import load_InitialState
 from environment import send_slack_message
 
 
