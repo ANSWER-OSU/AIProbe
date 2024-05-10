@@ -1,7 +1,7 @@
 <Setting>
-    <EnviromentLogs path="Results Log\Lava Env\GuidedFuzz\Hpc\60\Log-Lava-Env-1.txt" />
-    <MutatorLogs path="Results Log\Lava Env\GuidedFuzz\hpc\60\Mutator-Log-Lava-Env-1.txt" />
+    <EnviromentLogs path="Results Log/Lava Env/GuidedFuzz/Hpc/Env1-7tile/Log-Lava-Env-10.txt" />
+    <MutatorLogs path="Results Log/Lava Env/GuidedFuzz/hpc/Env1-7tile/Mutator-Log-Lava-Env-10.txt" />
     <Enviroment name="Crossing" color="purple" />
-    <InstructionLog path="Results Log\Lava Env\GuidedFuzz\hpc\60\Log-Lava-Env.json" />
-    <timeout time="10"/>
+    <InstructionLog path="Results Log/Lava Env/GuidedFuzz/hpc/Env1-7tile/Log-Lava-Env.json" />
+    <timeout time="5" />
 </Setting>

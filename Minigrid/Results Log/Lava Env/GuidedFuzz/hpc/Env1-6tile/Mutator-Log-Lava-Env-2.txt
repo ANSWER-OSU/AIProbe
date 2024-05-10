@@ -1,0 +1,2112 @@
+----------- Entry Time: 2024-05-10 10:54:18-----------
+Iteration no : 0
+Instruction: ['forward']
+Instruction length: 1
+Instruction Coverage percentage: 1.8518518518518516
+Missing coverage: {(1, 1): {0, 1, 2}, (1, 5): {0, 1, 2}, (2, 1): {0, 1}, (2, 2): {0, 1, 2}, (2, 4): {0, 1, 2}, (2, 5): {0, 1, 2}, (3, 1): {0, 1, 2}, (3, 3): {0, 1, 2}, (3, 4): {0, 1, 2}, (4, 1): {0, 1, 2}, (4, 2): {0, 1, 2}, (4, 3): {0, 1, 2}, (4, 4): {0, 1, 2}, (4, 5): {0, 1, 2}, (5, 1): {0, 1, 2}, (5, 2): {0, 1, 2}, (5, 3): {0, 1, 2}, (5, 4): {0, 1, 2}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 0
+Time Remaining : 0:09:59.857726
+
+----------- Entry Time: 2024-05-10 10:54:19-----------
+Iteration no : 1
+Instruction: ['forward', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'right', 'left', 'right', 'forward', 'right', 'right', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'left', 'left', 'right', 'right', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'right', 'left', 'left', 'right', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'right', 'left', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'right']
+Instruction length: 96
+Instruction Coverage percentage: 44.444444444444436
+Missing coverage: {(1, 5): {0, 1, 2}, (2, 4): {0, 1, 2}, (2, 5): {0, 1, 2}, (3, 1): {0}, (3, 3): {0, 1, 2}, (3, 4): {0, 1, 2}, (4, 1): {0}, (4, 2): {1}, (4, 3): {0}, (4, 4): {0, 1, 2}, (4, 5): {0, 1, 2}, (5, 2): {1}, (5, 3): {0}, (5, 4): {0, 1, 2}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 44.44444444444443
+Time Remaining : 0:09:59.355125
+
+----------- Entry Time: 2024-05-10 10:54:19-----------
+Iteration no : 2
+Instruction: ['left', 'left', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'right', 'right', 'right', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'right', 'right', 'right', 'left', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'forward']
+Instruction length: 116
+Instruction Coverage percentage: 37.03703703703704
+Missing coverage: {(1, 5): {0, 1, 2}, (2, 4): {0}, (2, 5): {0, 1, 2}, (3, 3): {0, 1, 2}, (3, 4): {0, 1, 2}, (4, 2): {1}, (4, 3): {0}, (4, 4): {0, 1, 2}, (4, 5): {0, 1, 2}, (5, 2): {1}, (5, 3): {0}, (5, 4): {0, 1, 2}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 51.85185185185184
+Time Remaining : 0:09:59.299031
+
+----------- Entry Time: 2024-05-10 10:54:19-----------
+Iteration no : 3
+Instruction: ['forward', 'right', 'forward', 'right', 'forward', 'right', 'right', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'left', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'left', 'left', 'right', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward']
+Instruction length: 112
+Instruction Coverage percentage: 48.14814814814814
+Missing coverage: {(1, 5): {0, 1, 2}, (2, 4): {0}, (2, 5): {0, 1, 2}, (3, 3): {0, 1, 2}, (3, 4): {0, 1, 2}, (4, 2): {1}, (4, 4): {0}, (4, 5): {0, 1, 2}, (5, 3): {0}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 64.81481481481481
+Time Remaining : 0:09:59.243804
+
+----------- Entry Time: 2024-05-10 10:54:19-----------
+Iteration no : 4
+Instruction: ['left', 'left']
+Instruction length: 2
+Instruction Coverage percentage: 1.8518518518518516
+Missing coverage: {(1, 5): {0, 1, 2}, (2, 4): {0}, (2, 5): {0, 1, 2}, (3, 3): {0, 1, 2}, (3, 4): {0, 1, 2}, (4, 2): {1}, (4, 4): {0}, (4, 5): {0, 1, 2}, (5, 3): {0}}
+
+Is valid instruction : False
+Is valid Capabilities : False
+Cycle's max Average Coverage: 64.81481481481481
+Time Remaining : 0:09:59.242252
+
+----------- Entry Time: 2024-05-10 10:54:19-----------
+Iteration no : 5
+Instruction: ['forward', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'right', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'forward', 'left']
+Instruction length: 37
+Instruction Coverage percentage: 24.07407407407407
+Missing coverage: {(1, 5): {0, 1, 2}, (2, 4): {0}, (2, 5): {0, 1, 2}, (3, 3): {0, 1, 2}, (3, 4): {0, 1, 2}, (4, 2): {1}, (4, 4): {0}, (4, 5): {0, 1, 2}, (5, 3): {0}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 64.81481481481481
+Time Remaining : 0:09:59.223379
+
+----------- Entry Time: 2024-05-10 10:54:19-----------
+Iteration no : 6
+Instruction: ['forward', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'left', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'left']
+Instruction length: 30
+Instruction Coverage percentage: 22.222222222222218
+Missing coverage: {(1, 5): {1}, (3, 3): {0, 1, 2}, (3, 4): {0}, (4, 2): {1}, (4, 4): {0}, (4, 5): {0, 1, 2}, (5, 3): {0}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 79.62962962962962
+Time Remaining : 0:09:59.207842
+
+----------- Entry Time: 2024-05-10 10:54:19-----------
+Iteration no : 7
+Instruction: ['right', 'right', 'forward', 'forward']
+Instruction length: 4
+Instruction Coverage percentage: 3.7037037037037033
+Missing coverage: {(1, 5): {1}, (3, 3): {0, 1, 2}, (3, 4): {0}, (4, 2): {1}, (4, 4): {0}, (4, 5): {0, 1, 2}, (5, 3): {0}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 79.62962962962962
+Time Remaining : 0:09:59.205363
+
+----------- Entry Time: 2024-05-10 10:54:19-----------
+Iteration no : 8
+Instruction: ['forward', 'right', 'forward', 'right', 'forward', 'right', 'right', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'forward']
+Instruction length: 103
+Instruction Coverage percentage: 40.74074074074073
+Missing coverage: {(1, 5): {1}, (3, 3): {0, 1, 2}, (4, 2): {1}, (4, 4): {0}, (4, 5): {1}, (5, 3): {0}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 85.18518518518519
+Time Remaining : 0:09:59.154658
+
+----------- Entry Time: 2024-05-10 10:54:19-----------
+Iteration no : 9
+Instruction: ['forward', 'right', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'left', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'left', 'forward', 'right', 'right', 'forward', 'forward']
+Instruction length: 92
+Instruction Coverage percentage: 51.85185185185184
+Missing coverage: {(1, 5): {1}, (3, 3): {1}, (4, 2): {1}, (4, 4): {0}, (4, 5): {1}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 90.74074074074075
+Time Remaining : 0:09:59.108187
+
+----------- Entry Time: 2024-05-10 10:54:19-----------
+Iteration no : 10
+Instruction: ['forward', 'right', 'forward', 'right', 'right', 'right', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward']
+Instruction length: 108
+Instruction Coverage percentage: 33.33333333333333
+Missing coverage: {(1, 5): {1}, (3, 3): {1}, (4, 4): {0}, (4, 5): {1}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 92.5925925925926
+Time Remaining : 0:09:59.054771
+
+----------- Entry Time: 2024-05-10 10:54:19-----------
+Iteration no : 11
+Instruction: ['forward', 'right', 'forward']
+Instruction length: 3
+Instruction Coverage percentage: 5.5555555555555545
+Missing coverage: {(1, 5): {1}, (3, 3): {1}, (4, 4): {0}, (4, 5): {1}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 92.5925925925926
+Time Remaining : 0:09:59.052470
+
+----------- Entry Time: 2024-05-10 10:54:19-----------
+Iteration no : 12
+Instruction: ['forward', 'right', 'forward', 'right', 'right', 'right', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward']
+Instruction length: 105
+Instruction Coverage percentage: 42.59259259259258
+Missing coverage: {(4, 4): {0}, (4, 5): {1}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 96.2962962962963
+Time Remaining : 0:09:59.000739
+
+----------- Entry Time: 2024-05-10 10:54:19-----------
+Iteration no : 13
+Instruction: ['forward', 'right', 'right', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'right', 'right', 'right', 'right', 'right', 'forward', 'right', 'right', 'forward', 'right', 'right', 'right', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'right', 'left', 'left', 'forward', 'right']
+Instruction length: 85
+Instruction Coverage percentage: 42.59259259259258
+Missing coverage: {(4, 4): {0}, (4, 5): {1}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 96.2962962962963
+Time Remaining : 0:09:58.958223
+
+----------- Entry Time: 2024-05-10 10:54:19-----------
+Iteration no : 14
+Instruction: ['right', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward']
+Instruction length: 20
+Instruction Coverage percentage: 1.8518518518518516
+Missing coverage: {(4, 4): {0}, (4, 5): {1}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 96.2962962962963
+Time Remaining : 0:09:58.947819
+
+----------- Entry Time: 2024-05-10 10:54:19-----------
+Iteration no : 15
+Instruction: ['forward', 'forward', 'forward', 'right', 'forward', 'left', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'right', 'right', 'forward', 'right', 'left', 'left', 'left', 'forward', 'left', 'right', 'right', 'forward', 'right', 'right', 'right', 'right', 'right', 'right', 'right', 'forward', 'right', 'right', 'right', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'left']
+Instruction length: 113
+Instruction Coverage percentage: 29.62962962962962
+Missing coverage: {(4, 4): {0}, (4, 5): {1}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 96.2962962962963
+Time Remaining : 0:09:58.891507
+
+----------- Entry Time: 2024-05-10 10:54:19-----------
+Iteration no : 16
+Instruction: ['forward', 'right', 'forward', 'right', 'forward', 'right', 'right', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward']
+Instruction length: 95
+Instruction Coverage percentage: 42.59259259259258
+Missing coverage: {(4, 4): {0}, (4, 5): {1}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 96.2962962962963
+Time Remaining : 0:09:58.842822
+
+----------- Entry Time: 2024-05-10 10:54:19-----------
+Iteration no : 17
+Instruction: ['forward', 'left', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'right']
+Instruction length: 80
+Instruction Coverage percentage: 31.481481481481474
+Missing coverage: {(4, 4): {0}, (4, 5): {1}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 96.2962962962963
+Time Remaining : 0:09:58.803242
+
+----------- Entry Time: 2024-05-10 10:54:19-----------
+Iteration no : 18
+Instruction: ['right', 'forward', 'right', 'right', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'right', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'right', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'left', 'left', 'left', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'forward', 'forward']
+Instruction length: 127
+Instruction Coverage percentage: 61.111111111111114
+Missing coverage: {(4, 4): {0}, (4, 5): {1}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 96.2962962962963
+Time Remaining : 0:09:58.740334
+
+----------- Entry Time: 2024-05-10 10:54:19-----------
+Iteration no : 19
+Instruction: ['right', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'right', 'right', 'left', 'left', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'left', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'right', 'right', 'right', 'right', 'right', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'left']
+Instruction length: 126
+Instruction Coverage percentage: 46.29629629629629
+Missing coverage: {(4, 4): {0}, (4, 5): {1}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 96.2962962962963
+Time Remaining : 0:09:58.678762
+
+----------- Entry Time: 2024-05-10 10:54:19-----------
+Iteration no : 20
+Instruction: ['forward', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward']
+Instruction length: 18
+Instruction Coverage percentage: 14.814814814814813
+Missing coverage: {(4, 4): {0}, (4, 5): {1}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 96.2962962962963
+Time Remaining : 0:09:58.670082
+
+----------- Entry Time: 2024-05-10 10:54:19-----------
+Iteration no : 21
+Instruction: ['forward', 'right', 'forward', 'right', 'right', 'right', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'forward']
+Instruction length: 105
+Instruction Coverage percentage: 44.44444444444443
+Missing coverage: {(4, 5): {1}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 98.14814814814815
+Time Remaining : 0:09:58.618818
+
+----------- Entry Time: 2024-05-10 10:54:19-----------
+Iteration no : 22
+Instruction: ['right', 'right', 'right', 'forward', 'forward', 'right', 'right', 'forward', 'left', 'left', 'left', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'left', 'left', 'left', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'left', 'forward']
+Instruction length: 75
+Instruction Coverage percentage: 27.777777777777768
+Missing coverage: {(4, 5): {1}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 98.14814814814815
+Time Remaining : 0:09:58.581783
+
+----------- Entry Time: 2024-05-10 10:54:19-----------
+Iteration no : 23
+Instruction: ['forward', 'forward', 'right', 'right', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'right']
+Instruction length: 19
+Instruction Coverage percentage: 18.518518518518515
+Missing coverage: {(4, 5): {1}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 98.14814814814815
+Time Remaining : 0:09:58.571234
+
+----------- Entry Time: 2024-05-10 10:54:19-----------
+Iteration no : 24
+Instruction: ['forward', 'left']
+Instruction length: 2
+Instruction Coverage percentage: 3.7037037037037033
+Missing coverage: {(4, 5): {1}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 98.14814814814815
+Time Remaining : 0:09:58.569588
+
+----------- Entry Time: 2024-05-10 10:54:19-----------
+Iteration no : 25
+Instruction: ['forward', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'forward']
+Instruction length: 9
+Instruction Coverage percentage: 14.814814814814813
+Missing coverage: {(4, 5): {1}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 98.14814814814815
+Time Remaining : 0:09:58.564511
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 26
+Instruction: ['left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'forward', 'left', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'left', 'left', 'left', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'left']
+Instruction length: 115
+Instruction Coverage percentage: 55.55555555555556
+Missing coverage: {(4, 5): {1}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 98.14814814814815
+Time Remaining : 0:09:58.508252
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 27
+Instruction: ['forward', 'right', 'forward', 'right', 'right', 'right', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward']
+Instruction length: 108
+Instruction Coverage percentage: 31.48148148148148
+Missing coverage: {(4, 5): {1}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 98.14814814814815
+Time Remaining : 0:09:58.454720
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 28
+Instruction: ['forward', 'forward', 'right', 'forward', 'right', 'right', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'left', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'forward']
+Instruction length: 95
+Instruction Coverage percentage: 59.25925925925925
+Missing coverage: {(4, 5): {1}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 98.14814814814815
+Time Remaining : 0:09:58.407306
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 29
+Instruction: ['forward', 'right', 'forward', 'right', 'right', 'right', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'right', 'right', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'forward']
+Instruction length: 96
+Instruction Coverage percentage: 35.18518518518519
+Missing coverage: {(4, 5): {1}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 98.14814814814815
+Time Remaining : 0:09:58.360119
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 30
+Instruction: ['left', 'left', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'left']
+Instruction length: 21
+Instruction Coverage percentage: 12.962962962962962
+Missing coverage: {(4, 5): {1}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 98.14814814814815
+Time Remaining : 0:09:58.349127
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 31
+Instruction: []
+Instruction length: 0
+Instruction Coverage percentage: 0.0
+Missing coverage: {(4, 5): {1}}
+
+Is valid instruction : False
+Is valid Capabilities : False
+Cycle's max Average Coverage: 98.14814814814815
+Time Remaining : 0:09:58.348508
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 32
+Instruction: ['left', 'left', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'right', 'right', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'forward']
+Instruction length: 108
+Instruction Coverage percentage: 22.22222222222222
+Missing coverage: {(4, 5): {1}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 98.14814814814815
+Time Remaining : 0:09:58.296520
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 33
+Instruction: ['forward', 'left', 'left', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'left', 'left', 'left', 'left', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'right', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'right', 'forward', 'left', 'left', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'left', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'forward', 'left', 'forward']
+Instruction length: 90
+Instruction Coverage percentage: 51.85185185185184
+Missing coverage: {(4, 5): {1}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 98.14814814814815
+Time Remaining : 0:09:58.251796
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 34
+Instruction: ['forward', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'right', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'left', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'left', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'left', 'forward']
+Instruction length: 106
+Instruction Coverage percentage: 46.29629629629628
+Missing coverage: {(4, 5): {1}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 98.14814814814815
+Time Remaining : 0:09:58.199745
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 35
+Instruction: ['forward', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'right', 'forward', 'left', 'left', 'left', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'left', 'left']
+Instruction length: 69
+Instruction Coverage percentage: 46.296296296296276
+Missing coverage: {(4, 5): {1}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 98.14814814814815
+Time Remaining : 0:09:58.165587
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 36
+Instruction: ['forward', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'left', 'left', 'left', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'left', 'right', 'right', 'forward', 'forward', 'forward', 'forward', 'forward']
+Instruction length: 63
+Instruction Coverage percentage: 37.037037037037024
+Missing coverage: {(4, 5): {1}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 98.14814814814815
+Time Remaining : 0:09:58.134369
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 37
+Instruction: ['right', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'right']
+Instruction length: 97
+Instruction Coverage percentage: 18.518518518518515
+Missing coverage: {(4, 5): {1}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 98.14814814814815
+Time Remaining : 0:09:58.087111
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 38
+Instruction: ['forward', 'forward', 'left', 'left', 'forward', 'right']
+Instruction length: 6
+Instruction Coverage percentage: 7.4074074074074066
+Missing coverage: {(4, 5): {1}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 98.14814814814815
+Time Remaining : 0:09:58.083513
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 39
+Instruction: ['left', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'forward']
+Instruction length: 93
+Instruction Coverage percentage: 48.14814814814814
+Missing coverage: {(4, 5): {1}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 98.14814814814815
+Time Remaining : 0:09:58.037910
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 40
+Instruction: ['forward', 'right', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'forward']
+Instruction length: 85
+Instruction Coverage percentage: 55.55555555555554
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.994603
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 41
+Instruction: ['left', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'forward', 'right', 'right', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'forward']
+Instruction length: 107
+Instruction Coverage percentage: 49.999999999999986
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.941457
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 42
+Instruction: ['forward', 'left', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'right', 'right', 'right', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'left', 'left', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'forward']
+Instruction length: 104
+Instruction Coverage percentage: 53.703703703703695
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.890524
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 43
+Instruction: ['right', 'forward']
+Instruction length: 2
+Instruction Coverage percentage: 1.8518518518518516
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.888803
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 44
+Instruction: ['forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'left']
+Instruction length: 66
+Instruction Coverage percentage: 25.925925925925917
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.854431
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 45
+Instruction: ['forward', 'right', 'forward', 'right', 'right', 'right', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward']
+Instruction length: 104
+Instruction Coverage percentage: 46.29629629629629
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.802363
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 46
+Instruction: ['forward', 'forward', 'right', 'right', 'right', 'right', 'right', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'left', 'left', 'left', 'left', 'forward', 'left', 'forward', 'left']
+Instruction length: 22
+Instruction Coverage percentage: 11.111111111111109
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.790687
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 47
+Instruction: ['forward', 'forward', 'right', 'right']
+Instruction length: 4
+Instruction Coverage percentage: 5.5555555555555545
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.787976
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 48
+Instruction: []
+Instruction length: 0
+Instruction Coverage percentage: 0.0
+Missing coverage: {}
+
+Is valid instruction : False
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.787335
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 49
+Instruction: ['left', 'left', 'left', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'right', 'right', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'right', 'right']
+Instruction length: 25
+Instruction Coverage percentage: 12.962962962962962
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.774310
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 50
+Instruction: ['left', 'forward']
+Instruction length: 2
+Instruction Coverage percentage: 3.7037037037037033
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.772744
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 51
+Instruction: ['forward', 'left', 'left', 'left', 'left', 'left', 'left']
+Instruction length: 7
+Instruction Coverage percentage: 3.7037037037037033
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.768658
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 52
+Instruction: ['forward', 'right', 'forward', 'right', 'right', 'forward', 'right', 'right', 'right', 'forward', 'right', 'right', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'left', 'left', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'forward']
+Instruction length: 99
+Instruction Coverage percentage: 55.55555555555555
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.719130
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 53
+Instruction: ['forward', 'right', 'forward', 'right', 'forward', 'right', 'right', 'right', 'forward', 'left', 'forward', 'right', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'forward']
+Instruction length: 104
+Instruction Coverage percentage: 46.29629629629628
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.667850
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 54
+Instruction: ['left']
+Instruction length: 1
+Instruction Coverage percentage: 1.8518518518518516
+Missing coverage: {}
+
+Is valid instruction : False
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.666777
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 55
+Instruction: ['forward', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'left', 'right', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'right']
+Instruction length: 83
+Instruction Coverage percentage: 29.629629629629626
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.625076
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 56
+Instruction: ['right', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'right', 'forward', 'left', 'left', 'left', 'right', 'forward', 'forward', 'left']
+Instruction length: 25
+Instruction Coverage percentage: 18.518518518518515
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.611324
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 57
+Instruction: ['forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'forward']
+Instruction length: 90
+Instruction Coverage percentage: 51.85185185185185
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.566694
+
+----------- Entry Time: 2024-05-10 10:54:20-----------
+Iteration no : 58
+Instruction: ['forward', 'left', 'forward']
+Instruction length: 3
+Instruction Coverage percentage: 3.7037037037037033
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.564560
+
+----------- Entry Time: 2024-05-10 10:54:21-----------
+Iteration no : 59
+Instruction: ['forward', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward']
+Instruction length: 102
+Instruction Coverage percentage: 53.70370370370369
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.513885
+
+----------- Entry Time: 2024-05-10 10:54:21-----------
+Iteration no : 60
+Instruction: ['left', 'forward']
+Instruction length: 2
+Instruction Coverage percentage: 3.7037037037037033
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.512269
+
+----------- Entry Time: 2024-05-10 10:54:21-----------
+Iteration no : 61
+Instruction: ['forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'left', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'right', 'left', 'left', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'right', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'right', 'forward', 'forward', 'right', 'right', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'left', 'forward', 'right', 'forward']
+Instruction length: 120
+Instruction Coverage percentage: 55.55555555555555
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.452440
+
+----------- Entry Time: 2024-05-10 10:54:21-----------
+Iteration no : 62
+Instruction: ['forward', 'right', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward']
+Instruction length: 102
+Instruction Coverage percentage: 53.703703703703695
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.401841
+
+----------- Entry Time: 2024-05-10 10:54:21-----------
+Iteration no : 63
+Instruction: ['forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'forward', 'left', 'right', 'forward', 'left', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'left', 'left', 'left', 'forward', 'forward']
+Instruction length: 126
+Instruction Coverage percentage: 68.51851851851853
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.338588
+
+----------- Entry Time: 2024-05-10 10:54:21-----------
+Iteration no : 64
+Instruction: ['right', 'forward', 'right', 'right', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'right', 'right', 'forward']
+Instruction length: 13
+Instruction Coverage percentage: 3.7037037037037033
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.331422
+
+----------- Entry Time: 2024-05-10 10:54:21-----------
+Iteration no : 65
+Instruction: ['forward', 'right', 'forward', 'right', 'right', 'right', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward']
+Instruction length: 103
+Instruction Coverage percentage: 50.0
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.280140
+
+----------- Entry Time: 2024-05-10 10:54:21-----------
+Iteration no : 66
+Instruction: ['forward', 'right', 'right', 'forward']
+Instruction length: 4
+Instruction Coverage percentage: 5.5555555555555545
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.277490
+
+----------- Entry Time: 2024-05-10 10:54:21-----------
+Iteration no : 67
+Instruction: ['forward', 'right', 'forward', 'right', 'right', 'right', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward']
+Instruction length: 109
+Instruction Coverage percentage: 46.29629629629629
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.223735
+
+----------- Entry Time: 2024-05-10 10:54:21-----------
+Iteration no : 68
+Instruction: ['forward', 'right', 'forward', 'right', 'forward', 'right', 'right', 'right', 'forward', 'right', 'forward', 'right', 'right', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward']
+Instruction length: 109
+Instruction Coverage percentage: 37.03703703703703
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.170443
+
+----------- Entry Time: 2024-05-10 10:54:21-----------
+Iteration no : 69
+Instruction: ['forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'right', 'right', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward']
+Instruction length: 102
+Instruction Coverage percentage: 49.99999999999999
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.120743
+
+----------- Entry Time: 2024-05-10 10:54:21-----------
+Iteration no : 70
+Instruction: ['left', 'right', 'forward', 'right', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'left', 'right', 'forward', 'right', 'right', 'forward', 'left', 'left', 'right', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'left', 'right', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'forward', 'right']
+Instruction length: 111
+Instruction Coverage percentage: 59.25925925925924
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:57.065060
+
+----------- Entry Time: 2024-05-10 10:54:21-----------
+Iteration no : 71
+Instruction: ['left', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'left', 'left', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'forward', 'right', 'right', 'left', 'right', 'right', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'left', 'right', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'right', 'left', 'forward', 'left', 'left', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward']
+Instruction length: 136
+Instruction Coverage percentage: 46.29629629629629
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:56.996313
+
+----------- Entry Time: 2024-05-10 10:54:21-----------
+Iteration no : 72
+Instruction: ['forward', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'right', 'left', 'left', 'left', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'left', 'left', 'left', 'left', 'left', 'forward', 'left', 'forward', 'left', 'left', 'left', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'right', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'left']
+Instruction length: 84
+Instruction Coverage percentage: 48.14814814814813
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:56.953739
+
+----------- Entry Time: 2024-05-10 10:54:21-----------
+Iteration no : 73
+Instruction: ['forward', 'right', 'forward', 'right', 'forward', 'right', 'right', 'right', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'forward']
+Instruction length: 98
+Instruction Coverage percentage: 38.888888888888886
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:56.904351
+
+----------- Entry Time: 2024-05-10 10:54:21-----------
+Iteration no : 74
+Instruction: ['left', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'right', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'left']
+Instruction length: 37
+Instruction Coverage percentage: 25.925925925925924
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:56.884996
+
+----------- Entry Time: 2024-05-10 10:54:21-----------
+Iteration no : 75
+Instruction: ['left', 'left', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'left', 'forward', 'forward', 'right']
+Instruction length: 55
+Instruction Coverage percentage: 24.07407407407407
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:56.856791
+
+----------- Entry Time: 2024-05-10 10:54:21-----------
+Iteration no : 76
+Instruction: ['forward', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'left', 'right', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'left', 'right', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'right']
+Instruction length: 86
+Instruction Coverage percentage: 49.99999999999999
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:56.813692
+
+----------- Entry Time: 2024-05-10 10:54:21-----------
+Iteration no : 77
+Instruction: ['left', 'left', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'right', 'right', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'forward']
+Instruction length: 107
+Instruction Coverage percentage: 27.77777777777777
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:56.761429
+
+----------- Entry Time: 2024-05-10 10:54:21-----------
+Iteration no : 78
+Instruction: ['left', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'right', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'left', 'left', 'forward', 'left', 'left', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'forward']
+Instruction length: 108
+Instruction Coverage percentage: 59.25925925925925
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:56.708243
+
+----------- Entry Time: 2024-05-10 10:54:21-----------
+Iteration no : 79
+Instruction: ['forward', 'right', 'forward', 'right', 'right', 'right', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'forward']
+Instruction length: 100
+Instruction Coverage percentage: 51.85185185185184
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:56.657966
+
+----------- Entry Time: 2024-05-10 10:54:21-----------
+Iteration no : 80
+Instruction: ['forward', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'right', 'right', 'right', 'right', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'left', 'forward', 'forward', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'left', 'right', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'right', 'right', 'right', 'right', 'forward', 'right', 'right', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'left']
+Instruction length: 113
+Instruction Coverage percentage: 46.29629629629628
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:56.601614
+
+----------- Entry Time: 2024-05-10 10:54:21-----------
+Iteration no : 81
+Instruction: ['left', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'right', 'right', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'forward']
+Instruction length: 109
+Instruction Coverage percentage: 57.40740740740739
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:56.548272
+
+----------- Entry Time: 2024-05-10 10:54:22-----------
+Iteration no : 82
+Instruction: ['forward', 'left', 'left', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'left', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'right', 'right', 'right', 'forward', 'right', 'forward', 'right', 'right', 'left', 'left', 'left', 'forward', 'right', 'right', 'forward', 'right', 'right', 'right', 'left', 'left', 'left', 'left', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'right']
+Instruction length: 124
+Instruction Coverage percentage: 33.33333333333333
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:56.486431
+
+----------- Entry Time: 2024-05-10 10:54:22-----------
+Iteration no : 83
+Instruction: ['forward', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'right', 'forward', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'right', 'forward', 'right', 'forward', 'left', 'left', 'left', 'left', 'left', 'left', 'forward', 'right', 'forward']
+Instruction length: 102
+Instruction Coverage percentage: 51.85185185185185
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:56.436214
+
+----------- Entry Time: 2024-05-10 10:54:22-----------
+Iteration no : 84
+Instruction: ['right', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'left', 'left', 'forward', 'left', 'left', 'left', 'forward', 'left', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'forward', 'left', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward']
+Instruction length: 99
+Instruction Coverage percentage: 62.96296296296295
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:56.386008
+
+----------- Entry Time: 2024-05-10 10:54:22-----------
+Iteration no : 85
+Instruction: ['forward', 'right', 'right', 'forward', 'left']
+Instruction length: 5
+Instruction Coverage percentage: 7.4074074074074066
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:56.382849
+
+----------- Entry Time: 2024-05-10 10:54:22-----------
+Iteration no : 86
+Instruction: ['left', 'forward', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'left', 'left', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'left']
+Instruction length: 61
+Instruction Coverage percentage: 49.99999999999998
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:56.351636
+
+----------- Entry Time: 2024-05-10 10:54:22-----------
+Iteration no : 87
+Instruction: ['right', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'right', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'right', 'right', 'forward', 'forward', 'right']
+Instruction length: 43
+Instruction Coverage percentage: 20.370370370370367
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:56.329260
+
+----------- Entry Time: 2024-05-10 10:54:22-----------
+Iteration no : 88
+Instruction: ['right', 'right', 'forward', 'forward']
+Instruction length: 4
+Instruction Coverage percentage: 3.7037037037037033
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:56.326786
+
+----------- Entry Time: 2024-05-10 10:54:22-----------
+Iteration no : 89
+Instruction: ['forward', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'left', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'right']
+Instruction length: 132
+Instruction Coverage percentage: 59.25925925925924
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:56.262063
+
+----------- Entry Time: 2024-05-10 10:54:22-----------
+Iteration no : 90
+Instruction: ['right', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'forward', 'right', 'right', 'right', 'forward']
+Instruction length: 26
+Instruction Coverage percentage: 24.074074074074066
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:56.248397
+
+----------- Entry Time: 2024-05-10 10:54:22-----------
+Iteration no : 91
+Instruction: ['forward', 'right', 'forward', 'right', 'right', 'right', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'right', 'right', 'right', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'right', 'forward', 'forward']
+Instruction length: 99
+Instruction Coverage percentage: 37.03703703703704
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:56.199444
+
+----------- Entry Time: 2024-05-10 10:54:22-----------
+Iteration no : 92
+Instruction: ['left', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'forward']
+Instruction length: 17
+Instruction Coverage percentage: 12.96296296296296
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:56.190444
+
+----------- Entry Time: 2024-05-10 10:54:22-----------
+Iteration no : 93
+Instruction: ['left', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'left', 'left', 'left']
+Instruction length: 16
+Instruction Coverage percentage: 11.11111111111111
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:56.181983
+
+----------- Entry Time: 2024-05-10 10:54:22-----------
+Iteration no : 94
+Instruction: ['forward', 'right', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'forward']
+Instruction length: 85
+Instruction Coverage percentage: 44.44444444444444
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:56.139315
+
+----------- Entry Time: 2024-05-10 10:54:22-----------
+Iteration no : 95
+Instruction: ['forward', 'right']
+Instruction length: 2
+Instruction Coverage percentage: 3.7037037037037033
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:56.137581
+
+----------- Entry Time: 2024-05-10 10:54:22-----------
+Iteration no : 96
+Instruction: ['forward', 'right', 'forward', 'forward', 'right', 'right', 'right', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'forward']
+Instruction length: 99
+Instruction Coverage percentage: 51.85185185185184
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:56.088161
+
+----------- Entry Time: 2024-05-10 10:54:22-----------
+Iteration no : 97
+Instruction: ['forward', 'forward', 'right', 'forward', 'right', 'right', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'left', 'left', 'left', 'forward', 'left', 'left', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'forward']
+Instruction length: 96
+Instruction Coverage percentage: 42.59259259259258
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:56.040116
+
+----------- Entry Time: 2024-05-10 10:54:22-----------
+Iteration no : 98
+Instruction: ['forward', 'left', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'right', 'right', 'right', 'right', 'forward']
+Instruction length: 101
+Instruction Coverage percentage: 29.629629629629626
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:55.989380
+
+----------- Entry Time: 2024-05-10 10:54:22-----------
+Iteration no : 99
+Instruction: ['forward', 'right', 'forward', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward']
+Instruction length: 99
+Instruction Coverage percentage: 48.148148148148145
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:55.940086
+
+----------- Entry Time: 2024-05-10 10:54:22-----------
+Iteration no : 100
+Instruction: ['forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward']
+Instruction length: 93
+Instruction Coverage percentage: 25.925925925925924
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:55.894468
+
+----------- Entry Time: 2024-05-10 10:54:22-----------
+Iteration no : 101
+Instruction: ['left', 'left', 'left', 'left', 'right', 'right', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'left', 'left', 'left', 'left', 'left', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'left']
+Instruction length: 109
+Instruction Coverage percentage: 46.296296296296276
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:55.840461
+
+----------- Entry Time: 2024-05-10 10:54:22-----------
+Iteration no : 102
+Instruction: []
+Instruction length: 0
+Instruction Coverage percentage: 0.0
+Missing coverage: {}
+
+Is valid instruction : False
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:55.839810
+
+----------- Entry Time: 2024-05-10 10:54:22-----------
+Iteration no : 103
+Instruction: ['right', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'left', 'left', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'left', 'forward', 'right', 'left', 'left', 'left', 'left', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left']
+Instruction length: 98
+Instruction Coverage percentage: 59.25925925925925
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:55.790088
+
+----------- Entry Time: 2024-05-10 10:54:22-----------
+Iteration no : 104
+Instruction: ['forward', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'left']
+Instruction length: 23
+Instruction Coverage percentage: 9.25925925925926
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:55.778588
+
+----------- Entry Time: 2024-05-10 10:54:22-----------
+Iteration no : 105
+Instruction: ['left', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'right', 'right', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'right']
+Instruction length: 129
+Instruction Coverage percentage: 61.1111111111111
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:55.714401
+
+----------- Entry Time: 2024-05-10 10:54:22-----------
+Iteration no : 106
+Instruction: ['forward', 'left', 'forward', 'left', 'right', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'left', 'left', 'forward', 'left', 'right', 'forward', 'right', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'right', 'forward']
+Instruction length: 121
+Instruction Coverage percentage: 55.55555555555555
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:55.654679
+
+----------- Entry Time: 2024-05-10 10:54:22-----------
+Iteration no : 107
+Instruction: ['forward', 'right', 'forward', 'right', 'right', 'right', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward']
+Instruction length: 103
+Instruction Coverage percentage: 31.481481481481474
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:55.602800
+
+----------- Entry Time: 2024-05-10 10:54:22-----------
+Iteration no : 108
+Instruction: ['forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'forward']
+Instruction length: 79
+Instruction Coverage percentage: 38.888888888888886
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:55.563090
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 109
+Instruction: ['forward', 'right', 'forward', 'right', 'right', 'right', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward']
+Instruction length: 96
+Instruction Coverage percentage: 49.999999999999986
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:55.506499
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 110
+Instruction: ['forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'left', 'left', 'left', 'forward', 'right', 'forward', 'right', 'right', 'right', 'right', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'left', 'forward']
+Instruction length: 60
+Instruction Coverage percentage: 37.03703703703703
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:55.476221
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 111
+Instruction: ['forward']
+Instruction length: 1
+Instruction Coverage percentage: 1.8518518518518516
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:55.475051
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 112
+Instruction: ['forward', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward']
+Instruction length: 63
+Instruction Coverage percentage: 37.03703703703704
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:55.443680
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 113
+Instruction: ['left', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'right', 'left', 'left']
+Instruction length: 36
+Instruction Coverage percentage: 22.222222222222214
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:55.425585
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 114
+Instruction: ['forward', 'forward']
+Instruction length: 2
+Instruction Coverage percentage: 3.7037037037037033
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:55.423941
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 115
+Instruction: ['right']
+Instruction length: 1
+Instruction Coverage percentage: 1.8518518518518516
+Missing coverage: {}
+
+Is valid instruction : False
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:55.422830
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 116
+Instruction: ['forward', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'left', 'left', 'forward']
+Instruction length: 39
+Instruction Coverage percentage: 25.925925925925924
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:55.402537
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 117
+Instruction: ['forward', 'right', 'forward', 'right', 'right', 'right', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'forward']
+Instruction length: 97
+Instruction Coverage percentage: 55.55555555555555
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:55.354358
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 118
+Instruction: ['forward', 'right', 'forward', 'right', 'right', 'forward', 'right', 'right', 'forward', 'right', 'right', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'forward']
+Instruction length: 101
+Instruction Coverage percentage: 38.888888888888886
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:55.303928
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 119
+Instruction: ['left', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'right', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'right', 'left', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'left']
+Instruction length: 129
+Instruction Coverage percentage: 70.37037037037037
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:55.238976
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 120
+Instruction: ['forward', 'right', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'forward']
+Instruction length: 90
+Instruction Coverage percentage: 48.14814814814814
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:55.193449
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 121
+Instruction: ['forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'forward']
+Instruction length: 13
+Instruction Coverage percentage: 11.111111111111109
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:55.185986
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 122
+Instruction: ['right', 'right']
+Instruction length: 2
+Instruction Coverage percentage: 1.8518518518518516
+Missing coverage: {}
+
+Is valid instruction : False
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:55.184445
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 123
+Instruction: ['right', 'forward', 'left']
+Instruction length: 3
+Instruction Coverage percentage: 1.8518518518518516
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:55.182260
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 124
+Instruction: []
+Instruction length: 0
+Instruction Coverage percentage: 0.0
+Missing coverage: {}
+
+Is valid instruction : False
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:55.181686
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 125
+Instruction: ['forward', 'right', 'forward', 'right', 'forward', 'right', 'right', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'forward']
+Instruction length: 93
+Instruction Coverage percentage: 37.03703703703703
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:55.135340
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 126
+Instruction: ['right', 'right', 'right', 'right', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'left', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'left', 'left', 'left', 'forward', 'forward', 'right', 'left', 'forward', 'forward', 'forward', 'forward', 'left', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'right', 'right', 'forward', 'right']
+Instruction length: 133
+Instruction Coverage percentage: 57.40740740740739
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:55.070187
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 127
+Instruction: ['right', 'forward', 'right', 'forward', 'right', 'right', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'right', 'right', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'right', 'right', 'left', 'forward', 'forward', 'left', 'left', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'left', 'left', 'left', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward']
+Instruction length: 102
+Instruction Coverage percentage: 57.407407407407405
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:55.018624
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 128
+Instruction: ['right', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'forward', 'left', 'left', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'forward', 'forward']
+Instruction length: 85
+Instruction Coverage percentage: 55.55555555555556
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:54.976850
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 129
+Instruction: ['left', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'right', 'right', 'right', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'right', 'right', 'right', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'left', 'left', 'left', 'right', 'right', 'forward']
+Instruction length: 92
+Instruction Coverage percentage: 35.18518518518518
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:54.930499
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 130
+Instruction: ['forward', 'left', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'left', 'left', 'left', 'left', 'left', 'left', 'left', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'left', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'left', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'right', 'right', 'right', 'forward', 'left', 'left', 'left', 'left', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'right', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'left', 'left', 'forward']
+Instruction length: 128
+Instruction Coverage percentage: 44.444444444444436
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:54.865543
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 131
+Instruction: ['left', 'left', 'left', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'forward']
+Instruction length: 115
+Instruction Coverage percentage: 44.44444444444443
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:54.809123
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 132
+Instruction: ['forward', 'forward']
+Instruction length: 2
+Instruction Coverage percentage: 3.7037037037037033
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:54.807491
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 133
+Instruction: ['forward', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'right', 'right']
+Instruction length: 26
+Instruction Coverage percentage: 12.962962962962962
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:54.793748
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 134
+Instruction: ['forward', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'right', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'right', 'forward', 'forward', 'left', 'left', 'right', 'right']
+Instruction length: 65
+Instruction Coverage percentage: 38.888888888888886
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:54.760567
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 135
+Instruction: ['forward', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'left', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'left', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward']
+Instruction length: 94
+Instruction Coverage percentage: 51.85185185185183
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:54.713979
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 136
+Instruction: ['left', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'left', 'forward', 'right', 'left', 'left', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'right']
+Instruction length: 30
+Instruction Coverage percentage: 31.48148148148148
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:54.698488
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 137
+Instruction: ['left', 'forward']
+Instruction length: 2
+Instruction Coverage percentage: 3.7037037037037033
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:54.696874
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 138
+Instruction: ['left', 'left', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'right', 'right', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'right', 'forward']
+Instruction length: 108
+Instruction Coverage percentage: 42.59259259259259
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:54.644805
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 139
+Instruction: ['forward', 'left', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'right', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'left', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'forward']
+Instruction length: 104
+Instruction Coverage percentage: 25.925925925925924
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:54.592730
+
+----------- Entry Time: 2024-05-10 10:54:23-----------
+Iteration no : 140
+Instruction: ['forward', 'right', 'forward', 'right', 'right', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward']
+Instruction length: 94
+Instruction Coverage percentage: 40.74074074074073
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:54.546061
+
+----------- Entry Time: 2024-05-10 10:54:24-----------
+Iteration no : 141
+Instruction: ['left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'right', 'right', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'forward']
+Instruction length: 109
+Instruction Coverage percentage: 48.14814814814814
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:54.492531
+
+----------- Entry Time: 2024-05-10 10:54:24-----------
+Iteration no : 142
+Instruction: ['forward', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'right', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'forward', 'right', 'right', 'right', 'right', 'left', 'forward', 'forward', 'right', 'forward', 'right']
+Instruction length: 85
+Instruction Coverage percentage: 51.85185185185183
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:54.449813
+
+----------- Entry Time: 2024-05-10 10:54:24-----------
+Iteration no : 143
+Instruction: ['forward', 'right', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'forward']
+Instruction length: 102
+Instruction Coverage percentage: 51.85185185185185
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:54.399007
+
+----------- Entry Time: 2024-05-10 10:54:24-----------
+Iteration no : 144
+Instruction: ['forward', 'right', 'forward', 'right', 'right', 'right', 'right', 'forward', 'right', 'left', 'left', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'right', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'right']
+Instruction length: 107
+Instruction Coverage percentage: 29.629629629629626
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:54.345600
+
+----------- Entry Time: 2024-05-10 10:54:24-----------
+Iteration no : 145
+Instruction: ['forward', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward']
+Instruction length: 20
+Instruction Coverage percentage: 22.222222222222214
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:54.334867
+
+----------- Entry Time: 2024-05-10 10:54:24-----------
+Iteration no : 146
+Instruction: ['forward', 'right', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'forward', 'left', 'left', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward']
+Instruction length: 99
+Instruction Coverage percentage: 37.03703703703704
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:54.285388
+
+----------- Entry Time: 2024-05-10 10:54:24-----------
+Iteration no : 147
+Instruction: ['right', 'forward', 'left', 'left', 'left', 'left', 'left', 'left', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'right', 'right', 'right', 'forward', 'right', 'left', 'left', 'left']
+Instruction length: 22
+Instruction Coverage percentage: 5.555555555555555
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:54.273673
+
+----------- Entry Time: 2024-05-10 10:54:24-----------
+Iteration no : 148
+Instruction: ['right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'right', 'right', 'right', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'right', 'left', 'left', 'left', 'forward', 'left', 'right', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'left']
+Instruction length: 95
+Instruction Coverage percentage: 57.407407407407405
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:54.225514
+
+----------- Entry Time: 2024-05-10 10:54:24-----------
+Iteration no : 149
+Instruction: ['right', 'forward', 'right', 'right', 'right', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'left']
+Instruction length: 35
+Instruction Coverage percentage: 20.370370370370367
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:54.207091
+
+----------- Entry Time: 2024-05-10 10:54:24-----------
+Iteration no : 150
+Instruction: ['forward', 'right', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'left', 'left', 'left', 'left', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'forward']
+Instruction length: 87
+Instruction Coverage percentage: 53.703703703703695
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:54.162916
+
+----------- Entry Time: 2024-05-10 10:54:24-----------
+Iteration no : 151
+Instruction: ['forward', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'left', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'left', 'left', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right']
+Instruction length: 65
+Instruction Coverage percentage: 40.74074074074073
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:54.129906
+
+----------- Entry Time: 2024-05-10 10:54:24-----------
+Iteration no : 152
+Instruction: ['left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'right', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'right', 'right', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'forward']
+Instruction length: 135
+Instruction Coverage percentage: 59.25925925925925
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:54.063002
+
+----------- Entry Time: 2024-05-10 10:54:24-----------
+Iteration no : 153
+Instruction: ['forward', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'left', 'right', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward']
+Instruction length: 103
+Instruction Coverage percentage: 46.29629629629629
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:54.011971
+
+----------- Entry Time: 2024-05-10 10:54:24-----------
+Iteration no : 154
+Instruction: ['left', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'left', 'left', 'left', 'left', 'forward', 'right', 'right', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'left', 'right', 'right', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'left']
+Instruction length: 99
+Instruction Coverage percentage: 51.85185185185184
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:53.962055
+
+----------- Entry Time: 2024-05-10 10:54:24-----------
+Iteration no : 155
+Instruction: ['forward', 'forward', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'left', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'left', 'left', 'forward']
+Instruction length: 33
+Instruction Coverage percentage: 24.07407407407407
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:53.944722
+
+----------- Entry Time: 2024-05-10 10:54:24-----------
+Iteration no : 156
+Instruction: ['forward', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'right', 'right', 'right', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'right']
+Instruction length: 78
+Instruction Coverage percentage: 44.444444444444436
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : True
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:53.756707
+
+----------- Entry Time: 2024-05-10 10:55:54-----------
+Iteration no : 0
+Instruction: ['forward', 'right']
+Instruction length: 2
+Instruction Coverage percentage: 3.7037037037037033
+Missing coverage: {(1, 1): {0, 1, 2}, (1, 5): {0, 1, 2}, (2, 1): {0}, (2, 2): {0, 1, 2}, (2, 4): {0, 1, 2}, (2, 5): {0, 1, 2}, (3, 1): {0, 1, 2}, (3, 3): {0, 1, 2}, (3, 4): {0, 1, 2}, (4, 1): {0, 1, 2}, (4, 2): {0, 1, 2}, (4, 3): {0, 1, 2}, (4, 4): {0, 1, 2}, (4, 5): {0, 1, 2}, (5, 1): {0, 1, 2}, (5, 2): {0, 1, 2}, (5, 3): {0, 1, 2}, (5, 4): {0, 1, 2}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 0
+Time Remaining : 0:09:59.813825
+
+----------- Entry Time: 2024-05-10 10:55:54-----------
+Iteration no : 1
+Instruction: ['right', 'right', 'forward']
+Instruction length: 3
+Instruction Coverage percentage: 3.7037037037037033
+Missing coverage: {(1, 1): {0}, (1, 5): {0, 1, 2}, (2, 1): {0}, (2, 2): {0, 1, 2}, (2, 4): {0, 1, 2}, (2, 5): {0, 1, 2}, (3, 1): {0, 1, 2}, (3, 3): {0, 1, 2}, (3, 4): {0, 1, 2}, (4, 1): {0, 1, 2}, (4, 2): {0, 1, 2}, (4, 3): {0, 1, 2}, (4, 4): {0, 1, 2}, (4, 5): {0, 1, 2}, (5, 1): {0, 1, 2}, (5, 2): {0, 1, 2}, (5, 3): {0, 1, 2}, (5, 4): {0, 1, 2}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 7.4074074074074066
+Time Remaining : 0:09:59.768350
+
+----------- Entry Time: 2024-05-10 10:55:54-----------
+Iteration no : 2
+Instruction: ['forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'left', 'forward', 'left', 'left', 'left', 'left', 'left', 'forward', 'right', 'right', 'right', 'right', 'forward', 'left', 'left']
+Instruction length: 26
+Instruction Coverage percentage: 14.814814814814813
+Missing coverage: {(1, 5): {0, 1, 2}, (2, 1): {0}, (2, 2): {0, 1, 2}, (2, 4): {0, 1, 2}, (2, 5): {0, 1, 2}, (3, 1): {0, 1}, (3, 3): {1}, (3, 4): {0, 1, 2}, (4, 1): {1}, (4, 2): {0, 1, 2}, (4, 3): {0, 1, 2}, (4, 4): {0, 1, 2}, (4, 5): {0, 1, 2}, (5, 1): {0, 1, 2}, (5, 2): {0, 1, 2}, (5, 3): {0, 1, 2}, (5, 4): {0, 1, 2}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 18.518518518518515
+Time Remaining : 0:09:59.384484
+
+----------- Entry Time: 2024-05-10 10:55:54-----------
+Iteration no : 3
+Instruction: ['forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'left', 'left', 'forward', 'right', 'right', 'forward', 'left', 'left']
+Instruction length: 20
+Instruction Coverage percentage: 14.814814814814813
+Missing coverage: {(1, 5): {0, 1, 2}, (2, 1): {0}, (2, 2): {0, 1, 2}, (2, 4): {0, 1, 2}, (2, 5): {0, 1, 2}, (3, 1): {0, 1}, (3, 3): {1}, (3, 4): {0, 1, 2}, (4, 2): {0, 1, 2}, (4, 3): {0, 1, 2}, (4, 4): {0, 1, 2}, (4, 5): {0, 1, 2}, (5, 2): {0, 1, 2}, (5, 3): {0, 1, 2}, (5, 4): {0, 1, 2}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 25.925925925925924
+Time Remaining : 0:09:59.374067
+
+----------- Entry Time: 2024-05-10 10:55:54-----------
+Iteration no : 4
+Instruction: ['forward', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'forward']
+Instruction length: 14
+Instruction Coverage percentage: 14.814814814814813
+Missing coverage: {(1, 5): {0, 1, 2}, (2, 2): {1}, (2, 4): {0, 1, 2}, (2, 5): {0, 1, 2}, (3, 1): {0, 1}, (3, 3): {1}, (3, 4): {0, 1, 2}, (4, 2): {0, 1}, (4, 3): {0, 1, 2}, (4, 4): {0, 1, 2}, (4, 5): {0, 1, 2}, (5, 2): {0, 1, 2}, (5, 3): {0, 1, 2}, (5, 4): {0, 1, 2}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 33.333333333333336
+Time Remaining : 0:09:59.366476
+
+----------- Entry Time: 2024-05-10 10:55:54-----------
+Iteration no : 5
+Instruction: ['right', 'right', 'forward', 'forward']
+Instruction length: 4
+Instruction Coverage percentage: 3.7037037037037033
+Missing coverage: {(1, 5): {0, 1, 2}, (2, 2): {1}, (2, 4): {0, 1, 2}, (2, 5): {0, 1, 2}, (3, 1): {0, 1}, (3, 3): {1}, (3, 4): {0, 1, 2}, (4, 2): {0, 1}, (4, 3): {0, 1, 2}, (4, 4): {0, 1, 2}, (4, 5): {0, 1, 2}, (5, 2): {0, 1, 2}, (5, 3): {0, 1, 2}, (5, 4): {0, 1, 2}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 33.333333333333336
+Time Remaining : 0:09:59.363958
+
+----------- Entry Time: 2024-05-10 10:55:54-----------
+Iteration no : 6
+Instruction: ['forward', 'left', 'forward', 'right', 'forward']
+Instruction length: 5
+Instruction Coverage percentage: 7.4074074074074066
+Missing coverage: {(1, 5): {0, 1, 2}, (2, 2): {1}, (2, 4): {0, 1, 2}, (2, 5): {0, 1, 2}, (3, 1): {0, 1}, (3, 3): {1}, (3, 4): {0, 1, 2}, (4, 2): {0, 1}, (4, 3): {0, 1, 2}, (4, 4): {0, 1, 2}, (4, 5): {0, 1, 2}, (5, 2): {0, 1, 2}, (5, 3): {0, 1, 2}, (5, 4): {0, 1, 2}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 33.333333333333336
+Time Remaining : 0:09:59.360878
+
+----------- Entry Time: 2024-05-10 10:55:54-----------
+Iteration no : 7
+Instruction: ['left', 'forward', 'right', 'forward']
+Instruction length: 4
+Instruction Coverage percentage: 7.4074074074074066
+Missing coverage: {(1, 5): {0, 1, 2}, (2, 2): {1}, (2, 4): {0, 1, 2}, (2, 5): {0, 1, 2}, (3, 1): {0, 1}, (3, 3): {1}, (3, 4): {0, 1, 2}, (4, 2): {0, 1}, (4, 3): {0, 1, 2}, (4, 4): {0, 1, 2}, (4, 5): {0, 1, 2}, (5, 2): {0, 1, 2}, (5, 3): {0, 1, 2}, (5, 4): {0, 1, 2}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 33.333333333333336
+Time Remaining : 0:09:59.358331
+
+----------- Entry Time: 2024-05-10 10:55:54-----------
+Iteration no : 8
+Instruction: ['right', 'forward']
+Instruction length: 2
+Instruction Coverage percentage: 1.8518518518518516
+Missing coverage: {(1, 5): {0, 1, 2}, (2, 2): {1}, (2, 4): {0, 1, 2}, (2, 5): {0, 1, 2}, (3, 1): {0, 1}, (3, 3): {1}, (3, 4): {0, 1, 2}, (4, 2): {0, 1}, (4, 3): {0, 1, 2}, (4, 4): {0, 1, 2}, (4, 5): {0, 1, 2}, (5, 2): {0, 1, 2}, (5, 3): {0, 1, 2}, (5, 4): {0, 1, 2}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 33.333333333333336
+Time Remaining : 0:09:59.356653
+
+----------- Entry Time: 2024-05-10 10:55:54-----------
+Iteration no : 9
+Instruction: ['left', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'right', 'right', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'right', 'forward', 'left', 'forward', 'left', 'left', 'left', 'left', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'right', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'right', 'right']
+Instruction length: 106
+Instruction Coverage percentage: 55.55555555555555
+Missing coverage: {(2, 2): {1}, (2, 4): {0, 1}, (3, 1): {1}, (3, 3): {1}, (3, 4): {0, 1, 2}, (4, 3): {0}, (4, 4): {0, 1}, (4, 5): {0}, (5, 3): {0}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 75.92592592592592
+Time Remaining : 0:09:59.303331
+
+----------- Entry Time: 2024-05-10 10:55:54-----------
+Iteration no : 10
+Instruction: ['left', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'left', 'left', 'forward', 'right', 'right', 'forward', 'forward', 'right', 'right', 'right', 'right', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'left', 'left', 'left', 'left', 'left', 'left', 'forward', 'left', 'left', 'left', 'left', 'left', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'right']
+Instruction length: 103
+Instruction Coverage percentage: 37.03703703703704
+Missing coverage: {(2, 4): {0}, (3, 3): {1}, (3, 4): {0, 1, 2}, (4, 4): {0, 1}, (4, 5): {0}, (5, 3): {0}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 83.33333333333333
+Time Remaining : 0:09:59.251240
+
+----------- Entry Time: 2024-05-10 10:55:54-----------
+Iteration no : 11
+Instruction: ['right', 'forward']
+Instruction length: 2
+Instruction Coverage percentage: 1.8518518518518516
+Missing coverage: {(2, 4): {0}, (3, 3): {1}, (3, 4): {0, 1, 2}, (4, 4): {0, 1}, (4, 5): {0}, (5, 3): {0}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 83.33333333333333
+Time Remaining : 0:09:59.249534
+
+----------- Entry Time: 2024-05-10 10:55:54-----------
+Iteration no : 12
+Instruction: ['left', 'left', 'left', 'left', 'left', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'left', 'forward', 'right', 'right', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'right', 'right', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'right', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'forward']
+Instruction length: 132
+Instruction Coverage percentage: 72.22222222222221
+Missing coverage: {(3, 4): {0}, (4, 4): {1}, (4, 5): {0}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 94.44444444444444
+Time Remaining : 0:09:59.183483
+
+----------- Entry Time: 2024-05-10 10:55:54-----------
+Iteration no : 13
+Instruction: ['left', 'forward', 'forward', 'left', 'forward', 'forward', 'left']
+Instruction length: 7
+Instruction Coverage percentage: 3.7037037037037033
+Missing coverage: {(3, 4): {0}, (4, 4): {1}, (4, 5): {0}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 94.44444444444444
+Time Remaining : 0:09:59.179616
+
+----------- Entry Time: 2024-05-10 10:55:55-----------
+Iteration no : 14
+Instruction: ['forward', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'left', 'left', 'left', 'left', 'forward', 'right', 'right', 'right', 'right', 'right', 'forward', 'left', 'left']
+Instruction length: 25
+Instruction Coverage percentage: 14.814814814814813
+Missing coverage: {(3, 4): {0}, (4, 4): {1}, (4, 5): {0}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 94.44444444444444
+Time Remaining : 0:09:59.166283
+
+----------- Entry Time: 2024-05-10 10:55:55-----------
+Iteration no : 15
+Instruction: ['forward', 'forward', 'left', 'left', 'left', 'right', 'right', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'right', 'right', 'right', 'forward', 'left', 'left', 'left', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'forward', 'right']
+Instruction length: 49
+Instruction Coverage percentage: 42.59259259259259
+Missing coverage: {(3, 4): {0}, (4, 5): {0}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 96.29629629629629
+Time Remaining : 0:09:59.140722
+
+----------- Entry Time: 2024-05-10 10:55:55-----------
+Iteration no : 16
+Instruction: ['left', 'forward']
+Instruction length: 2
+Instruction Coverage percentage: 3.7037037037037033
+Missing coverage: {(3, 4): {0}, (4, 5): {0}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 96.29629629629629
+Time Remaining : 0:09:59.139187
+
+----------- Entry Time: 2024-05-10 10:55:55-----------
+Iteration no : 17
+Instruction: ['right', 'forward', 'right', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'left', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'forward', 'left', 'left', 'forward', 'forward', 'right', 'right', 'right', 'forward', 'right', 'right', 'left', 'left', 'forward', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'right', 'right', 'right', 'right', 'left', 'left', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'forward', 'right', 'forward', 'left', 'left', 'left', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'right', 'right', 'forward', 'forward', 'left', 'right', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'right', 'forward', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'right', 'right', 'forward', 'right', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'left']
+Instruction length: 107
+Instruction Coverage percentage: 48.14814814814814
+Missing coverage: {(4, 5): {0}}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 98.14814814814815
+Time Remaining : 0:09:59.084573
+
+----------- Entry Time: 2024-05-10 10:55:55-----------
+Iteration no : 18
+Instruction: ['forward', 'forward', 'forward', 'right', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'forward', 'left']
+Instruction length: 18
+Instruction Coverage percentage: 24.07407407407407
+Missing coverage: {}
+
+Is valid instruction : True
+Is valid Capabilities : False
+Cycle's max Average Coverage: 100.0
+Time Remaining : 0:09:59.074660
+
