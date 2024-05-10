@@ -21,6 +21,8 @@ action_space = {
 
 }
 
+possible_actions = ["forward", "left", "right"]
+
 def checkV(instruction):
     # Placeholder function for validation
     # Replace this with your actual validation logic
@@ -37,6 +39,8 @@ class InstructionMutator:
         self.generated_instructions = []
         self.max_avg_coverage = 0
         self.best_instruction =[]
+        self.main_dict = {}
+
 
 
     def insert_random_action(self, instruction):
@@ -46,12 +50,30 @@ class InstructionMutator:
         instruction.insert(insert_index, action_name)
         return instruction
 
+    def remove_random_action(self, instruction):
+        if not instruction:
+            return instruction
+        remove_index = random.randint(0, len(instruction) - 1)
+        removed_action = instruction.pop(remove_index)
+
+        return instruction
     def swap_directions(self, instruction):
         direction_actions = ["left", "right"]
         direction_indices = [i for i, action in enumerate(instruction) if action in direction_actions]
         if len(direction_indices) >= 2:
             swap_indices = random.sample(direction_indices, 2)
             instruction[swap_indices[0]], instruction[swap_indices[1]] = instruction[swap_indices[1]], instruction[swap_indices[0]]
+        return instruction
+
+    def update_random_action(self, instruction):
+        if not instruction:
+            return instruction
+        update_index = random.randint(0, len(instruction) - 1)
+        action_num = random.choice(list(action_space.keys()))
+        action_name = action_space[action_num][0]
+
+        instruction[update_index] = action_name
+
         return instruction
 
     def duplicate_direction(self, instruction):
@@ -62,9 +84,20 @@ class InstructionMutator:
             instruction.insert(duplicate_index, instruction[duplicate_index])
         return instruction
 
-    def append_to_file(self, instruction):
+    def append_to_files(self, instruction):
         with open(output_file, 'a') as f:
             f.write(' '.join(instruction) + '\n')
+
+    def append_to_file(self, instruction):
+        """Append the instruction to a file, ensuring all items are strings."""
+        with open('instructions.txt', 'a') as f:
+            try:
+                # Ensure each item is a string before joining
+                instruction_strings = [str(item) if not isinstance(item, tuple) else str(item[0]) for item in
+                                       instruction]
+                f.write(' '.join(instruction_strings) + '\n')
+            except Exception as e:
+                print(f"Error writing to file: {str(e)}")
 
     def is_instruction_in_file(self, instruction):
         # Check if the file exists before attempting to open it
@@ -80,7 +113,7 @@ class InstructionMutator:
                 if line.strip() == ' '.join(instruction):
                     return True  # Return True if a match is found
         return False
-    def mutate(self):
+    def random_mutate(self):
 
         start_time = datetime.now()  # Capture the start time of the mutation process
         time_limit = timedelta(hours=1)  # Set a time limit of 3 hours
@@ -105,8 +138,8 @@ class InstructionMutator:
 
                 mutated_instruction = optimize_instructions(mutated_instruction)
 
-                if self.is_instruction_in_file(mutated_instruction):
-                    continue
+                #if self.is_instruction_in_file(mutated_instruction):
+                    #continue
                 # Mutation: Apply mutation functions randomly
                 if random.random() < 0.5:
                     mutated_instruction = self.insert_random_action(mutated_instruction)
@@ -121,12 +154,12 @@ class InstructionMutator:
 
 
 
-                is_valid_instruction, is_valid_capabilities, averageCoverage = GetFuzzInstruction(mutated_instruction,count)
+                is_valid_instruction, is_valid_capabilities, averageCoverage , c  = GetFuzzInstruction(mutated_instruction,count)
                 #is_valid_instruction, is_valid_capabilities = GetFuzzEnvInstruction(test_environment, gridSize,mutated_instruction,count)
                 time_remaining = time_limit - (datetime.now() - start_time)
                 if(averageCoverage > self.max_avg_coverage):
                     self.max_avg_coverage = averageCoverage
-                self.log_mutate(logFile_Setting.mutator_logs_path,count, time_remaining, mutated_instruction, is_valid_instruction, is_valid_capabilities,averageCoverage,self.max_avg_coverage)
+                self.log_mutate(logFile_Setting.mutator_logs_path,count, time_remaining, mutated_instruction, is_valid_instruction, is_valid_capabilities,averageCoverage,self.max_avg_coverage, 'randon')
                 if(is_valid_capabilities):
                     break
 
@@ -149,117 +182,27 @@ class InstructionMutator:
             print(error_message)
             send_slack_message(error_message)
 
-    def coverage_guided_mutates(self):
-        start_time = datetime.now()  # Start time of the mutation process
-        time_limit = timedelta(hours=1)  # Set a time limit for mutation
-        max_iterations = 1000000  # Set a maximum number of iterations
-
-        # Load the settings and create JSON storage
-        logFile_Setting = loadSetting(os.path.join('.', 'Settings.xml'))
-        #json_storage = JsonArrayStorage(logFile_Setting.Instruction_logs_path)
-
-        count = 0
-        seed_pool = []  # List to store high-coverage instructions
-        self.max_avg_coverage = 0
-
-        try:
-            while count < max_iterations and datetime.now() - start_time < time_limit:
-                # Choose the best seed or create a random one if the pool is empty
-                if seed_pool:
-                    base_instruction = random.choice(seed_pool)
-                else:
-                    instruction_length = random.randint(3, 400)
-                    base_instruction = [
-                        action_space[random.choice(list(action_space.keys()))][0]
-                        for _ in range(instruction_length)
-                    ]
-
-                mutated_instruction = base_instruction[:]
-
-                # Mutation: Apply mutation functions randomly
-                if random.random() < 0.5:
-                    mutated_instruction = self.insert_random_action(mutated_instruction)
-                if random.random() < 0.5:
-                    mutated_instruction = self.swap_directions(mutated_instruction)
-                if random.random() < 0.5:
-                    mutated_instruction = self.duplicate_direction(mutated_instruction)
-
-                # Optimize the mutated instruction
-                mutated_instruction = optimize_instructions(mutated_instruction)
-
-                # Skip if the instruction already exists in the log file
-                #if self.is_instruction_in_file(mutated_instruction):
-                    #continue
-
-                # Execute the instruction and gather coverage information
-                is_valid_instruction, is_valid_capabilities, averageCoverage = GetFuzzInstruction(mutated_instruction,
-                                                                                                  count)
-
-                # Calculate remaining time for mutation
-                time_remaining = time_limit - (datetime.now() - start_time)
-
-                # Update the maximum average coverage and log the mutation details
-                if averageCoverage > self.max_avg_coverage:
-                    self.max_avg_coverage = averageCoverage
-                    self.generated_instructions = mutated_instruction
-
-                    # Clear the seed pool and add the new high-coverage instruction
-                    seed_pool.clear()
-                    seed_pool.append(mutated_instruction)
-
-                self.log_mutate(
-                    logFile_Setting.mutator_logs_path,
-                    count,
-                    time_remaining,
-                    mutated_instruction,
-                    is_valid_instruction,
-                    is_valid_capabilities,
-                    averageCoverage,
-                    self.max_avg_coverage
-                )
-
-                # Stop mutation if valid capabilities are achieved
-                if is_valid_capabilities:
-                    break
-
-                # Save useful instructions
-                self.append_to_file(mutated_instruction)
-
-                    #json_storage.save_array(mutated_instruction)
-
-                print(count)
-                count += 1
-
-            # Send Slack notification upon completion
-            message = f"For {logFile_Setting.EnvName}, the fuzzer has stopped working."
-            send_slack_message(message)
-
-        except Exception as e:
-            error_stack = traceback.format_exc()
-            error_message = f"An error occurred during mutation: {str(e)}\nError stack:\n{error_stack}"
-            print(error_message)
-            send_slack_message(error_message)
-
     def coverage_guided_mutate(self):
         start_time = datetime.now()
-        time_limit = timedelta(hours=1)
+        time_limit = timedelta(minutes=10)
         max_iterations = 1000000
 
-        # Load the settings and create JSON storage
+        # Load the settings
         logFile_Setting = loadSetting(os.path.join('.', 'Settings.xml'))
-        #json_storage = JsonArrayStorage(logFile_Setting.Instruction_logs_path)
 
         count = 0
-        seed_pool = []
+        seed_pool = seed_instructions
         self.max_avg_coverage = 0
+        counter = 0
 
         try:
             while count < max_iterations and datetime.now() - start_time < time_limit:
 
+                # selection based on either from a pool or  te new base
                 if seed_pool and random.random() < 0.6:
                     base_instruction = random.choice(seed_pool)
                 else:
-                    instruction_length = random.randint(3, 400)
+                    instruction_length = random.randint(3, 200)
                     base_instruction = [
                         action_space[random.choice(list(action_space.keys()))][0]
                         for _ in range(instruction_length)
@@ -267,33 +210,64 @@ class InstructionMutator:
 
                 mutated_instruction = base_instruction[:]
 
-                # Mutation: Apply mutation functions randomly
-                if random.random() < 0.5:
-                    mutated_instruction = self.insert_random_action(mutated_instruction)
-                if random.random() < 0.5:
-                    mutated_instruction = self.swap_directions(mutated_instruction)
-                if random.random() < 0.5:
-                    mutated_instruction = self.duplicate_direction(mutated_instruction)
+                if self.max_avg_coverage > 0 and random.random() < 0.6:
+                    iterations_to_mutate = int((100 - self.max_avg_coverage) / 4)
+                    if  iterations_to_mutate  == 0:
+                        iterations_to_mutate = random.randint(1, 10)
+
+                else:
+                   iterations_to_mutate = random.randint(1, 10)
+
+                for _ in range(iterations_to_mutate):
+                    #Mutation: Apply mutation functions randomly
+                    if random.random() < 0.5:
+                            mutated_instruction = self.insert_random_action(mutated_instruction)
+                    if random.random() < 0.6:
+                            mutated_instruction = self.swap_directions(mutated_instruction)
+                    if random.random() < 0.5:
+                            mutated_instruction = self.update_random_action(mutated_instruction)
+                    if random.random() < 0.5:
+                        mutated_instruction = self.remove_random_action(mutated_instruction)
+
 
                 # Optimize the mutated instruction
                 mutated_instruction = optimize_instructions(mutated_instruction)
 
-                # Skip if the instruction already exists in the log file
-                #if self.is_instruction_in_file(mutated_instruction):
-                    #continue
-
                 # Execute the instruction and gather coverage information
-                is_valid_instruction, is_valid_capabilities, averageCoverage = GetFuzzInstruction(mutated_instruction,
+                is_valid_instruction, is_valid_capabilities, instruction_averag_Coverage, coverage_details = GetFuzzInstruction(mutated_instruction,
                                                                                                   count)
+
+                sorted_coverage_details = dict(sorted(coverage_details.items()))
+
+                if count == 0:
+                    self.main_dict = sorted_coverage_details
+
+
+                # Identify cells with improvements
+                improved_cells = find_and_merge_improved_cells(self.main_dict, sorted_coverage_details)
+
+                if len(improved_cells) > 0:
+                    improvements_count, average_coverage2 = update_main_dict(self.main_dict, improved_cells)
+
+                    #if averageCoverage > self.max_avg_coverage:
+                    #self.max_avg_coverage = averageCoverage
+                    #self.generated_instructions = mutated_instruction
+                    seed_pool.append(mutated_instruction)
+                    counter += 1
+                    print(counter)
+                    self.max_avg_coverage = average_coverage2
+
+                print(f"Current coverage: {self.max_avg_coverage}")
+                # Update the main dictionary and return the count of improvements
+
 
                 # Calculate remaining time for mutation
                 time_remaining = time_limit - (datetime.now() - start_time)
 
                 # Update the maximum average coverage and log the mutation details
-                if averageCoverage > self.max_avg_coverage:
-                    self.max_avg_coverage = averageCoverage
-                    self.generated_instructions = mutated_instruction
-                    seed_pool.append(mutated_instruction)
+
+                missing_action = self.identify_missing_actions(self.main_dict)
+                print(f"Missing action space: {missing_action}")
 
                 self.log_mutate(
                     logFile_Setting.mutator_logs_path,
@@ -302,8 +276,8 @@ class InstructionMutator:
                     mutated_instruction,
                     is_valid_instruction,
                     is_valid_capabilities,
-                    averageCoverage,
-                    self.max_avg_coverage
+                    instruction_averag_Coverage,
+                    self.max_avg_coverage,missing_action
                 )
 
                 # Stop mutation if valid capabilities are achieved
@@ -311,7 +285,7 @@ class InstructionMutator:
                     break
 
                 # Save useful instructions
-                self.append_to_file(mutated_instruction)
+                #self.append_to_file(mutated_instruction)
 
 
                 print(count)
@@ -400,7 +374,9 @@ class InstructionMutator:
     def get_generated_instructions(self):
         return self.generated_instructions
 
-    def log_mutate(self,log_file_path,iteratio_no,time_remaining,mutated_instruction,is_valid_instruction,is_valid_capabilities,averageCoverage,max_avg_coverage):
+
+
+    def log_mutate(self,log_file_path,iteratio_no,time_remaining,mutated_instruction,is_valid_instruction,is_valid_capabilities,averageCoverage,max_avg_coverage,missing_action):
         # Get the current time and date
         current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         log_dir = os.path.dirname(log_file_path)
@@ -409,12 +385,28 @@ class InstructionMutator:
         with open(log_file_path, 'a') as log_file:
             log_file.write(f"----------- Entry Time: {current_time}-----------\n")
             log_file.write(f"Iteration no : {iteratio_no}\n")
-            log_file.write(f"Instruction: {mutated_instruction}\n\n")
+            log_file.write(f"Instruction: {mutated_instruction}\n")
+            log_file.write(f"Instruction length: {len(mutated_instruction)}\n")
+            log_file.write(f"Instruction Coverage percentage: {averageCoverage}\n")
+            log_file.write(f"Missing coverage: {missing_action}\n\n")
+
             log_file.write(f"Is valid instruction : {is_valid_instruction}\n")
             log_file.write(f"Is valid Capabilities : {is_valid_capabilities}\n")
-            log_file.write(f"Coverage percentage: {averageCoverage}\n")
             log_file.write(f"Cycle's max Average Coverage: {max_avg_coverage}\n")
             log_file.write(f"Time Remaining : {str(time_remaining)}\n\n")
+
+    def identify_missing_actions(self, coverage):
+        """Identify actions that are missing from the current coverage."""
+        all_possible_actions = set(action_space.keys())
+        missing_actions = {}
+
+        for position, actions in coverage.items():
+            current_actions = set(actions)
+            missing_for_position = all_possible_actions - current_actions
+            if missing_for_position:
+                missing_actions[position] = missing_for_position
+
+        return missing_actions
 
 
 
@@ -435,6 +427,46 @@ def initialize_json_file(file_path):
         with open(file_path, 'w') as f:
             json.dump([], f)
 
+
+def find_and_merge_improved_cells(main_dict, new_iteration):
+    improved_cells = {}
+
+    for cell, new_actions in new_iteration.items():
+        main_actions = set(main_dict.get(cell, []))
+        new_actions_set = set(new_actions)
+
+        # Merge new actions with existing actions
+        merged_actions = main_actions | new_actions_set
+
+        # If the resulting merged actions are different from the original main actions, update
+        if merged_actions != main_actions:
+            improved_cells[cell] = list(merged_actions)
+
+    return improved_cells
+
+
+def update_main_dict(main_dict, improved_cells):
+    """Update the main dictionary with the improved cells."""
+    total_coverage = 0
+    count_cells = 0
+    for cell, new_actions in improved_cells.items():
+        main_actions = set(main_dict.get(cell, []))
+        main_dict[cell] = list(main_actions | set(new_actions))
+
+    for cell, new_actions  in main_dict.items():
+         performed_actions = len(set(new_actions))
+         cell_coverage = performed_actions / len(possible_actions) * 100  # Coverage in percentage
+         total_coverage += cell_coverage
+         count_cells += 1
+
+    if(len(main_dict)>0):
+        average_coverage = total_coverage / len(main_dict)
+    else:
+        average_coverage = 0
+
+
+    return len(improved_cells) , average_coverage
+
 def append_to_json_file(file_path, data):
     """ Append a new item to the JSON file without loading the entire file into memory. """
     with open(file_path, 'r+') as f:
@@ -449,16 +481,13 @@ def append_to_json_file(file_path, data):
 
 # Example usage
 seed_instructions = [
-    [action_space[0][0], action_space[2][0], action_space[1][0]],
-    [action_space[2][0], action_space[2][0], action_space[0][0]],
-    [action_space[1][0], action_space[2][0], action_space[2][0]]
+    [action_space[2][0], action_space[1][0], action_space[2][0]],
+    [action_space[2][0], action_space[2][0], action_space[1][0]],
+    [action_space[1][0], action_space[2][0], action_space[2][0],action_space[0][0]]
 ]
 
 mutator = InstructionMutator(seed_instructions)
-#mutator.mutate()
+#mutator.random_mutate()
 mutator.coverage_guided_mutate()
 #mutator.mutate_lava_positions()
 generated_instructions = mutator.get_generated_instructions()
-
-#ins = ['right', 'right', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'forward', 'forward', 'right', 'forward', 'right', 'right', 'right', 'forward', 'right']
-#GetFuzzInstruction(ins,1)

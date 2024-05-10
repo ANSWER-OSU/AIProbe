@@ -322,8 +322,7 @@ def execute_instructions(env,log_file_path, instruction):
             # print(f"RGB array of the agent's position: {agent_rgb}")
             # Print the current position of the agent
 
-            if done:
-                break
+
         else:
             print(f"Unrecognized instruction: {action}")
 
@@ -385,8 +384,9 @@ def GetFuzzInstruction(instructions,iteration):
     is_valid_capabilities = False
     possible_actions = ["forward", "left", "right"]
     COVERAGE = env.get_coverage()
-    print(COVERAGE)
-    averageCoverage = calculate_coverage(env.get_coverage(),gridSize,possible_actions,final_initial_environment.agent.dest_pos)
+    #averageCoverage = calculate_coverage(env.get_coverage(),gridSize,possible_actions,final_initial_environment.agent.dest_pos)
+    averageCoverage , di = calculate_coverage_and_return_actions(env.get_coverage(),gridSize,possible_actions,test_environment.lava_tiles,final_initial_environment.agent.dest_pos)
+    averageCoverage2  = calculate_coverages(env.get_coverage(),gridSize,possible_actions,final_initial_environment.agent.dest_pos)
     if(is_valid_instruction):
 
                 is_capable, sta,roomExplored = hypothesisCapabilities(final_initial_environment,final_state,instructions)
@@ -403,7 +403,7 @@ def GetFuzzInstruction(instructions,iteration):
             message = f"For {logFile_Setting.EnvName} both instructions and capabilities are valid for iteration {iteration}."
             send_slack_message(message)
 
-    return is_valid_instruction , is_valid_capabilities , averageCoverage
+    return is_valid_instruction , is_valid_capabilities , averageCoverage , di
 
 
 def calculate_coveragesw(coverage, grid_size, possible_actions, destination=None):
@@ -436,7 +436,7 @@ def calculate_coveragesw(coverage, grid_size, possible_actions, destination=None
 
 
 
-def calculate_coverage(coverage, grid_size, possible_actions, destination=None):
+def calculate_coverages(coverage, grid_size, possible_actions, destination=None):
     # Define which cells to exclude (e.g., boundaries and the destination)
     excluded_cells = set()
     for x in range(grid_size):
@@ -448,7 +448,6 @@ def calculate_coverage(coverage, grid_size, possible_actions, destination=None):
     if destination:
         excluded_cells.add(destination)  # Add destination to excluded cells
 
-    # Initialize a set of all valid (non-excluded) cells
     valid_cells = {
         (x, y)
         for x in range(1, grid_size - 1)
@@ -467,7 +466,53 @@ def calculate_coverage(coverage, grid_size, possible_actions, destination=None):
 
     # Calculate the average coverage over all valid cells
     average_coverage = total_coverage / len(valid_cells) if valid_cells else 0
+
+
     return average_coverage
+
+
+
+def calculate_coverage_and_return_actions(coverage, grid_size, possible_actions,lava_tiles, destination=None):
+    """Calculate average coverage and return a dictionary of valid cells with their actions."""
+    # Define which cells to exclude (e.g., boundaries and the destination)
+    excluded_cells = set()
+    for x in range(grid_size):
+        excluded_cells.add((x, 0))  # Top boundary
+        excluded_cells.add((x, grid_size - 1))  # Bottom boundary
+    for y in range(grid_size):
+        excluded_cells.add((0, y))  # Left boundary
+        excluded_cells.add((grid_size - 1, y))  # Right boundary
+    if destination:
+        excluded_cells.add(destination)
+
+    for lava in lava_tiles:
+        if lava.is_present:
+            excluded_cells.add((lava.x, lava.y))
+
+    # Initialize a set of all valid (non-excluded) cells
+    valid_cells = {
+        (x, y)
+        for x in range(1, grid_size - 1)
+        for y in range(1, grid_size - 1)
+    } - excluded_cells
+
+    # Create a dictionary for valid cells with their associated actions or an empty list
+    valid_cells_dict = {
+        cell: coverage.get(cell, []) for cell in valid_cells
+    }
+
+    total_coverage = 0
+
+    # Iterate through each valid cell in the grid
+    for actions in valid_cells_dict.values():
+        performed_actions = len(set(actions))
+        cell_coverage = performed_actions / len(possible_actions) * 100  # Coverage in percentage
+        total_coverage += cell_coverage
+
+    # Calculate the average coverage over all valid cells
+    average_coverage = total_coverage / len(valid_cells) if valid_cells else 0
+
+    return average_coverage, valid_cells_dict
 
 
 

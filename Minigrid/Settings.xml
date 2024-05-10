@@ -1,6 +1,6 @@
 <Setting>
-    <EnviromentLogs path="Results Log\Lava Env\GuidedFuzz\Test\60\Log-Lava-Env-8.txt" />
-    <MutatorLogs path="Results Log\Lava Env\GuidedFuzz\Test\60\Mutator-Log-Lava-Env-8.txt" />
+    <EnviromentLogs path="Results Log\Lava Env\GuidedFuzz\Hpc\60\Log-Lava-Env-1.txt" />
+    <MutatorLogs path="Results Log\Lava Env\GuidedFuzz\hpc\60\Mutator-Log-Lava-Env-1.txt" />
     <Enviroment name="Crossing" color="purple" />
-    <InstructionLog path="Results Log\Lava Env\GuidedFuzz\Test\60\Log-Lava-Env.json" />
+    <InstructionLog path="Results Log\Lava Env\GuidedFuzz\hpc\60\Log-Lava-Env.json" />
 </Setting>
