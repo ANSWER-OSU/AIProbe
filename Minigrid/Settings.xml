@@ -3,4 +3,5 @@
     <MutatorLogs path="Results Log\Lava Env\GuidedFuzz\hpc\60\Mutator-Log-Lava-Env-1.txt" />
     <Enviroment name="Crossing" color="purple" />
     <InstructionLog path="Results Log\Lava Env\GuidedFuzz\hpc\60\Log-Lava-Env.json" />
+    <timeout time="10"/>
 </Setting>

@@ -18,9 +18,9 @@ def update_setting_xml(setting_xml_path, new_log_number, current_env_mutation):
     root = tree.getroot()
 
     # Define paths
-    env_log_path = f"Results Log/Lava Env/GuidedFuzz/Hpc/Env1-6tile/Log-Lava-Env-{new_log_number}.txt"
-    mutator_log_path = f"Results Log/Lava Env/GuidedFuzz/hpc/Env1-6tile/Mutator-Log-Lava-Env-{new_log_number}.txt"
-    instruction_log_path = "Results Log/Lava Env/GuidedFuzz/hpc/Env1-6tile/Log-Lava-Env.json"
+    env_log_path = f"Results Log/Lava Env/GuidedFuzz/Hpc/Env1-7tile/Log-Lava-Env-{new_log_number}.txt"
+    mutator_log_path = f"Results Log/Lava Env/GuidedFuzz/hpc/Env1-7tile/Mutator-Log-Lava-Env-{new_log_number}.txt"
+    instruction_log_path = "Results Log/Lava Env/GuidedFuzz/hpc/Env1-7tile/Log-Lava-Env.json"
 
     # Create the directories if they don't exist
     create_directories_if_not_exist(env_log_path)
@@ -44,7 +44,7 @@ def main():
     setting_xml_path = 'Settings.xml'
 
     current_env_mutation = 1
-    while current_env_mutation <= 4:
+    while current_env_mutation <= 1:
         message = f"---------- Running For the Env no {current_env_mutation} ------------"
         send_slack_message(message)
         current_log_number = 1

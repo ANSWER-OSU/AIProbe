@@ -61,12 +61,13 @@ def load_InitialState(file_path):
 
 
 class Setting:
-    def __init__(self, environment_logs_path, mutator_logs_path,Instruction_logs_path,EnvName,color):
+    def __init__(self, environment_logs_path, mutator_logs_path,Instruction_logs_path,EnvName,color,timout):
         self.environment_logs_path = environment_logs_path
         self.mutator_logs_path = mutator_logs_path
         self.EnvName = EnvName
         self.color = color
         self.Instruction_logs_path = Instruction_logs_path
+        self.timout =timout
 
 
 def loadSetting(xml_file_path):
@@ -80,9 +81,10 @@ def loadSetting(xml_file_path):
     Instruction_logs_path = root.find("./InstructionLog").attrib['path']
     EnvName = root.find("./Enviroment").attrib['name']
     color = root.find("./Enviroment").attrib['color']
+    timout = root.find("./timeout").attrib['time']
 
     # Create Setting object with extracted data
-    setting = Setting(environment_logs_path, mutator_logs_path,Instruction_logs_path,EnvName,color)
+    setting = Setting(environment_logs_path, mutator_logs_path,Instruction_logs_path,EnvName,color,timout)
 
     return setting
 

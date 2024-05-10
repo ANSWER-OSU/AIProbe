@@ -184,12 +184,12 @@ class InstructionMutator:
 
     def coverage_guided_mutate(self):
         start_time = datetime.now()
-        time_limit = timedelta(minutes=10)
+
         max_iterations = 1000000
 
         # Load the settings
         logFile_Setting = loadSetting(os.path.join('.', 'Settings.xml'))
-
+        time_limit = timedelta(minutes=int(logFile_Setting.timout))
         count = 0
         seed_pool = seed_instructions
         self.max_avg_coverage = 0
