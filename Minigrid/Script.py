@@ -18,9 +18,9 @@ def update_setting_xml(setting_xml_path, new_log_number, current_env_mutation):
     root = tree.getroot()
 
     # Define paths
-    env_log_path = f"Results Log/Lava Env/GuidedFuzz/Hpc/Env1-7tile/Log-Lava-Env-{new_log_number}.txt"
-    mutator_log_path = f"Results Log/Lava Env/GuidedFuzz/hpc/Env1-7tile/Mutator-Log-Lava-Env-{new_log_number}.txt"
-    instruction_log_path = "Results Log/Lava Env/GuidedFuzz/hpc/Env1-7tile/Log-Lava-Env.json"
+    env_log_path = f"Results Log/Lava Env/GuidedFuzz/Hpc/Env2-7tile/Log-Lava-Env-{new_log_number}.txt"
+    mutator_log_path = f"Results Log/Lava Env/GuidedFuzz/hpc/Env2-7tile/Mutator-Log-Lava-Env-{new_log_number}.txt"
+    instruction_log_path = "Results Log/Lava Env/GuidedFuzz/hpc/Env2-7tile/Log-Lava-Env.json"
 
     # Create the directories if they don't exist
     create_directories_if_not_exist(env_log_path)
