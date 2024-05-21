@@ -602,18 +602,17 @@ mutator = InstructionMutator(seed_instructions)
 generated_instructions = mutator.get_generated_instructions()
 
 if __name__ == '__main__':
-    seed = int(sys.argv[1]) if len(sys.argv) > 1 else None
     start_time = datetime.now()
     # Load the settings
     logFile_Setting = loadSetting(os.path.join('.', 'Settings.xml'))
     time_limit = timedelta(minutes=int(logFile_Setting.timout))
 
     #seeds = [10,56,32]
-    seed = 56
+    seed = int(logFile_Setting.seed)
 
     if seed is not None:
         random.seed(seed)
-        while True:
+        while datetime.now() - start_time < time_limit:
             print(f"Ruuning for seed {seed}")
             terminate =  mutator.random_fuzzing(seed)
             if(terminate):
