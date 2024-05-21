@@ -1,6 +1,9 @@
 import random
 import os
 import json
+
+import sys
+
 from LoadConfig import loadSetting, load_InitialState
 from environment import GetFuzzInstruction, send_slack_message, GetFuzzEnvInstruction
 from environment import execute_instructions
@@ -21,6 +24,11 @@ action_space = {
 
 }
 
+seed_instructions = [
+    [action_space[2][0], action_space[1][0], action_space[2][0]],
+    [action_space[2][0], action_space[2][0], action_space[1][0]],
+    [action_space[1][0], action_space[2][0], action_space[2][0],action_space[0][0]]
+]
 possible_actions = ["forward", "left", "right"]
 
 def checkV(instruction):
@@ -48,6 +56,27 @@ class InstructionMutator:
         action_name = action_space[action_num][0]
         insert_index = random.randint(0, len(instruction))
         instruction.insert(insert_index, action_name)
+        return instruction
+
+    def insert_action(self, instruction, action_index):
+        action_num = random.choice(list(action_space.keys()))
+        action_name = action_space[action_num][0]
+        instruction.insert(action_index, action_name)
+        return instruction
+
+    def remove_action(self, instruction,action_index):
+        if(action_index < len(instruction)):
+
+            instruction.pop(action_index)
+
+        return instruction
+
+
+    def replace_action(self, instruction,action_index):
+        if(action_index < len(instruction)):
+            action_num = random.choice(list(action_space.keys()))
+            action_name = action_space[action_num][0]
+            instruction[action_index] = action_name
         return instruction
 
     def remove_random_action(self, instruction):
@@ -182,6 +211,89 @@ class InstructionMutator:
             print(error_message)
             send_slack_message(error_message)
 
+
+
+    # purpose of this method is to implement random(without coverage guidance)
+    def random_fuzzing(self, seed_value):
+        #random.seed(seed_value)
+        seed_pool = seed_instructions
+        instruction = random.choice(seed_pool)
+        instruction_copy = instruction[:]
+        if(len(instruction_copy) ==0):
+            return
+
+        ins_len = len(instruction_copy)
+        if(ins_len >1 ):
+            no_action_to_mutate = random.randint(1,ins_len-1)
+
+            index_list = range(0,(ins_len-1))
+        else:
+            no_action_to_mutate = 1
+            index_list = [0]
+
+        actions_to_mutate = random.sample(index_list,no_action_to_mutate)
+        mutated_instruction = instruction_copy
+        curr_index = 0
+        for action_index in sorted(actions_to_mutate):
+          curr_index = action_index
+          #k = random.randint(1,3)
+          k = random.random()
+          #if k == 1:
+          if k < 0.50:
+
+              if curr_index == 0 :
+                mutated_instruction = self.insert_action(mutated_instruction, action_index)
+                curr_index = action_index + 1
+              else:
+                  mutated_instruction = self.insert_action(mutated_instruction, curr_index)
+                  curr_index = curr_index + 1
+
+          elif  k < 0.90 :
+              if curr_index  == 0 :
+                mutated_instruction = self.replace_action(mutated_instruction, action_index)
+                curr_index = action_index + 1
+              else:
+                  mutated_instruction = self.replace_action(mutated_instruction,curr_index)
+                  curr_index = curr_index + 1
+
+          elif len(mutated_instruction) > 0:
+
+              if curr_index == 0:
+                mutated_instruction = self.remove_action(mutated_instruction, action_index)
+                if(action_index > 0 ):
+                    curr_index = action_index  -1
+                else:
+                    curr_index = action_index
+              else:
+                  mutated_instruction = self.remove_action(mutated_instruction, curr_index)
+                  if (curr_index > 0):
+                    curr_index = curr_index - 1
+
+
+
+
+        #print(f"Final instruction : {mutated_instruction}")
+        is_valid_instruction, is_valid_capabilities, instruction_averag_Coverage, coverage_details = GetFuzzInstruction(mutated_instruction,1)
+
+        print(f"Len of instruction: {len(mutated_instruction)}")
+
+        if(is_valid_instruction):
+            seed_pool.append(mutated_instruction)
+
+        if is_valid_capabilities:
+            return True
+
+        return False
+
+
+
+
+
+
+
+
+
+
     def coverage_guided_mutate(self):
         start_time = datetime.now()
 
@@ -199,7 +311,7 @@ class InstructionMutator:
             while count < max_iterations and datetime.now() - start_time < time_limit:
 
                 # selection based on either from a pool or  te new base
-                if seed_pool and random.random() < 0.6:
+                if random.random() < 0.6:
                     base_instruction = random.choice(seed_pool)
                 else:
                     instruction_length = random.randint(3, 200)
@@ -480,14 +592,30 @@ def append_to_json_file(file_path, data):
         f.write('\n]')  # Close the list with a newline and a bracket
 
 # Example usage
-seed_instructions = [
-    [action_space[2][0], action_space[1][0], action_space[2][0]],
-    [action_space[2][0], action_space[2][0], action_space[1][0]],
-    [action_space[1][0], action_space[2][0], action_space[2][0],action_space[0][0]]
-]
+
 
 mutator = InstructionMutator(seed_instructions)
 #mutator.random_mutate()
-mutator.coverage_guided_mutate()
+#mutator.coverage_guided_mutate()
+
 #mutator.mutate_lava_positions()
 generated_instructions = mutator.get_generated_instructions()
+
+if __name__ == '__main__':
+    seed = int(sys.argv[1]) if len(sys.argv) > 1 else None
+    start_time = datetime.now()
+    # Load the settings
+    logFile_Setting = loadSetting(os.path.join('.', 'Settings.xml'))
+    time_limit = timedelta(minutes=int(logFile_Setting.timout))
+
+    #seeds = [10,56,32]
+    seed = 56
+
+    if seed is not None:
+        random.seed(seed)
+        while True:
+            print(f"Ruuning for seed {seed}")
+            terminate =  mutator.random_fuzzing(seed)
+            if(terminate):
+                break
+

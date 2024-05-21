@@ -4,7 +4,7 @@ import shutil
 import xml.etree.ElementTree as ET
 import subprocess
 
-from LoadConfig import load_InitialState
+from LoadConfig import load_InitialState , load_Script_Setting
 from environment import send_slack_message
 
 def create_directories_if_not_exist(file_path):
@@ -13,12 +13,14 @@ def create_directories_if_not_exist(file_path):
     if not os.path.exists(directory):
         os.makedirs(directory, exist_ok=True)
 
-def update_setting_xml(setting_xml_path, new_log_number, current_env_mutation):
+def update_setting_xml(setting_xml_path, new_log_number,script_setting_path, current_env_mutation):
     tree = ET.parse(setting_xml_path)
     root = tree.getroot()
 
+    script_setting =  load_Script_Setting(script_setting_path)
+
     # Define paths
-    env_log_path = f"Results Log/Lava Env/GuidedFuzz/Hpc/Env2-7tile/Log-Lava-Env-{new_log_number}.txt"
+    env_log_path = f"{script_setting.environment_logs_path}-{new_log_number}.txt"
     mutator_log_path = f"Results Log/Lava Env/GuidedFuzz/hpc/Env2-7tile/Mutator-Log-Lava-Env-{new_log_number}.txt"
     instruction_log_path = "Results Log/Lava Env/GuidedFuzz/hpc/Env2-7tile/Log-Lava-Env.json"
 
@@ -42,21 +44,32 @@ def update_setting_xml(setting_xml_path, new_log_number, current_env_mutation):
 
 def main():
     setting_xml_path = 'Settings.xml'
-
+    Script_setting_path = 'Script_setting.xml'
+    max_env_mutations = 1
     current_env_mutation = 1
-    while current_env_mutation <= 1:
+    seeds = [10,56,32]
+    while current_env_mutation <= max_env_mutations:
         message = f"---------- Running For the Env no {current_env_mutation} ------------"
         send_slack_message(message)
         current_log_number = 1
-        while current_log_number <= 10:
-            update_setting_xml(setting_xml_path, current_log_number, current_env_mutation)
+        for seed in seeds:
+            while current_log_number <= 10:
 
-            try:
-                proc = subprocess.Popen(['python', 'mutate.py'])
-                proc.wait()
-            except subprocess.CalledProcessError as e:
-                print(f"Error running mutator.py: {e}")
-                return
+                update_setting_xml(setting_xml_path, current_log_number, current_env_mutation)
+
+                try:
+                    script_path = r"A:\Github repos\Answer\AIProbe\Minigrid\mutator.py"
+                    try:
+                        subprocess.run(['python', script_path,seed], check=True)
+                    except subprocess.CalledProcessError as e:
+                        print(f"Failed to run script: {e}")
+                    except FileNotFoundError:
+                        print(f"Script file not found: {script_path}")
+                    #proc = subprocess.Popen(['python', 'mutator.py', str(seed)])
+                    #proc.wait()
+                except subprocess.CalledProcessError as e:
+                    print(f"Error running mutator.py: {e}")
+                    return
 
             current_log_number += 1
 

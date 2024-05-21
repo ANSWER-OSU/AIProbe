@@ -1,0 +1,5 @@
+<Setting>
+    <EnviromentLogs path="Results Log/Lava Env/GuidedFuzz/Hpc/" />
+    <MutatorLogs path="Results Log/Lava Env/GuidedFuzz/hpc/" />
+    <InstructionLog path="Results Log/Lava Env/GuidedFuzz/hpc" />
+</Setting>

@@ -70,6 +70,14 @@ class Setting:
         self.timout =timout
 
 
+class Script_Setting:
+    def __init__(self, environment_logs_path, mutator_logs_path,Instruction_logs_path):
+        self.environment_logs_path = environment_logs_path
+        self.mutator_logs_path = mutator_logs_path
+        self.Instruction_logs_path = Instruction_logs_path
+
+
+
 def loadSetting(xml_file_path):
     # Parse the XML file
     tree = ET.parse(xml_file_path)
@@ -85,6 +93,20 @@ def loadSetting(xml_file_path):
 
     # Create Setting object with extracted data
     setting = Setting(environment_logs_path, mutator_logs_path,Instruction_logs_path,EnvName,color,timout)
+
+    return setting
+
+def load_Script_Setting(xml_file_path):
+    tree = ET.parse(xml_file_path)
+    root = tree.getroot()
+
+    # Extract data from the XML
+    environment_logs_path = root.find("./EnviromentLogs").attrib['path']
+    mutator_logs_path = root.find("./MutatorLogs").attrib['path']
+    Instruction_logs_path = root.find("./InstructionLog").attrib['path']
+
+    # Create Setting object with extracted data
+    setting = Setting(environment_logs_path, mutator_logs_path, Instruction_logs_path)
 
     return setting
 
