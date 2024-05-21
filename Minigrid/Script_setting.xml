@@ -1,6 +1,6 @@
 <Setting>
-    <EnviromentLogs path="Results Log/Lava Env/Random/HCP/Env1/" />
-    <MutatorLogs path="Results Log/Lava Env/Random/HCP/Env1/" />
-    <InstructionLog path="Results Log/Lava Env/Random/HCP/Env1/" />
+    <EnviromentLogs path="Results Log/Lava Env/Random/HCP/7-Tiles/Env2/" />
+    <MutatorLogs path="Results Log/Lava Env/Random/HCP/7-Tiles/Env2/" />
+    <InstructionLog path="Results Log/Lava Env/Random/HCP/7-Tiles/Env2/" />
 
 </Setting>

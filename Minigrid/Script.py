@@ -51,22 +51,22 @@ def main():
     max_env_mutations = 1
     current_env_mutation = 0
     seeds = [11,56,32,88,41,29,78,93,100,200]
-    while current_env_mutation <= max_env_mutations:
-        message = f"---------- Running For the Env no {current_env_mutation} ------------"
-        send_slack_message(message)
-        current_log_number = 1
-        for seed in seeds:
+    #while current_env_mutation <= max_env_mutations:
+    message = f"---------- Running For the Env no {current_env_mutation} ------------"
+    send_slack_message(message)
+    current_log_number = 1
+    for seed in seeds:
             #while current_log_number <= 10:
 
-            update_setting_xml(setting_xml_path, current_log_number,Script_setting_path,current_log_number, current_env_mutation,seed)
+        update_setting_xml(setting_xml_path, current_log_number,Script_setting_path,current_log_number, current_env_mutation,seed)
 
-            try:
-                    proc = subprocess.Popen(['python', 'mutate.py'])
-                    proc.wait()
-            except subprocess.CalledProcessError as e:
-                    print(f"Error running mutator.py: {e}")
-                    return
-            current_log_number+= 1
+        try:
+                proc = subprocess.Popen(['python', 'mutate.py'])
+                proc.wait()
+        except subprocess.CalledProcessError as e:
+                print(f"Error running mutator.py: {e}")
+                return
+        current_log_number+= 1
 
 
 
