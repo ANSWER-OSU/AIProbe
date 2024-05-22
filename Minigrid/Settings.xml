@@ -1,8 +1,8 @@
 <Setting>
-    <EnviromentLogs path="Results Log/Lava Env/Random/HCP/7-Tiles/Env2/-Env_log10.txt" />
-    <MutatorLogs path="Results Log/Lava Env/Random/HCP/7-Tiles/Env2/-mutator-10.txt" />
+    <EnviromentLogs path="Results Log/Lava Env/Random/HCP/7-Tiles/Env7/-Env_log10.txt" />
+    <MutatorLogs path="Results Log/Lava Env/Random/HCP/7-Tiles/Env7/-mutator-10.txt" />
     <Enviroment name="Crossing" color="purple" />
-    <InstructionLog path="Results Log/Lava Env/Random/HCP/7-Tiles/Env2/-Log-Lava-Env.json" />
+    <InstructionLog path="Results Log/Lava Env/Random/HCP/7-Tiles/Env7/-Log-Lava-Env.json" />
     <timeout time="5" />
     <seed seed_number="200" />
 </Setting>

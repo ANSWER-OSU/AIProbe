@@ -17,13 +17,13 @@
     <Objects>
     </Objects>
     <LavaTiles>
-        <Lava x="1" y="3" is_present="1" />
-        <Lava x="2" y="3" is_present="1" />
-        <Lava x="4" y="2" is_present="1" />
-        <Lava x="2" y="1" is_present="1" />
-        <Lava x="5" y="3" is_present="1" />
+        <Lava x="4" y="3" is_present="1" />
         <Lava x="1" y="4" is_present="1" />
-        <Lava x="3" y="1" is_present="1" />
+        <Lava x="3" y="4" is_present="1" />
+        <Lava x="2" y="1" is_present="1" />
+        <Lava x="2" y="5" is_present="1" />
+        <Lava x="1" y="2" is_present="1" />
+        <Lava x="3" y="5" is_present="1" />
     </LavaTiles>
      <Grid>
         <Size grid_Size="7" />
