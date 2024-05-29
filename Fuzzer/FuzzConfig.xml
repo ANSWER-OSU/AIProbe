@@ -1,0 +1,38 @@
+<FuzzerConfig>
+    <!-- General Fuzzer Settings -->
+    <Settings>
+
+        <Timeout>5</Timeout> <!-- Timeout for each test case in min -->
+        <LogFilePath>Result/Minigrid</LogFilePath>
+        <Enviroment></Enviroment>
+    </Settings>
+
+    <!-- Numeric Seed Inputs for the Fuzzer -->
+    <SeedList>
+        <Seed>10</Seed>
+        <Seed>12</Seed>
+        <Seed>34</Seed>
+        <Seed>536</Seed>
+        <Seed>345</Seed>
+        <Seed>324</Seed>
+        <!-- Add more seeds as needed -->
+    </SeedList>
+    <!-- Mutator Settings -->
+    <Mutators>
+        <Mutator>
+            <Name>Insert</Name>
+            <Enabled>true</Enabled>
+            <Probability>0.5</Probability> <!-- Probability of applying this mutator -->
+        </Mutator>
+        <Mutator>
+            <Name>Replace</Name>1
+            <Enabled>true</Enabled>
+            <Probability>0.45</Probability>
+        </Mutator>
+         <Mutator>
+            <Name>Delete</Name>
+            <Enabled>true</Enabled>
+            <Probability>0.05</Probability>
+        </Mutator>
+    </Mutators>
+</FuzzerConfig>

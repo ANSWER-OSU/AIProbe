@@ -3,7 +3,7 @@ import traceback
 
 from LoadConfig import loadSetting
 import xml.etree.ElementTree as ET
-from EnvironmentState import Agent, Door, Key, Object, Lava, State
+from Minigrid.EnvironmentState import Agent, Door, Key, Object, Lava, State
 
 
 def hypothesisCapabilities(initial_state, final_state,instructions):

@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as ET
-from EnvironmentState import Agent, Door, Key, Object, Lava, State
+from EnvironmentState import Agent, Door, Key, Object, Lava, State , Wall
 
 def load_InitialState(file_path):
     initialEnvironment = State()
@@ -56,7 +56,12 @@ def load_InitialState(file_path):
         )
         initialEnvironment.lava_tiles.append(lava)
 
-
+    for wall_elem in root.find('Walls').findall('Wall'):
+        wall = Wall(
+            x=int(wall_elem.get('x')),
+            y=int(wall_elem.get('y'))
+        )
+        initialEnvironment.walls.append(wall)
     return initialEnvironment,GridSize
 
 
@@ -114,5 +119,41 @@ def load_Script_Setting(xml_file_path):
 
 
 
+class FuzzerSetting:
+    def __init__(self, EnvName, timeout, seeds, log_file_path, mutators):
+        self.EnvName = EnvName
+        self.timeout = timeout
+        self.seeds = seeds
+        self.log_file_path = log_file_path
+        self.mutators = mutators
 
+
+
+def load_fuzzer_setting(xml_file_path):
+    tree = ET.parse(xml_file_path)
+    root = tree.getroot()
+
+    # Extract data from the XML
+    timeout = int(root.find("./Settings/Timeout").text)
+    log_file_path = root.find("./Settings/LogFilePath").text
+    Env_name = root.find("./Settings/Enviroment").text
+
+
+    # Extract seeds
+    seeds = [int(seed.text) for seed in root.find("./SeedList").findall("Seed")]
+
+    # Extract mutators
+    mutators = []
+    for mutator_elem in root.find("./Mutators").findall("Mutator"):
+        mutator = {
+            'Name': mutator_elem.find("Name").text,
+            'Enabled': mutator_elem.find("Enabled").text.lower() == 'true',
+            'Probability': float(mutator_elem.find("Probability").text)
+        }
+        mutators.append(mutator)
+
+    # Create Setting object with extracted data
+    setting = FuzzerSetting(Env_name, timeout, seeds, log_file_path, mutators)
+
+    return setting
 

@@ -15,7 +15,7 @@ class Key:
         self.color = color
 
 class Object:
-    def __init__(self, x, y, pick_status, v, w, drop_status, is_present):
+    def __init__(self, x, y, pick_status, v, w, drop_status, is_present,color):
         self.x = x
         self.y = y
         self.pick_status = pick_status
@@ -23,6 +23,7 @@ class Object:
         self.w = w
         self.drop_status = drop_status
         self.is_present = is_present
+        self.color = color
 
 class Lava:
     def __init__(self, x, y, is_present):
@@ -38,6 +39,11 @@ class Agent:
         self.dest_direction = dest_direction
         self.path = path
 
+class Wall:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
 class State:
     def __init__(self):
         self.agent = None
@@ -45,3 +51,4 @@ class State:
         self.keys = []
         self.objects = []
         self.lava_tiles = []
+        self.walls = []

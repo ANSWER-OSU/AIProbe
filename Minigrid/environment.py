@@ -1,16 +1,16 @@
 from minigrid.core.actions import Actions
 
-from LoadConfig import load_InitialState, State, loadSetting
-from EnvironmentState import Agent, Door, Key, Object, Lava, State
+from Fuzzer.LoadConfig import load_InitialState, State, loadSetting
+from Minigrid.EnvironmentState import Agent, Door, Key, Object, Lava, State
 from minigrid.core.constants import COLOR_NAMES
 from minigrid.core.grid import Grid
 from minigrid.core.mission import MissionSpace
 from minigrid.minigrid_env import MiniGridEnv
 from minigrid.core.world_object import Door, Goal, Key, Wall, Lava, Ball  
 import os
-from agentPosition import check_environment_changes
+from Minigrid.agentPosition import check_environment_changes
 from datetime import datetime
-from CapabilitiesChecker import hypothesisCapabilities
+from Minigrid.CapabilitiesChecker import hypothesisCapabilities
 
 import requests
 import json
@@ -37,11 +37,14 @@ class CustomMiniGridEnv(MiniGridEnv):
 
         self.grid.wall_rect(0, 0, width, height)
 
-        self.agent_pos = (1, 1)
         self.agent_pos = self.initial_state.agent.init_pos
-        self.agent_dir = 0
+        self.agent_dir = 1
 
         mid_x, mid_y = width // 2, height // 2
+
+        start_cell = self.grid.get(*self.agent_pos)
+        if start_cell is not None and not start_cell.can_overlap():
+            raise ValueError(f"Initial position {self.agent_pos} is occupied by a non-overlapping object.")
 
         # Vertical wall
         #for i in range(1, height - 1):
@@ -79,8 +82,18 @@ class CustomMiniGridEnv(MiniGridEnv):
         for object in self.initial_state.objects:
             is_present = bool(object.is_present)
             if is_present:
-                obj_color = 'blue'
+                obj_color = object.color
                 self.grid.set(object.x,object.y, Ball())
+
+        for wall in self.initial_state.walls:
+            self.grid.set(wall.x, wall.y, Wall())
+            self.grid.get(wall.x, wall.y).color = 'blue'
+
+            # Set the destination position as a green Goal
+        destination_position = self.initial_state.agent.dest_pos
+        self.grid.set(destination_position[0], destination_position[1], Goal())
+        self.grid.get(destination_position[0], destination_position[1]).color = 'green'
+
 
     def get_agent_rgb(self):
         # This method returns the RGB array of the whole grid and extracts the part where the agent is.
@@ -152,6 +165,7 @@ class CustomMiniGridEnv(MiniGridEnv):
                    #if env.agent_dir = :
                         #key.is_picked = True
 
+
         elif instruction == env.actions.toggle:
             next_pos = get_next_pos(self.final_state.agent.dest_direction, env.agent_pos)
             for door in self.final_state.doors:
@@ -159,11 +173,6 @@ class CustomMiniGridEnv(MiniGridEnv):
                     for key in self.final_state.keys:
                         if(door.color == key.color):
                             door.door_status = 1
-
-        
-        
-
-
 
     def step(self, action):
 
@@ -584,6 +593,28 @@ def render_environment_human_mode():
     # Close the environment
     env.close()
 
+
+def aumate_enviromet_human_mode(screenshot_path, config_path):
+    # Adjust the path as necessary
+    test_environment, gridSize = load_InitialState(config_path)
+    env = CustomMiniGridEnv(state=test_environment, grid_size=gridSize, render_mode='rgb_array')  # Use 'rgb_array' for rendering
+
+    # Reset the environment and render the initial state
+    obs = env.reset()
+    img = env.render()  # Render the environment to get the image
+
+    # Ensure the directories exist
+    if not os.path.exists(screenshot_path):
+        os.makedirs(screenshot_path)
+
+    # Save the image to a file
+    surface = pygame.surfarray.make_surface(img.transpose((1, 0, 2)))
+    screenshot_file = os.path.join(screenshot_path, 'screenshot.png')
+
+    pygame.image.save(surface, screenshot_file)
+
+    # Close the environment
+    env.close()
 
 #render_environment_human_mode()
 
