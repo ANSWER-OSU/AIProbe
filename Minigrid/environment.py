@@ -1,7 +1,8 @@
+import pygame
 from minigrid.core.actions import Actions
 
-from Fuzzer.LoadConfig import load_InitialState, State, loadSetting
-from Minigrid.EnvironmentState import Agent, Door, Key, Object, Lava, State
+from Fuzzer.LoadConfig import  State, loadSetting
+from Minigrid.EnvironmentState import  State,Agent, Door, Key, Object, Lava, State,load_InitialState
 from minigrid.core.constants import COLOR_NAMES
 from minigrid.core.grid import Grid
 from minigrid.core.mission import MissionSpace
@@ -10,7 +11,7 @@ from minigrid.core.world_object import Door, Goal, Key, Wall, Lava, Ball
 import os
 from Minigrid.agentPosition import check_environment_changes
 from datetime import datetime
-from Minigrid.CapabilitiesChecker import hypothesisCapabilities
+from Minigrid.CapabilitiesChecker import hypothesisCapabilities, check_task_achieved
 
 import requests
 import json
@@ -38,7 +39,16 @@ class CustomMiniGridEnv(MiniGridEnv):
         self.grid.wall_rect(0, 0, width, height)
 
         self.agent_pos = self.initial_state.agent.init_pos
+
+        direction_map = {
+            'n': 3,
+            's': 1,
+            'e': 0,
+            'w': 2
+        }
         self.agent_dir = 1
+        self.agent_dir = direction_map.get(self.initial_state.agent.init_direction,
+                                           0)  # Default to 'e' if direction is invalid
 
         mid_x, mid_y = width // 2, height // 2
 
@@ -110,10 +120,7 @@ class CustomMiniGridEnv(MiniGridEnv):
                     agent_x * cell_size:(agent_x + 1) * cell_size]
         return agent_rgb
 
-
-
-    def update_final_state(self, instruction,env):
-
+    def update_final_state(self, instruction, env):
         current_position = (self.agent_pos[0], self.agent_pos[1])
         if current_position not in self.coverage:
             self.coverage[current_position] = []
@@ -121,35 +128,25 @@ class CustomMiniGridEnv(MiniGridEnv):
         if instruction not in self.coverage[current_position]:
             self.coverage[current_position].append(instruction)
 
-
-
         if instruction == env.actions.forward:
             new_pos = tuple(env.agent_pos)  # Convert position to tuple before appending
             self.final_state.agent.dest_pos = new_pos
             self.final_state.agent.path.append(new_pos)
 
-
         elif instruction == env.actions.left:
-
-            #new_dir = 2
-            #self.final_state.agent.dest_direction
-            if(self.final_state.agent.dest_direction == 'e'):
+            if self.final_state.agent.dest_direction == 'e':
                 self.final_state.agent.dest_direction = 'n'
-            elif(self.final_state.agent.dest_direction == 'n'):
+            elif self.final_state.agent.dest_direction == 'n':
                 self.final_state.agent.dest_direction = 'w'
             elif self.final_state.agent.dest_direction == 'w':
                 self.final_state.agent.dest_direction = 's'
             else:
                 self.final_state.agent.dest_direction = 'e'
 
-
         elif instruction == env.actions.right:
-
-            #new_dir = 0
-            #self.final_state.agent.dest_direction = new_dir
-            if (self.final_state.agent.dest_direction == 'e'):
+            if self.final_state.agent.dest_direction == 'e':
                 self.final_state.agent.dest_direction = 's'
-            elif (self.final_state.agent.dest_direction == 's'):
+            elif self.final_state.agent.dest_direction == 's':
                 self.final_state.agent.dest_direction = 'w'
             elif self.final_state.agent.dest_direction == 'w':
                 self.final_state.agent.dest_direction = 'n'
@@ -157,22 +154,26 @@ class CustomMiniGridEnv(MiniGridEnv):
                 self.final_state.agent.dest_direction = 'e'
 
         elif instruction == env.actions.pickup:
-
             next_pos = get_next_pos(self.final_state.agent.dest_direction, env.agent_pos)
             for key in self.final_state.keys:
-                if((key.x_init,key.y_init) == next_pos):
+                if (key.x_init, key.y_init) == next_pos:
                     key.is_picked = 1
-                   #if env.agent_dir = :
-                        #key.is_picked = True
-
 
         elif instruction == env.actions.toggle:
             next_pos = get_next_pos(self.final_state.agent.dest_direction, env.agent_pos)
             for door in self.final_state.doors:
-                if((door.x,door.y) == next_pos):
+                if (door.x, door.y) == next_pos:
                     for key in self.final_state.keys:
-                        if(door.color == key.color):
+                        if door.color == key.color:
                             door.door_status = 1
+
+        elif instruction == env.actions.drop:
+            # Find the position where the agent should drop the key
+            next_pos = tuple(env.agent_pos)
+            for key in self.final_state.keys:
+                if key.is_picked == 1:
+                    key.x_init, key.y_init = next_pos  # Change the key position to the drop position
+                    break
 
     def step(self, action):
 
@@ -358,16 +359,13 @@ def current_state_has_key(env):
     current_state = env.returnFinalState()
     return any(key.is_present for key in current_state.keys)
 
-def logCapabilities(log_file_path,is_valid_instruction,roomExplored,sta,iteration,averageCoverage):
+def logCapabilities(log_file_path,is_valid_instruction,averageCoverage):
 
     log_dir = os.path.dirname(log_file_path)
     if not os.path.exists(log_dir):
         os.makedirs(log_dir)
     with open(log_file_path, 'a') as log_file:
-        log_file.write(f"Valid Instruction : {is_valid_instruction} \n")
-        log_file.write(f"Destination Status: {sta}\n")
-        log_file.write(f"Capability: {roomExplored}\n")
-        log_file.write(f"Iteration: {iteration}\n\n")
+        log_file.write(f"Valid Capability : {is_valid_instruction} \n")
         log_file.write(f"Average Coverage : {averageCoverage}\n")
 
 
@@ -413,6 +411,49 @@ def GetFuzzInstruction(instructions,iteration):
             send_slack_message(message)
 
     return is_valid_instruction , is_valid_capabilities , averageCoverage , di
+
+
+
+
+
+def execute_and_evaluate_task(instruction, config_path,log_file_path):
+    file_path = os.path.join('Config.xml')
+    initial_environment, gridSize = load_InitialState(config_path)
+    env = CustomMiniGridEnv(state=initial_environment, grid_size=gridSize, render_mode='rgb_array')  # rgb_array
+    initial_state = env.setInitialState()
+
+    obs = env.reset()
+    env.render()
+
+    execute_instructions(env, log_file_path, instruction)
+
+    final_state = env.returnFinalState()
+    final_initial_environment, gridSize = load_InitialState(config_path)
+
+    is_valid_instruction = check_environment_changes(final_initial_environment, final_state)
+    is_valid_capabilities = False
+    possible_actions = ["forward", "left", "right","pickup","toggle","drop","done"]
+    COVERAGE = env.get_coverage()
+    # averageCoverage = calculate_coverage(env.get_coverage(),gridSize,possible_actions,final_initial_environment.agent.dest_pos)
+    averageCoverage, di = calculate_coverage_and_return_actions(env.get_coverage(), gridSize, possible_actions,
+                                                                initial_environment.lava_tiles,
+                                                                final_initial_environment.agent.dest_pos)
+    averageCoverage2 = calculate_coverages(env.get_coverage(), gridSize, possible_actions,
+                                           final_initial_environment.agent.dest_pos)
+    if (is_valid_instruction):
+
+        is_capable = check_task_achieved(final_initial_environment, final_state, log_file_path)
+        is_valid_capabilities = is_capable
+        logCapabilities(log_file_path, is_valid_capabilities,averageCoverage)
+
+    else:
+        logCapabilities(log_file_path, False, averageCoverage)
+
+        # Close the environment
+    env.close()
+
+    return is_valid_instruction, is_valid_capabilities, averageCoverage, di
+
 
 
 def calculate_coveragesw(coverage, grid_size, possible_actions, destination=None):
@@ -619,65 +660,11 @@ def aumate_enviromet_human_mode(screenshot_path, config_path):
 #render_environment_human_mode()
 
 
-
-import time
-import pygame
-from pygame.locals import *
-
-# Define key mappings for actionso
-key_mappings = {
-    K_UP: 'forward',
-    K_LEFT: 'left',
-    K_RIGHT: 'right',
-    K_p: 'pickup',  # You can change this to any other action you prefer
-    K_SPACE: 'toggle',  # You can change this to any other action you prefer
-}
-
-def agent_control(env):
-    print("Use the arrow keys to control the agent:")
-    print("Up Arrow: Move forward")
-    print("Left Arrow: Turn left")
-    print("Right Arrow: Turn right")
-    print("Down Arrow: Pick up an object")
-    print("Space Bar: Toggle an object")
-    print("Press 'ESC' to quit")
-
-    while True:
-        for event in pygame.event.get():
-            if event.type == QUIT:
-                pygame.quit()
-                return
-            if event.type == KEYDOWN:
-                if event.key == K_ESCAPE:
-                    pygame.quit()
-                    return
-                if event.key in key_mappings:
-                    action = key_mappings[event.key]
-                    execute_instructions(env, '', action)
-                else:
-                    print("Invalid key. Please use arrow keys or space bar.")
-
-def render_en444vironment_human_mode_keyboard():
-    file_path = os.path.join('.', 'Config.xml')  # Adjust the path as necessary
-    test_environment, gridSize = load_InitialState(file_path)
-    env = CustomMiniGridEnv(state=test_environment, grid_size=gridSize, render_mode='human')
-
-    # Initialize pygame
-    pygame.init()
-
-    # Reset the environment and render the initial state
-    obs = env.reset()
-    env.render()
-
-    # Start agent control loop
-    agent_control(env)
-
-    # Close the environment
-    env.close()
+def test():
+    instruction = ["right","forward","forward","forward","left","forward","pickup","right"]
+    lo = r"A:\Github repos\Answer\AIProbe\Result\Minigrid\10\Env-1\task_1\log.txt"
+    is_valid_instruction, is_valid_capabilities, averageCoverage, di = execute_and_evaluate_task(instruction, "A:\Github repos\Answer\AIProbe\Minigrid\Config.xml", lo)
+    print(is_valid_capabilities)
 
 
-
-#render_environment_human_mode_keyboard()
-
-
-
+#test()

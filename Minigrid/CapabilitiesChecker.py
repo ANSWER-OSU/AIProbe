@@ -1,7 +1,7 @@
 import os
 import traceback
 
-from LoadConfig import loadSetting
+
 import xml.etree.ElementTree as ET
 from Minigrid.EnvironmentState import Agent, Door, Key, Object, Lava, State
 
@@ -171,6 +171,97 @@ def Go_To_Door(destination_pos, instructions,logFile_Setting):
 
 
 
+def is_path_safe(agent_path, lava_tiles):
+    for position in agent_path:
+        for lava in lava_tiles:
+            if lava.is_present and (lava.x, lava.y) == position:
+                return False
+    return True
+
+def check_navigate_task(initial_state, final_state, task):
+    if not is_path_safe(final_state.agent.path, final_state.lava_tiles):
+        return False
+    return final_state.agent.dest_pos == task.destination
+
+def check_pickup_task(initial_state, final_state, task):
+    if not is_path_safe(final_state.agent.path, final_state.lava_tiles):
+        return False
+    for key in final_state.keys:
+        if key.color == task.color and key.is_picked == 1 and (key.x_init,key.y_init) == task.source:
+            return True
+
+    return False
+
+def check_drop_task(initial_state, final_state, task):
+    if not is_path_safe(final_state.agent.path, final_state.lava_tiles):
+        return False
+    for key in final_state.keys:
+        if key.color == task.color :
+            if key.is_picked == 1 and key.is_present == 1 :
+                if (key.x_init, key.y_init) == task.destination:
+                    return True
+    return False
+
+def check_move_task(initial_state, final_state, task):
+    if not is_path_safe(final_state.agent.path, final_state.lava_tiles):
+        return False
+    for obj in final_state.objects:
+        if obj.is_present == 1 and (obj.x, obj.y) == task.destination:
+            return True
+    return False
+
+def check_task_achieved(initial_state, final_state, task_path):
+    parent_dir = os.path.dirname(task_path)
+    task_path = os.path.join(parent_dir,'task.xml')
+    tasks = parse_tasks(task_path)
+    for task in tasks:
+        if task.task_type == "navigate":
+            return check_navigate_task(initial_state, final_state, task)
+        elif task.task_type == "pickup":
+            return check_pickup_task(initial_state, final_state, task)
+        elif task.task_type == "drop":
+            return check_drop_task(initial_state, final_state, task)
+        elif task.task_type == "move":
+            return check_move_task(initial_state, final_state, task)
+        return False
+
+
+
+
+class Task:
+    def __init__(self, task_type, source, destination=None, obj=None, color=None, key_position=None, description=None):
+        self.task_type = task_type
+        self.source = source
+        self.destination = destination
+        self.object = obj
+        self.color = color
+        self.key_position = key_position
+        self.description = description
+
+    def __repr__(self):
+        return (f"Task(task_type={self.task_type}, source={self.source}, destination={self.destination}, "
+                f"object={self.object}, color={self.color}, key_position={self.key_position}, description={self.description})")
+
+def parse_tasks(file_path):
+    tree = ET.parse(file_path)
+    root = tree.getroot()
+    tasks = []
+
+    for task_elem in root.findall('Task'):
+        task_type = task_elem.find('type').text
+        source = tuple(map(int, task_elem.find('source').text.split(',')))
+        destination = task_elem.find('destination')
+        destination = tuple(map(int, destination.text.split(','))) if destination is not None else None
+        obj = task_elem.find('object').text if task_elem.find('object') is not None else None
+        color = task_elem.find('color').text if task_elem.find('color') is not None else None
+        key_position = task_elem.find('key_position')
+        key_position = tuple(map(int, key_position.text.split(','))) if key_position is not None else None
+        description = task_elem.find('description').text
+
+        task = Task(task_type, source, destination, obj, color, key_position, description)
+        tasks.append(task)
+
+    return tasks
 
 
 

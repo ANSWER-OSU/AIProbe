@@ -1,7 +1,7 @@
 <Environment>
     <Agent>
         <InitialPosition x="5" y="3"/>
-        <InitialDirection theta="4"/>
+        <InitialDirection theta="1"/>
         <DestinationPosition x="13" y="14"/>
         <DestinationDirection theta="3"/>
         <Path>

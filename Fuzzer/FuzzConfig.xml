@@ -1,20 +1,24 @@
 <FuzzerConfig>
     <!-- General Fuzzer Settings -->
     <Settings>
-
         <Timeout>5</Timeout> <!-- Timeout for each test case in min -->
         <LogFilePath>Result/Minigrid</LogFilePath>
-        <Enviroment></Enviroment>
+        <Enviroment>minigrid</Enviroment>
+        <EnviromentConfig>A:\Github repos\Answer\AIProbe\Minigrid\Config.xml</EnviromentConfig>
     </Settings>
 
     <!-- Numeric Seed Inputs for the Fuzzer -->
     <SeedList>
-        <Seed>10</Seed>
-        <Seed>12</Seed>
-        <Seed>34</Seed>
-        <Seed>536</Seed>
-        <Seed>345</Seed>
-        <Seed>324</Seed>
+        <Seed>11</Seed>
+        <Seed>56</Seed>
+        <Seed>32</Seed>
+        <Seed>88</Seed>
+        <Seed>41</Seed>
+        <Seed>29</Seed>
+        <Seed>78</Seed>
+        <Seed>93</Seed>
+        <Seed>100</Seed>
+        <Seed>200</Seed>
         <!-- Add more seeds as needed -->
     </SeedList>
     <!-- Mutator Settings -->

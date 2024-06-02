@@ -121,13 +121,13 @@ def load_Script_Setting(xml_file_path):
 
 
 class FuzzerSetting:
-    def __init__(self, EnvName, timeout, seeds, log_file_path, mutators):
+    def __init__(self, EnvName, timeout, seeds, log_file_path, mutators, env_config_path):
         self.EnvName = EnvName
         self.timeout = timeout
         self.seeds = seeds
         self.log_file_path = log_file_path
         self.mutators = mutators
-
+        self.env_path = env_config_path
 
 
 def load_fuzzer_setting(xml_file_path):
@@ -138,6 +138,7 @@ def load_fuzzer_setting(xml_file_path):
     timeout = int(root.find("./Settings/Timeout").text)
     log_file_path = root.find("./Settings/LogFilePath").text
     Env_name = root.find("./Settings/Enviroment").text
+    env_config_path = root.find("./Settings/EnviromentConfig").text
 
 
     # Extract seeds
@@ -154,7 +155,7 @@ def load_fuzzer_setting(xml_file_path):
         mutators.append(mutator)
 
     # Create Setting object with extracted data
-    setting = FuzzerSetting(Env_name, timeout, seeds, log_file_path, mutators)
+    setting = FuzzerSetting(Env_name, timeout, seeds, log_file_path, mutators,env_config_path)
 
     return setting
 

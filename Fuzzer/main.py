@@ -4,8 +4,10 @@ import time
 
 import LoadConfig
 from Fuzzer.Mutation.mutateTask import GenrateTask
+from Minigrid.environment import execute_and_evaluate_task
+from Fuzzer.Mutation.mutateInstruction import fuzz_instruction
 
-from Mutation.mutateEnv import mutate_enviroment , EnvName
+from Fuzzer.Mutation.mutateEnv import mutate_environment, EnvName
 from Minigrid.environment import aumate_enviromet_human_mode
 
 
@@ -21,18 +23,21 @@ def Main():
         # Mutatee the Env
         random.seed(seed)
 
-        xml_file_path = "A:\Github repos\Answer\AIProbe\Minigrid\Config.xml"
+        xml_file_path = fuzzer.env_path
 
         # Start the timer
         start_time = time.time()
         elapsed_time = 1
+        env_mutate_time = 1
         env_count = 1
-        genrateTaskTime = 1
+        task_mutate_time = 1
+        instruction_mutate_time = 1
 
-        while env_count < 30:  # 300 seconds = 5 minutes
+
+        while env_mutate_time < 600:  # 300 seconds = 5 minutes
 
             # Mutate the environment
-            mutated_xml_content = mutate_enviroment(xml_file_path,EnvName.MINIGRID)
+            mutated_xml_content = mutate_environment(xml_file_path,EnvName.MINIGRID)
             screenshot_path = os.path.join(parent_dir, "Result", "Minigrid",str(seed), f"Env-{env_count}")
             result_folder = updateFilePath(screenshot_path)
 
@@ -43,21 +48,45 @@ def Main():
                 f.write(mutated_xml_content)
 
             task_count = 1
+            aumate_enviromet_human_mode(result_folder, xml_file_path)
 
-            while genrateTaskTime < 300 :
+            task_start_time = time.time()
+            task_elapsed_time = 1
+            while task_elapsed_time < 300 :
+                mutated_task_path = os.path.join(result_folder,f"task_{task_count}")
+                GenrateTask(mutated_env_path,mutated_task_path)
 
-                GenrateTask(mutated_env_path,task_count,result_folder)
+                instruction_number = 1
+                instruction_start_time = time.time()
+                instruction_mutate_time = 1
+                while instruction_mutate_time < 300:
+                    instruction_log_path = os.path.join(mutated_task_path,f"log.txt")
+                    if fuzz_instruction(fuzzer.EnvName,instruction_log_path,xml_file_path):
+                        print(f"Instruction found for seed {seed} env {env_count} task {task_count}")
+                        task_count += 1
+
+                        break;
+
+                    instruction_mutate_time = time.time() - instruction_start_time
+
+
+                    instruction_number+=1
+
+
+                task_count+=1
+                task_mutate_time+=1
+
+                task_elapsed_time = time.time() - task_start_time
 
 
 
 
             # Render the environment and save the screenshot
 
-            aumate_enviromet_human_mode(result_folder, xml_file_path)
+            env_mutate_time+=1
             env_count += 1
             # Update the elapsed time
-            elapsed_time = time.time() - start_time
-            print(f"sec done: {elapsed_time}")
+
 
         #mutate_minigrid_environment(xml_file_path)
         #aumate_enviromet_human_mode('A:\Github repos\Answer\AIProbe\Result\Minigrid\MutationEnv',xml_file_path,seed)
