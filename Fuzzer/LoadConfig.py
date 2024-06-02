@@ -1,4 +1,7 @@
 import xml.etree.ElementTree as ET
+import os
+import sys
+sys.path.append(os.path.join(os.path.dirname(__file__), '/Minigrid'))
 from Minigrid.EnvironmentState import Agent, Door, Key, Object, Lava, State , Wall
 
 def load_InitialState(file_path):
