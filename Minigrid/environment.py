@@ -47,7 +47,7 @@ class CustomMiniGridEnv(MiniGridEnv):
             'w': 2
         }
         self.agent_dir = 1
-        self.agent_dir = direction_map.get(self.initial_state.agent.init_direction,
+        self.agent_dir = direction_map.get(self.initial_state.agent.dest_direction,
                                            0)  # Default to 'e' if direction is invalid
 
         mid_x, mid_y = width // 2, height // 2
@@ -156,8 +156,15 @@ class CustomMiniGridEnv(MiniGridEnv):
         elif instruction == env.actions.pickup:
             next_pos = get_next_pos(self.final_state.agent.dest_direction, env.agent_pos)
             for key in self.final_state.keys:
-                if (key.x_init, key.y_init) == next_pos:
-                    key.is_picked = 1
+                if (key.x_init, key.y_init) == next_pos and bool(key.is_present):
+                     key.is_picked = 1
+                     return
+            for object in self.final_state.objects:
+                if(object.x , object.y) == next_pos and bool(object.is_present):
+                    object.pick_status = 1
+                    return
+
+
 
         elif instruction == env.actions.toggle:
             next_pos = get_next_pos(self.final_state.agent.dest_direction, env.agent_pos)
@@ -173,6 +180,11 @@ class CustomMiniGridEnv(MiniGridEnv):
             for key in self.final_state.keys:
                 if key.is_picked == 1:
                     key.x_init, key.y_init = next_pos  # Change the key position to the drop position
+                    break
+
+            for object in self.final_state.objects:
+                if object.pick_status == 1 :
+                    object.v, object.w = next_pos  # Change the key position to the drop position
                     break
 
     def step(self, action):
@@ -228,6 +240,15 @@ class CustomMiniGridEnv(MiniGridEnv):
                 log_file.write(
                     f"Lava at ({lava_tile.x}, {lava_tile.y})\n")
 
+            for obj in self.initial_state.objects:
+                pickStatus = 'Not Picked'
+                if obj.pick_status == 1:
+                    pickStatus = 'Picked'
+                dropStatus = 'Not Dropped'
+                if obj.drop_status == 1:
+                    dropStatus = 'Dropped'
+                log_file.write(
+                    f"Object at ({obj.x}, {obj.y}) pick_status: {pickStatus}, drop_status: {dropStatus}, drop destination: ({obj.v}, {obj.w}), is_present: {obj.is_present}, color: {obj.color}\n")
 
             # Add logging for initial state of objects and lava tiles as needed
 
@@ -252,6 +273,16 @@ class CustomMiniGridEnv(MiniGridEnv):
             for lava_tile in self.initial_state.lava_tiles:
                 log_file.write(
                     f"Lava at ({lava_tile.x}, {lava_tile.y})\n")
+
+            for obj in self.final_state.objects:
+                pickStatus = 'Not Picked'
+                if obj.pick_status == 1:
+                    pickStatus = 'Picked'
+                dropStatus = 'Not Dropped'
+                if obj.drop_status == 1:
+                    dropStatus = 'Dropped'
+                log_file.write(
+                    f"Object at ({obj.x}, {obj.y}) pick_status: {pickStatus}, drop_status: {dropStatus}, drop destination: ({obj.v}, {obj.w}), is_present: {obj.is_present}, color: {obj.color}\n")
 
             log_file.write(f"\nInstruction Applied: {instruction}\n\n")
 
@@ -657,12 +688,12 @@ def aumate_enviromet_human_mode(screenshot_path, config_path):
     # Close the environment
     env.close()
 
-#render_environment_human_mode()
+render_environment_human_mode()
 
 
 def test():
-    instruction = ["right","forward","forward","forward","left","forward","pickup","right"]
-    lo = r"A:\Github repos\Answer\AIProbe\Result\Minigrid\10\Env-1\task_1\log.txt"
+    instruction = ["left","forward","left","pickup","right","right","forward","drop"]
+    lo = r"A:\Github repos\Answer\AIProbe\Result\Minigrid\11\Env-1\task_1\log.txt"
     is_valid_instruction, is_valid_capabilities, averageCoverage, di = execute_and_evaluate_task(instruction, "A:\Github repos\Answer\AIProbe\Minigrid\Config.xml", lo)
     print(is_valid_capabilities)
 

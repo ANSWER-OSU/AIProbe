@@ -1,0 +1,23 @@
+----------- Entry Time: 2024-06-03 02:28:23-----------
+Initial State: 
+Agent Initial position: (1, 5), 
+Agent Initial direction: n
+Door at (1, 2) status: Closed  locked_Status: Lock  Door_Color: blue
+Key at (2, 1) picked: 1, present: 1, key_color: green
+Key at (2, 2) picked: 0, present: 1, key_color: blue
+Object at (5, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (4, 5), is_present: 1, color: yellow
+
+Final State: 
+Agent Final position: (2, 1)
+Agent Final direction: w
+Agent path: [(2, 5), (2, 5), (2, 4), (2, 4), (3, 4), (3, 3), (3, 2), (4, 2), (4, 1), (3, 1), (3, 1), (3, 1), (2, 1), (2, 1), (2, 1), (2, 1), (2, 1), (2, 1), (2, 1)]
+
+Door at (1, 2) status: Open  locked_Status: Lock  Door_Color: blue
+Key at (2, 1) picked: 1, present: 1, key_color: green
+Key at (2, 2) picked: 0, present: 1, key_color: blue
+Object at (5, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (4, 5), is_present: 1, color: yellow
+
+Instruction Applied: ['drop', 'drop', 'left', 'left', 'right', 'right', 'toggle', 'done', 'done', 'drop', 'toggle', 'drop', 'drop', 'pickup', 'drop', 'done', 'left', 'toggle', 'left', 'left', 'pickup', 'toggle', 'right', 'done', 'pickup', 'drop', 'pickup', 'toggle', 'done', 'toggle', 'pickup', 'forward', 'right', 'forward', 'toggle', 'left', 'left', 'drop', 'forward', 'right', 'left', 'left', 'toggle', 'forward', 'drop', 'left', 'left', 'toggle', 'forward', 'toggle', 'left', 'forward', 'right', 'left', 'left', 'pickup', 'toggle', 'right', 'right', 'left', 'done', 'toggle', 'right', 'pickup', 'right', 'right', 'right', 'forward', 'right', 'toggle', 'pickup', 'pickup', 'done', 'pickup', 'forward', 'left', 'forward', 'toggle', 'left', 'forward', 'drop', 'pickup', 'pickup', 'drop', 'pickup', 'toggle', 'left', 'done', 'drop', 'right', 'drop', 'toggle', 'drop', 'forward', 'left', 'drop', 'done', 'toggle', 'done', 'toggle', 'done', 'drop', 'drop', 'done', 'toggle', 'left', 'drop', 'done', 'toggle', 'right', 'right', 'right', 'toggle', 'done', 'forward', 'right', 'left', 'left', 'done', 'pickup', 'forward', 'done', 'drop', 'pickup', 'drop', 'pickup', 'pickup', 'toggle', 'toggle', 'drop', 'drop', 'toggle', 'right', 'forward', 'drop', 'toggle', 'left', 'drop', 'left', 'drop', 'right', 'done', 'toggle', 'toggle', 'drop', 'right', 'pickup', 'pickup', 'pickup', 'drop', 'right', 'drop', 'forward', 'toggle', 'drop', 'toggle', 'done', 'toggle', 'right', 'forward', 'left', 'pickup', 'done', 'right', 'right', 'left', 'right', 'forward', 'done', 'right', 'done', 'pickup', 'right', 'toggle', 'done', 'drop', 'left', 'pickup', 'left', 'forward', 'forward']
+
+Valid Capability : True 
+Average Coverage : 26.19047619047619

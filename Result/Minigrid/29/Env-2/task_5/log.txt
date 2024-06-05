@@ -1,0 +1,41 @@
+----------- Entry Time: 2024-06-03 04:28:54-----------
+Initial State: 
+Agent Initial position: (4, 1), 
+Agent Initial direction: e
+Door at (2, 3) status: Closed  locked_Status: Lock  Door_Color: red
+Door at (3, 5) status: Closed  locked_Status: Unlock  Door_Color: blue
+Door at (3, 1) status: Closed  locked_Status: Unlock  Door_Color: red
+Key at (2, 3) picked: 0, present: 0, key_color: grey
+Key at (3, 1) picked: 0, present: 1, key_color: red
+Key at (5, 3) picked: 0, present: 1, key_color: green
+Lava at (4, 4)
+Lava at (1, 1)
+Lava at (4, 1)
+Lava at (3, 3)
+Lava at (4, 5)
+Object at (3, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (4, 1), is_present: 0, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (3, 4), is_present: 0, color: blue
+
+Final State: 
+Agent Final position: (4, 3)
+Agent Final direction: w
+Agent path: [(4, 2), (4, 3)]
+
+Door at (2, 3) status: Open  locked_Status: Lock  Door_Color: red
+Door at (3, 5) status: Open  locked_Status: Unlock  Door_Color: blue
+Door at (3, 1) status: Open  locked_Status: Unlock  Door_Color: red
+Key at (2, 3) picked: 0, present: 0, key_color: grey
+Key at (3, 1) picked: 0, present: 1, key_color: red
+Key at (5, 3) picked: 0, present: 1, key_color: green
+Lava at (4, 4)
+Lava at (1, 1)
+Lava at (4, 1)
+Lava at (3, 3)
+Lava at (4, 5)
+Object at (3, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (4, 1), is_present: 0, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (3, 4), is_present: 0, color: blue
+
+Instruction Applied: ['drop', 'done', 'left', 'toggle', 'toggle', 'done', 'drop', 'done', 'right', 'toggle', 'pickup', 'drop', 'pickup', 'drop', 'forward', 'forward', 'right']
+
+Valid Capability : True 
+Average Coverage : 6.1224489795918355

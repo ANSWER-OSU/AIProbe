@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Tasks><Task><type>move</type><source>2,5</source><object>ball</object><color>blue</color><destination>4,5</destination><description>Move the blue box from (2, 5) to (4, 5)</description></Task></Tasks>

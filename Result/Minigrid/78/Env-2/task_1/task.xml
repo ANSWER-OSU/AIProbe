@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Tasks><Task><type>navigate</type><source>4,4</source><destination>5,1</destination><description>Navigate from source to destination avoiding obstacles</description></Task></Tasks>

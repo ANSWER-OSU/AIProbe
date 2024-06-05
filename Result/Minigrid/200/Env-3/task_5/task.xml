@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Tasks><Task><type>drop</type><source>3,3</source><object>key</object><color>blue</color><destination>1,5</destination><description>Drop the blue key at the destination (1, 5)</description></Task></Tasks>

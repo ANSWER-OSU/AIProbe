@@ -1,0 +1,23 @@
+<Environment>
+    <Agent>
+        <InitialPosition x="5" y="4" />
+        <InitialDirection theta="w" />
+        <DestinationPosition x="4" y="1" />
+        <DestinationDirection theta="w" />
+        <Path>
+        </Path>
+    </Agent>
+    <Keys>
+         <Key x_init="3" y_init="1" is_picked="0" is_present="0" color="green" /><Key x_init="5" y_init="3" is_picked="0" is_present="0" color="red" /><Key x_init="4" y_init="2" is_picked="0" is_present="1" color="green" /><Key x_init="5" y_init="1" is_picked="0" is_present="1" color="blue" /><Key x_init="1" y_init="4" is_picked="0" is_present="0" color="green" /></Keys>
+    <Doors>
+        <Door x="2" y="5" door_open="1" color="green" door_locked="0" /><Door x="5" y="2" door_open="0" color="yellow" door_locked="0" /></Doors>
+    <Objects>
+        <Object pick_x="1" pick_y="2" pickStatus="0" drop_x="4" drop_y="3" dropStatus="0" is_present="0" color="yellow" /><Object pick_x="3" pick_y="1" pickStatus="0" drop_x="3" drop_y="3" dropStatus="0" is_present="1" color="red" /></Objects>
+    <LavaTiles>
+         <Lava x="1" y="5" is_present="1" /><Lava x="4" y="1" is_present="0" /><Lava x="3" y="5" is_present="0" /><Lava x="4" y="3" is_present="1" /><Lava x="1" y="2" is_present="1" /></LavaTiles>
+    <Walls>
+        <Wall x="2" y="1" /><Wall x="2" y="2" /><Wall x="2" y="3" /><Wall x="2" y="4" /><Wall x="5" y="1" /><Wall x="5" y="3" /><Wall x="5" y="5" /></Walls>
+    <Grid>
+        <Size grid_Size="7" />
+    </Grid>
+</Environment>

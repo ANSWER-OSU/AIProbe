@@ -1,0 +1,23 @@
+<Environment>
+    <Agent>
+        <InitialPosition x="1" y="5" />
+        <InitialDirection theta="n" />
+        <DestinationPosition x="4" y="3" />
+        <DestinationDirection theta="w" />
+        <Path>
+        </Path>
+    </Agent>
+    <Keys>
+         <Key x_init="2" y_init="4" is_picked="0" is_present="0" color="green" /></Keys>
+    <Doors>
+        <Door x="3" y="2" door_open="0" color="red" door_locked="1" /><Door x="3" y="2" door_open="1" color="grey" door_locked="1" /><Door x="3" y="4" door_open="0" color="green" door_locked="1" /></Doors>
+    <Objects>
+        <Object pick_x="2" pick_y="3" pickStatus="0" drop_x="1" drop_y="5" dropStatus="0" is_present="1" color="blue" /></Objects>
+    <LavaTiles>
+         <Lava x="3" y="3" is_present="0" /></LavaTiles>
+    <Walls>
+        <Wall x="1" y="2" /><Wall x="2" y="2" /><Wall x="4" y="2" /><Wall x="5" y="2" /><Wall x="2" y="2" /><Wall x="4" y="2" /><Wall x="3" y="1" /><Wall x="3" y="2" /><Wall x="3" y="3" /><Wall x="3" y="5" /></Walls>
+    <Grid>
+        <Size grid_Size="7" />
+    </Grid>
+</Environment>

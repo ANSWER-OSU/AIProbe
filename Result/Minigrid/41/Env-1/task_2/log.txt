@@ -1,0 +1,527 @@
+----------- Entry Time: 2024-06-03 03:02:07-----------
+Initial State: 
+Agent Initial position: (4, 3), 
+Agent Initial direction: e
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 0, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Final State: 
+Agent Final position: (4, 4)
+Agent Final direction: s
+Agent path: [(4, 4)]
+
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 0, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Instruction Applied: ['right', 'left', 'toggle', 'left', 'left', 'left', 'right', 'right', 'right', 'forward']
+
+Valid Capability : False 
+Average Coverage : 2.380952380952381
+----------- Entry Time: 2024-06-03 03:02:07-----------
+Initial State: 
+Agent Initial position: (4, 3), 
+Agent Initial direction: e
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 0, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Final State: 
+Agent Final position: (5, 3)
+Agent Final direction: e
+Agent path: [(4, 4), (4, 5), (4, 5), (4, 5), (4, 5), (4, 5), (4, 5), (4, 5), (4, 4), (5, 4), (5, 3), (4, 3), (5, 3), (5, 3), (5, 3)]
+
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 0, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Instruction Applied: ['forward', 'pickup', 'toggle', 'drop', 'toggle', 'drop', 'forward', 'done', 'drop', 'done', 'toggle', 'toggle', 'forward', 'drop', 'right', 'done', 'right', 'done', 'drop', 'toggle', 'pickup', 'toggle', 'drop', 'right', 'done', 'right', 'done', 'pickup', 'forward', 'forward', 'forward', 'drop', 'forward', 'forward', 'toggle', 'left', 'right', 'right', 'drop', 'right', 'pickup', 'toggle', 'toggle', 'toggle', 'forward', 'toggle', 'right', 'toggle', 'drop', 'toggle', 'pickup', 'left', 'pickup', 'done', 'right', 'toggle', 'left', 'right', 'drop', 'right', 'left', 'right', 'pickup', 'left', 'drop', 'drop', 'right', 'left', 'pickup', 'left', 'pickup', 'drop', 'toggle', 'left', 'drop', 'pickup', 'done', 'left', 'left', 'forward', 'left', 'pickup', 'right', 'toggle', 'pickup', 'drop', 'right', 'pickup', 'pickup', 'drop', 'toggle', 'drop', 'toggle', 'drop', 'toggle', 'drop', 'right', 'right', 'drop', 'forward', 'pickup', 'left', 'done', 'forward', 'pickup', 'done', 'right', 'toggle', 'right', 'drop', 'done', 'forward', 'left', 'left', 'toggle', 'left', 'drop', 'pickup', 'left', 'forward', 'done', 'drop', 'forward', 'toggle', 'drop', 'left', 'toggle', 'right', 'right', 'left', 'toggle', 'done']
+
+Valid Capability : False 
+Average Coverage : 19.642857142857142
+----------- Entry Time: 2024-06-03 03:02:07-----------
+Initial State: 
+Agent Initial position: (4, 3), 
+Agent Initial direction: e
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 0, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Final State: 
+Agent Final position: (5, 2)
+Agent Final direction: e
+Agent path: [(4, 2), (5, 2), (5, 2), (5, 2)]
+
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 0, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Instruction Applied: ['drop', 'toggle', 'left', 'pickup', 'drop', 'toggle', 'done', 'toggle', 'pickup', 'done', 'toggle', 'left', 'pickup', 'toggle', 'forward', 'done', 'left', 'left', 'drop', 'done', 'drop', 'done', 'toggle', 'left', 'toggle', 'pickup', 'forward', 'forward', 'done', 'forward']
+
+Valid Capability : False 
+Average Coverage : 7.738095238095238
+----------- Entry Time: 2024-06-03 03:02:07-----------
+Initial State: 
+Agent Initial position: (4, 3), 
+Agent Initial direction: e
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 1, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Final State: 
+Agent Final position: (5, 2)
+Agent Final direction: e
+Agent path: [(3, 3), (3, 2), (4, 2), (5, 2)]
+
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 1, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Instruction Applied: ['done', 'right', 'forward', 'right', 'pickup', 'right', 'left', 'pickup', 'done', 'pickup', 'toggle', 'forward', 'pickup', 'toggle', 'toggle', 'done', 'toggle', 'right', 'forward', 'done', 'forward', 'done']
+
+Valid Capability : False 
+Average Coverage : 10.119047619047619
+----------- Entry Time: 2024-06-03 03:02:07-----------
+Initial State: 
+Agent Initial position: (4, 3), 
+Agent Initial direction: e
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 1, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Final State: 
+Agent Final position: (5, 1)
+Agent Final direction: e
+Agent path: [(4, 2), (4, 2), (5, 2), (5, 1), (5, 1)]
+
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 1, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Instruction Applied: ['done', 'pickup', 'pickup', 'drop', 'toggle', 'toggle', 'drop', 'drop', 'done', 'left', 'left', 'drop', 'forward', 'done', 'pickup', 'drop', 'toggle', 'toggle', 'toggle', 'left', 'left', 'right', 'toggle', 'forward', 'right', 'left', 'drop', 'done', 'drop', 'pickup', 'left', 'pickup', 'right', 'toggle', 'left', 'right', 'right', 'right', 'done', 'forward', 'done', 'pickup', 'right', 'left', 'left', 'done', 'forward', 'toggle', 'done', 'done', 'right', 'forward']
+
+Valid Capability : False 
+Average Coverage : 12.5
+----------- Entry Time: 2024-06-03 03:02:07-----------
+Initial State: 
+Agent Initial position: (4, 3), 
+Agent Initial direction: e
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 0, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Final State: 
+Agent Final position: (4, 2)
+Agent Final direction: w
+Agent path: [(4, 2), (5, 2), (4, 2)]
+
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 0, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Instruction Applied: ['right', 'pickup', 'left', 'right', 'toggle', 'right', 'forward', 'pickup', 'toggle', 'toggle', 'left', 'left', 'toggle', 'left', 'forward', 'done', 'done', 'drop', 'left', 'done', 'pickup', 'right', 'done', 'right', 'right', 'forward']
+
+Valid Capability : False 
+Average Coverage : 8.333333333333334
+----------- Entry Time: 2024-06-03 03:02:07-----------
+Initial State: 
+Agent Initial position: (4, 3), 
+Agent Initial direction: e
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 0, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Final State: 
+Agent Final position: (5, 5)
+Agent Final direction: w
+Agent path: [(4, 4), (4, 5), (5, 5), (5, 5), (5, 5)]
+
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 0, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Instruction Applied: ['drop', 'toggle', 'forward', 'forward', 'left', 'done', 'pickup', 'pickup', 'pickup', 'forward', 'forward', 'right', 'forward', 'right']
+
+Valid Capability : False 
+Average Coverage : 5.357142857142857
+----------- Entry Time: 2024-06-03 03:02:07-----------
+Initial State: 
+Agent Initial position: (4, 3), 
+Agent Initial direction: e
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 0, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Final State: 
+Agent Final position: (5, 5)
+Agent Final direction: e
+Agent path: [(5, 3), (5, 3), (5, 2), (5, 3), (5, 4), (5, 5)]
+
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 0, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Instruction Applied: ['drop', 'right', 'drop', 'left', 'toggle', 'pickup', 'left', 'forward', 'forward', 'left', 'forward', 'drop', 'right', 'right', 'pickup', 'drop', 'done', 'pickup', 'toggle', 'pickup', 'done', 'drop', 'toggle', 'drop', 'done', 'toggle', 'forward', 'forward', 'forward', 'toggle', 'toggle', 'toggle', 'done', 'toggle', 'done', 'drop', 'left', 'drop', 'left', 'right', 'toggle', 'toggle', 'right', 'done', 'drop', 'left', 'done']
+
+Valid Capability : False 
+Average Coverage : 11.904761904761905
+----------- Entry Time: 2024-06-03 03:02:07-----------
+Initial State: 
+Agent Initial position: (4, 3), 
+Agent Initial direction: e
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 0, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Final State: 
+Agent Final position: (2, 3)
+Agent Final direction: n
+Agent path: [(3, 3), (2, 3)]
+
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 0, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Instruction Applied: ['pickup', 'left', 'toggle', 'left', 'done', 'left', 'forward', 'drop', 'forward', 'right', 'drop', 'right', 'toggle', 'left', 'left', 'right', 'done']
+
+Valid Capability : False 
+Average Coverage : 7.142857142857142
+----------- Entry Time: 2024-06-03 03:02:07-----------
+Initial State: 
+Agent Initial position: (4, 3), 
+Agent Initial direction: e
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 0, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Final State: 
+Agent Final position: (5, 3)
+Agent Final direction: e
+Agent path: [(4, 4), (4, 3), (5, 3)]
+
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 0, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Instruction Applied: ['right', 'done', 'left', 'forward', 'done', 'drop', 'done', 'drop', 'drop', 'toggle', 'left', 'left', 'done', 'done', 'left', 'right', 'drop', 'forward', 'right', 'forward']
+
+Valid Capability : False 
+Average Coverage : 6.547619047619047
+----------- Entry Time: 2024-06-03 03:02:08-----------
+Initial State: 
+Agent Initial position: (4, 3), 
+Agent Initial direction: e
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (2, 5) picked: 1, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Final State: 
+Agent Final position: (2, 5)
+Agent Final direction: e
+Agent path: [(3, 3), (2, 3), (2, 4), (2, 4), (2, 4), (2, 4), (2, 5), (2, 5), (2, 5)]
+
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (2, 5) picked: 1, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Instruction Applied: ['drop', 'toggle', 'right', 'forward', 'done', 'drop', 'right', 'pickup', 'right', 'pickup', 'right', 'right', 'forward', 'pickup', 'left', 'done', 'forward', 'left', 'right', 'right', 'done', 'forward', 'toggle', 'done', 'left', 'done', 'left', 'drop', 'drop', 'toggle', 'right', 'right', 'drop', 'drop', 'right', 'drop', 'pickup', 'done', 'done', 'pickup', 'pickup', 'right', 'pickup', 'drop', 'forward', 'drop', 'right', 'toggle', 'done', 'drop', 'left', 'pickup', 'left', 'left', 'done', 'toggle', 'forward', 'left', 'done', 'forward', 'toggle', 'drop', 'left', 'drop', 'toggle', 'forward', 'right', 'done', 'pickup', 'forward', 'left', 'done', 'toggle', 'done']
+
+Valid Capability : False 
+Average Coverage : 11.30952380952381
+----------- Entry Time: 2024-06-03 03:02:08-----------
+Initial State: 
+Agent Initial position: (4, 3), 
+Agent Initial direction: e
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 0, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Final State: 
+Agent Final position: (5, 1)
+Agent Final direction: n
+Agent path: [(4, 4), (4, 3), (4, 2), (4, 1), (4, 1), (4, 1), (4, 2), (5, 2), (5, 1), (5, 1), (5, 1), (5, 1), (5, 1)]
+
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 0, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Instruction Applied: ['toggle', 'forward', 'drop', 'drop', 'right', 'right', 'forward', 'done', 'drop', 'done', 'toggle', 'forward', 'toggle', 'toggle', 'toggle', 'drop', 'drop', 'left', 'right', 'forward', 'forward', 'drop', 'forward', 'left', 'left', 'done', 'left', 'right', 'forward', 'left', 'drop', 'done', 'toggle', 'toggle', 'drop', 'forward', 'left', 'forward', 'forward', 'done', 'pickup', 'right', 'done', 'pickup', 'forward', 'drop', 'done', 'pickup', 'forward', 'toggle', 'toggle', 'left', 'forward']
+
+Valid Capability : False 
+Average Coverage : 16.07142857142857
+----------- Entry Time: 2024-06-03 03:02:08-----------
+Initial State: 
+Agent Initial position: (4, 3), 
+Agent Initial direction: e
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 0, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Final State: 
+Agent Final position: (4, 1)
+Agent Final direction: w
+Agent path: [(4, 2), (5, 2), (5, 2), (5, 1), (5, 1), (5, 2), (5, 3), (5, 2), (5, 1), (5, 1), (5, 1), (4, 1), (4, 1)]
+
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 0, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Instruction Applied: ['right', 'left', 'right', 'drop', 'toggle', 'right', 'forward', 'right', 'toggle', 'forward', 'forward', 'left', 'pickup', 'forward', 'pickup', 'toggle', 'forward', 'right', 'right', 'forward', 'forward', 'toggle', 'left', 'drop', 'left', 'toggle', 'toggle', 'done', 'done', 'forward', 'forward', 'forward', 'drop', 'left', 'pickup', 'right', 'done', 'toggle', 'forward', 'drop', 'right', 'toggle', 'right', 'right', 'pickup', 'pickup', 'left', 'right', 'toggle', 'toggle', 'forward', 'done', 'drop', 'left', 'toggle', 'toggle', 'right', 'toggle', 'pickup', 'toggle', 'right', 'done', 'drop', 'drop', 'toggle', 'drop', 'done', 'forward', 'left', 'toggle', 'done']
+
+Valid Capability : False 
+Average Coverage : 17.261904761904763
+----------- Entry Time: 2024-06-03 03:02:08-----------
+Initial State: 
+Agent Initial position: (4, 3), 
+Agent Initial direction: e
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 0, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Final State: 
+Agent Final position: (3, 3)
+Agent Final direction: n
+Agent path: [(3, 3), (3, 3)]
+
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 0, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Instruction Applied: ['left', 'done', 'left', 'left', 'pickup', 'toggle', 'forward', 'pickup', 'right', 'forward']
+
+Valid Capability : False 
+Average Coverage : 4.166666666666667
+----------- Entry Time: 2024-06-03 03:02:08-----------
+Initial State: 
+Agent Initial position: (4, 3), 
+Agent Initial direction: e
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 0, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Final State: 
+Agent Final position: (1, 3)
+Agent Final direction: s
+Agent path: [(4, 4), (4, 5), (4, 4), (4, 3), (4, 2), (5, 2), (5, 2), (5, 1), (5, 2), (5, 3), (5, 3), (4, 3), (3, 3), (2, 3), (1, 3)]
+
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 0, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Instruction Applied: ['done', 'left', 'right', 'forward', 'left', 'right', 'left', 'right', 'drop', 'forward', 'drop', 'right', 'done', 'right', 'done', 'forward', 'toggle', 'forward', 'forward', 'right', 'done', 'pickup', 'pickup', 'done', 'done', 'drop', 'pickup', 'toggle', 'drop', 'left', 'right', 'pickup', 'forward', 'forward', 'toggle', 'right', 'toggle', 'done', 'right', 'toggle', 'right', 'forward', 'left', 'left', 'forward', 'pickup', 'drop', 'pickup', 'forward', 'toggle', 'left', 'toggle', 'toggle', 'done', 'forward', 'left', 'left', 'done', 'done', 'drop', 'drop', 'done', 'forward', 'drop', 'done', 'toggle', 'drop', 'toggle', 'left', 'right', 'forward', 'forward', 'forward', 'left', 'toggle', 'done']
+
+Valid Capability : False 
+Average Coverage : 24.40476190476191
+----------- Entry Time: 2024-06-03 03:02:08-----------
+Initial State: 
+Agent Initial position: (4, 3), 
+Agent Initial direction: e
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 0, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Final State: 
+Agent Final position: (4, 4)
+Agent Final direction: n
+Agent path: [(4, 4), (4, 5), (4, 4)]
+
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 0, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Instruction Applied: ['toggle', 'right', 'toggle', 'drop', 'left', 'done', 'left', 'left', 'left', 'left', 'forward', 'forward', 'left', 'left', 'right', 'drop', 'drop', 'done', 'left', 'toggle', 'pickup', 'forward']
+
+Valid Capability : False 
+Average Coverage : 7.738095238095238
+----------- Entry Time: 2024-06-03 03:02:08-----------
+Initial State: 
+Agent Initial position: (4, 3), 
+Agent Initial direction: e
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 0, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Final State: 
+Agent Final position: (3, 5)
+Agent Final direction: w
+Agent path: [(5, 3), (5, 3), (5, 4), (5, 3), (5, 4), (4, 4), (4, 5), (4, 5), (4, 4), (4, 3), (4, 4), (4, 3), (4, 4), (5, 4), (5, 4), (5, 5), (4, 5), (3, 5)]
+
+Key at (3, 4) picked: 0, present: 0, key_color: blue
+Key at (1, 4) picked: 0, present: 0, key_color: blue
+Key at (3, 2) picked: 0, present: 1, key_color: grey
+Key at (5, 1) picked: 0, present: 0, key_color: grey
+Key at (1, 4) picked: 0, present: 1, key_color: blue
+Object at (4, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 1), is_present: 0, color: red
+Object at (2, 2) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (1, 3), is_present: 1, color: blue
+Object at (5, 1) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (5, 5), is_present: 0, color: yellow
+
+Instruction Applied: ['drop', 'pickup', 'toggle', 'drop', 'left', 'done', 'toggle', 'drop', 'drop', 'toggle', 'toggle', 'forward', 'toggle', 'forward', 'done', 'drop', 'toggle', 'done', 'drop', 'right', 'forward', 'left', 'toggle', 'left', 'toggle', 'pickup', 'toggle', 'forward', 'done', 'left', 'drop', 'left', 'right', 'left', 'toggle', 'forward', 'toggle', 'drop', 'right', 'forward', 'done', 'left', 'done', 'toggle', 'drop', 'forward', 'forward', 'pickup', 'pickup', 'pickup', 'pickup', 'right', 'left', 'left', 'left', 'done', 'pickup', 'left', 'right', 'forward', 'forward', 'left', 'pickup', 'left', 'done', 'toggle', 'done', 'forward', 'toggle', 'right', 'pickup', 'right', 'forward', 'done', 'drop', 'right', 'drop', 'right', 'toggle', 'forward', 'done', 'left', 'toggle', 'toggle', 'pickup', 'done', 'forward', 'drop', 'drop', 'drop', 'toggle', 'pickup', 'forward', 'drop', 'done', 'drop', 'right', 'toggle', 'forward', 'right', 'toggle', 'drop', 'left', 'right', 'forward', 'forward']
+
+Valid Capability : True 
+Average Coverage : 22.61904761904762

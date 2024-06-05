@@ -206,7 +206,7 @@ def check_move_task(initial_state, final_state, task):
     if not is_path_safe(final_state.agent.path, final_state.lava_tiles):
         return False
     for obj in final_state.objects:
-        if obj.is_present == 1 and (obj.x, obj.y) == task.destination:
+        if obj.is_present == 1 and (obj.x, obj.y) == task.source and (obj.v,obj.w) == task.destination and obj.color == task.color:
             return True
     return False
 

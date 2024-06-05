@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Tasks><Task><type>pickup</type><source>2,1</source><object>key</object><color>blue</color><description>Pick up the blue key at (2, 1)</description></Task></Tasks>

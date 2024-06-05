@@ -50,7 +50,7 @@ def generate_random_task(task_type, grid_size, env_elements):
         task["description"] = f"Drop the {task['color']} key at the destination {task['destination']}"
     elif task_type == "move" and env_elements["object_positions"]:
         obj_pos = random.choice(env_elements["object_positions"])
-        task["object"] = "box"
+        task["object"] = "ball"
         task["color"] = random.choice(colors)
         task["source"] = obj_pos[:2]
         task["destination"] = (random.randint(1, grid_size - 2), random.randint(1, grid_size - 2))
@@ -79,7 +79,8 @@ def create_task_xml(task, output_file):
 
 def GenrateTask(xml_file_path, result_path):
     env_elements = parse_environment(xml_file_path)
-    task_types = ["navigate", "pickup", "drop"]
+    task_types = ["navigate", "pickup", "drop",'move']
+    #task_types = ['move']
     task_type = random.choice(task_types)
     task = generate_random_task(task_type,7, env_elements)
 

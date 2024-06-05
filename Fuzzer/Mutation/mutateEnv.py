@@ -3,6 +3,9 @@ import xml.etree.ElementTree as ET
 import random
 import os
 
+# Define the global colors list
+colors = ["red", "blue", "green", "yellow", "grey"]
+
 class EnvName(Enum):
     FLAPPY_BIRD = "flappy_bird"
     MINIGRID = "minigrid"
@@ -17,12 +20,12 @@ def randomize_attributes(element, attributes, grid_size):
                 if 1 <= value <= grid_size - 2:  # Ensure value is not on boundary
                     element.set(attr, str(value))
                     break
-        elif attr in ["is_picked", "is_present", "door_open", "door_locked"]:
+        elif attr in ["is_present", "door_open", "door_locked"]:
             element.set(attr, str(random.choice([0, 1])))
-        elif attr in ["pickStatus", "dropStatus"]:
+        elif attr in ["is_picked","pickStatus", "dropStatus"]:
             element.set(attr, "0")  # Always set pickStatus and dropStatus to 0
         elif attr == "color":
-            element.set(attr, random.choice(["red", "blue", "green", "purple", "yellow", "grey"]))
+            element.set(attr, random.choice(colors))
         elif attr == "theta":
             element.set(attr, random.choice(["n", "e", "s", "w"]))
 
@@ -176,7 +179,7 @@ def mutate_minigrid_environment(xml_file_path):
     final_xml_string = ET.tostring(mutated_root, encoding="unicode")
 
     # Write the mutated XML content back to a new file
-    mutated_file_path = os.path.splitext(xml_file_path)[0] + "_mutated.xml"
+    mutated_file_path = os.path.splitext(xml_file_path)[0] + ".xml"
     with open(mutated_file_path, "w", encoding="utf-8") as f:
         f.write(final_xml_string)
 
