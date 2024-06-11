@@ -15,6 +15,7 @@ class PLEEnv(gym.Env):
     def __init__(self, prespecified_game=True, game_name='FlappyBird', display_screen=True, rgb_state=False):
         # Open up a game state to communicate with emulator
         import importlib
+        self.game_name = game_name
         if prespecified_game:
             game_module_name = ('ple.games.%s' % game_name).lower()
         else:
@@ -42,12 +43,13 @@ class PLEEnv(gym.Env):
         self.viewer = None
         self.feature_bins = []
         self.num_states = len(self.get_states())
-        self.feature_map = {"player_x":0, "fruit_x":1, "fruit_y": 2, "fruit_type":3}
         self.goal_score = 100
         if hasattr(self.game, 'score'):
             self.score = self.game.score
         self.start_state = None
         self.agent_curr_state = self.start_state
+        if hasattr(self.game, 'feature_map'):
+            self.feature_map = self.game.feature_map
         if hasattr(self.game, 'feature_bins'):
             self.feature_bins = self.game.feature_bins
         if hasattr(self.game, 'num_lives'):
@@ -69,6 +71,8 @@ class PLEEnv(gym.Env):
             self.ob_width = self.game.ob_width
         if hasattr(self.game, 'agent_side'):
             self.agent_side = self.game.agent_side
+        if hasattr(self.game, 'is_accurate_model'):
+            self.is_accurate_model = self.game.is_accurate_model
 
 
     def get_source_state(self, state):
@@ -114,12 +118,22 @@ class PLEEnv(gym.Env):
         successors, succ_probabilities = self.get_successors(self.agent_curr_state, action)
         next_state_idx = np.random.choice(len(successors), p=succ_probabilities)
         self.agent_curr_state = successors[next_state_idx]
-        reward, fruit_type = self.get_reward(self.agent_curr_state, action)
+        reward, obj_type = self.get_reward(self.agent_curr_state, action) # obj is either fruit or pipe; obj_type is the type of fruit or pipe
         self.score += reward
-        _ = self.is_bad_fruit(self.agent_curr_state)
-        if self.is_terminal() or self.is_goal(self.score):
-            terminal = True
-        return successors[next_state_idx], reward, succ_probabilities[next_state_idx], terminal, fruit_type
+        if self.game_name.lower() == 'sourcecatcher' or self.game_name.lower() == 'targetcatcher':
+            _ = self.is_bad_fruit(self.agent_curr_state)
+            if self.is_terminal() or self.is_goal(self.score):
+                terminal = True
+        else:
+            if self.is_crash(self.agent_curr_state) or self.is_goal(self.score):
+                terminal = True
+        return successors[next_state_idx], reward, succ_probabilities[next_state_idx], terminal, obj_type
+
+
+        # reward = self.game_state.act(self._action_set[action])
+        # state = self._get_state()
+        # terminal = self.game_state.game_over()
+        # return state, reward, terminal, {}
 
     def _get_image(self, game_state):
         image_rotated = np.fliplr(np.rot90(game_state.getScreenRGB(),3)) # Hack to fix the rotated image returned by ple
@@ -144,8 +158,9 @@ class PLEEnv(gym.Env):
         self.start_state = tuple(self._get_state())
         self.agent_curr_state = self.start_state
         self.score = 0
-        self.lives_left = self.input_lives
-        if self.is_obstacle:
+        if hasattr(self, 'input_lives'):
+            self.lives_left = self.input_lives
+        if hasattr(self, 'is_obstacle') and self.is_obstacle:
             self.update_states()
         self.num_states = len(self.get_states())
         return self.start_state
@@ -208,3 +223,25 @@ class PLEEnv(gym.Env):
         if hasattr(self.game, 'set_agent_side'):
             self.agent_side = value
             return self.game.set_agent_side(value)
+
+    def set_badfruit_region(self, region_array):
+        if hasattr(self.game, 'badfruit_region'):
+            self.badfruit_region = region_array
+            return self.game.set_badfruit_region(region_array)
+
+    def set_is_accurate_model(self, value):
+        if hasattr(self.game, 'set_is_accurate_model'):
+            self.is_accurate_model = value
+            return self.game.set_accurate_model(value)
+
+    def _generatePipes(self, offset=0, pipe=None):
+        if hasattr(self.game, '_generatePipes'):
+            return self.game._generatePipes(offset, pipe)
+
+    def is_past_pipe(self, state):
+        if hasattr(self.game, 'is_past_pipe'):
+            return self.game.is_past_pipe(state)
+
+    def is_crash(self, state):
+        if hasattr(self.game, 'is_crash'):
+            return self.game.is_crash(state)
