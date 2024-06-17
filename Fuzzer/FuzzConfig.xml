@@ -4,7 +4,7 @@
         <Timeout>5</Timeout> <!-- Timeout for each test case in min -->
         <LogFilePath>Result/Minigrid/FourRoom</LogFilePath>
         <Enviroment>four_room</Enviroment>
-        <EnviromentConfig>A:\Github repos\Answer\AIProbe\Minigrid\Config.xml</EnviromentConfig>
+        <EnviromentConfig>Minigrid/Config.xml</EnviromentConfig>
         <MutateEnv>true</MutateEnv>
         <MutateTask>false</MutateTask>
         <MutateEnvTime>600</MutateEnvTime>
