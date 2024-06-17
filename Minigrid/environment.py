@@ -688,7 +688,7 @@ def aumate_enviromet_human_mode(screenshot_path, config_path):
     # Close the environment
     env.close()
 
-render_environment_human_mode()
+#render_environment_human_mode()
 
 
 def test():

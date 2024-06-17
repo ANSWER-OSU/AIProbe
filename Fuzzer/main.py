@@ -1,6 +1,13 @@
 import os
 import random
 import time
+import sys
+
+# Add the project root to the PYTHONPATH
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(project_root)
+print(f"Project root: {project_root}")
+print(f"PYTHONPATH: {sys.path}")
 
 import LoadConfig
 from Fuzzer.Mutation.mutateTask import GenrateTask
@@ -41,6 +48,7 @@ def Main():
             result_folder = updateFilePath(screenshot_path)
 
             # Saving the Env config
+            print(f"Config files: {os.path.join(result_folder)}")
             mutated_env_path = os.path.join(result_folder, 'Config.xml')
             updateFilePath(mutated_env_path)
             with open(mutated_env_path, "w", encoding="utf-8") as f:
