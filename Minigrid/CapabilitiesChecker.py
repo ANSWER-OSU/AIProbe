@@ -188,7 +188,8 @@ def check_pickup_task(initial_state, final_state, task):
         return False
     for key in final_state.keys:
         if key.color == task.color and key.is_picked == 1 and (key.x_init,key.y_init) == task.source:
-            return True
+            if(final_state.agent.dest_pos == task.destination):
+                return True
 
     return False
 

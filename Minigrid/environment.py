@@ -692,8 +692,8 @@ def aumate_enviromet_human_mode(screenshot_path, config_path):
 
 
 def test():
-    instruction = ["left","forward","left","pickup","right","right","forward","drop"]
-    lo = r"A:\Github repos\Answer\AIProbe\Result\Minigrid\11\Env-1\task_1\log.txt"
+    instruction = ["right","pickup","forward","right","forward","forward","forward","right","forward","forward","left","forward","forward","forward","forward"]
+    lo = r"A:\Github repos\Answer\AIProbe\Result\Minigrid\FourRoom\11\Env-1\task_1\log.txt"
     is_valid_instruction, is_valid_capabilities, averageCoverage, di = execute_and_evaluate_task(instruction, "A:\Github repos\Answer\AIProbe\Minigrid\Config.xml", lo)
     print(is_valid_capabilities)
 

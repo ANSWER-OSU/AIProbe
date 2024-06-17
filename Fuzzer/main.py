@@ -10,7 +10,7 @@ print(f"Project root: {project_root}")
 print(f"PYTHONPATH: {sys.path}")
 
 import LoadConfig
-from Fuzzer.Mutation.mutateTask import GenrateTask
+from Fuzzer.Mutation.mutateTask import GenrateTask, PickupTask
 from Minigrid.environment import execute_and_evaluate_task
 from Fuzzer.Mutation.mutateInstruction import fuzz_instruction
 
@@ -38,7 +38,7 @@ def Main():
 
         seed_start_time = time.time()  # Start time for the current seed
 
-        while time.time() - seed_start_time < 36:  # 3600 seconds = 1 hour per seed
+        while time.time() - seed_start_time < fuzzer.mutate_env_time:  # 3600 seconds = 1 hour per seed
             env_start_time = time.time()  # Start time for the current environment mutation
 
             print(f"Running for env {env_count}")
@@ -57,20 +57,24 @@ def Main():
             aumate_enviromet_human_mode(result_folder, xml_file_path)
 
             task_count = 1  # Initialize task_count
-            while time.time() - env_start_time < 900 and time.time() - seed_start_time < 3600:  # 900 seconds = 15 minutes per environment
+            while time.time() - env_start_time < fuzzer.task_mutate_time and time.time() - seed_start_time < fuzzer.mutate_env_time:  # 900 seconds = 15 minutes per environment
                 task_start_time = time.time()
 
                 mutated_task_path = os.path.join(result_folder, f"task_{task_count}")
-                GenrateTask(mutated_env_path, mutated_task_path)
+                if(fuzzer.mutate_task):
+                    GenrateTask(mutated_env_path, mutated_task_path)
+                else:
+                    PickupTask(mutated_env_path,mutated_task_path)
+
 
                 instruction_start_time = time.time()
-                while time.time() - instruction_start_time < 180 and time.time() - seed_start_time < 3600:  # 180 seconds = 3 minutes per instruction
+                while time.time() - instruction_start_time < fuzzer.instruction_generation_time and time.time() - seed_start_time < fuzzer.mutate_env_time:  # 180 seconds = 3 minutes per instruction
                     instruction_log_path = os.path.join(mutated_task_path, f"log.txt")
                     #if fuzz_instruction(fuzzer.EnvName, instruction_log_path, xml_file_path):
                         #print(f"Instruction found for seed {seed} env {env_count} task {task_count}")
                         #break  # Exit the instruction loop
 
-                    if time.time() - task_start_time >= 6:  # 600 seconds = 10 minutes per task
+                    if time.time() - task_start_time >= fuzzer.task_mutate_time :  # 600 seconds = 10 minutes per task
                         break  # Exit the task loop
 
                 task_count += 1
@@ -79,7 +83,7 @@ def Main():
             env_count += 1
 
             # Exit the environment loop if the time limit is reached
-            if time.time() - seed_start_time >= 3600:
+            if time.time() - seed_start_time >= fuzzer.mutate_env_time:
                 break
 
         print(f"Finished processing seed {seed}")

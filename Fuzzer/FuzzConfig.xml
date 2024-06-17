@@ -5,6 +5,11 @@
         <LogFilePath>Result/Minigrid/FourRoom</LogFilePath>
         <Enviroment>four_room</Enviroment>
         <EnviromentConfig>A:\Github repos\Answer\AIProbe\Minigrid\Config.xml</EnviromentConfig>
+        <MutateEnv>true</MutateEnv>
+        <MutateTask>false</MutateTask>
+        <MutateEnvTime>600</MutateEnvTime>
+        <TaskMutateTime>15</TaskMutateTime> <!-- Time for task mutation in minutes -->
+        <InstructionGenerationTime>180</InstructionGenerationTime> <!-- Time for instruction generation in minutes -->
     </Settings>
 
     <!-- Numeric Seed Inputs for the Fuzzer -->

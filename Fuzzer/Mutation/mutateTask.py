@@ -89,16 +89,48 @@ def GenrateTask(xml_file_path, result_path):
     create_task_xml(task, result_path)
 
 
-if __name__ == '__main__':
-    env_elements = parse_environment("A:\Github repos\Answer\AIProbe\Minigrid\Config.xml")
+def generate_green_key_pickup_task(grid_size, env_elements):
+    task_type = "pickup"
+    green_key_positions = [pos for pos in env_elements["key_positions"] if pos[2] == "green"]
 
-    task_types = ["navigate", "pickup", "drop", "move"]
-    task_count = 1
+    if green_key_positions:
+        key_pos = random.choice(green_key_positions)
+    else:
+        key_pos = (random.randint(1, grid_size - 2), random.randint(1, grid_size - 2), "green")
 
-    for task_type in task_types:
-        task = generate_random_task(task_type, 7, env_elements)
-        print(f"Task {task_count}:")
-        for key, value in task.items():
-            print(f"{key}: {value}")
-        task_count += 1
-        print("\n")
+    destination = env_elements["destination_pos"]
+
+    task = {
+        "type": task_type,
+        "object": "key",
+        "color": "green",
+        "source": key_pos[:2],
+        "destination": destination,
+        "description": f"Pick up the green key at {key_pos[:2]} and navigate to {destination}"
+    }
+
+    return task
+
+
+def PickupTask(xml_file_path, result_path):
+    env_elements = parse_environment(xml_file_path)
+    task = generate_green_key_pickup_task(11,env_elements)
+    if not os.path.exists(result_path):
+        os.makedirs(result_path)
+    create_task_xml(task, result_path)
+
+
+
+#if __name__ == '__main__':
+    #env_elements = parse_environment("A:\Github repos\Answer\AIProbe\Minigrid\Config.xml")
+
+    #task_types = ["navigate", "pickup", "drop", "move"]
+    #task_count = 1
+
+    #for task_type in task_types:
+        #task = generate_random_task(task_type, 7, env_elements)
+        #print(f"Task {task_count}:")
+        #for key, value in task.items():
+            #print(f"{key}: {value}")
+        #task_count += 1
+        #print("\n")

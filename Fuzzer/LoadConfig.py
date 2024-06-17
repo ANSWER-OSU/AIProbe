@@ -124,13 +124,18 @@ def load_Script_Setting(xml_file_path):
 
 
 class FuzzerSetting:
-    def __init__(self, EnvName, timeout, seeds, log_file_path, mutators, env_config_path):
+    def __init__(self, EnvName, timeout, seeds, log_file_path, mutators, env_config_path,mutate_env, mutate_task, mutate_env_time, task_mutate_time, instruction_generation_time):
         self.EnvName = EnvName
         self.timeout = timeout
         self.seeds = seeds
         self.log_file_path = log_file_path
         self.mutators = mutators
         self.env_path = env_config_path
+        self.mutate_env = mutate_env
+        self.mutate_task = mutate_task
+        self.mutate_env_time = mutate_env_time
+        self.task_mutate_time = task_mutate_time
+        self.instruction_generation_time = instruction_generation_time
 
 
 def load_fuzzer_setting(xml_file_path):
@@ -142,6 +147,11 @@ def load_fuzzer_setting(xml_file_path):
     log_file_path = root.find("./Settings/LogFilePath").text
     Env_name = root.find("./Settings/Enviroment").text
     env_config_path = root.find("./Settings/EnviromentConfig").text
+    mutate_env = root.find("./Settings/MutateEnv").text.lower() == 'true'
+    mutate_task = root.find("./Settings/MutateTask").text.lower() == 'true'
+    mutate_env_time = int(root.find("./Settings/MutateEnvTime").text)
+    task_mutate_time = int(root.find("./Settings/TaskMutateTime").text)
+    instruction_generation_time = int(root.find("./Settings/InstructionGenerationTime").text)
 
 
     # Extract seeds
@@ -158,7 +168,7 @@ def load_fuzzer_setting(xml_file_path):
         mutators.append(mutator)
 
     # Create Setting object with extracted data
-    setting = FuzzerSetting(Env_name, timeout, seeds, log_file_path, mutators,env_config_path)
+    setting = FuzzerSetting(Env_name, timeout, seeds, log_file_path, mutators,env_config_path,mutate_env, mutate_task, mutate_env_time, task_mutate_time, instruction_generation_time)
 
     return setting
 
