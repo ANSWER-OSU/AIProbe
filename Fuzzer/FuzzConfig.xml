@@ -2,8 +2,8 @@
     <!-- General Fuzzer Settings -->
     <Settings>
         <Timeout>5</Timeout> <!-- Timeout for each test case in min -->
-        <LogFilePath>Result/Minigrid</LogFilePath>
-        <Enviroment>minigrid</Enviroment>
+        <LogFilePath>Result/Minigrid/FourRoom</LogFilePath>
+        <Enviroment>four_room</Enviroment>
         <EnviromentConfig>A:\Github repos\Answer\AIProbe\Minigrid\Config.xml</EnviromentConfig>
     </Settings>
 

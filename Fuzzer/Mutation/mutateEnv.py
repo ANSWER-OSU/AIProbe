@@ -10,19 +10,22 @@ class EnvName(Enum):
     FLAPPY_BIRD = "flappy_bird"
     MINIGRID = "minigrid"
     CATCHER = "catcher"
+    Four_Room = "four_room"
 
 # Generate random attributes for elements of minigrid env
-def randomize_attributes(element, attributes, grid_size):
+def randomize_attributes(element, attributes, grid_size, walls_positions=None, agent_pos=None, dest_pos=None):
+    walls_positions = walls_positions or set()
     for attr in attributes:
         if attr in ["x", "y", "x_init", "y_init", "pick_x", "pick_y", "drop_x", "drop_y"]:
             while True:
-                value = random.randint(1, grid_size - 2)  # Exclude boundaries 0 and grid_size - 1
-                if 1 <= value <= grid_size - 2:  # Ensure value is not on boundary
-                    element.set(attr, str(value))
+                x = random.randint(1, grid_size - 2)  # Exclude boundaries 0 and grid_size - 1
+                y = random.randint(1, grid_size - 2)
+                if 1 <= x <= grid_size - 2 and 1 <= y <= grid_size - 2 and (x, y) not in walls_positions and (x, y) != agent_pos and (x, y) != dest_pos:
+                    element.set(attr, str(x if "x" in attr else y))
                     break
-        elif attr in ["is_present", "door_open", "door_locked"]:
+        elif attr in ["is_present"]:
             element.set(attr, str(random.choice([0, 1])))
-        elif attr in ["is_picked","pickStatus", "dropStatus"]:
+        elif attr in ["is_picked", "pickStatus", "dropStatus"]:
             element.set(attr, "0")  # Always set pickStatus and dropStatus to 0
         elif attr == "color":
             element.set(attr, random.choice(colors))
@@ -185,6 +188,145 @@ def mutate_minigrid_environment(xml_file_path):
 
     return final_xml_string
 
+
+def create_four_room_structure(root, grid_size, agent_pos, dest_pos):
+    walls = root.find("Walls")
+    if walls is None:
+        walls = ET.SubElement(root, "Walls")
+
+    mid_x = grid_size // 2
+    mid_y = grid_size // 2
+
+    walls_positions = set()
+
+    # Create vertical wall
+    for i in range(1, grid_size - 1):
+        if i != mid_y and (mid_x, i) != agent_pos and (mid_x, i) != dest_pos:
+            wall = ET.SubElement(walls, "Wall")
+            wall.set("x", str(mid_x))
+            wall.set("y", str(i))
+            walls_positions.add((mid_x, i))
+
+    # Create horizontal wall
+    for i in range(1, grid_size - 1):
+        if i != mid_x and (i, mid_y) != agent_pos and (i, mid_y) != dest_pos:
+            wall = ET.SubElement(walls, "Wall")
+            wall.set("x", str(i))
+            wall.set("y", str(mid_y))
+            walls_positions.add((i, mid_y))
+
+    # Randomize doorways in the walls
+    vertical_door_y = random.randint(1, grid_size - 2)
+    horizontal_door_x = random.randint(1, grid_size - 2)
+    doorways = [(mid_x, vertical_door_y), (horizontal_door_x, mid_y)]
+    for dx, dy in doorways:
+        for wall in walls.findall("Wall"):
+            if wall.get("x") == str(dx) and wall.get("y") == str(dy):
+                walls.remove(wall)
+                walls_positions.remove((dx, dy))
+
+    return walls_positions
+
+def mutate_four_room_environment(xml_file_path):
+    tree = ET.parse(xml_file_path)
+    root = tree.getroot()
+
+    # Get the grid size
+    grid = root.find("Grid")
+    grid_size = 7  # Default value if not found
+    if grid is not None:
+        size_element = grid.find("Size")
+        if size_element is not None:
+            grid_size = int(size_element.get("grid_Size"))
+
+    # Change agent's initial position and direction
+    agent = root.find("Agent")
+    agent_pos = (1, 1)  # Default value if not found
+    dest_pos = (grid_size - 2, grid_size - 2)  # Default value if not found
+    if agent is not None:
+        initial_position = agent.find("InitialPosition")
+        if initial_position is not None:
+            initial_position.set("x", str(random.randint(1, grid_size - 2)))  # Exclude boundaries
+            initial_position.set("y", str(random.randint(1, grid_size - 2)))  # Exclude boundaries
+            agent_pos = (int(initial_position.get("x")), int(initial_position.get("y")))
+        initial_direction = agent.find("InitialDirection")
+        if initial_direction is not None:
+            randomize_attributes(initial_direction, ["theta"], grid_size)
+        destination_position = agent.find("DestinationPosition")
+        if destination_position is not None:
+            randomize_attributes(destination_position, ["x", "y"], grid_size)
+            dest_pos = (int(destination_position.get("x")), int(destination_position.get("y")))
+        destination_direction = agent.find("DestinationDirection")
+        if destination_direction is not None:
+            randomize_attributes(destination_direction, ["theta"], grid_size)
+
+    # Remove existing keys
+    keys = root.find("Keys")
+    if keys is not None:
+        for key in list(keys):
+            keys.remove(key)
+
+    # Remove existing walls
+    walls = root.find("Walls")
+    if walls is not None:
+        for wall in list(walls):
+            walls.remove(wall)
+
+    # Remove existing lava tiles
+    lava_tiles = root.find("LavaTiles")
+    if lava_tiles is not None:
+        for lava in list(lava_tiles):
+            lava_tiles.remove(lava)
+
+    # Remove existing doors
+    doors = root.find("Doors")
+    if doors is not None:
+        for door in list(doors):
+            doors.remove(door)
+
+    # Remove existing objects
+    objects = root.find("Objects")
+    if objects is not None:
+        for obj in list(objects):
+            objects.remove(obj)
+
+    # Create four-room structure and get wall positions
+    walls_positions = create_four_room_structure(root, grid_size, agent_pos, dest_pos)
+
+    # Add a random number of new keys
+    if keys is not None:
+        num_keys = random.randint(1, grid_size - 2)
+        for _ in range(num_keys):
+            new_key = ET.SubElement(keys, "Key")
+            while True:
+                randomize_attributes(new_key, ["x_init", "y_init", "is_picked", "is_present", "color"], grid_size, walls_positions, agent_pos, dest_pos)
+                key_pos = (int(new_key.get("x_init")), int(new_key.get("y_init")))
+                if key_pos != agent_pos and key_pos not in walls_positions:
+                    break
+
+    # Preserve the Grid element without changes
+    if grid is not None:
+        grid_size_element = grid.find("Size").get("grid_Size")
+
+    # Convert the mutated tree back to a string
+    mutated_xml_string = ET.tostring(root, encoding="unicode")
+
+    # Parse the mutated string again to reinsert the unchanged Grid element
+    mutated_root = ET.fromstring(mutated_xml_string)
+    if grid is not None:
+        grid_element = mutated_root.find("Grid")
+        size_element = grid_element.find("Size")
+        size_element.set("grid_Size", grid_size_element)
+
+    final_xml_string = ET.tostring(mutated_root, encoding="unicode")
+
+    # Write the mutated XML content back to a new file
+    mutated_file_path = os.path.splitext(xml_file_path)[0] + ".xml"
+    with open(mutated_file_path, "w", encoding="utf-8") as f:
+        f.write(final_xml_string)
+
+    return final_xml_string
+
 def mutate_environment(xml_file_path, env_name):
     match env_name:
         case EnvName.MINIGRID:
@@ -195,3 +337,9 @@ def mutate_environment(xml_file_path, env_name):
         case EnvName.CATCHER:
             # Add mutation logic for Catcher environment
             pass
+        case EnvName.Four_Room:
+            return mutate_four_room_environment(xml_file_path)
+
+
+
+#mutate_four_room_environment("A:\Github repos\Answer\AIProbe\Four_Room\Config.xml")

@@ -38,13 +38,13 @@ def Main():
 
         seed_start_time = time.time()  # Start time for the current seed
 
-        while time.time() - seed_start_time < 3600:  # 3600 seconds = 1 hour per seed
+        while time.time() - seed_start_time < 36:  # 3600 seconds = 1 hour per seed
             env_start_time = time.time()  # Start time for the current environment mutation
 
             print(f"Running for env {env_count}")
             # Mutate the environment
-            mutated_xml_content = mutate_environment(xml_file_path, EnvName.MINIGRID)
-            screenshot_path = os.path.join(parent_dir, "Result", "Minigrid", str(seed), f"Env-{env_count}")
+            mutated_xml_content = mutate_environment(xml_file_path, EnvName.Four_Room)
+            screenshot_path = os.path.join(parent_dir, "Result", "Minigrid","FourRoom", str(seed), f"Env-{env_count}")
             result_folder = updateFilePath(screenshot_path)
 
             # Saving the Env config
@@ -66,14 +66,15 @@ def Main():
                 instruction_start_time = time.time()
                 while time.time() - instruction_start_time < 180 and time.time() - seed_start_time < 3600:  # 180 seconds = 3 minutes per instruction
                     instruction_log_path = os.path.join(mutated_task_path, f"log.txt")
-                    if fuzz_instruction(fuzzer.EnvName, instruction_log_path, xml_file_path):
-                        print(f"Instruction found for seed {seed} env {env_count} task {task_count}")
-                        break  # Exit the instruction loop
+                    #if fuzz_instruction(fuzzer.EnvName, instruction_log_path, xml_file_path):
+                        #print(f"Instruction found for seed {seed} env {env_count} task {task_count}")
+                        #break  # Exit the instruction loop
 
-                    if time.time() - task_start_time >= 600:  # 600 seconds = 10 minutes per task
+                    if time.time() - task_start_time >= 6:  # 600 seconds = 10 minutes per task
                         break  # Exit the task loop
 
                 task_count += 1
+                break;
 
             env_count += 1
 
