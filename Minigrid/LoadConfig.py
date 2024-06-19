@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as ET
-from EnvironmentState import Agent, Door, Key, Object, Lava, State , Wall
+from Minigrid.EnvironmentState import Agent, Door, Key, Object, Lava, State , Wall
 
 def load_InitialState(file_path):
     initialEnvironment = State()
@@ -40,10 +40,10 @@ def load_InitialState(file_path):
         obj = Object(
             x=int(obj_elem.get('pick_x')),  # pick_x represents x coordinate of key
             y=int(obj_elem.get('pick_y')),  # pick_y represents y coordinate of key
-            pick_status=int(obj_elem.get('pickStatus')),  # pick_status is 0 (not picked) or 1 (picked) 
+            pick_status=int(obj_elem.get('pickStatus')),  # pick_status is 0 (not picked) or 1 (picked)
             v=int(obj_elem.get('drop_x')),  # drop_x represents x coordinate of point where key is dropped
             w=int(obj_elem.get('drop_y')),  # drop_y represents y coordinate of point where key is dropped
-            drop_status=int(obj_elem.get('dropStatus')),  # drop_status is 0 (not dropped) or 1 (dropped) 
+            drop_status=int(obj_elem.get('dropStatus')),  # drop_status is 0 (not dropped) or 1 (dropped)
             is_present=int(obj_elem.get('is_present'))
         )
         initialEnvironment.objects.append(obj)
@@ -156,4 +156,3 @@ def load_fuzzer_setting(xml_file_path):
     setting = FuzzerSetting(Env_name, timeout, seeds, log_file_path, mutators)
 
     return setting
-
