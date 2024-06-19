@@ -14,8 +14,8 @@ def get_num_undesired_states(env, policy, trials=50, is_flappy=False):
         past_pipe, crashes = 0, 0
         trajectory = []
         trial_reward, trajectory = simulate_trajectory(env, policy)
-        print('traj:\n', trajectory, '\trial reward: ', trial_reward)
-        input()
+        # print('traj:\n', trajectory, '\trial reward: ', trial_reward)
+        # input()
         rewards.append(trial_reward)
 
         trajectory_lengths.append(len(trajectory))
