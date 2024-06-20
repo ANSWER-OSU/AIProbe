@@ -358,6 +358,12 @@ def mutate_environment(xml_file_path, env_name):
         case EnvName.Four_Room:
             return mutate_four_room_environment(xml_file_path)
 
-
+def use_exsisting_enviroment(xml_file_path, mutated_env_path):
+    tree = ET.parse(mutated_env_path)
+    root = tree.getroot()
+    mutated_xml_string = ET.tostring(root, encoding="unicode")
+    mutated_file_path = os.path.splitext(xml_file_path)[0] + ".xml"
+    with open(mutated_file_path, "w", encoding="utf-8") as f:
+        f.write(mutated_xml_string)
 
 #mutate_four_room_environment("A:\Github repos\Answer\AIProbe\Four_Room\Config.xml")

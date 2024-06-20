@@ -5,9 +5,9 @@
         <LogFilePath>Result/FourRoom</LogFilePath>
         <Enviroment>four_room</Enviroment>
         <EnviromentConfig>Minigrid/Config.xml</EnviromentConfig>
-        <MutateEnv>true</MutateEnv>
+        <MutateEnv>false</MutateEnv>
         <MutateTask>false</MutateTask>
-        <MutateEnvTime>36</MutateEnvTime>
+        <MutateEnvTime>3600</MutateEnvTime>
         <TaskMutateTime>6</TaskMutateTime> <!-- Time for task mutation in minutes -->
         <InstructionGenerationTime>6</InstructionGenerationTime> <!-- Time for instruction generation in minutes -->
     </Settings>
