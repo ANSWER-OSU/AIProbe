@@ -18,8 +18,13 @@ def get_num_undesired_states(grid, policy, trials=50):
             if grid.is_goal(state):
                 times_goal_reached += 1
             times_visited[state[0]][state[1]] += 1
-            if state[3]==True: # if lava state
-                num_undesired_states += 1
+            if grid.inaccuracy_type in set([2, 3]):
+                x, y = state[0], state[1]
+                if grid.grid_list[y][x]!=None and grid.grid_list[y][x].type=='lava':
+                    num_undesired_states += 1
+            else:
+                if state[-1]==True: # if lava state
+                    num_undesired_states += 1
         undesired_states_per_trial.append(num_undesired_states)
     return np.sum(undesired_states_per_trial), times_goal_reached, np.mean(rewards), np.std(rewards)
 

@@ -13,10 +13,12 @@ from Minigrid.computePolicy.loggers import write_metrics
 import os
 
 # parameters to change
-accurate_model=True
-inaccuracy_type=1
+accurate_model=False
+inaccuracy_type=3
+if accurate_model:
+    inaccuracy_type=0
+inaccuracy = {0: '_accurate_reward_accurate_state_rep', 1: '_inaccurate_reward_accurate_state_rep', 2: '_accurate_reward_inaccurate_state_rep', 3: '_inaccurate_reward_inaccurate_state_rep'}
 
-inaccuracy = {1: 'inaccurate_reward_accurate_state_rep', 2: 'accurate_reward_inaccurate_state_rep', 3: 'inaccurate_reward_inaccurate_state_rep'}
 env_config_dir = 'Minigrid/Env Configs/Four Room'
 num_sim_trials = 10
 
@@ -26,8 +28,8 @@ to_write = ['#Trials', 'envID', '#Lava', '#Goal', '#AvgReward', '#RewardSD']
 start_idx = env_config_dir.rfind('/') + 1
 end_idx = env_config_dir.rfind('')
 filename = str(env_config_dir[start_idx:end_idx].replace(' ', '_'))
-model = '_accurate_model' if accurate_model else '_inaccurate_model'
-output_path = 'Minigrid/computePolicy/outputs/'+filename+model+'testtt.csv'
+model = inaccuracy[inaccuracy_type]
+output_path = 'Minigrid/computePolicy/outputs/'+filename+model+'.csv'
 
 for env_id in range(1, num_envs+1):
     file_path = os.path.join(env_config_dir+'/Env-'+str(env_id), 'Config.xml')
@@ -35,6 +37,7 @@ for env_id in range(1, num_envs+1):
     env = CustomMiniGridEnv(grid, grid_size, accurate_model=accurate_model, task='keyToGoal', inaccuracy_type=inaccuracy_type, render_mode="human")
     env.reset()
     print(env)
+    # print(env.get_state_factor_rep())
     v, pi = valueIteration(env)
     avg_undesired_states, times_goal_reached, avg_reward, reward_sd = get_num_undesired_states(env, pi, trials=num_sim_trials)
 
