@@ -44,7 +44,7 @@ def Main():
             print(f"Running for env {env_count}")
             # Mutate the environment
             mutated_xml_content = mutate_environment(xml_file_path, EnvName.Four_Room)
-            screenshot_path = os.path.join(parent_dir, "Result", "Minigrid","FourRoom", str(seed), f"Env-{env_count}")
+            screenshot_path = os.path.join(parent_dir, "Result","FourRoom", str(seed), f"Env-{env_count}")
             result_folder = updateFilePath(screenshot_path)
 
             # Saving the Env config
@@ -61,18 +61,18 @@ def Main():
                 task_start_time = time.time()
 
                 mutated_task_path = os.path.join(result_folder, f"task_{task_count}")
-                if(fuzzer.mutate_task):
-                    GenrateTask(mutated_env_path, mutated_task_path)
-                else:
-                    PickupTask(mutated_env_path,mutated_task_path)
+                #if(fuzzer.mutate_task):
+                    # GenrateTask(mutated_env_path, mutated_task_path)
+                #else:
+                    # PickupTask(mutated_env_path,mutated_task_path)
 
 
                 instruction_start_time = time.time()
                 while time.time() - instruction_start_time < fuzzer.instruction_generation_time and time.time() - seed_start_time < fuzzer.mutate_env_time:  # 180 seconds = 3 minutes per instruction
                     instruction_log_path = os.path.join(mutated_task_path, f"log.txt")
-                    if fuzz_instruction(fuzzer.EnvName, instruction_log_path, xml_file_path):
-                        print(f"Instruction found for seed {seed} env {env_count} task {task_count}")
-                        break  # Exit the instruction loop
+                    #if fuzz_instruction(fuzzer.EnvName, instruction_log_path, xml_file_path):
+                       # print(f"Instruction found for seed {seed} env {env_count} task {task_count}")
+                        # break  # Exit the instruction loop
 
                     if time.time() - task_start_time >= fuzzer.task_mutate_time:  # 600 seconds = 10 minutes per task
                         break  # Exit the task loop

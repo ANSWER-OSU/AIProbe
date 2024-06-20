@@ -272,11 +272,29 @@ def mutate_four_room_environment(xml_file_path):
         for wall in list(walls):
             walls.remove(wall)
 
+    walls_positions = create_four_room_structure(root, grid_size, agent_pos, dest_pos)
+
     # Remove existing lava tiles
     lava_tiles = root.find("LavaTiles")
     if lava_tiles is not None:
         for lava in list(lava_tiles):
             lava_tiles.remove(lava)
+
+
+    if lava_tiles is None:
+        lava_tiles = ET.SubElement(root, "LavaTiles")
+
+    lava_positions = set()
+    no_of_lava = random.randint(10, 15)
+    for _ in range(no_of_lava):  # Add up to grid_size new lava tiles
+        new_lava = ET.SubElement(lava_tiles, "Lava")
+        while True:
+            randomize_attributes(new_lava, ["x", "y", "is_present"], grid_size)
+            lava_pos = (int(new_lava.get("x")), int(new_lava.get("y")))
+            if(new_lava.get("is_present") == '1'):
+                if lava_pos != agent_pos and 1 <= lava_pos[0] <= grid_size - 2 and 1 <= lava_pos[1] <= grid_size - 2 and lava_pos not in walls_positions:
+                    lava_positions.add(lava_pos)
+                    break
 
     # Remove existing doors
     doors = root.find("Doors")
@@ -291,7 +309,7 @@ def mutate_four_room_environment(xml_file_path):
             objects.remove(obj)
 
     # Create four-room structure and get wall positions
-    walls_positions = create_four_room_structure(root, grid_size, agent_pos, dest_pos)
+
 
     # Add a random number of new keys
     if keys is not None:
@@ -301,7 +319,7 @@ def mutate_four_room_environment(xml_file_path):
             while True:
                 randomize_attributes(new_key, ["x_init", "y_init", "is_picked", "is_present", "color"], grid_size, walls_positions, agent_pos, dest_pos)
                 key_pos = (int(new_key.get("x_init")), int(new_key.get("y_init")))
-                if key_pos != agent_pos and key_pos not in walls_positions:
+                if key_pos != agent_pos and key_pos not in walls_positions not in lava_positions :
                     break
 
     # Preserve the Grid element without changes
