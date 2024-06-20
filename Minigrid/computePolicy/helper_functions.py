@@ -9,7 +9,7 @@ def get_num_undesired_states(grid, policy, trials=50):
         num_undesired_states = 0
         trajectory = []
         trial_reward, trajectory = simulate_trajectory(grid, policy)
-        print(trajectory)
+        # print(trajectory)
 
         rewards.append(trial_reward)
 
@@ -24,8 +24,9 @@ def get_num_undesired_states(grid, policy, trials=50):
     return np.sum(undesired_states_per_trial), times_goal_reached, np.mean(rewards), np.std(rewards)
 
 
-def simulate_trajectory(grid, policy):
+def simulate_trajectory(grid, policy, max_steps=90):
     trajectory = []
+    step = 1
     trial_reward = 0
     terminal= False
     grid.reset()
@@ -40,4 +41,7 @@ def simulate_trajectory(grid, policy):
         action = int(policy[observation])
         trajectory.append([tuple(observation), action])
         trial_reward += reward
+        step += 1
+        if step>max_steps:
+            break
     return trial_reward, trajectory

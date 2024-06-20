@@ -7,7 +7,7 @@ from minigrid.core.actions import Actions
 import numpy as np
 
 class CustomMiniGridEnv(MiniGridEnv):
-    def __init__(self, grid_spec=State, grid_size=None, accurate_model=False, task='escLava', **kwargs):
+    def __init__(self, grid_spec=State, grid_size=None, accurate_model=False, task='escLava', inaccuracy_type=1, **kwargs):
         self.dir = {'e': 0, 's': 1, 'w': 2, 'n': 3 }
         self.width = self.height = grid_size
         self.grid_size = [self.width, self.height]
@@ -22,6 +22,7 @@ class CustomMiniGridEnv(MiniGridEnv):
         self.agent_curr_state = None
         self.all_states = None
         self.task = task
+        self.inaccuracy_type = inaccuracy_type
         mission_space = MissionSpace(mission_func=self._gen_mission)
         super().__init__(
                     width=self.width,
@@ -99,8 +100,8 @@ class CustomMiniGridEnv(MiniGridEnv):
                         if self.task=='escLava':
                             state_feature_rep.append((j, i, k, True if s=='lava' else False))
                         elif self.task=='keyToGoal':
-                            for key in ['green', 'yellow', 'none']:
-                                state_feature_rep.append((j, i, k, key))
+                            for key in ['green', 'yellow', 'blue', 'grey', 'red', 'none']:
+                                state_feature_rep.append((j, i, k, True if s=='lava' else False, key))
         return state_feature_rep
 
 
@@ -109,7 +110,7 @@ class CustomMiniGridEnv(MiniGridEnv):
         if self.task=='escLava':
             self.agent_curr_state = (self.agent_start_pos[0], self.agent_start_pos[1], self.agent_start_dir, False)
         elif self.task=='keyToGoal':
-            self.agent_curr_state = (self.agent_start_pos[0], self.agent_start_pos[1], self.agent_start_dir, 'none')
+            self.agent_curr_state = (self.agent_start_pos[0], self.agent_start_pos[1], self.agent_start_dir, False, 'none')
         # Generate a new random grid at the start of each episode
         self._gen_grid(self.width, self.height)
 
@@ -135,22 +136,25 @@ class CustomMiniGridEnv(MiniGridEnv):
             if state[0]==self.goal_pos[0] and state[1]==self.goal_pos[1]:
                 return True
         elif self.task=='keyToGoal':
-            if state[0]==self.goal_pos[0] and state[1]==self.goal_pos[1] and state[3]=='green': # at the goal state with GREEN key
+            if state[0]==self.goal_pos[0] and state[1]==self.goal_pos[1] and state[4]=='green': # at the goal state with GREEN key
                 return True
         return False
 
     def is_terminal(self, state):
         if self.task=='escLava':
             _, _, _, lava = state
-            if lava:
-                return True
+        elif self.task=='keyToGoal':
+            _, _, _, lava, _ = state
+
+        if lava:
+            return True
         return False
 
 
     def get_reward(self, state, action):
         state_reward = None
         goal_state = 100
-        undesired_state = -100
+        undesired_state = -200
         step_reward = -1
 
         if self.action_mapping[action] in self.valid_actions:
@@ -175,19 +179,28 @@ class CustomMiniGridEnv(MiniGridEnv):
         return False
 
     def move(self, curr_state, action):
-        x, y, direction, state_feature = curr_state
+        if self.task=='escLava':
+            x, y, direction, lava = curr_state
+        elif self.task=='keyToGoal':
+            x, y, direction, lava, key = curr_state
         new_direction = None
         # Turn left
         if action == Actions.left:
             new_direction = direction-1
             if new_direction < 0:
                 new_direction += 4
-            return (x, y, new_direction, state_feature), False
+            if self.task=='escLava':
+                return (x, y, new_direction, lava), False
+            elif self.task=='keyToGoal':
+                return (x, y, new_direction, lava, key), False
 
         # Turn right
         elif action == Actions.right:
             new_direction = (direction+1) % 4
-            return (x, y, new_direction, state_feature), False
+            if self.task=='escLava':
+                return (x, y, new_direction, lava), False
+            elif self.task=='keyToGoal':
+                return (x, y, new_direction, lava, key), False
 
         # Move forward
         elif action == Actions.forward:
@@ -207,16 +220,23 @@ class CustomMiniGridEnv(MiniGridEnv):
                 s = self.grid_list[j][i].type if self.grid_list[j][i]!=None else 'none'
                 if s!='wall':
                     if self.task=='escLava':
-                        new_state_feature_val = True if s=='lava' else False
+                        new_lava_val = True if s=='lava' else False
                     elif self.task=='keyToGoal':
-                        new_state_feature_val = state_feature
-                return (i, j, direction, new_state_feature_val), False
+                        new_key_val = key
+                        new_lava_val = True if s=='lava' else False
+                if self.task=='escLava':
+                    return (i, j, direction, new_lava_val), False
+                elif self.task=='keyToGoal':
+                    return (i, j, direction, new_lava_val, new_key_val), False
 
         elif action == Actions.pickup:
             if self.grid_list[y][x]!=None:
-                if self.grid_list[y][x].type=='key' and state_feature=='none':
-                    return (x, y, direction, str(self.grid_list[y][x].color).lower()), False
-        return (x, y, direction, state_feature), False
+                if self.grid_list[y][x].type=='key' and key=='none':
+                    return (x, y, direction, lava, str(self.grid_list[y][x].color).lower()), False
+        if self.task=='escLava':
+            return (x, y, direction, lava), False
+        elif self.task=='keyToGoal':
+            return (x, y, direction, lava, key), False
 
 
 
