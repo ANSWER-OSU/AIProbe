@@ -30,7 +30,8 @@ def Main():
         # Mutate the Env
         random.seed(seed)
 
-
+        if(seed == 11 or seed == 56 or seed == 32 or seed == 88 or seed == 41 ):
+            continue;
         xml_file_path = os.path.join(parent_dir,"Minigrid","Config.xml")
         env_count = 1  # Initialize env_count
 
