@@ -1,3 +1,4 @@
+import copy
 import os
 import random
 import time
@@ -16,6 +17,7 @@ from Fuzzer.Mutation.mutateEnv import mutate_environment,use_exsisting_enviromen
 from Minigrid.environment import aumate_enviromet_human_mode
 from Fuzzer.Mutation.mutateTask import GenrateTask,PickupTask
 from Fuzzer.Mutation.mutateInstruction import fuzz_instruction
+from Fuzzer.CoverageMatrix import compute_valid_actions
 
 
 def Main():
@@ -30,7 +32,7 @@ def Main():
         # Mutate the Env
         random.seed(seed)
 
-        if(seed != 78 ):
+        if(seed != 29 ):
             continue;
         xml_file_path = os.path.join(parent_dir,"Minigrid","Config.xml")
         env_count = 1  # Initialize env_count
@@ -68,6 +70,10 @@ def Main():
                     continue
                 use_exsisting_enviroment(xml_file_path,mutated_env_path)
 
+            action_map = compute_valid_actions(xml_file_path)
+
+
+
             task_count = 1  # Initialize task_count
             while time.time() - env_start_time < fuzzer.task_mutate_time and time.time() - seed_start_time < fuzzer.mutate_env_time:  # 900 seconds = 15 minutes per environment
                 task_start_time = time.time()
@@ -81,12 +87,32 @@ def Main():
 
 
                 for genrate_interuction_seed in fuzzer.seeds:
+                    random.seed(genrate_interuction_seed)
+                    remaining_coverage_matrix = copy.deepcopy(action_map)
+
                     instruction_start_time = time.time()
+                    instruction_data = []
+                    count =1
+
+                    instruction_log_path = os.path.join(mutated_task_path, f"{genrate_interuction_seed}-log.txt")
                     while time.time() - instruction_start_time < fuzzer.instruction_generation_time :  # 180 seconds = 3 minutes per instruction
-                        instruction_log_path = os.path.join(mutated_task_path, f"{genrate_interuction_seed}-log.txt")
-                        if fuzz_instruction(fuzzer.EnvName, instruction_log_path, xml_file_path):
-                           print(f"Instruction found for seed {seed} instruction seed {genrate_interuction_seed} env {env_count} task {task_count}")
-                           break  # Exit the instruction loop
+
+                        is_achived, current_instruction_data, current_remaining_coverage_matrix = fuzz_instruction(fuzzer.EnvName,action_map ,remaining_coverage_matrix,instruction_data,instruction_log_path, xml_file_path)
+
+
+
+                        if(len(current_instruction_data)>=1):
+
+
+
+                            instruction_data = current_instruction_data
+
+
+                            remaining_coverage_matrix = current_remaining_coverage_matrix
+                        count+=1
+                        if  is_achived:
+                            print(f"Instruction found for seed {seed} instruction seed {genrate_interuction_seed} env {env_count} task {task_count}")
+                            break  # Exit the instruction loop
 
                 if time.time() - task_start_time >= fuzzer.task_mutate_time:  # 600 seconds = 10 minutes per task
                             break  # Exit the task loop

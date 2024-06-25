@@ -1,0 +1,155 @@
+----------- Entry Time: 2024-06-25 06:05:15-----------
+Initial State: 
+Agent Initial position: (1, 1), 
+Agent Initial direction: e
+Key at (1, 1) picked: 0, present: 0, key_color: red
+Lava at (1, 3)
+Lava at (2, 3)
+Lava at (4, 2)
+Lava at (2, 1)
+Lava at (5, 3)
+Lava at (1, 4)
+Lava at (3, 1)
+
+Final State: 
+Agent Final position: (5, 5)
+Agent Final direction: s
+Agent path: []
+
+Key at (1, 1) picked: 0, present: 0, key_color: red
+Lava at (1, 3)
+Lava at (2, 3)
+Lava at (4, 2)
+Lava at (2, 1)
+Lava at (5, 3)
+Lava at (1, 4)
+Lava at (3, 1)
+
+Instruction Applied: ['right']
+
+Valid Capability : False 
+Average Coverage : 0.8403361344537814
+----------- Entry Time: 2024-06-25 06:05:15-----------
+Initial State: 
+Agent Initial position: (1, 1), 
+Agent Initial direction: e
+Key at (1, 1) picked: 0, present: 0, key_color: red
+Lava at (1, 3)
+Lava at (2, 3)
+Lava at (4, 2)
+Lava at (2, 1)
+Lava at (5, 3)
+Lava at (1, 4)
+Lava at (3, 1)
+
+Final State: 
+Agent Final position: (2, 5)
+Agent Final direction: s
+Agent path: [(1, 2), (2, 2), (3, 2), (3, 3), (3, 4), (3, 5), (3, 4), (2, 4), (3, 4), (2, 4), (2, 5), (2, 5)]
+
+Key at (1, 1) picked: 0, present: 0, key_color: red
+Lava at (1, 3)
+Lava at (2, 3)
+Lava at (4, 2)
+Lava at (2, 1)
+Lava at (5, 3)
+Lava at (1, 4)
+Lava at (3, 1)
+
+Instruction Applied: ['right', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'left', 'forward', 'left', 'forward', 'left', 'left', 'forward', 'right', 'right', 'forward', 'left', 'forward', 'forward']
+
+Valid Capability : False 
+Average Coverage : 12.605042016806719
+----------- Entry Time: 2024-06-25 06:05:15-----------
+Initial State: 
+Agent Initial position: (1, 1), 
+Agent Initial direction: e
+Key at (1, 1) picked: 0, present: 0, key_color: red
+Lava at (1, 3)
+Lava at (2, 3)
+Lava at (4, 2)
+Lava at (2, 1)
+Lava at (5, 3)
+Lava at (1, 4)
+Lava at (3, 1)
+
+Final State: 
+Agent Final position: (3, 4)
+Agent Final direction: w
+Agent path: [(1, 2), (2, 2), (3, 2), (3, 3), (3, 4), (3, 5), (4, 5), (5, 5), (5, 4), (4, 4), (3, 4)]
+
+Key at (1, 1) picked: 0, present: 0, key_color: red
+Lava at (1, 3)
+Lava at (2, 3)
+Lava at (4, 2)
+Lava at (2, 1)
+Lava at (5, 3)
+Lava at (1, 4)
+Lava at (3, 1)
+
+Instruction Applied: ['right', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'forward', 'right', 'left', 'right', 'left']
+
+Valid Capability : False 
+Average Coverage : 13.445378151260499
+----------- Entry Time: 2024-06-25 06:05:15-----------
+Initial State: 
+Agent Initial position: (1, 1), 
+Agent Initial direction: e
+Key at (1, 1) picked: 0, present: 0, key_color: red
+Lava at (1, 3)
+Lava at (2, 3)
+Lava at (4, 2)
+Lava at (2, 1)
+Lava at (5, 3)
+Lava at (1, 4)
+Lava at (3, 1)
+
+Final State: 
+Agent Final position: (4, 4)
+Agent Final direction: e
+Agent path: [(1, 2), (2, 2), (3, 2), (3, 3), (3, 4), (3, 5), (4, 5), (5, 5), (5, 4), (4, 4)]
+
+Key at (1, 1) picked: 0, present: 0, key_color: red
+Lava at (1, 3)
+Lava at (2, 3)
+Lava at (4, 2)
+Lava at (2, 1)
+Lava at (5, 3)
+Lava at (1, 4)
+Lava at (3, 1)
+
+Instruction Applied: ['right', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'left', 'forward', 'forward', 'left', 'forward', 'left', 'forward', 'right', 'right', 'left', 'left', 'right', 'right']
+
+Valid Capability : False 
+Average Coverage : 13.445378151260499
+----------- Entry Time: 2024-06-25 06:05:15-----------
+Initial State: 
+Agent Initial position: (1, 1), 
+Agent Initial direction: e
+Key at (1, 1) picked: 0, present: 0, key_color: red
+Lava at (1, 3)
+Lava at (2, 3)
+Lava at (4, 2)
+Lava at (2, 1)
+Lava at (5, 3)
+Lava at (1, 4)
+Lava at (3, 1)
+
+Final State: 
+Agent Final position: (5, 5)
+Agent Final direction: e
+Agent path: [(1, 2), (2, 2), (3, 2), (3, 3), (3, 4), (4, 4), (4, 5), (5, 5)]
+
+Key at (1, 1) picked: 0, present: 0, key_color: red
+Lava at (1, 3)
+Lava at (2, 3)
+Lava at (4, 2)
+Lava at (2, 1)
+Lava at (5, 3)
+Lava at (1, 4)
+Lava at (3, 1)
+
+Instruction Applied: ['right', 'forward', 'left', 'forward', 'forward', 'right', 'forward', 'forward', 'left', 'left', 'right', 'left', 'right', 'forward', 'right', 'forward', 'left', 'forward']
+
+Valid Capability : True 
+Average Coverage : 11.764705882352938

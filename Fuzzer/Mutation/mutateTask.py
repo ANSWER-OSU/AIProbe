@@ -90,7 +90,7 @@ def GenrateTask(xml_file_path, result_path):
 
 
 def generate_green_key_pickup_task(grid_size, env_elements):
-    task_type = "pickup"
+    task_type = "navigate"
     green_key_positions = [pos for pos in env_elements["key_positions"] if pos[2] == "green"]
 
     if green_key_positions:
@@ -99,14 +99,15 @@ def generate_green_key_pickup_task(grid_size, env_elements):
         key_pos = (random.randint(1, grid_size - 2), random.randint(1, grid_size - 2), "green")
 
     destination = env_elements["destination_pos"]
+    pos = (env_elements["agent_pos"])
 
     task = {
         "type": task_type,
         "object": "key",
-        "color": "green",
-        "source": key_pos[:2],
+        "color": "yellow",
+        "source": pos,
         "destination": destination,
-        "description": f"Pick up the green key at {key_pos[:2]} and navigate to {destination}"
+        "description": f"Navigate to {destination}"
     }
 
     return task
@@ -114,7 +115,7 @@ def generate_green_key_pickup_task(grid_size, env_elements):
 
 def PickupTask(xml_file_path, result_path):
     env_elements = parse_environment(xml_file_path)
-    task = generate_green_key_pickup_task(11,env_elements)
+    task = generate_green_key_pickup_task(7,env_elements)
     if not os.path.exists(result_path):
         os.makedirs(result_path)
     create_task_xml(task, result_path)

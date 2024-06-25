@@ -344,10 +344,19 @@ def execute_instructions(env,log_file_path, instruction):
         "toggle": env.actions.toggle,
         "done": env.actions.done,
     }
-
+    direction_map = {
+        0: "E",
+        1: "S",
+        2: "W",
+        3: "N"
+    }
+    instruction_log = []
     for action in instruction:
+        agent_pos = tuple(env.agent_pos)
+        ins = action
         action = action_map.get(action)
         if action is not None:
+            dir = direction_map[env.agent_dir]
             obs, reward, done, info = env.step(action)[:4]
 
 
@@ -360,6 +369,7 @@ def execute_instructions(env,log_file_path, instruction):
             env.render()
             # Print the RGB array of the agent's position
             agent_rgb = env.get_agent_rgb()
+            instruction_log.append([ins, dir,agent_pos])
             # print(f"RGB array of the agent's position: {agent_rgb}")
             # Print the current position of the agent
 
@@ -368,6 +378,7 @@ def execute_instructions(env,log_file_path, instruction):
             print(f"Unrecognized instruction: {action}")
 
     env.log_state(log_file_path,instruction)
+    return   instruction_log
 
 def key_status_changed(env):
     # Compare the initial state of the environment with the current state
@@ -412,8 +423,8 @@ def GetFuzzInstruction(instructions,iteration):
     obs = env.reset()
     # Render the initial state of the environment for visualization
     env.render()
-    
-    execute_instructions(env,logFile_Setting.environment_logs_path, instructions)
+
+    instruction_log = execute_instructions(env,logFile_Setting.environment_logs_path, instructions)
     # print(instructions)
     # Keep the window open until a key is pressed
     final_state = env.returnFinalState()
@@ -441,7 +452,7 @@ def GetFuzzInstruction(instructions,iteration):
             message = f"For {logFile_Setting.EnvName} both instructions and capabilities are valid for iteration {iteration}."
             send_slack_message(message)
 
-    return is_valid_instruction , is_valid_capabilities , averageCoverage , di
+    return is_valid_instruction , is_valid_capabilities , averageCoverage , di,instruction_log
 
 
 
@@ -456,7 +467,7 @@ def execute_and_evaluate_task(instruction, config_path,log_file_path):
     obs = env.reset()
     env.render()
 
-    execute_instructions(env, log_file_path, instruction)
+    instruction_log =     execute_instructions(env, log_file_path, instruction)
 
     final_state = env.returnFinalState()
     final_initial_environment, gridSize = load_InitialState(config_path)
@@ -483,7 +494,7 @@ def execute_and_evaluate_task(instruction, config_path,log_file_path):
         # Close the environment
     env.close()
 
-    return is_valid_instruction, is_valid_capabilities, averageCoverage, di
+    return is_valid_instruction, is_valid_capabilities, averageCoverage, di,instruction_log
 
 
 
@@ -692,9 +703,9 @@ def aumate_enviromet_human_mode(screenshot_path, config_path):
 
 
 def test():
-    instruction = ["right","pickup","forward","right","forward","forward","forward","right","forward","forward","left","forward","forward","forward","forward"]
-    lo = r"A:\Github repos\Answer\AIProbe\Result\Minigrid\FourRoom\11\Env-1\task_1\log.txt"
-    is_valid_instruction, is_valid_capabilities, averageCoverage, di = execute_and_evaluate_task(instruction, "A:\Github repos\Answer\AIProbe\Minigrid\Config.xml", lo)
+    instruction = ["right","forward","left","forward","forward","right","forward","left","forward","right","forward","left","forward","right","forward"]
+    lo = r"A:\Github repos\Answer\AIProbe\Result\FourRoom\29\Env-2\task_1\11-log.txt"
+    is_valid_instruction, is_valid_capabilities, averageCoverage, di ,c  = execute_and_evaluate_task(instruction, "A:\Github repos\Answer\AIProbe\Minigrid\Config.xml", lo)
     print(is_valid_capabilities)
 
 

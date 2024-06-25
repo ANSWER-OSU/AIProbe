@@ -1,2 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<Tasks><Task><type>pickup</type><object>key</object><color>green</color><source>4,9</source><destination>8,3</destination><description>Pick up the green key at (4, 9) and navigate to (8, 3)</description></Task></Tasks>

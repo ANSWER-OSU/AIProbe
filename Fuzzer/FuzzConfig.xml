@@ -9,7 +9,7 @@
         <MutateTask>false</MutateTask>
         <MutateEnvTime>3600</MutateEnvTime>
         <TaskMutateTime>6</TaskMutateTime> <!-- Time for task mutation in minutes -->
-        <InstructionGenerationTime>300</InstructionGenerationTime> <!-- Time for instruction generation in minutes -->
+        <InstructionGenerationTime>120</InstructionGenerationTime> <!-- Time for instruction generation in minutes -->
     </Settings>
 
     <!-- Numeric Seed Inputs for the Fuzzer -->

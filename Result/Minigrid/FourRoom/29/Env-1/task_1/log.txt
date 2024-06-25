@@ -1,0 +1,27 @@
+----------- Entry Time: 2024-06-23 19:35:43-----------
+Initial State: 
+Agent Initial position: (5, 1), 
+Agent Initial direction: s
+Key at (5, 3) picked: 1, present: 1, key_color: green
+Lava at (5, 5)
+Lava at (2, 4)
+Lava at (2, 4)
+Lava at (5, 5)
+Lava at (5, 4)
+Object at (1, 4) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (2, 3), is_present: 0, color: yellow
+
+Final State: 
+Agent Final position: (5, 5)
+Agent Final direction: e
+Agent path: [(5, 2), (5, 3), (4, 3), (4, 4), (4, 5), (5, 5)]
+
+Key at (5, 3) picked: 1, present: 1, key_color: green
+Lava at (5, 5)
+Lava at (2, 4)
+Lava at (2, 4)
+Lava at (5, 5)
+Lava at (5, 4)
+Object at (1, 4) pick_status: Not Picked, drop_status: Not Dropped, drop destination: (2, 3), is_present: 0, color: yellow
+
+Instruction Applied: ['forward', 'pickup', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'forward']
+
