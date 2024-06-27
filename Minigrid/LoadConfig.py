@@ -56,12 +56,12 @@ def load_InitialState(file_path):
         )
         initialEnvironment.lava_tiles.append(lava)
 
-    for wall_elem in root.find('Walls').findall('Wall'):
-        wall = Wall(
-            x=int(wall_elem.get('x')),
-            y=int(wall_elem.get('y'))
-        )
-        initialEnvironment.walls.append(wall)
+    # for wall_elem in root.find('Walls').findall('Wall'):
+    #     wall = Wall(
+    #         x=int(wall_elem.get('x')),
+    #         y=int(wall_elem.get('y'))
+    #     )
+    #     initialEnvironment.walls.append(wall)
     return initialEnvironment,GridSize
 
 
