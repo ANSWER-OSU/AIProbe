@@ -210,7 +210,7 @@ class InstructionMutator:
 
         return missing_actions
 
-    def coverage_guided_fuzzer(self, bfs_data, remaining_coverage_matrix,instruction_log, env_config_path, instruction_log_path):
+    def coverage_guided_fuzzer(self, bfs_data, remaining_coverage_matrix,instruction_log, env_config_path, instruction_log_path,remove_pervoius_data):
 
         if not instruction_log:
             generated_instruction =  self.generate_random_instruction(bfs_data,env_config_path)
@@ -224,6 +224,10 @@ class InstructionMutator:
                 mutated_instruction, env_config_path, instruction_log_path)
 
             coverage = self.calculate_coverage(bfs_data, instruction_log)
+
+            if(remove_pervoius_data):
+                instruction_log_pool.clear()
+                instruction_pool.clear()
 
             if len(mutated_instruction) >= 1:
                 instruction_log_pool.append(instruction_log)
@@ -247,7 +251,7 @@ class InstructionMutator:
 
 
 
-        action_index = random.randint(0, len(mutated_instruction) - 1)
+        action_index =  len(mutated_instruction) - 1
 
         current_pos = generated_instruction[action_index][2] if action_index < len(generated_instruction) else None
         current_direction = generated_instruction[action_index][1] if action_index < len(generated_instruction) else None
@@ -563,7 +567,7 @@ class InstructionMutator:
         return new_instructions
 
 
-def fuzz_instruction(env_name,coverage_matrix,remaining_coverage_matrix,instruction_log,instruction_log_path,env_config_path):
+def fuzz_instruction(env_name,coverage_matrix,remaining_coverage_matrix,instruction_log,instruction_log_path,env_config_path,remove_pervoius_data):
     mutator = InstructionMutator(seed_instructions)
 
     if (env_name == EnvName.MINIGRID.value):
@@ -574,7 +578,7 @@ def fuzz_instruction(env_name,coverage_matrix,remaining_coverage_matrix,instruct
         env_name = EnvName.FLAPPY_BIRD
 
     #return mutator.random_fuzzing(env_config_path,instruction_log_path)
-    return mutator.coverage_guided_fuzzer(coverage_matrix,remaining_coverage_matrix,instruction_log,env_config_path,instruction_log_path)
+    return mutator.coverage_guided_fuzzer(coverage_matrix,remaining_coverage_matrix,instruction_log,env_config_path,instruction_log_path,remove_pervoius_data)
 
 
 

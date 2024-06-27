@@ -87,6 +87,7 @@ def Main():
 
 
                 for genrate_interuction_seed in fuzzer.seeds:
+                    remove_pervoius_data = True
                     random.seed(genrate_interuction_seed)
                     remaining_coverage_matrix = copy.deepcopy(action_map)
 
@@ -97,9 +98,9 @@ def Main():
                     instruction_log_path = os.path.join(mutated_task_path, f"{genrate_interuction_seed}-log.txt")
                     while time.time() - instruction_start_time < fuzzer.instruction_generation_time :  # 180 seconds = 3 minutes per instruction
 
-                        is_achived, current_instruction_data, current_remaining_coverage_matrix = fuzz_instruction(fuzzer.EnvName,action_map ,remaining_coverage_matrix,instruction_data,instruction_log_path, xml_file_path)
+                        is_achived, current_instruction_data, current_remaining_coverage_matrix = fuzz_instruction(fuzzer.EnvName,action_map ,remaining_coverage_matrix,instruction_data,instruction_log_path, xml_file_path,remove_pervoius_data)
 
-
+                        remove_pervoius_data = False
 
                         if(len(current_instruction_data)>=1):
 
@@ -112,7 +113,7 @@ def Main():
                         count+=1
                         if  is_achived:
                             print(f"Instruction found for seed {seed} instruction seed {genrate_interuction_seed} env {env_count} task {task_count}")
-                            break  # Exit the instruction loop
+                            #break  # Exit the instruction loop
 
                 if time.time() - task_start_time >= fuzzer.task_mutate_time:  # 600 seconds = 10 minutes per task
                             break  # Exit the task loop

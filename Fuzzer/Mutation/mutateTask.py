@@ -90,9 +90,9 @@ def GenrateTask(xml_file_path, result_path):
 
 
 def generate_green_key_pickup_task(grid_size, env_elements):
-    task_type = "navigate"
+    task_type = "pickup"
     green_key_positions = [pos for pos in env_elements["key_positions"] if pos[2] == "green"]
-
+    print(green_key_positions)
     if green_key_positions:
         key_pos = random.choice(green_key_positions)
     else:
@@ -100,12 +100,14 @@ def generate_green_key_pickup_task(grid_size, env_elements):
 
     destination = env_elements["destination_pos"]
     pos = (env_elements["agent_pos"])
+    key_pos = [(pos[0], pos[1]) for pos in green_key_positions]
+
 
     task = {
         "type": task_type,
         "object": "key",
-        "color": "yellow",
-        "source": pos,
+        "color": "green",
+        "source": key_pos[0],
         "destination": destination,
         "description": f"Navigate to {destination}"
     }
