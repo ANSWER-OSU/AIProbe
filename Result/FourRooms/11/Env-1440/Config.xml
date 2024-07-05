@@ -1,0 +1,21 @@
+<Environment>
+    <Agent>
+        <InitialPosition x="7" y="3" />
+        <InitialDirection theta="w" />
+        <DestinationPosition x="6" y="5" />
+        <DestinationDirection theta="s" />
+        <Path>
+        </Path>
+    </Agent>
+    <Keys>
+         <Key x_init="9" y_init="7" is_picked="0" is_present="1" color="red" /><Key x_init="4" y_init="4" is_picked="0" is_present="1" color="yellow" /><Key x_init="9" y_init="7" is_picked="0" is_present="1" color="grey" /><Key x_init="9" y_init="8" is_picked="0" is_present="1" color="red" /><Key x_init="4" y_init="8" is_picked="0" is_present="1" color="blue" /></Keys>
+    <Doors>
+        </Doors>
+    <Objects>
+        </Objects>
+    <Walls>
+        <Wall x="5" y="1" /><Wall x="5" y="2" /><Wall x="5" y="3" /><Wall x="5" y="4" /><Wall x="5" y="6" /><Wall x="5" y="8" /><Wall x="5" y="9" /><Wall x="1" y="5" /><Wall x="2" y="5" /><Wall x="3" y="5" /><Wall x="4" y="5" /><Wall x="7" y="5" /><Wall x="8" y="5" /><Wall x="9" y="5" /></Walls>
+    <Grid>
+        <Size grid_Size="11" />
+    </Grid>
+<LavaTiles /><Landmines><Landmine x="9" y="6" is_present="1" /><Landmine x="2" y="8" is_present="1" /><Landmine x="9" y="9" is_present="1" /><Landmine x="4" y="1" is_present="1" /><Landmine x="4" y="9" is_present="1" /><Landmine x="3" y="9" is_present="1" /><Landmine x="3" y="8" is_present="1" /><Landmine x="9" y="6" is_present="1" /><Landmine x="3" y="6" is_present="1" /><Landmine x="7" y="1" is_present="1" /><Landmine x="7" y="8" is_present="1" /><Landmine x="6" y="2" is_present="1" /><Landmine x="3" y="8" is_present="1" /><Landmine x="6" y="1" is_present="1" /><Landmine x="2" y="9" is_present="1" /><Landmine x="2" y="2" is_present="1" /><Landmine x="1" y="7" is_present="1" /><Landmine x="2" y="8" is_present="1" /><Landmine x="7" y="6" is_present="1" /><Landmine x="8" y="2" is_present="1" /><Landmine x="9" y="4" is_present="1" /><Landmine x="6" y="9" is_present="1" /><Landmine x="2" y="6" is_present="1" /><Landmine x="2" y="4" is_present="1" /><Landmine x="1" y="7" is_present="1" /><Landmine x="6" y="7" is_present="1" /><Landmine x="8" y="6" is_present="1" /><Landmine x="7" y="2" is_present="1" /><Landmine x="2" y="1" is_present="1" /><Landmine x="9" y="6" is_present="1" /><Landmine x="2" y="4" is_present="1" /><Landmine x="4" y="3" is_present="1" /><Landmine x="6" y="4" is_present="1" /><Landmine x="1" y="7" is_present="1" /><Landmine x="3" y="8" is_present="1" /><Landmine x="6" y="7" is_present="1" /><Landmine x="4" y="9" is_present="1" /><Landmine x="7" y="6" is_present="1" /><Landmine x="8" y="8" is_present="1" /><Landmine x="2" y="4" is_present="1" /><Landmine x="6" y="1" is_present="1" /><Landmine x="2" y="4" is_present="1" /><Landmine x="1" y="1" is_present="1" /><Landmine x="3" y="9" is_present="1" /><Landmine x="7" y="2" is_present="1" /><Landmine x="8" y="2" is_present="1" /><Landmine x="3" y="2" is_present="1" /><Landmine x="3" y="9" is_present="1" /><Landmine x="6" y="4" is_present="1" /><Landmine x="3" y="1" is_present="1" /><Landmine x="2" y="3" is_present="1" /><Landmine x="8" y="1" is_present="1" /><Landmine x="2" y="8" is_present="1" /><Landmine x="2" y="3" is_present="1" /><Landmine x="7" y="8" is_present="1" /><Landmine x="4" y="7" is_present="1" /><Landmine x="6" y="3" is_present="1" /><Landmine x="1" y="2" is_present="1" /></Landmines></Environment>

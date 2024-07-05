@@ -2,21 +2,76 @@ import pygame
 from minigrid.core.actions import Actions
 
 from Fuzzer.LoadConfig import  State, loadSetting
-from Minigrid.EnvironmentState import  State,Agent, Door, Key, Object, Lava, State,load_InitialState
+from Minigrid.EnvironmentState import  State,Agent, Door, Key, Object, Lava, State,load_InitialState,Landmines
 from minigrid.core.constants import COLOR_NAMES
 from minigrid.core.grid import Grid
 from minigrid.core.mission import MissionSpace
 from minigrid.minigrid_env import MiniGridEnv
-from minigrid.core.world_object import Door, Goal, Key, Wall, Lava, Ball  
+from minigrid.core.world_object import Door, Goal, Key, Wall, Lava, Ball
 import os
 from Minigrid.agentPosition import check_environment_changes
 from datetime import datetime
 from Minigrid.CapabilitiesChecker import hypothesisCapabilities, check_task_achieved
 
 import requests
+import numpy as np
 import json
 import traceback
 
+from minigrid.core.world_object import WorldObj
+from minigrid.core.constants import COLOR_NAMES, COLORS
+from minigrid.core.world_object import WorldObj
+
+
+from minigrid.core.constants import COLORS
+from minigrid.core.world_object import WorldObj
+from minigrid.core.constants import OBJECT_TO_IDX, IDX_TO_OBJECT, COLORS
+from PIL import Image
+
+from minigrid.core.constants import COLOR_NAMES, COLOR_TO_IDX, COLORS
+
+if 'orange' not in COLORS:
+    COLORS['orange'] = np.array([255, 165, 0])
+
+if 'orange' not in COLOR_TO_IDX:
+    COLOR_TO_IDX['orange'] = len(COLOR_TO_IDX)
+
+def fill_coords(img, coords, color):
+    for x, y in coords:
+        if 0 <= y < img.shape[0] and 0 <= x < img.shape[1]:
+            img[int(y)][int(x)] = color
+
+def point_in_circle(cx, cy, r, cell_size):
+    points = []
+    for y in range(int(cy * cell_size - r * cell_size), int(cy * cell_size + r * cell_size) + 1):
+        for x in range(int(cx * cell_size - r * cell_size), int(cx * cell_size + r * cell_size) + 1):
+            if (x - cx * cell_size) ** 2 + (y - cy * cell_size) ** 2 <= (r * cell_size) ** 2:
+                points.append((x, y))
+    return points
+
+class Landmine(WorldObj):
+    def __init__(self, x, y, is_present):
+        super().__init__('landmine', 'orange')
+        self.x = x
+        self.y = y
+        self.is_present = is_present
+
+    def can_overlap(self):
+        return False
+
+    def see_behind(self):
+        return True
+
+    def render(self, img):
+        c = COLORS[self.color]
+        cell_size = 32  # Define the cell size, typically 32 pixels
+        coords = point_in_circle(1.5, 1.5, 0.5, cell_size)  # Centered circle with larger radius
+        for coord in coords:
+            if 0 <= coord[1] < img.shape[0] and 0 <= coord[0] < img.shape[1]:
+                img[int(coord[1]), int(coord[0]), :] = c
+
+OBJECT_TO_IDX['landmine'] = len(OBJECT_TO_IDX)
+IDX_TO_OBJECT[len(IDX_TO_OBJECT)] = 'landmine'
 
 class CustomMiniGridEnv(MiniGridEnv):
     def __init__(self, state: State,grid_size=None, **kwargs):
@@ -35,7 +90,6 @@ class CustomMiniGridEnv(MiniGridEnv):
 
     def _gen_grid(self, width, height):
         self.grid = Grid(width, height)
-
         self.grid.wall_rect(0, 0, width, height)
 
         self.agent_pos = self.initial_state.agent.init_pos
@@ -47,44 +101,31 @@ class CustomMiniGridEnv(MiniGridEnv):
             'w': 2
         }
         self.agent_dir = 1
-        self.agent_dir = direction_map.get(self.initial_state.agent.dest_direction,
-                                           0)  # Default to 'e' if direction is invalid
-
-        mid_x, mid_y = width // 2, height // 2
+        self.agent_dir = direction_map.get(self.initial_state.agent.dest_direction, 0)
 
         start_cell = self.grid.get(*self.agent_pos)
         if start_cell is not None and not start_cell.can_overlap():
             raise ValueError(f"Initial position {self.agent_pos} is occupied by a non-overlapping object.")
 
-        # Vertical wall
-        #for i in range(1, height - 1):
-                #self.grid.set(4, i, Wall())
-        # Horizontal wall
-        #for i in range(1, width - 1):
-           # if i != mid_x:
-               # self.grid.set(i, mid_y, Wall())
-
         for door in self.initial_state.doors:
-
-            door_color = door.color if hasattr(door, 'color') else 'yellow'  # Default color
-            is_locked = bool(door.door_status)  # Default unlocked
-
+            door_color = door.color if hasattr(door, 'color') else 'yellow'
+            is_locked = bool(door.door_status)
             self.grid.set(door.x, door.y, Door(door_color, is_open=door.door_status, is_locked=door.door_locked))
-        
+
         for key in self.initial_state.keys:
-            is_present=bool(key.is_present)
+            is_present = bool(key.is_present)
             if not is_present:
                 continue
             else:
                 key_color = key.color
                 is_picked = bool(key.is_picked)
-                if not is_picked: 
+                if not is_picked:
                     self.grid.set(key.x_init, key.y_init, Key(key_color))
-       
-        for lava in self.initial_state.lava_tiles:  
+
+        for lava in self.initial_state.lava_tiles:
             is_present = bool(lava.is_present)
-            if is_present:  
-                lava_color = 'red' 
+            if is_present:
+                lava_color = 'red'
                 self.grid.set(lava.x, lava.y, Lava())
             else:
                 continue
@@ -93,13 +134,20 @@ class CustomMiniGridEnv(MiniGridEnv):
             is_present = bool(object.is_present)
             if is_present:
                 obj_color = object.color
-                self.grid.set(object.x,object.y, Ball())
+                self.grid.set(object.x, object.y, Ball())
 
         for wall in self.initial_state.walls:
             self.grid.set(wall.x, wall.y, Wall())
             self.grid.get(wall.x, wall.y).color = 'blue'
 
-            # Set the destination position as a green Goal
+        for landmine in self.initial_state.landmines:
+            is_present = bool(landmine.is_present)
+            if is_present:
+                self.grid.set(landmine.x, landmine.y, Landmine(landmine.x, landmine.y, is_present))
+
+            else:
+                continue
+
         destination_position = self.initial_state.agent.dest_pos
         self.grid.set(destination_position[0], destination_position[1], Goal())
         self.grid.get(destination_position[0], destination_position[1]).color = 'green'

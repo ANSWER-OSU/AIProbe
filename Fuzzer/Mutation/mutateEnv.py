@@ -5,6 +5,7 @@ import os
 
 # Define the global colors list
 colors = ["red", "blue", "green", "yellow", "grey"]
+key_color = ["red", "blue", "green", "yellow", "grey"]
 
 class EnvName(Enum):
     FLAPPY_BIRD = "flappy_bird"
@@ -13,22 +14,34 @@ class EnvName(Enum):
     Four_Room = "four_room"
 
 # Generate random attributes for elements of minigrid env
-def randomize_attributes(element, attributes, grid_size, walls_positions=None, agent_pos=None, dest_pos=None):
+def randomize_attributes(element, attributes, grid_size, walls_positions=None, agent_pos=None, dest_pos=None,used_colors=None):
     walls_positions = walls_positions or set()
+    used_colors = used_colors or set()
+    available_colors = key_color
+
     for attr in attributes:
-        if attr in ["x", "y", "x_init", "y_init", "pick_x", "pick_y", "drop_x", "drop_y"]:
+        if attr in ["x", "x_init", "y_init", "pick_x", "pick_y", "drop_x", "drop_y"]:
             while True:
                 x = random.randint(1, grid_size - 2)  # Exclude boundaries 0 and grid_size - 1
                 y = random.randint(1, grid_size - 2)
                 if 1 <= x <= grid_size - 2 and 1 <= y <= grid_size - 2 and (x, y) not in walls_positions and (x, y) != agent_pos and (x, y) != dest_pos:
-                    element.set(attr, str(x if "x" in attr else y))
+                    element.set(attr, str(x))
+                    if(attr == "x"):
+                        element.set("y",str(y))
                     break
         elif attr in ["is_present"]:
-            element.set(attr, str(random.choice([0, 1])))
+            #element.set(attr, str(random.choice([0, 1])))
+            element.set(attr, '1')
         elif attr in ["is_picked", "pickStatus", "dropStatus"]:
             element.set(attr, "0")  # Always set pickStatus and dropStatus to 0
         elif attr == "color":
-            element.set(attr, random.choice(colors))
+            if available_colors:
+                color = random.choice(key_color)
+                element.set(attr, color)
+                key_color.remove(color)
+
+            else:
+                element.set(attr, random.choice(colors))
         elif attr == "theta":
             element.set(attr, random.choice(["n", "e", "s", "w"]))
 
@@ -260,6 +273,8 @@ def mutate_four_room_environment(xml_file_path):
         if destination_direction is not None:
             randomize_attributes(destination_direction, ["theta"], grid_size)
 
+    occupied_positions = set()
+
     # Remove existing keys
     keys = root.find("Keys")
     if keys is not None:
@@ -273,6 +288,8 @@ def mutate_four_room_environment(xml_file_path):
             walls.remove(wall)
 
     walls_positions = create_four_room_structure(root, grid_size, agent_pos, dest_pos)
+    for wall in walls_positions:
+        occupied_positions.add(wall)
 
     # Remove existing lava tiles
     lava_tiles = root.find("LavaTiles")
@@ -281,20 +298,20 @@ def mutate_four_room_environment(xml_file_path):
             lava_tiles.remove(lava)
 
 
-    if lava_tiles is None:
-        lava_tiles = ET.SubElement(root, "LavaTiles")
-
-    lava_positions = set()
-    no_of_lava = random.randint(10, 15)
-    for _ in range(no_of_lava):  # Add up to grid_size new lava tiles
-        new_lava = ET.SubElement(lava_tiles, "Lava")
-        while True:
-            randomize_attributes(new_lava, ["x", "y", "is_present"], grid_size)
-            lava_pos = (int(new_lava.get("x")), int(new_lava.get("y")))
-            if(new_lava.get("is_present") == '1'):
-                if lava_pos != agent_pos and 1 <= lava_pos[0] <= grid_size - 2 and 1 <= lava_pos[1] <= grid_size - 2 and lava_pos not in walls_positions:
-                    lava_positions.add(lava_pos)
-                    break
+    # if lava_tiles is None:
+    #     lava_tiles = ET.SubElement(root, "LavaTiles")
+    #
+    # lava_positions = set()
+    # no_of_lava = random.randint(10, 15)
+    # for _ in range(no_of_lava):  # Add up to grid_size new lava tiles
+    #     new_lava = ET.SubElement(lava_tiles, "Lava")
+    #     while True:
+    #         randomize_attributes(new_lava, ["x", "y", "is_present"], grid_size)
+    #         lava_pos = (int(new_lava.get("x")), int(new_lava.get("y")))
+    #         if(new_lava.get("is_present") == '1'):
+    #             if lava_pos != agent_pos and 1 <= lava_pos[0] <= grid_size - 2 and 1 <= lava_pos[1] <= grid_size - 2 and lava_pos not in walls_positions:
+    #                 lava_positions.add(lava_pos)
+    #                 break
 
     # Remove existing doors
     doors = root.find("Doors")
@@ -310,21 +327,44 @@ def mutate_four_room_environment(xml_file_path):
 
     # Create four-room structure and get wall positions
 
+    used_colors = set()
 
     # Add a random number of new keys
     if keys is not None:
-        num_keys = random.randint(1, grid_size - 2)
+        num_keys = random.randint(1, 5)
         for _ in range(num_keys):
             new_key = ET.SubElement(keys, "Key")
             while True:
-                randomize_attributes(new_key, ["x_init", "y_init", "is_picked", "is_present", "color"], grid_size, walls_positions, agent_pos, dest_pos)
+                randomize_attributes(new_key, ["x_init", "y_init", "is_picked", "is_present", "color"], grid_size,
+                                     walls_positions, agent_pos, dest_pos, used_colors)
                 key_pos = (int(new_key.get("x_init")), int(new_key.get("y_init")))
-                if key_pos != agent_pos and key_pos not in walls_positions not in lava_positions :
+                if key_pos != agent_pos and key_pos not in walls_positions:
+                    occupied_positions.add(key_pos)
                     break
 
     # Preserve the Grid element without changes
     if grid is not None:
         grid_size_element = grid.find("Size").get("grid_Size")
+
+
+
+    landmines = root.find("Landmines")
+
+    if landmines is not None:
+        for landmine in list(landmines):
+            landmines.remove(landmine)
+
+    if landmines is None:
+        landmines = ET.SubElement(root, "Landmines")
+
+    num_landmines = random.randint(1, (grid_size* grid_size)// 2)  # Define the number of landmines to add
+    for _ in range(num_landmines):
+            new_landmine = ET.SubElement(landmines, "Landmine")
+            randomize_attributes(new_landmine, ["x", "y", "is_present"], grid_size, walls_positions, agent_pos, dest_pos)
+
+
+
+
 
     # Convert the mutated tree back to a string
     mutated_xml_string = ET.tostring(root, encoding="unicode")

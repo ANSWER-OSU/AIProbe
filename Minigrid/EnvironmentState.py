@@ -32,6 +32,12 @@ class Lava:
         self.y = y
         self.is_present = is_present
 
+class Landmines:
+    def __init__(self, x, y, is_present):
+        self.x = x
+        self.y = y
+        self.is_present = is_present
+
 class Agent:
     def __init__(self, init_pos, init_direction, dest_pos, dest_direction, path):
         self.init_pos = init_pos
@@ -53,6 +59,7 @@ class State:
         self.objects = []
         self.lava_tiles = []
         self.walls = []
+        self.landmines=[]
 
 
 
@@ -121,5 +128,13 @@ def load_InitialState(file_path):
             y=int(wall_elem.get('y'))
         )
         initialEnvironment.walls.append(wall)
+
+    for lava_elem in root.find('Landmines').findall('Landmine'):
+        landmine = Landmines(
+            x=int(lava_elem.get('x')),
+            y=int(lava_elem.get('y')),
+            is_present=int(lava_elem.get('is_present'))
+        )
+        initialEnvironment.landmines.append(landmine)
 
     return initialEnvironment, GridSize

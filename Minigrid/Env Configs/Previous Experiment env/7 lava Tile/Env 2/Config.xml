@@ -1,0 +1,31 @@
+<Environment>
+    <Agent>
+        <InitialPosition x="1" y="1" />
+        <InitialDirection theta="e" />
+        <DestinationPosition x="5" y="5" />
+        <DestinationDirection theta="e" />
+        <Path>
+        </Path>
+    </Agent>
+    <Keys>
+         <Key x_init="1" y_init="1" is_picked="0" is_present="0" color="red" />
+    </Keys>
+    <Doors>
+
+    </Doors>
+    <Objects>
+    </Objects>
+    <LavaTiles>
+        <Lava x="1" y="3" is_present="1" />
+        <Lava x="2" y="3" is_present="1" />
+        <Lava x="4" y="2" is_present="1" />
+        <Lava x="2" y="1" is_present="1" />
+        <Lava x="5" y="3" is_present="1" />
+        <Lava x="1" y="4" is_present="1" />
+        <Lava x="3" y="1" is_present="1" />
+    </LavaTiles>
+     <Grid>
+        <Size grid_Size="7" />
+
+    </Grid>
+</Environment>

@@ -1,0 +1,21 @@
+<Environment>
+    <Agent>
+        <InitialPosition x="8" y="4" />
+        <InitialDirection theta="e" />
+        <DestinationPosition x="8" y="8" />
+        <DestinationDirection theta="s" />
+        <Path>
+        </Path>
+    </Agent>
+    <Keys>
+         <Key x_init="2" y_init="1" is_picked="0" is_present="1" color="green" /><Key x_init="9" y_init="2" is_picked="0" is_present="1" color="green" /><Key x_init="4" y_init="3" is_picked="0" is_present="1" color="yellow" /></Keys>
+    <Doors>
+        </Doors>
+    <Objects>
+        </Objects>
+    <Walls>
+        <Wall x="5" y="1" /><Wall x="5" y="2" /><Wall x="5" y="4" /><Wall x="5" y="6" /><Wall x="5" y="7" /><Wall x="5" y="8" /><Wall x="5" y="9" /><Wall x="1" y="5" /><Wall x="2" y="5" /><Wall x="3" y="5" /><Wall x="4" y="5" /><Wall x="6" y="5" /><Wall x="8" y="5" /><Wall x="9" y="5" /></Walls>
+    <Grid>
+        <Size grid_Size="11" />
+    </Grid>
+<LavaTiles /><Landmines><Landmine x="8" y="6" is_present="1" /><Landmine x="3" y="7" is_present="1" /><Landmine x="8" y="9" is_present="1" /><Landmine x="2" y="2" is_present="1" /><Landmine x="4" y="8" is_present="1" /><Landmine x="2" y="6" is_present="1" /><Landmine x="3" y="8" is_present="1" /><Landmine x="1" y="8" is_present="1" /><Landmine x="9" y="1" is_present="1" /></Landmines></Environment>
