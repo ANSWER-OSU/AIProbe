@@ -1,431 +1,431 @@
-2024-07-09 21:44:43,716 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
-2024-07-09 21:44:43,716 - INFO - Overall mutation process started at Tue Jul  9 21:44:43 2024
-2024-07-09 21:44:43,716 - INFO - Processing seed: 11
-2024-07-09 21:44:43,716 - INFO - Processing environment: Env-1 started at Tue Jul  9 21:44:43 2024
-2024-07-09 21:44:43,717 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-1
-2024-07-09 21:44:43,995 - INFO - Task 1 for environment Env-1 started at Tue Jul  9 21:44:43 2024
-2024-07-09 21:44:43,996 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x000002537D70D7E0>, 7)
-2024-07-09 21:44:43,996 - INFO - Instruction generation for seed 11 started at Tue Jul  9 21:44:43 2024
-2024-07-09 21:44:46,441 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-1\task_1\11
-2024-07-09 21:44:46,441 - INFO - Instruction generation for seed 56 started at Tue Jul  9 21:44:46 2024
-2024-07-09 21:44:47,805 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-1\task_1\56
-2024-07-09 21:44:47,806 - INFO - Instruction generation for seed 32 started at Tue Jul  9 21:44:47 2024
-2024-07-09 21:44:48,905 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-1\task_1\32
-2024-07-09 21:44:48,906 - INFO - Instruction generation for seed 88 started at Tue Jul  9 21:44:48 2024
-2024-07-09 21:44:49,894 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-1\task_1\88
-2024-07-09 21:44:49,894 - INFO - Instruction generation for seed 41 started at Tue Jul  9 21:44:49 2024
-2024-07-09 21:44:50,902 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-1\task_1\41
-2024-07-09 21:44:50,903 - INFO - Instruction generation for seed 29 started at Tue Jul  9 21:44:50 2024
-2024-07-09 21:44:52,128 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-1\task_1\29
-2024-07-09 21:44:52,129 - INFO - Instruction generation for seed 78 started at Tue Jul  9 21:44:52 2024
-2024-07-09 21:44:53,434 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-1\task_1\78
-2024-07-09 21:44:53,434 - INFO - Instruction generation for seed 93 started at Tue Jul  9 21:44:53 2024
-2024-07-09 21:44:54,609 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-1\task_1\93
-2024-07-09 21:44:54,611 - INFO - Instruction generation for seed 100 started at Tue Jul  9 21:44:54 2024
-2024-07-09 21:44:55,767 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-1\task_1\100
-2024-07-09 21:44:55,767 - INFO - Instruction generation for seed 200 started at Tue Jul  9 21:44:55 2024
-2024-07-09 21:44:56,984 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-1\task_1\200
-2024-07-09 21:44:56,984 - INFO - Processing environment: Env-1 completed at Tue Jul  9 21:44:56 2024
-2024-07-09 21:44:56,984 - INFO - Total time for environment Env-1: 13.26722526550293 seconds
-2024-07-09 21:44:56,984 - INFO - Processing environment: Env-10 started at Tue Jul  9 21:44:56 2024
-2024-07-09 21:44:56,984 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-10
-2024-07-09 21:44:56,993 - INFO - Task 1 for environment Env-10 started at Tue Jul  9 21:44:56 2024
-2024-07-09 21:44:56,993 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x0000025379DC7820>, 7)
-2024-07-09 21:44:56,994 - INFO - Instruction generation for seed 11 started at Tue Jul  9 21:44:56 2024
-2024-07-09 21:44:56,994 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-10\task_1\11
-2024-07-09 21:44:56,995 - INFO - Instruction generation for seed 56 started at Tue Jul  9 21:44:56 2024
-2024-07-09 21:44:56,995 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-10\task_1\56
-2024-07-09 21:44:56,996 - INFO - Instruction generation for seed 32 started at Tue Jul  9 21:44:56 2024
-2024-07-09 21:44:56,996 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-10\task_1\32
-2024-07-09 21:44:56,997 - INFO - Instruction generation for seed 88 started at Tue Jul  9 21:44:56 2024
-2024-07-09 21:44:56,997 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-10\task_1\88
-2024-07-09 21:44:56,998 - INFO - Instruction generation for seed 41 started at Tue Jul  9 21:44:56 2024
-2024-07-09 21:44:56,998 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-10\task_1\41
-2024-07-09 21:44:56,999 - INFO - Instruction generation for seed 29 started at Tue Jul  9 21:44:56 2024
-2024-07-09 21:44:56,999 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-10\task_1\29
-2024-07-09 21:44:57,000 - INFO - Instruction generation for seed 78 started at Tue Jul  9 21:44:57 2024
-2024-07-09 21:44:57,000 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-10\task_1\78
-2024-07-09 21:44:57,000 - INFO - Instruction generation for seed 93 started at Tue Jul  9 21:44:57 2024
-2024-07-09 21:44:57,001 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-10\task_1\93
-2024-07-09 21:44:57,001 - INFO - Instruction generation for seed 100 started at Tue Jul  9 21:44:57 2024
-2024-07-09 21:44:57,002 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-10\task_1\100
-2024-07-09 21:44:57,002 - INFO - Instruction generation for seed 200 started at Tue Jul  9 21:44:57 2024
-2024-07-09 21:44:57,003 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-10\task_1\200
-2024-07-09 21:44:57,003 - INFO - Processing environment: Env-10 completed at Tue Jul  9 21:44:57 2024
-2024-07-09 21:44:57,003 - INFO - Total time for environment Env-10: 0.01909184455871582 seconds
-2024-07-09 21:44:57,003 - INFO - Processing environment: Env-11 started at Tue Jul  9 21:44:57 2024
-2024-07-09 21:44:57,003 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-11
-2024-07-09 21:44:57,011 - INFO - Task 1 for environment Env-11 started at Tue Jul  9 21:44:57 2024
-2024-07-09 21:44:57,012 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x0000025379DC77F0>, 7)
-2024-07-09 21:44:57,012 - INFO - Instruction generation for seed 11 started at Tue Jul  9 21:44:57 2024
-2024-07-09 21:45:03,343 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-11\task_1\11
-2024-07-09 21:45:03,343 - INFO - Instruction generation for seed 56 started at Tue Jul  9 21:45:03 2024
-2024-07-09 21:45:09,104 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-11\task_1\56
-2024-07-09 21:45:09,104 - INFO - Instruction generation for seed 32 started at Tue Jul  9 21:45:09 2024
-2024-07-09 21:45:15,058 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-11\task_1\32
-2024-07-09 21:45:15,059 - INFO - Instruction generation for seed 88 started at Tue Jul  9 21:45:15 2024
-2024-07-09 21:45:22,522 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-11\task_1\88
-2024-07-09 21:45:22,522 - INFO - Instruction generation for seed 41 started at Tue Jul  9 21:45:22 2024
-2024-07-09 21:45:28,311 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-11\task_1\41
-2024-07-09 21:45:28,311 - INFO - Instruction generation for seed 29 started at Tue Jul  9 21:45:28 2024
-2024-07-09 21:45:34,974 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-11\task_1\29
-2024-07-09 21:45:34,974 - INFO - Instruction generation for seed 78 started at Tue Jul  9 21:45:34 2024
-2024-07-09 21:45:41,218 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-11\task_1\78
-2024-07-09 21:45:41,219 - INFO - Instruction generation for seed 93 started at Tue Jul  9 21:45:41 2024
-2024-07-09 21:45:47,727 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-11\task_1\93
-2024-07-09 21:45:47,727 - INFO - Instruction generation for seed 100 started at Tue Jul  9 21:45:47 2024
-2024-07-09 21:45:53,801 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-11\task_1\100
-2024-07-09 21:45:53,802 - INFO - Instruction generation for seed 200 started at Tue Jul  9 21:45:53 2024
-2024-07-09 21:45:59,641 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-11\task_1\200
-2024-07-09 21:45:59,642 - INFO - Processing environment: Env-11 completed at Tue Jul  9 21:45:59 2024
-2024-07-09 21:45:59,642 - INFO - Total time for environment Env-11: 62.63899874687195 seconds
-2024-07-09 21:45:59,642 - INFO - Processing environment: Env-12 started at Tue Jul  9 21:45:59 2024
-2024-07-09 21:45:59,642 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-12
-2024-07-09 21:45:59,650 - INFO - Task 1 for environment Env-12 started at Tue Jul  9 21:45:59 2024
-2024-07-09 21:45:59,651 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x0000025379DC7820>, 7)
-2024-07-09 21:45:59,651 - INFO - Instruction generation for seed 11 started at Tue Jul  9 21:45:59 2024
-2024-07-09 21:46:05,864 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-12\task_1\11
-2024-07-09 21:46:05,864 - INFO - Instruction generation for seed 56 started at Tue Jul  9 21:46:05 2024
-2024-07-09 21:46:11,895 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-12\task_1\56
-2024-07-09 21:46:11,895 - INFO - Instruction generation for seed 32 started at Tue Jul  9 21:46:11 2024
-2024-07-09 21:46:18,203 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-12\task_1\32
-2024-07-09 21:46:18,204 - INFO - Instruction generation for seed 88 started at Tue Jul  9 21:46:18 2024
-2024-07-09 21:46:27,184 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-12\task_1\88
-2024-07-09 21:46:27,185 - INFO - Instruction generation for seed 41 started at Tue Jul  9 21:46:27 2024
-2024-07-09 21:46:32,434 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-12\task_1\41
-2024-07-09 21:46:32,435 - INFO - Instruction generation for seed 29 started at Tue Jul  9 21:46:32 2024
-2024-07-09 21:46:37,618 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-12\task_1\29
-2024-07-09 21:46:37,618 - INFO - Instruction generation for seed 78 started at Tue Jul  9 21:46:37 2024
-2024-07-09 21:46:42,817 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-12\task_1\78
-2024-07-09 21:46:42,817 - INFO - Instruction generation for seed 93 started at Tue Jul  9 21:46:42 2024
-2024-07-09 21:46:48,265 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-12\task_1\93
-2024-07-09 21:46:48,266 - INFO - Instruction generation for seed 100 started at Tue Jul  9 21:46:48 2024
-2024-07-09 21:46:53,493 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-12\task_1\100
-2024-07-09 21:46:53,493 - INFO - Instruction generation for seed 200 started at Tue Jul  9 21:46:53 2024
-2024-07-09 21:46:58,770 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-12\task_1\200
-2024-07-09 21:46:58,770 - INFO - Processing environment: Env-12 completed at Tue Jul  9 21:46:58 2024
-2024-07-09 21:46:58,770 - INFO - Total time for environment Env-12: 59.12878775596619 seconds
-2024-07-09 21:46:58,770 - INFO - Processing environment: Env-13 started at Tue Jul  9 21:46:58 2024
-2024-07-09 21:46:58,770 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-13
-2024-07-09 21:46:58,779 - INFO - Task 1 for environment Env-13 started at Tue Jul  9 21:46:58 2024
-2024-07-09 21:46:58,779 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x0000025379DC77F0>, 7)
-2024-07-09 21:46:58,780 - INFO - Instruction generation for seed 11 started at Tue Jul  9 21:46:58 2024
-2024-07-09 21:47:04,450 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-13\task_1\11
-2024-07-09 21:47:04,450 - INFO - Instruction generation for seed 56 started at Tue Jul  9 21:47:04 2024
-2024-07-09 21:47:10,214 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-13\task_1\56
-2024-07-09 21:47:10,215 - INFO - Instruction generation for seed 32 started at Tue Jul  9 21:47:10 2024
-2024-07-09 21:47:15,951 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-13\task_1\32
-2024-07-09 21:47:15,952 - INFO - Instruction generation for seed 88 started at Tue Jul  9 21:47:15 2024
-2024-07-09 21:47:21,733 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-13\task_1\88
-2024-07-09 21:47:21,734 - INFO - Instruction generation for seed 41 started at Tue Jul  9 21:47:21 2024
-2024-07-09 21:47:27,328 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-13\task_1\41
-2024-07-09 21:47:27,328 - INFO - Instruction generation for seed 29 started at Tue Jul  9 21:47:27 2024
-2024-07-09 21:47:32,880 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-13\task_1\29
-2024-07-09 21:47:32,880 - INFO - Instruction generation for seed 78 started at Tue Jul  9 21:47:32 2024
-2024-07-09 21:47:38,826 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-13\task_1\78
-2024-07-09 21:47:38,827 - INFO - Instruction generation for seed 93 started at Tue Jul  9 21:47:38 2024
-2024-07-09 21:47:44,462 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-13\task_1\93
-2024-07-09 21:47:44,462 - INFO - Instruction generation for seed 100 started at Tue Jul  9 21:47:44 2024
-2024-07-09 21:47:49,988 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-13\task_1\100
-2024-07-09 21:47:49,989 - INFO - Instruction generation for seed 200 started at Tue Jul  9 21:47:49 2024
-2024-07-09 21:47:55,474 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-13\task_1\200
-2024-07-09 21:47:55,474 - INFO - Processing environment: Env-13 completed at Tue Jul  9 21:47:55 2024
-2024-07-09 21:47:55,474 - INFO - Total time for environment Env-13: 56.703502893447876 seconds
-2024-07-09 21:47:55,474 - INFO - Processing environment: Env-14 started at Tue Jul  9 21:47:55 2024
-2024-07-09 21:47:55,474 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-14
-2024-07-09 21:47:55,483 - INFO - Task 1 for environment Env-14 started at Tue Jul  9 21:47:55 2024
-2024-07-09 21:47:55,483 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x0000025379DC7A00>, 7)
-2024-07-09 21:47:55,483 - INFO - Instruction generation for seed 11 started at Tue Jul  9 21:47:55 2024
-2024-07-09 21:48:00,485 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-14\task_1\11
-2024-07-09 21:48:00,486 - INFO - Instruction generation for seed 56 started at Tue Jul  9 21:48:00 2024
-2024-07-09 21:48:05,631 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-14\task_1\56
-2024-07-09 21:48:05,632 - INFO - Instruction generation for seed 32 started at Tue Jul  9 21:48:05 2024
-2024-07-09 21:48:10,721 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-14\task_1\32
-2024-07-09 21:48:10,721 - INFO - Instruction generation for seed 88 started at Tue Jul  9 21:48:10 2024
-2024-07-09 21:48:15,859 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-14\task_1\88
-2024-07-09 21:48:15,859 - INFO - Instruction generation for seed 41 started at Tue Jul  9 21:48:15 2024
-2024-07-09 21:48:21,057 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-14\task_1\41
-2024-07-09 21:48:21,058 - INFO - Instruction generation for seed 29 started at Tue Jul  9 21:48:21 2024
-2024-07-09 21:48:26,073 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-14\task_1\29
-2024-07-09 21:48:26,073 - INFO - Instruction generation for seed 78 started at Tue Jul  9 21:48:26 2024
-2024-07-09 21:48:31,177 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-14\task_1\78
-2024-07-09 21:48:31,178 - INFO - Instruction generation for seed 93 started at Tue Jul  9 21:48:31 2024
-2024-07-09 21:48:36,210 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-14\task_1\93
-2024-07-09 21:48:36,210 - INFO - Instruction generation for seed 100 started at Tue Jul  9 21:48:36 2024
-2024-07-09 21:48:41,138 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-14\task_1\100
-2024-07-09 21:48:41,139 - INFO - Instruction generation for seed 200 started at Tue Jul  9 21:48:41 2024
-2024-07-09 21:48:46,290 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-14\task_1\200
-2024-07-09 21:48:46,290 - INFO - Processing environment: Env-14 completed at Tue Jul  9 21:48:46 2024
-2024-07-09 21:48:46,290 - INFO - Total time for environment Env-14: 50.815632581710815 seconds
-2024-07-09 21:48:46,290 - INFO - Processing environment: Env-15 started at Tue Jul  9 21:48:46 2024
-2024-07-09 21:48:46,290 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-15
-2024-07-09 21:48:46,299 - INFO - Task 1 for environment Env-15 started at Tue Jul  9 21:48:46 2024
-2024-07-09 21:48:46,299 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x0000025379DC77F0>, 7)
-2024-07-09 21:48:46,300 - INFO - Instruction generation for seed 11 started at Tue Jul  9 21:48:46 2024
-2024-07-09 21:48:49,727 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-15\task_1\11
-2024-07-09 21:48:49,728 - INFO - Instruction generation for seed 56 started at Tue Jul  9 21:48:49 2024
-2024-07-09 21:48:52,798 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-15\task_1\56
-2024-07-09 21:48:52,799 - INFO - Instruction generation for seed 32 started at Tue Jul  9 21:48:52 2024
-2024-07-09 21:48:55,945 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-15\task_1\32
-2024-07-09 21:48:55,946 - INFO - Instruction generation for seed 88 started at Tue Jul  9 21:48:55 2024
-2024-07-09 21:48:59,150 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-15\task_1\88
-2024-07-09 21:48:59,151 - INFO - Instruction generation for seed 41 started at Tue Jul  9 21:48:59 2024
-2024-07-09 21:49:02,339 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-15\task_1\41
-2024-07-09 21:49:02,340 - INFO - Instruction generation for seed 29 started at Tue Jul  9 21:49:02 2024
-2024-07-09 21:49:05,528 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-15\task_1\29
-2024-07-09 21:49:05,528 - INFO - Instruction generation for seed 78 started at Tue Jul  9 21:49:05 2024
-2024-07-09 21:49:08,637 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-15\task_1\78
-2024-07-09 21:49:08,637 - INFO - Instruction generation for seed 93 started at Tue Jul  9 21:49:08 2024
-2024-07-09 21:49:11,801 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-15\task_1\93
-2024-07-09 21:49:11,801 - INFO - Instruction generation for seed 100 started at Tue Jul  9 21:49:11 2024
-2024-07-09 21:49:15,030 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-15\task_1\100
-2024-07-09 21:49:15,031 - INFO - Instruction generation for seed 200 started at Tue Jul  9 21:49:15 2024
-2024-07-09 21:49:18,481 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-15\task_1\200
-2024-07-09 21:49:18,481 - INFO - Processing environment: Env-15 completed at Tue Jul  9 21:49:18 2024
-2024-07-09 21:49:18,481 - INFO - Total time for environment Env-15: 32.1919047832489 seconds
-2024-07-09 21:49:18,481 - INFO - Processing environment: Env-2 started at Tue Jul  9 21:49:18 2024
-2024-07-09 21:49:18,481 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-2
-2024-07-09 21:49:18,494 - INFO - Task 1 for environment Env-2 started at Tue Jul  9 21:49:18 2024
-2024-07-09 21:49:18,495 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x0000025379DC7A00>, 7)
-2024-07-09 21:49:18,495 - INFO - Instruction generation for seed 11 started at Tue Jul  9 21:49:18 2024
-2024-07-09 21:49:23,493 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-2\task_1\11
-2024-07-09 21:49:23,493 - INFO - Instruction generation for seed 56 started at Tue Jul  9 21:49:23 2024
-2024-07-09 21:49:27,861 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-2\task_1\56
-2024-07-09 21:49:27,861 - INFO - Instruction generation for seed 32 started at Tue Jul  9 21:49:27 2024
-2024-07-09 21:49:32,137 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-2\task_1\32
-2024-07-09 21:49:32,138 - INFO - Instruction generation for seed 88 started at Tue Jul  9 21:49:32 2024
-2024-07-09 21:49:37,060 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-2\task_1\88
-2024-07-09 21:49:37,060 - INFO - Instruction generation for seed 41 started at Tue Jul  9 21:49:37 2024
-2024-07-09 21:49:41,651 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-2\task_1\41
-2024-07-09 21:49:41,651 - INFO - Instruction generation for seed 29 started at Tue Jul  9 21:49:41 2024
-2024-07-09 21:49:46,153 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-2\task_1\29
-2024-07-09 21:49:46,153 - INFO - Instruction generation for seed 78 started at Tue Jul  9 21:49:46 2024
-2024-07-09 21:49:50,414 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-2\task_1\78
-2024-07-09 21:49:50,415 - INFO - Instruction generation for seed 93 started at Tue Jul  9 21:49:50 2024
-2024-07-09 21:49:54,824 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-2\task_1\93
-2024-07-09 21:49:54,825 - INFO - Instruction generation for seed 100 started at Tue Jul  9 21:49:54 2024
-2024-07-09 21:49:59,178 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-2\task_1\100
-2024-07-09 21:49:59,178 - INFO - Instruction generation for seed 200 started at Tue Jul  9 21:49:59 2024
-2024-07-09 21:50:03,514 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-2\task_1\200
-2024-07-09 21:50:03,514 - INFO - Processing environment: Env-2 completed at Tue Jul  9 21:50:03 2024
-2024-07-09 21:50:03,514 - INFO - Total time for environment Env-2: 45.03288555145264 seconds
-2024-07-09 21:50:03,514 - INFO - Processing environment: Env-3 started at Tue Jul  9 21:50:03 2024
-2024-07-09 21:50:03,514 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-3
-2024-07-09 21:50:03,523 - INFO - Task 1 for environment Env-3 started at Tue Jul  9 21:50:03 2024
-2024-07-09 21:50:03,523 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x0000025379DC77F0>, 7)
-2024-07-09 21:50:03,524 - INFO - Instruction generation for seed 11 started at Tue Jul  9 21:50:03 2024
-2024-07-09 21:50:08,750 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-3\task_1\11
-2024-07-09 21:50:08,750 - INFO - Instruction generation for seed 56 started at Tue Jul  9 21:50:08 2024
-2024-07-09 21:50:13,810 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-3\task_1\56
-2024-07-09 21:50:13,811 - INFO - Instruction generation for seed 32 started at Tue Jul  9 21:50:13 2024
-2024-07-09 21:50:19,637 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-3\task_1\32
-2024-07-09 21:50:19,638 - INFO - Instruction generation for seed 88 started at Tue Jul  9 21:50:19 2024
-2024-07-09 21:50:24,701 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-3\task_1\88
-2024-07-09 21:50:24,702 - INFO - Instruction generation for seed 41 started at Tue Jul  9 21:50:24 2024
-2024-07-09 21:50:30,122 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-3\task_1\41
-2024-07-09 21:50:30,123 - INFO - Instruction generation for seed 29 started at Tue Jul  9 21:50:30 2024
-2024-07-09 21:50:35,766 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-3\task_1\29
-2024-07-09 21:50:35,767 - INFO - Instruction generation for seed 78 started at Tue Jul  9 21:50:35 2024
-2024-07-09 21:50:40,845 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-3\task_1\78
-2024-07-09 21:50:40,846 - INFO - Instruction generation for seed 93 started at Tue Jul  9 21:50:40 2024
-2024-07-09 21:50:46,008 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-3\task_1\93
-2024-07-09 21:50:46,008 - INFO - Instruction generation for seed 100 started at Tue Jul  9 21:50:46 2024
-2024-07-09 21:50:51,107 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-3\task_1\100
-2024-07-09 21:50:51,107 - INFO - Instruction generation for seed 200 started at Tue Jul  9 21:50:51 2024
-2024-07-09 21:50:56,227 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-3\task_1\200
-2024-07-09 21:50:56,228 - INFO - Processing environment: Env-3 completed at Tue Jul  9 21:50:56 2024
-2024-07-09 21:50:56,228 - INFO - Total time for environment Env-3: 52.71344804763794 seconds
-2024-07-09 21:50:56,228 - INFO - Processing environment: Env-4 started at Tue Jul  9 21:50:56 2024
-2024-07-09 21:50:56,228 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-4
-2024-07-09 21:50:56,236 - INFO - Task 1 for environment Env-4 started at Tue Jul  9 21:50:56 2024
-2024-07-09 21:50:56,237 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x000002537D64F250>, 7)
-2024-07-09 21:50:56,237 - INFO - Instruction generation for seed 11 started at Tue Jul  9 21:50:56 2024
-2024-07-09 21:51:00,693 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-4\task_1\11
-2024-07-09 21:51:00,693 - INFO - Instruction generation for seed 56 started at Tue Jul  9 21:51:00 2024
-2024-07-09 21:51:04,801 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-4\task_1\56
-2024-07-09 21:51:04,801 - INFO - Instruction generation for seed 32 started at Tue Jul  9 21:51:04 2024
-2024-07-09 21:51:08,994 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-4\task_1\32
-2024-07-09 21:51:08,995 - INFO - Instruction generation for seed 88 started at Tue Jul  9 21:51:08 2024
-2024-07-09 21:51:13,244 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-4\task_1\88
-2024-07-09 21:51:13,245 - INFO - Instruction generation for seed 41 started at Tue Jul  9 21:51:13 2024
-2024-07-09 21:51:18,044 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-4\task_1\41
-2024-07-09 21:51:18,044 - INFO - Instruction generation for seed 29 started at Tue Jul  9 21:51:18 2024
-2024-07-09 21:51:22,365 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-4\task_1\29
-2024-07-09 21:51:22,366 - INFO - Instruction generation for seed 78 started at Tue Jul  9 21:51:22 2024
-2024-07-09 21:51:27,293 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-4\task_1\78
-2024-07-09 21:51:27,293 - INFO - Instruction generation for seed 93 started at Tue Jul  9 21:51:27 2024
-2024-07-09 21:51:32,371 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-4\task_1\93
-2024-07-09 21:51:32,372 - INFO - Instruction generation for seed 100 started at Tue Jul  9 21:51:32 2024
-2024-07-09 21:51:37,054 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-4\task_1\100
-2024-07-09 21:51:37,055 - INFO - Instruction generation for seed 200 started at Tue Jul  9 21:51:37 2024
-2024-07-09 21:51:41,612 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-4\task_1\200
-2024-07-09 21:51:41,612 - INFO - Processing environment: Env-4 completed at Tue Jul  9 21:51:41 2024
-2024-07-09 21:51:41,612 - INFO - Total time for environment Env-4: 45.384275913238525 seconds
-2024-07-09 21:51:41,612 - INFO - Processing environment: Env-5 started at Tue Jul  9 21:51:41 2024
-2024-07-09 21:51:41,612 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-5
-2024-07-09 21:51:41,620 - INFO - Task 1 for environment Env-5 started at Tue Jul  9 21:51:41 2024
-2024-07-09 21:51:41,621 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x000002537D64DE40>, 7)
-2024-07-09 21:51:41,621 - INFO - Instruction generation for seed 11 started at Tue Jul  9 21:51:41 2024
-2024-07-09 21:51:46,989 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-5\task_1\11
-2024-07-09 21:51:46,989 - INFO - Instruction generation for seed 56 started at Tue Jul  9 21:51:46 2024
-2024-07-09 21:51:52,238 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-5\task_1\56
-2024-07-09 21:51:52,238 - INFO - Instruction generation for seed 32 started at Tue Jul  9 21:51:52 2024
-2024-07-09 21:51:57,306 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-5\task_1\32
-2024-07-09 21:51:57,306 - INFO - Instruction generation for seed 88 started at Tue Jul  9 21:51:57 2024
-2024-07-09 21:52:02,639 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-5\task_1\88
-2024-07-09 21:52:02,640 - INFO - Instruction generation for seed 41 started at Tue Jul  9 21:52:02 2024
-2024-07-09 21:52:08,132 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-5\task_1\41
-2024-07-09 21:52:08,133 - INFO - Instruction generation for seed 29 started at Tue Jul  9 21:52:08 2024
-2024-07-09 21:52:13,313 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-5\task_1\29
-2024-07-09 21:52:13,313 - INFO - Instruction generation for seed 78 started at Tue Jul  9 21:52:13 2024
-2024-07-09 21:52:18,491 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-5\task_1\78
-2024-07-09 21:52:18,491 - INFO - Instruction generation for seed 93 started at Tue Jul  9 21:52:18 2024
-2024-07-09 21:52:23,801 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-5\task_1\93
-2024-07-09 21:52:23,801 - INFO - Instruction generation for seed 100 started at Tue Jul  9 21:52:23 2024
-2024-07-09 21:52:29,006 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-5\task_1\100
-2024-07-09 21:52:29,007 - INFO - Instruction generation for seed 200 started at Tue Jul  9 21:52:29 2024
-2024-07-09 21:52:34,322 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-5\task_1\200
-2024-07-09 21:52:34,323 - INFO - Processing environment: Env-5 completed at Tue Jul  9 21:52:34 2024
-2024-07-09 21:52:34,323 - INFO - Total time for environment Env-5: 52.7108736038208 seconds
-2024-07-09 21:52:34,323 - INFO - Processing environment: Env-6 started at Tue Jul  9 21:52:34 2024
-2024-07-09 21:52:34,323 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-6
-2024-07-09 21:52:34,332 - INFO - Task 1 for environment Env-6 started at Tue Jul  9 21:52:34 2024
-2024-07-09 21:52:34,332 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x000002537D64F250>, 7)
-2024-07-09 21:52:34,333 - INFO - Instruction generation for seed 11 started at Tue Jul  9 21:52:34 2024
-2024-07-09 21:52:39,000 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-6\task_1\11
-2024-07-09 21:52:39,001 - INFO - Instruction generation for seed 56 started at Tue Jul  9 21:52:39 2024
-2024-07-09 21:52:43,850 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-6\task_1\56
-2024-07-09 21:52:43,850 - INFO - Instruction generation for seed 32 started at Tue Jul  9 21:52:43 2024
-2024-07-09 21:52:48,616 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-6\task_1\32
-2024-07-09 21:52:48,617 - INFO - Instruction generation for seed 88 started at Tue Jul  9 21:52:48 2024
-2024-07-09 21:52:53,182 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-6\task_1\88
-2024-07-09 21:52:53,183 - INFO - Instruction generation for seed 41 started at Tue Jul  9 21:52:53 2024
-2024-07-09 21:52:57,718 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-6\task_1\41
-2024-07-09 21:52:57,718 - INFO - Instruction generation for seed 29 started at Tue Jul  9 21:52:57 2024
-2024-07-09 21:53:02,421 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-6\task_1\29
-2024-07-09 21:53:02,422 - INFO - Instruction generation for seed 78 started at Tue Jul  9 21:53:02 2024
-2024-07-09 21:53:07,128 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-6\task_1\78
-2024-07-09 21:53:07,128 - INFO - Instruction generation for seed 93 started at Tue Jul  9 21:53:07 2024
-2024-07-09 21:53:11,936 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-6\task_1\93
-2024-07-09 21:53:11,937 - INFO - Instruction generation for seed 100 started at Tue Jul  9 21:53:11 2024
-2024-07-09 21:53:16,466 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-6\task_1\100
-2024-07-09 21:53:16,467 - INFO - Instruction generation for seed 200 started at Tue Jul  9 21:53:16 2024
-2024-07-09 21:53:20,834 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-6\task_1\200
-2024-07-09 21:53:20,834 - INFO - Processing environment: Env-6 completed at Tue Jul  9 21:53:20 2024
-2024-07-09 21:53:20,834 - INFO - Total time for environment Env-6: 46.51128435134888 seconds
-2024-07-09 21:53:20,834 - INFO - Processing environment: Env-7 started at Tue Jul  9 21:53:20 2024
-2024-07-09 21:53:20,834 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-7
-2024-07-09 21:53:20,843 - INFO - Task 1 for environment Env-7 started at Tue Jul  9 21:53:20 2024
-2024-07-09 21:53:20,843 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x000002537D64DE40>, 7)
-2024-07-09 21:53:20,843 - INFO - Instruction generation for seed 11 started at Tue Jul  9 21:53:20 2024
-2024-07-09 21:53:20,931 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-7\task_1\11
-2024-07-09 21:53:20,932 - INFO - Instruction generation for seed 56 started at Tue Jul  9 21:53:20 2024
-2024-07-09 21:53:21,008 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-7\task_1\56
-2024-07-09 21:53:21,009 - INFO - Instruction generation for seed 32 started at Tue Jul  9 21:53:21 2024
-2024-07-09 21:53:21,083 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-7\task_1\32
-2024-07-09 21:53:21,084 - INFO - Instruction generation for seed 88 started at Tue Jul  9 21:53:21 2024
-2024-07-09 21:53:21,159 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-7\task_1\88
-2024-07-09 21:53:21,159 - INFO - Instruction generation for seed 41 started at Tue Jul  9 21:53:21 2024
-2024-07-09 21:53:21,233 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-7\task_1\41
-2024-07-09 21:53:21,234 - INFO - Instruction generation for seed 29 started at Tue Jul  9 21:53:21 2024
-2024-07-09 21:53:21,309 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-7\task_1\29
-2024-07-09 21:53:21,310 - INFO - Instruction generation for seed 78 started at Tue Jul  9 21:53:21 2024
-2024-07-09 21:53:21,384 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-7\task_1\78
-2024-07-09 21:53:21,384 - INFO - Instruction generation for seed 93 started at Tue Jul  9 21:53:21 2024
-2024-07-09 21:53:21,459 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-7\task_1\93
-2024-07-09 21:53:21,459 - INFO - Instruction generation for seed 100 started at Tue Jul  9 21:53:21 2024
-2024-07-09 21:53:21,536 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-7\task_1\100
-2024-07-09 21:53:21,537 - INFO - Instruction generation for seed 200 started at Tue Jul  9 21:53:21 2024
-2024-07-09 21:53:21,611 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-7\task_1\200
-2024-07-09 21:53:21,612 - INFO - Processing environment: Env-7 completed at Tue Jul  9 21:53:21 2024
-2024-07-09 21:53:21,612 - INFO - Total time for environment Env-7: 0.7774355411529541 seconds
-2024-07-09 21:53:21,612 - INFO - Processing environment: Env-8 started at Tue Jul  9 21:53:21 2024
-2024-07-09 21:53:21,612 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-8
-2024-07-09 21:53:21,620 - INFO - Task 1 for environment Env-8 started at Tue Jul  9 21:53:21 2024
-2024-07-09 21:53:21,620 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x000002537D64F250>, 7)
-2024-07-09 21:53:21,621 - INFO - Instruction generation for seed 11 started at Tue Jul  9 21:53:21 2024
-2024-07-09 21:53:27,265 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-8\task_1\11
-2024-07-09 21:53:27,266 - INFO - Instruction generation for seed 56 started at Tue Jul  9 21:53:27 2024
-2024-07-09 21:53:32,902 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-8\task_1\56
-2024-07-09 21:53:32,903 - INFO - Instruction generation for seed 32 started at Tue Jul  9 21:53:32 2024
-2024-07-09 21:53:38,376 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-8\task_1\32
-2024-07-09 21:53:38,377 - INFO - Instruction generation for seed 88 started at Tue Jul  9 21:53:38 2024
-2024-07-09 21:53:43,855 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-8\task_1\88
-2024-07-09 21:53:43,856 - INFO - Instruction generation for seed 41 started at Tue Jul  9 21:53:43 2024
-2024-07-09 21:53:49,613 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-8\task_1\41
-2024-07-09 21:53:49,614 - INFO - Instruction generation for seed 29 started at Tue Jul  9 21:53:49 2024
-2024-07-09 21:53:55,140 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-8\task_1\29
-2024-07-09 21:53:55,140 - INFO - Instruction generation for seed 78 started at Tue Jul  9 21:53:55 2024
-2024-07-09 21:54:02,139 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-8\task_1\78
-2024-07-09 21:54:02,139 - INFO - Instruction generation for seed 93 started at Tue Jul  9 21:54:02 2024
-2024-07-09 21:54:09,098 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-8\task_1\93
-2024-07-09 21:54:09,098 - INFO - Instruction generation for seed 100 started at Tue Jul  9 21:54:09 2024
-2024-07-09 21:54:14,626 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-8\task_1\100
-2024-07-09 21:54:14,627 - INFO - Instruction generation for seed 200 started at Tue Jul  9 21:54:14 2024
-2024-07-09 21:54:20,650 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-8\task_1\200
-2024-07-09 21:54:20,650 - INFO - Processing environment: Env-8 completed at Tue Jul  9 21:54:20 2024
-2024-07-09 21:54:20,650 - INFO - Total time for environment Env-8: 59.03863000869751 seconds
-2024-07-09 21:54:20,650 - INFO - Processing environment: Env-9 started at Tue Jul  9 21:54:20 2024
-2024-07-09 21:54:20,650 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-9
-2024-07-09 21:54:20,658 - INFO - Task 1 for environment Env-9 started at Tue Jul  9 21:54:20 2024
-2024-07-09 21:54:20,659 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x000002537D64DE40>, 7)
-2024-07-09 21:54:20,659 - INFO - Instruction generation for seed 11 started at Tue Jul  9 21:54:20 2024
-2024-07-09 21:54:20,742 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-9\task_1\11
-2024-07-09 21:54:20,742 - INFO - Instruction generation for seed 56 started at Tue Jul  9 21:54:20 2024
-2024-07-09 21:54:20,818 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-9\task_1\56
-2024-07-09 21:54:20,818 - INFO - Instruction generation for seed 32 started at Tue Jul  9 21:54:20 2024
-2024-07-09 21:54:20,952 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-9\task_1\32
-2024-07-09 21:54:20,952 - INFO - Instruction generation for seed 88 started at Tue Jul  9 21:54:20 2024
-2024-07-09 21:54:21,030 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-9\task_1\88
-2024-07-09 21:54:21,031 - INFO - Instruction generation for seed 41 started at Tue Jul  9 21:54:21 2024
-2024-07-09 21:54:21,108 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-9\task_1\41
-2024-07-09 21:54:21,108 - INFO - Instruction generation for seed 29 started at Tue Jul  9 21:54:21 2024
-2024-07-09 21:54:21,184 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-9\task_1\29
-2024-07-09 21:54:21,184 - INFO - Instruction generation for seed 78 started at Tue Jul  9 21:54:21 2024
-2024-07-09 21:54:21,262 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-9\task_1\78
-2024-07-09 21:54:21,262 - INFO - Instruction generation for seed 93 started at Tue Jul  9 21:54:21 2024
-2024-07-09 21:54:21,338 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-9\task_1\93
-2024-07-09 21:54:21,339 - INFO - Instruction generation for seed 100 started at Tue Jul  9 21:54:21 2024
-2024-07-09 21:54:21,417 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-9\task_1\100
-2024-07-09 21:54:21,418 - INFO - Instruction generation for seed 200 started at Tue Jul  9 21:54:21 2024
-2024-07-09 21:54:21,494 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\LavaExp\11\Env-9\task_1\200
-2024-07-09 21:54:21,494 - INFO - Processing environment: Env-9 completed at Tue Jul  9 21:54:21 2024
-2024-07-09 21:54:21,494 - INFO - Total time for environment Env-9: 0.8436150550842285 seconds
-2024-07-09 21:54:21,494 - INFO - Processing seed: 56
-2024-07-09 21:54:21,495 - INFO - Processing environment: Env-8 started at Tue Jul  9 21:54:21 2024
-2024-07-09 21:54:21,495 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\LavaExp\56\Env-8
-2024-07-09 21:54:21,495 - WARNING - Mutated environment path does not exist: A:\Github repos\Answer\AIProbe\Result\LavaExp\56\Env-8\Config.xml
-2024-07-09 21:54:21,495 - INFO - Processing seed: 32
-2024-07-09 21:54:21,495 - INFO - Processing environment: Env-8 started at Tue Jul  9 21:54:21 2024
-2024-07-09 21:54:21,495 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\LavaExp\32\Env-8
-2024-07-09 21:54:21,495 - WARNING - Mutated environment path does not exist: A:\Github repos\Answer\AIProbe\Result\LavaExp\32\Env-8\Config.xml
-2024-07-09 21:54:21,495 - INFO - Processing seed: 88
-2024-07-09 21:54:21,495 - INFO - Processing environment: Env-8 started at Tue Jul  9 21:54:21 2024
-2024-07-09 21:54:21,495 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\LavaExp\88\Env-8
-2024-07-09 21:54:21,495 - WARNING - Mutated environment path does not exist: A:\Github repos\Answer\AIProbe\Result\LavaExp\88\Env-8\Config.xml
-2024-07-09 21:54:21,495 - INFO - Processing seed: 41
-2024-07-09 21:54:21,495 - INFO - Processing environment: Env-8 started at Tue Jul  9 21:54:21 2024
-2024-07-09 21:54:21,496 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\LavaExp\41\Env-8
-2024-07-09 21:54:21,496 - WARNING - Mutated environment path does not exist: A:\Github repos\Answer\AIProbe\Result\LavaExp\41\Env-8\Config.xml
-2024-07-09 21:54:21,496 - INFO - Processing seed: 29
-2024-07-09 21:54:21,496 - INFO - Processing environment: Env-8 started at Tue Jul  9 21:54:21 2024
-2024-07-09 21:54:21,496 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\LavaExp\29\Env-8
-2024-07-09 21:54:21,496 - WARNING - Mutated environment path does not exist: A:\Github repos\Answer\AIProbe\Result\LavaExp\29\Env-8\Config.xml
-2024-07-09 21:54:21,496 - INFO - Processing seed: 78
-2024-07-09 21:54:21,496 - INFO - Processing environment: Env-8 started at Tue Jul  9 21:54:21 2024
-2024-07-09 21:54:21,496 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\LavaExp\78\Env-8
-2024-07-09 21:54:21,496 - WARNING - Mutated environment path does not exist: A:\Github repos\Answer\AIProbe\Result\LavaExp\78\Env-8\Config.xml
-2024-07-09 21:54:21,496 - INFO - Processing seed: 93
-2024-07-09 21:54:21,496 - INFO - Processing environment: Env-8 started at Tue Jul  9 21:54:21 2024
-2024-07-09 21:54:21,496 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\LavaExp\93\Env-8
-2024-07-09 21:54:21,497 - WARNING - Mutated environment path does not exist: A:\Github repos\Answer\AIProbe\Result\LavaExp\93\Env-8\Config.xml
-2024-07-09 21:54:21,497 - INFO - Processing seed: 100
-2024-07-09 21:54:21,497 - INFO - Processing environment: Env-8 started at Tue Jul  9 21:54:21 2024
-2024-07-09 21:54:21,497 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\LavaExp\100\Env-8
-2024-07-09 21:54:21,497 - WARNING - Mutated environment path does not exist: A:\Github repos\Answer\AIProbe\Result\LavaExp\100\Env-8\Config.xml
-2024-07-09 21:54:21,497 - INFO - Processing seed: 200
-2024-07-09 21:54:21,497 - INFO - Processing environment: Env-8 started at Tue Jul  9 21:54:21 2024
-2024-07-09 21:54:21,497 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\LavaExp\200\Env-8
-2024-07-09 21:54:21,497 - WARNING - Mutated environment path does not exist: A:\Github repos\Answer\AIProbe\Result\LavaExp\200\Env-8\Config.xml
-2024-07-09 21:54:21,497 - INFO - Overall mutation process completed at Tue Jul  9 21:54:21 2024
-2024-07-09 21:54:21,497 - INFO - Total runtime: 577.78058552742 seconds
+2024-07-10 04:30:36,279 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-10 04:30:36,279 - INFO - Overall mutation process started at Wed Jul 10 04:30:36 2024
+2024-07-10 04:30:36,279 - INFO - Processing seed: 11
+2024-07-10 04:30:36,279 - INFO - Processing environment: Env-7 started at Wed Jul 10 04:30:36 2024
+2024-07-10 04:30:36,279 - INFO - Result folder path: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-7
+2024-07-10 04:30:36,427 - INFO - Task 1 for environment Env-7 started at Wed Jul 10 04:30:36 2024
+2024-07-10 04:30:36,428 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x780c4943ce60>, 7)
+2024-07-10 04:30:36,428 - INFO - Instruction generation for seed 11 started at Wed Jul 10 04:30:36 2024
+2024-07-10 04:30:36,894 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-7/task_1/11
+2024-07-10 04:30:36,894 - INFO - Instruction generation for seed 56 started at Wed Jul 10 04:30:36 2024
+2024-07-10 04:30:36,919 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-7/task_1/56
+2024-07-10 04:30:36,920 - INFO - Instruction generation for seed 32 started at Wed Jul 10 04:30:36 2024
+2024-07-10 04:30:36,945 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-7/task_1/32
+2024-07-10 04:30:36,945 - INFO - Instruction generation for seed 88 started at Wed Jul 10 04:30:36 2024
+2024-07-10 04:30:36,970 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-7/task_1/88
+2024-07-10 04:30:36,970 - INFO - Instruction generation for seed 41 started at Wed Jul 10 04:30:36 2024
+2024-07-10 04:30:36,995 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-7/task_1/41
+2024-07-10 04:30:36,995 - INFO - Instruction generation for seed 29 started at Wed Jul 10 04:30:36 2024
+2024-07-10 04:30:37,020 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-7/task_1/29
+2024-07-10 04:30:37,020 - INFO - Instruction generation for seed 78 started at Wed Jul 10 04:30:37 2024
+2024-07-10 04:30:37,045 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-7/task_1/78
+2024-07-10 04:30:37,045 - INFO - Instruction generation for seed 93 started at Wed Jul 10 04:30:37 2024
+2024-07-10 04:30:37,070 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-7/task_1/93
+2024-07-10 04:30:37,070 - INFO - Instruction generation for seed 100 started at Wed Jul 10 04:30:37 2024
+2024-07-10 04:30:37,095 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-7/task_1/100
+2024-07-10 04:30:37,095 - INFO - Instruction generation for seed 200 started at Wed Jul 10 04:30:37 2024
+2024-07-10 04:30:37,120 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-7/task_1/200
+2024-07-10 04:30:37,120 - INFO - Processing environment: Env-7 completed at Wed Jul 10 04:30:37 2024
+2024-07-10 04:30:37,120 - INFO - Total time for environment Env-7: 0.8409242630004883 seconds
+2024-07-10 04:30:37,120 - INFO - Processing environment: Env-12 started at Wed Jul 10 04:30:37 2024
+2024-07-10 04:30:37,120 - INFO - Result folder path: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-12
+2024-07-10 04:30:37,121 - INFO - Task 1 for environment Env-12 started at Wed Jul 10 04:30:37 2024
+2024-07-10 04:30:37,122 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x780c48f84bf0>, 7)
+2024-07-10 04:30:37,122 - INFO - Instruction generation for seed 11 started at Wed Jul 10 04:30:37 2024
+2024-07-10 04:30:39,105 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-12/task_1/11
+2024-07-10 04:30:39,105 - INFO - Instruction generation for seed 56 started at Wed Jul 10 04:30:39 2024
+2024-07-10 04:30:40,874 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-12/task_1/56
+2024-07-10 04:30:40,874 - INFO - Instruction generation for seed 32 started at Wed Jul 10 04:30:40 2024
+2024-07-10 04:30:42,644 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-12/task_1/32
+2024-07-10 04:30:42,644 - INFO - Instruction generation for seed 88 started at Wed Jul 10 04:30:42 2024
+2024-07-10 04:30:44,411 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-12/task_1/88
+2024-07-10 04:30:44,411 - INFO - Instruction generation for seed 41 started at Wed Jul 10 04:30:44 2024
+2024-07-10 04:30:46,179 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-12/task_1/41
+2024-07-10 04:30:46,179 - INFO - Instruction generation for seed 29 started at Wed Jul 10 04:30:46 2024
+2024-07-10 04:30:47,947 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-12/task_1/29
+2024-07-10 04:30:47,947 - INFO - Instruction generation for seed 78 started at Wed Jul 10 04:30:47 2024
+2024-07-10 04:30:49,721 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-12/task_1/78
+2024-07-10 04:30:49,721 - INFO - Instruction generation for seed 93 started at Wed Jul 10 04:30:49 2024
+2024-07-10 04:30:51,490 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-12/task_1/93
+2024-07-10 04:30:51,491 - INFO - Instruction generation for seed 100 started at Wed Jul 10 04:30:51 2024
+2024-07-10 04:30:53,260 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-12/task_1/100
+2024-07-10 04:30:53,260 - INFO - Instruction generation for seed 200 started at Wed Jul 10 04:30:53 2024
+2024-07-10 04:30:55,029 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-12/task_1/200
+2024-07-10 04:30:55,029 - INFO - Processing environment: Env-12 completed at Wed Jul 10 04:30:55 2024
+2024-07-10 04:30:55,029 - INFO - Total time for environment Env-12: 17.908918857574463 seconds
+2024-07-10 04:30:55,029 - INFO - Processing environment: Env-4 started at Wed Jul 10 04:30:55 2024
+2024-07-10 04:30:55,029 - INFO - Result folder path: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-4
+2024-07-10 04:30:55,031 - INFO - Task 1 for environment Env-4 started at Wed Jul 10 04:30:55 2024
+2024-07-10 04:30:55,031 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x780c4c176540>, 7)
+2024-07-10 04:30:55,031 - INFO - Instruction generation for seed 11 started at Wed Jul 10 04:30:55 2024
+2024-07-10 04:30:56,512 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-4/task_1/11
+2024-07-10 04:30:56,513 - INFO - Instruction generation for seed 56 started at Wed Jul 10 04:30:56 2024
+2024-07-10 04:30:57,991 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-4/task_1/56
+2024-07-10 04:30:57,991 - INFO - Instruction generation for seed 32 started at Wed Jul 10 04:30:57 2024
+2024-07-10 04:30:59,471 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-4/task_1/32
+2024-07-10 04:30:59,472 - INFO - Instruction generation for seed 88 started at Wed Jul 10 04:30:59 2024
+2024-07-10 04:31:00,953 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-4/task_1/88
+2024-07-10 04:31:00,953 - INFO - Instruction generation for seed 41 started at Wed Jul 10 04:31:00 2024
+2024-07-10 04:31:02,435 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-4/task_1/41
+2024-07-10 04:31:02,435 - INFO - Instruction generation for seed 29 started at Wed Jul 10 04:31:02 2024
+2024-07-10 04:31:03,917 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-4/task_1/29
+2024-07-10 04:31:03,917 - INFO - Instruction generation for seed 78 started at Wed Jul 10 04:31:03 2024
+2024-07-10 04:31:05,397 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-4/task_1/78
+2024-07-10 04:31:05,398 - INFO - Instruction generation for seed 93 started at Wed Jul 10 04:31:05 2024
+2024-07-10 04:31:06,879 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-4/task_1/93
+2024-07-10 04:31:06,879 - INFO - Instruction generation for seed 100 started at Wed Jul 10 04:31:06 2024
+2024-07-10 04:31:08,361 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-4/task_1/100
+2024-07-10 04:31:08,361 - INFO - Instruction generation for seed 200 started at Wed Jul 10 04:31:08 2024
+2024-07-10 04:31:09,842 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-4/task_1/200
+2024-07-10 04:31:09,842 - INFO - Processing environment: Env-4 completed at Wed Jul 10 04:31:09 2024
+2024-07-10 04:31:09,842 - INFO - Total time for environment Env-4: 14.813398599624634 seconds
+2024-07-10 04:31:09,842 - INFO - Processing environment: Env-2 started at Wed Jul 10 04:31:09 2024
+2024-07-10 04:31:09,842 - INFO - Result folder path: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-2
+2024-07-10 04:31:09,844 - INFO - Task 1 for environment Env-2 started at Wed Jul 10 04:31:09 2024
+2024-07-10 04:31:09,844 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x780c4a0954c0>, 7)
+2024-07-10 04:31:09,844 - INFO - Instruction generation for seed 11 started at Wed Jul 10 04:31:09 2024
+2024-07-10 04:31:11,375 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-2/task_1/11
+2024-07-10 04:31:11,375 - INFO - Instruction generation for seed 56 started at Wed Jul 10 04:31:11 2024
+2024-07-10 04:31:12,898 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-2/task_1/56
+2024-07-10 04:31:12,898 - INFO - Instruction generation for seed 32 started at Wed Jul 10 04:31:12 2024
+2024-07-10 04:31:14,420 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-2/task_1/32
+2024-07-10 04:31:14,420 - INFO - Instruction generation for seed 88 started at Wed Jul 10 04:31:14 2024
+2024-07-10 04:31:15,942 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-2/task_1/88
+2024-07-10 04:31:15,942 - INFO - Instruction generation for seed 41 started at Wed Jul 10 04:31:15 2024
+2024-07-10 04:31:17,464 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-2/task_1/41
+2024-07-10 04:31:17,464 - INFO - Instruction generation for seed 29 started at Wed Jul 10 04:31:17 2024
+2024-07-10 04:31:18,986 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-2/task_1/29
+2024-07-10 04:31:18,986 - INFO - Instruction generation for seed 78 started at Wed Jul 10 04:31:18 2024
+2024-07-10 04:31:20,510 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-2/task_1/78
+2024-07-10 04:31:20,510 - INFO - Instruction generation for seed 93 started at Wed Jul 10 04:31:20 2024
+2024-07-10 04:31:22,031 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-2/task_1/93
+2024-07-10 04:31:22,032 - INFO - Instruction generation for seed 100 started at Wed Jul 10 04:31:22 2024
+2024-07-10 04:31:23,555 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-2/task_1/100
+2024-07-10 04:31:23,555 - INFO - Instruction generation for seed 200 started at Wed Jul 10 04:31:23 2024
+2024-07-10 04:31:25,076 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-2/task_1/200
+2024-07-10 04:31:25,076 - INFO - Processing environment: Env-2 completed at Wed Jul 10 04:31:25 2024
+2024-07-10 04:31:25,076 - INFO - Total time for environment Env-2: 15.234040975570679 seconds
+2024-07-10 04:31:25,076 - INFO - Processing environment: Env-11 started at Wed Jul 10 04:31:25 2024
+2024-07-10 04:31:25,076 - INFO - Result folder path: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-11
+2024-07-10 04:31:25,078 - INFO - Task 1 for environment Env-11 started at Wed Jul 10 04:31:25 2024
+2024-07-10 04:31:25,078 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x780c49463620>, 7)
+2024-07-10 04:31:25,078 - INFO - Instruction generation for seed 11 started at Wed Jul 10 04:31:25 2024
+2024-07-10 04:31:26,955 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-11/task_1/11
+2024-07-10 04:31:26,955 - INFO - Instruction generation for seed 56 started at Wed Jul 10 04:31:26 2024
+2024-07-10 04:31:28,832 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-11/task_1/56
+2024-07-10 04:31:28,832 - INFO - Instruction generation for seed 32 started at Wed Jul 10 04:31:28 2024
+2024-07-10 04:31:30,711 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-11/task_1/32
+2024-07-10 04:31:30,711 - INFO - Instruction generation for seed 88 started at Wed Jul 10 04:31:30 2024
+2024-07-10 04:31:32,589 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-11/task_1/88
+2024-07-10 04:31:32,589 - INFO - Instruction generation for seed 41 started at Wed Jul 10 04:31:32 2024
+2024-07-10 04:31:34,469 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-11/task_1/41
+2024-07-10 04:31:34,469 - INFO - Instruction generation for seed 29 started at Wed Jul 10 04:31:34 2024
+2024-07-10 04:31:36,346 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-11/task_1/29
+2024-07-10 04:31:36,347 - INFO - Instruction generation for seed 78 started at Wed Jul 10 04:31:36 2024
+2024-07-10 04:31:38,225 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-11/task_1/78
+2024-07-10 04:31:38,225 - INFO - Instruction generation for seed 93 started at Wed Jul 10 04:31:38 2024
+2024-07-10 04:31:40,103 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-11/task_1/93
+2024-07-10 04:31:40,104 - INFO - Instruction generation for seed 100 started at Wed Jul 10 04:31:40 2024
+2024-07-10 04:31:41,982 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-11/task_1/100
+2024-07-10 04:31:41,982 - INFO - Instruction generation for seed 200 started at Wed Jul 10 04:31:41 2024
+2024-07-10 04:31:43,860 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-11/task_1/200
+2024-07-10 04:31:43,860 - INFO - Processing environment: Env-11 completed at Wed Jul 10 04:31:43 2024
+2024-07-10 04:31:43,860 - INFO - Total time for environment Env-11: 18.783281803131104 seconds
+2024-07-10 04:31:43,860 - INFO - Processing environment: Env-6 started at Wed Jul 10 04:31:43 2024
+2024-07-10 04:31:43,860 - INFO - Result folder path: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-6
+2024-07-10 04:31:43,861 - INFO - Task 1 for environment Env-6 started at Wed Jul 10 04:31:43 2024
+2024-07-10 04:31:43,861 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x780c48eef9b0>, 7)
+2024-07-10 04:31:43,862 - INFO - Instruction generation for seed 11 started at Wed Jul 10 04:31:43 2024
+2024-07-10 04:31:45,484 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-6/task_1/11
+2024-07-10 04:31:45,484 - INFO - Instruction generation for seed 56 started at Wed Jul 10 04:31:45 2024
+2024-07-10 04:31:47,106 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-6/task_1/56
+2024-07-10 04:31:47,106 - INFO - Instruction generation for seed 32 started at Wed Jul 10 04:31:47 2024
+2024-07-10 04:31:48,731 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-6/task_1/32
+2024-07-10 04:31:48,731 - INFO - Instruction generation for seed 88 started at Wed Jul 10 04:31:48 2024
+2024-07-10 04:31:50,355 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-6/task_1/88
+2024-07-10 04:31:50,355 - INFO - Instruction generation for seed 41 started at Wed Jul 10 04:31:50 2024
+2024-07-10 04:31:51,977 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-6/task_1/41
+2024-07-10 04:31:51,977 - INFO - Instruction generation for seed 29 started at Wed Jul 10 04:31:51 2024
+2024-07-10 04:31:53,600 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-6/task_1/29
+2024-07-10 04:31:53,600 - INFO - Instruction generation for seed 78 started at Wed Jul 10 04:31:53 2024
+2024-07-10 04:31:55,224 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-6/task_1/78
+2024-07-10 04:31:55,225 - INFO - Instruction generation for seed 93 started at Wed Jul 10 04:31:55 2024
+2024-07-10 04:31:56,848 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-6/task_1/93
+2024-07-10 04:31:56,848 - INFO - Instruction generation for seed 100 started at Wed Jul 10 04:31:56 2024
+2024-07-10 04:31:58,472 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-6/task_1/100
+2024-07-10 04:31:58,473 - INFO - Instruction generation for seed 200 started at Wed Jul 10 04:31:58 2024
+2024-07-10 04:32:00,097 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-6/task_1/200
+2024-07-10 04:32:00,097 - INFO - Processing environment: Env-6 completed at Wed Jul 10 04:32:00 2024
+2024-07-10 04:32:00,097 - INFO - Total time for environment Env-6: 16.237863063812256 seconds
+2024-07-10 04:32:00,098 - INFO - Processing environment: Env-8 started at Wed Jul 10 04:32:00 2024
+2024-07-10 04:32:00,098 - INFO - Result folder path: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-8
+2024-07-10 04:32:00,099 - INFO - Task 1 for environment Env-8 started at Wed Jul 10 04:32:00 2024
+2024-07-10 04:32:00,099 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x780c483ea210>, 7)
+2024-07-10 04:32:00,099 - INFO - Instruction generation for seed 11 started at Wed Jul 10 04:32:00 2024
+2024-07-10 04:32:02,075 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-8/task_1/11
+2024-07-10 04:32:02,075 - INFO - Instruction generation for seed 56 started at Wed Jul 10 04:32:02 2024
+2024-07-10 04:32:04,050 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-8/task_1/56
+2024-07-10 04:32:04,050 - INFO - Instruction generation for seed 32 started at Wed Jul 10 04:32:04 2024
+2024-07-10 04:32:06,026 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-8/task_1/32
+2024-07-10 04:32:06,026 - INFO - Instruction generation for seed 88 started at Wed Jul 10 04:32:06 2024
+2024-07-10 04:32:08,001 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-8/task_1/88
+2024-07-10 04:32:08,001 - INFO - Instruction generation for seed 41 started at Wed Jul 10 04:32:08 2024
+2024-07-10 04:32:09,977 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-8/task_1/41
+2024-07-10 04:32:09,978 - INFO - Instruction generation for seed 29 started at Wed Jul 10 04:32:09 2024
+2024-07-10 04:32:11,959 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-8/task_1/29
+2024-07-10 04:32:11,959 - INFO - Instruction generation for seed 78 started at Wed Jul 10 04:32:11 2024
+2024-07-10 04:32:13,936 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-8/task_1/78
+2024-07-10 04:32:13,936 - INFO - Instruction generation for seed 93 started at Wed Jul 10 04:32:13 2024
+2024-07-10 04:32:15,911 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-8/task_1/93
+2024-07-10 04:32:15,911 - INFO - Instruction generation for seed 100 started at Wed Jul 10 04:32:15 2024
+2024-07-10 04:32:17,887 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-8/task_1/100
+2024-07-10 04:32:17,887 - INFO - Instruction generation for seed 200 started at Wed Jul 10 04:32:17 2024
+2024-07-10 04:32:19,866 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-8/task_1/200
+2024-07-10 04:32:19,866 - INFO - Processing environment: Env-8 completed at Wed Jul 10 04:32:19 2024
+2024-07-10 04:32:19,866 - INFO - Total time for environment Env-8: 19.76838183403015 seconds
+2024-07-10 04:32:19,866 - INFO - Processing environment: Env-3 started at Wed Jul 10 04:32:19 2024
+2024-07-10 04:32:19,866 - INFO - Result folder path: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-3
+2024-07-10 04:32:19,868 - INFO - Task 1 for environment Env-3 started at Wed Jul 10 04:32:19 2024
+2024-07-10 04:32:19,868 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x780c487f42c0>, 7)
+2024-07-10 04:32:19,868 - INFO - Instruction generation for seed 11 started at Wed Jul 10 04:32:19 2024
+2024-07-10 04:32:21,596 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-3/task_1/11
+2024-07-10 04:32:21,596 - INFO - Instruction generation for seed 56 started at Wed Jul 10 04:32:21 2024
+2024-07-10 04:32:23,324 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-3/task_1/56
+2024-07-10 04:32:23,324 - INFO - Instruction generation for seed 32 started at Wed Jul 10 04:32:23 2024
+2024-07-10 04:32:25,054 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-3/task_1/32
+2024-07-10 04:32:25,054 - INFO - Instruction generation for seed 88 started at Wed Jul 10 04:32:25 2024
+2024-07-10 04:32:26,786 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-3/task_1/88
+2024-07-10 04:32:26,787 - INFO - Instruction generation for seed 41 started at Wed Jul 10 04:32:26 2024
+2024-07-10 04:32:28,518 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-3/task_1/41
+2024-07-10 04:32:28,519 - INFO - Instruction generation for seed 29 started at Wed Jul 10 04:32:28 2024
+2024-07-10 04:32:30,248 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-3/task_1/29
+2024-07-10 04:32:30,248 - INFO - Instruction generation for seed 78 started at Wed Jul 10 04:32:30 2024
+2024-07-10 04:32:31,977 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-3/task_1/78
+2024-07-10 04:32:31,977 - INFO - Instruction generation for seed 93 started at Wed Jul 10 04:32:31 2024
+2024-07-10 04:32:33,707 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-3/task_1/93
+2024-07-10 04:32:33,707 - INFO - Instruction generation for seed 100 started at Wed Jul 10 04:32:33 2024
+2024-07-10 04:32:35,437 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-3/task_1/100
+2024-07-10 04:32:35,438 - INFO - Instruction generation for seed 200 started at Wed Jul 10 04:32:35 2024
+2024-07-10 04:32:37,168 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-3/task_1/200
+2024-07-10 04:32:37,168 - INFO - Processing environment: Env-3 completed at Wed Jul 10 04:32:37 2024
+2024-07-10 04:32:37,168 - INFO - Total time for environment Env-3: 17.301867723464966 seconds
+2024-07-10 04:32:37,168 - INFO - Processing environment: Env-10 started at Wed Jul 10 04:32:37 2024
+2024-07-10 04:32:37,168 - INFO - Result folder path: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-10
+2024-07-10 04:32:37,169 - INFO - Task 1 for environment Env-10 started at Wed Jul 10 04:32:37 2024
+2024-07-10 04:32:37,170 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x780c4997f980>, 7)
+2024-07-10 04:32:37,170 - INFO - Instruction generation for seed 11 started at Wed Jul 10 04:32:37 2024
+2024-07-10 04:32:37,195 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-10/task_1/11
+2024-07-10 04:32:37,195 - INFO - Instruction generation for seed 56 started at Wed Jul 10 04:32:37 2024
+2024-07-10 04:32:37,220 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-10/task_1/56
+2024-07-10 04:32:37,220 - INFO - Instruction generation for seed 32 started at Wed Jul 10 04:32:37 2024
+2024-07-10 04:32:37,245 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-10/task_1/32
+2024-07-10 04:32:37,245 - INFO - Instruction generation for seed 88 started at Wed Jul 10 04:32:37 2024
+2024-07-10 04:32:37,270 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-10/task_1/88
+2024-07-10 04:32:37,270 - INFO - Instruction generation for seed 41 started at Wed Jul 10 04:32:37 2024
+2024-07-10 04:32:37,295 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-10/task_1/41
+2024-07-10 04:32:37,296 - INFO - Instruction generation for seed 29 started at Wed Jul 10 04:32:37 2024
+2024-07-10 04:32:37,320 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-10/task_1/29
+2024-07-10 04:32:37,321 - INFO - Instruction generation for seed 78 started at Wed Jul 10 04:32:37 2024
+2024-07-10 04:32:37,345 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-10/task_1/78
+2024-07-10 04:32:37,346 - INFO - Instruction generation for seed 93 started at Wed Jul 10 04:32:37 2024
+2024-07-10 04:32:37,371 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-10/task_1/93
+2024-07-10 04:32:37,371 - INFO - Instruction generation for seed 100 started at Wed Jul 10 04:32:37 2024
+2024-07-10 04:32:37,396 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-10/task_1/100
+2024-07-10 04:32:37,396 - INFO - Instruction generation for seed 200 started at Wed Jul 10 04:32:37 2024
+2024-07-10 04:32:37,421 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-10/task_1/200
+2024-07-10 04:32:37,421 - INFO - Processing environment: Env-10 completed at Wed Jul 10 04:32:37 2024
+2024-07-10 04:32:37,421 - INFO - Total time for environment Env-10: 0.2529621124267578 seconds
+2024-07-10 04:32:37,421 - INFO - Processing environment: Env-13 started at Wed Jul 10 04:32:37 2024
+2024-07-10 04:32:37,421 - INFO - Result folder path: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-13
+2024-07-10 04:32:37,422 - INFO - Task 1 for environment Env-13 started at Wed Jul 10 04:32:37 2024
+2024-07-10 04:32:37,422 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x780c48f44fb0>, 7)
+2024-07-10 04:32:37,423 - INFO - Instruction generation for seed 11 started at Wed Jul 10 04:32:37 2024
+2024-07-10 04:32:39,427 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-13/task_1/11
+2024-07-10 04:32:39,427 - INFO - Instruction generation for seed 56 started at Wed Jul 10 04:32:39 2024
+2024-07-10 04:32:41,432 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-13/task_1/56
+2024-07-10 04:32:41,432 - INFO - Instruction generation for seed 32 started at Wed Jul 10 04:32:41 2024
+2024-07-10 04:32:43,436 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-13/task_1/32
+2024-07-10 04:32:43,436 - INFO - Instruction generation for seed 88 started at Wed Jul 10 04:32:43 2024
+2024-07-10 04:32:45,441 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-13/task_1/88
+2024-07-10 04:32:45,441 - INFO - Instruction generation for seed 41 started at Wed Jul 10 04:32:45 2024
+2024-07-10 04:32:47,444 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-13/task_1/41
+2024-07-10 04:32:47,444 - INFO - Instruction generation for seed 29 started at Wed Jul 10 04:32:47 2024
+2024-07-10 04:32:49,448 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-13/task_1/29
+2024-07-10 04:32:49,448 - INFO - Instruction generation for seed 78 started at Wed Jul 10 04:32:49 2024
+2024-07-10 04:32:51,451 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-13/task_1/78
+2024-07-10 04:32:51,451 - INFO - Instruction generation for seed 93 started at Wed Jul 10 04:32:51 2024
+2024-07-10 04:32:53,453 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-13/task_1/93
+2024-07-10 04:32:53,454 - INFO - Instruction generation for seed 100 started at Wed Jul 10 04:32:53 2024
+2024-07-10 04:32:55,458 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-13/task_1/100
+2024-07-10 04:32:55,458 - INFO - Instruction generation for seed 200 started at Wed Jul 10 04:32:55 2024
+2024-07-10 04:32:57,462 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-13/task_1/200
+2024-07-10 04:32:57,462 - INFO - Processing environment: Env-13 completed at Wed Jul 10 04:32:57 2024
+2024-07-10 04:32:57,462 - INFO - Total time for environment Env-13: 20.0409255027771 seconds
+2024-07-10 04:32:57,462 - INFO - Processing environment: Env-5 started at Wed Jul 10 04:32:57 2024
+2024-07-10 04:32:57,462 - INFO - Result folder path: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-5
+2024-07-10 04:32:57,463 - INFO - Task 1 for environment Env-5 started at Wed Jul 10 04:32:57 2024
+2024-07-10 04:32:57,464 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x780c487f42c0>, 7)
+2024-07-10 04:32:57,464 - INFO - Instruction generation for seed 11 started at Wed Jul 10 04:32:57 2024
+2024-07-10 04:32:59,254 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-5/task_1/11
+2024-07-10 04:32:59,255 - INFO - Instruction generation for seed 56 started at Wed Jul 10 04:32:59 2024
+2024-07-10 04:33:01,045 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-5/task_1/56
+2024-07-10 04:33:01,045 - INFO - Instruction generation for seed 32 started at Wed Jul 10 04:33:01 2024
+2024-07-10 04:33:02,835 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-5/task_1/32
+2024-07-10 04:33:02,835 - INFO - Instruction generation for seed 88 started at Wed Jul 10 04:33:02 2024
+2024-07-10 04:33:04,625 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-5/task_1/88
+2024-07-10 04:33:04,625 - INFO - Instruction generation for seed 41 started at Wed Jul 10 04:33:04 2024
+2024-07-10 04:33:06,415 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-5/task_1/41
+2024-07-10 04:33:06,415 - INFO - Instruction generation for seed 29 started at Wed Jul 10 04:33:06 2024
+2024-07-10 04:33:08,206 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-5/task_1/29
+2024-07-10 04:33:08,206 - INFO - Instruction generation for seed 78 started at Wed Jul 10 04:33:08 2024
+2024-07-10 04:33:09,998 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-5/task_1/78
+2024-07-10 04:33:09,998 - INFO - Instruction generation for seed 93 started at Wed Jul 10 04:33:09 2024
+2024-07-10 04:33:11,800 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-5/task_1/93
+2024-07-10 04:33:11,800 - INFO - Instruction generation for seed 100 started at Wed Jul 10 04:33:11 2024
+2024-07-10 04:33:13,590 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-5/task_1/100
+2024-07-10 04:33:13,590 - INFO - Instruction generation for seed 200 started at Wed Jul 10 04:33:13 2024
+2024-07-10 04:33:15,380 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-5/task_1/200
+2024-07-10 04:33:15,380 - INFO - Processing environment: Env-5 completed at Wed Jul 10 04:33:15 2024
+2024-07-10 04:33:15,380 - INFO - Total time for environment Env-5: 17.91781759262085 seconds
+2024-07-10 04:33:15,380 - INFO - Processing environment: Env-1 started at Wed Jul 10 04:33:15 2024
+2024-07-10 04:33:15,380 - INFO - Result folder path: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-1
+2024-07-10 04:33:15,381 - INFO - Task 1 for environment Env-1 started at Wed Jul 10 04:33:15 2024
+2024-07-10 04:33:15,381 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x780c48374e60>, 7)
+2024-07-10 04:33:15,382 - INFO - Instruction generation for seed 11 started at Wed Jul 10 04:33:15 2024
+2024-07-10 04:33:15,680 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-1/task_1/11
+2024-07-10 04:33:15,681 - INFO - Instruction generation for seed 56 started at Wed Jul 10 04:33:15 2024
+2024-07-10 04:33:15,979 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-1/task_1/56
+2024-07-10 04:33:15,979 - INFO - Instruction generation for seed 32 started at Wed Jul 10 04:33:15 2024
+2024-07-10 04:33:16,277 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-1/task_1/32
+2024-07-10 04:33:16,278 - INFO - Instruction generation for seed 88 started at Wed Jul 10 04:33:16 2024
+2024-07-10 04:33:16,577 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-1/task_1/88
+2024-07-10 04:33:16,577 - INFO - Instruction generation for seed 41 started at Wed Jul 10 04:33:16 2024
+2024-07-10 04:33:16,875 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-1/task_1/41
+2024-07-10 04:33:16,875 - INFO - Instruction generation for seed 29 started at Wed Jul 10 04:33:16 2024
+2024-07-10 04:33:17,174 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-1/task_1/29
+2024-07-10 04:33:17,174 - INFO - Instruction generation for seed 78 started at Wed Jul 10 04:33:17 2024
+2024-07-10 04:33:17,472 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-1/task_1/78
+2024-07-10 04:33:17,472 - INFO - Instruction generation for seed 93 started at Wed Jul 10 04:33:17 2024
+2024-07-10 04:33:17,771 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-1/task_1/93
+2024-07-10 04:33:17,771 - INFO - Instruction generation for seed 100 started at Wed Jul 10 04:33:17 2024
+2024-07-10 04:33:18,070 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-1/task_1/100
+2024-07-10 04:33:18,070 - INFO - Instruction generation for seed 200 started at Wed Jul 10 04:33:18 2024
+2024-07-10 04:33:18,369 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-1/task_1/200
+2024-07-10 04:33:18,369 - INFO - Processing environment: Env-1 completed at Wed Jul 10 04:33:18 2024
+2024-07-10 04:33:18,369 - INFO - Total time for environment Env-1: 2.989082098007202 seconds
+2024-07-10 04:33:18,369 - INFO - Processing environment: Env-15 started at Wed Jul 10 04:33:18 2024
+2024-07-10 04:33:18,369 - INFO - Result folder path: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-15
+2024-07-10 04:33:18,370 - INFO - Task 1 for environment Env-15 started at Wed Jul 10 04:33:18 2024
+2024-07-10 04:33:18,370 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x780c48f84bf0>, 7)
+2024-07-10 04:33:18,371 - INFO - Instruction generation for seed 11 started at Wed Jul 10 04:33:18 2024
+2024-07-10 04:33:19,484 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-15/task_1/11
+2024-07-10 04:33:19,484 - INFO - Instruction generation for seed 56 started at Wed Jul 10 04:33:19 2024
+2024-07-10 04:33:20,600 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-15/task_1/56
+2024-07-10 04:33:20,600 - INFO - Instruction generation for seed 32 started at Wed Jul 10 04:33:20 2024
+2024-07-10 04:33:21,713 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-15/task_1/32
+2024-07-10 04:33:21,713 - INFO - Instruction generation for seed 88 started at Wed Jul 10 04:33:21 2024
+2024-07-10 04:33:22,826 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-15/task_1/88
+2024-07-10 04:33:22,826 - INFO - Instruction generation for seed 41 started at Wed Jul 10 04:33:22 2024
+2024-07-10 04:33:23,938 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-15/task_1/41
+2024-07-10 04:33:23,938 - INFO - Instruction generation for seed 29 started at Wed Jul 10 04:33:23 2024
+2024-07-10 04:33:25,052 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-15/task_1/29
+2024-07-10 04:33:25,052 - INFO - Instruction generation for seed 78 started at Wed Jul 10 04:33:25 2024
+2024-07-10 04:33:26,167 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-15/task_1/78
+2024-07-10 04:33:26,168 - INFO - Instruction generation for seed 93 started at Wed Jul 10 04:33:26 2024
+2024-07-10 04:33:27,280 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-15/task_1/93
+2024-07-10 04:33:27,281 - INFO - Instruction generation for seed 100 started at Wed Jul 10 04:33:27 2024
+2024-07-10 04:33:28,393 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-15/task_1/100
+2024-07-10 04:33:28,393 - INFO - Instruction generation for seed 200 started at Wed Jul 10 04:33:28 2024
+2024-07-10 04:33:29,507 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-15/task_1/200
+2024-07-10 04:33:29,507 - INFO - Processing environment: Env-15 completed at Wed Jul 10 04:33:29 2024
+2024-07-10 04:33:29,507 - INFO - Total time for environment Env-15: 11.137931823730469 seconds
+2024-07-10 04:33:29,507 - INFO - Processing environment: Env-9 started at Wed Jul 10 04:33:29 2024
+2024-07-10 04:33:29,507 - INFO - Result folder path: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-9
+2024-07-10 04:33:29,508 - INFO - Task 1 for environment Env-9 started at Wed Jul 10 04:33:29 2024
+2024-07-10 04:33:29,508 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x780c48eed280>, 7)
+2024-07-10 04:33:29,509 - INFO - Instruction generation for seed 11 started at Wed Jul 10 04:33:29 2024
+2024-07-10 04:33:29,534 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-9/task_1/11
+2024-07-10 04:33:29,534 - INFO - Instruction generation for seed 56 started at Wed Jul 10 04:33:29 2024
+2024-07-10 04:33:29,559 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-9/task_1/56
+2024-07-10 04:33:29,559 - INFO - Instruction generation for seed 32 started at Wed Jul 10 04:33:29 2024
+2024-07-10 04:33:29,584 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-9/task_1/32
+2024-07-10 04:33:29,584 - INFO - Instruction generation for seed 88 started at Wed Jul 10 04:33:29 2024
+2024-07-10 04:33:29,609 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-9/task_1/88
+2024-07-10 04:33:29,609 - INFO - Instruction generation for seed 41 started at Wed Jul 10 04:33:29 2024
+2024-07-10 04:33:29,634 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-9/task_1/41
+2024-07-10 04:33:29,634 - INFO - Instruction generation for seed 29 started at Wed Jul 10 04:33:29 2024
+2024-07-10 04:33:29,659 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-9/task_1/29
+2024-07-10 04:33:29,659 - INFO - Instruction generation for seed 78 started at Wed Jul 10 04:33:29 2024
+2024-07-10 04:33:29,684 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-9/task_1/78
+2024-07-10 04:33:29,685 - INFO - Instruction generation for seed 93 started at Wed Jul 10 04:33:29 2024
+2024-07-10 04:33:29,710 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-9/task_1/93
+2024-07-10 04:33:29,710 - INFO - Instruction generation for seed 100 started at Wed Jul 10 04:33:29 2024
+2024-07-10 04:33:29,735 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-9/task_1/100
+2024-07-10 04:33:29,735 - INFO - Instruction generation for seed 200 started at Wed Jul 10 04:33:29 2024
+2024-07-10 04:33:29,760 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-9/task_1/200
+2024-07-10 04:33:29,760 - INFO - Processing environment: Env-9 completed at Wed Jul 10 04:33:29 2024
+2024-07-10 04:33:29,760 - INFO - Total time for environment Env-9: 0.2531397342681885 seconds
+2024-07-10 04:33:29,760 - INFO - Processing environment: Env-14 started at Wed Jul 10 04:33:29 2024
+2024-07-10 04:33:29,760 - INFO - Result folder path: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-14
+2024-07-10 04:33:29,761 - INFO - Task 1 for environment Env-14 started at Wed Jul 10 04:33:29 2024
+2024-07-10 04:33:29,762 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x780c4c0ad0d0>, 7)
+2024-07-10 04:33:29,762 - INFO - Instruction generation for seed 11 started at Wed Jul 10 04:33:29 2024
+2024-07-10 04:33:31,505 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-14/task_1/11
+2024-07-10 04:33:31,505 - INFO - Instruction generation for seed 56 started at Wed Jul 10 04:33:31 2024
+2024-07-10 04:33:33,247 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-14/task_1/56
+2024-07-10 04:33:33,248 - INFO - Instruction generation for seed 32 started at Wed Jul 10 04:33:33 2024
+2024-07-10 04:33:34,991 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-14/task_1/32
+2024-07-10 04:33:34,991 - INFO - Instruction generation for seed 88 started at Wed Jul 10 04:33:34 2024
+2024-07-10 04:33:36,733 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-14/task_1/88
+2024-07-10 04:33:36,734 - INFO - Instruction generation for seed 41 started at Wed Jul 10 04:33:36 2024
+2024-07-10 04:33:38,475 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-14/task_1/41
+2024-07-10 04:33:38,476 - INFO - Instruction generation for seed 29 started at Wed Jul 10 04:33:38 2024
+2024-07-10 04:33:40,218 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-14/task_1/29
+2024-07-10 04:33:40,219 - INFO - Instruction generation for seed 78 started at Wed Jul 10 04:33:40 2024
+2024-07-10 04:33:41,960 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-14/task_1/78
+2024-07-10 04:33:41,960 - INFO - Instruction generation for seed 93 started at Wed Jul 10 04:33:41 2024
+2024-07-10 04:33:43,702 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-14/task_1/93
+2024-07-10 04:33:43,702 - INFO - Instruction generation for seed 100 started at Wed Jul 10 04:33:43 2024
+2024-07-10 04:33:45,444 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-14/task_1/100
+2024-07-10 04:33:45,444 - INFO - Instruction generation for seed 200 started at Wed Jul 10 04:33:45 2024
+2024-07-10 04:33:47,187 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/AIProbe/Result/LavaExp/11/Env-14/task_1/200
+2024-07-10 04:33:47,187 - INFO - Processing environment: Env-14 completed at Wed Jul 10 04:33:47 2024
+2024-07-10 04:33:47,187 - INFO - Total time for environment Env-14: 17.426923751831055 seconds
+2024-07-10 04:33:47,187 - INFO - Processing seed: 56
+2024-07-10 04:33:47,187 - INFO - Processing environment: Env-8 started at Wed Jul 10 04:33:47 2024
+2024-07-10 04:33:47,187 - INFO - Result folder path: /home/mehtara/Documents/AIProbe/Result/LavaExp/56/Env-8
+2024-07-10 04:33:47,187 - WARNING - Mutated environment path does not exist: /home/mehtara/Documents/AIProbe/Result/LavaExp/56/Env-8/Config.xml
+2024-07-10 04:33:47,187 - INFO - Processing seed: 32
+2024-07-10 04:33:47,187 - INFO - Processing environment: Env-8 started at Wed Jul 10 04:33:47 2024
+2024-07-10 04:33:47,187 - INFO - Result folder path: /home/mehtara/Documents/AIProbe/Result/LavaExp/32/Env-8
+2024-07-10 04:33:47,187 - WARNING - Mutated environment path does not exist: /home/mehtara/Documents/AIProbe/Result/LavaExp/32/Env-8/Config.xml
+2024-07-10 04:33:47,187 - INFO - Processing seed: 88
+2024-07-10 04:33:47,187 - INFO - Processing environment: Env-8 started at Wed Jul 10 04:33:47 2024
+2024-07-10 04:33:47,187 - INFO - Result folder path: /home/mehtara/Documents/AIProbe/Result/LavaExp/88/Env-8
+2024-07-10 04:33:47,187 - WARNING - Mutated environment path does not exist: /home/mehtara/Documents/AIProbe/Result/LavaExp/88/Env-8/Config.xml
+2024-07-10 04:33:47,187 - INFO - Processing seed: 41
+2024-07-10 04:33:47,187 - INFO - Processing environment: Env-8 started at Wed Jul 10 04:33:47 2024
+2024-07-10 04:33:47,187 - INFO - Result folder path: /home/mehtara/Documents/AIProbe/Result/LavaExp/41/Env-8
+2024-07-10 04:33:47,187 - WARNING - Mutated environment path does not exist: /home/mehtara/Documents/AIProbe/Result/LavaExp/41/Env-8/Config.xml
+2024-07-10 04:33:47,187 - INFO - Processing seed: 29
+2024-07-10 04:33:47,187 - INFO - Processing environment: Env-8 started at Wed Jul 10 04:33:47 2024
+2024-07-10 04:33:47,187 - INFO - Result folder path: /home/mehtara/Documents/AIProbe/Result/LavaExp/29/Env-8
+2024-07-10 04:33:47,187 - WARNING - Mutated environment path does not exist: /home/mehtara/Documents/AIProbe/Result/LavaExp/29/Env-8/Config.xml
+2024-07-10 04:33:47,187 - INFO - Processing seed: 78
+2024-07-10 04:33:47,187 - INFO - Processing environment: Env-8 started at Wed Jul 10 04:33:47 2024
+2024-07-10 04:33:47,187 - INFO - Result folder path: /home/mehtara/Documents/AIProbe/Result/LavaExp/78/Env-8
+2024-07-10 04:33:47,187 - WARNING - Mutated environment path does not exist: /home/mehtara/Documents/AIProbe/Result/LavaExp/78/Env-8/Config.xml
+2024-07-10 04:33:47,187 - INFO - Processing seed: 93
+2024-07-10 04:33:47,187 - INFO - Processing environment: Env-8 started at Wed Jul 10 04:33:47 2024
+2024-07-10 04:33:47,187 - INFO - Result folder path: /home/mehtara/Documents/AIProbe/Result/LavaExp/93/Env-8
+2024-07-10 04:33:47,187 - WARNING - Mutated environment path does not exist: /home/mehtara/Documents/AIProbe/Result/LavaExp/93/Env-8/Config.xml
+2024-07-10 04:33:47,187 - INFO - Processing seed: 100
+2024-07-10 04:33:47,187 - INFO - Processing environment: Env-8 started at Wed Jul 10 04:33:47 2024
+2024-07-10 04:33:47,187 - INFO - Result folder path: /home/mehtara/Documents/AIProbe/Result/LavaExp/100/Env-8
+2024-07-10 04:33:47,187 - WARNING - Mutated environment path does not exist: /home/mehtara/Documents/AIProbe/Result/LavaExp/100/Env-8/Config.xml
+2024-07-10 04:33:47,187 - INFO - Processing seed: 200
+2024-07-10 04:33:47,187 - INFO - Processing environment: Env-8 started at Wed Jul 10 04:33:47 2024
+2024-07-10 04:33:47,187 - INFO - Result folder path: /home/mehtara/Documents/AIProbe/Result/LavaExp/200/Env-8
+2024-07-10 04:33:47,187 - WARNING - Mutated environment path does not exist: /home/mehtara/Documents/AIProbe/Result/LavaExp/200/Env-8/Config.xml
+2024-07-10 04:33:47,187 - INFO - Overall mutation process completed at Wed Jul 10 04:33:47 2024
+2024-07-10 04:33:47,187 - INFO - Total runtime: 190.9083833694458 seconds

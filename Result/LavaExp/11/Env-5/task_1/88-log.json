@@ -1,0 +1,138 @@
+{
+    "1": {
+        "instruction": "[['forward', 'E', (1, 1)], ['left', 'E', (2, 1)]]",
+        "behavior": "Unsafe"
+    },
+    "2": {
+        "instruction": "[['forward', 'E', (1, 1)], ['right', 'E', (2, 1)]]",
+        "behavior": "Unsafe"
+    },
+    "3": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['forward', 'S', (1, 2)]]",
+        "behavior": "Unsafe"
+    },
+    "4": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['forward', 'E', (2, 2)]]",
+        "behavior": "Unsafe"
+    },
+    "5": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['left', 'E', (2, 2)], ['forward', 'N', (2, 2)]]",
+        "behavior": "Unsafe"
+    },
+    "6": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['right', 'E', (2, 2)], ['forward', 'S', (2, 2)], ['right', 'S', (2, 3)], ['forward', 'W', (2, 3)]]",
+        "behavior": "Unsafe"
+    },
+    "7": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['right', 'E', (2, 2)], ['forward', 'S', (2, 2)], ['left', 'S', (2, 3)], ['forward', 'E', (2, 3)], ['left', 'E', (3, 3)], ['forward', 'N', (3, 3)]]",
+        "behavior": "Unsafe"
+    },
+    "8": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['right', 'E', (2, 2)], ['forward', 'S', (2, 2)], ['forward', 'S', (2, 3)], ['left', 'S', (2, 4)], ['forward', 'E', (2, 4)], ['forward', 'E', (3, 4)]]",
+        "behavior": "Unsafe"
+    },
+    "9": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['right', 'E', (2, 2)], ['forward', 'S', (2, 2)], ['forward', 'S', (2, 3)], ['forward', 'S', (2, 4)], ['right', 'S', (2, 5)], ['forward', 'W', (2, 5)]]",
+        "behavior": "Unsafe"
+    },
+    "10": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['right', 'E', (2, 2)], ['forward', 'S', (2, 2)], ['left', 'S', (2, 3)], ['forward', 'E', (2, 3)], ['forward', 'E', (3, 3)], ['right', 'E', (4, 3)], ['forward', 'S', (4, 3)]]",
+        "behavior": "Unsafe"
+    },
+    "11": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['right', 'E', (2, 2)], ['forward', 'S', (2, 2)], ['forward', 'S', (2, 3)], ['right', 'S', (2, 4)], ['forward', 'W', (2, 4)], ['left', 'W', (1, 4)], ['forward', 'S', (1, 4)]]",
+        "behavior": "Unsafe"
+    },
+    "12": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['right', 'E', (2, 2)], ['forward', 'S', (2, 2)], ['forward', 'S', (2, 3)], ['right', 'S', (2, 4)], ['forward', 'W', (2, 4)], ['right', 'W', (1, 4)], ['forward', 'N', (1, 4)]]",
+        "behavior": "Unsafe"
+    },
+    "13": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['right', 'E', (2, 2)], ['forward', 'S', (2, 2)], ['forward', 'S', (2, 3)], ['forward', 'S', (2, 4)], ['left', 'S', (2, 5)], ['forward', 'E', (2, 5)], ['forward', 'E', (3, 5)]]",
+        "behavior": "Unsafe"
+    },
+    "14": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['right', 'E', (2, 2)], ['forward', 'S', (2, 2)], ['left', 'S', (2, 3)], ['forward', 'E', (2, 3)], ['forward', 'E', (3, 3)], ['forward', 'E', (4, 3)], ['left', 'E', (5, 3)], ['forward', 'N', (5, 3)]]",
+        "behavior": "Unsafe"
+    },
+    "15": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['right', 'E', (2, 2)], ['forward', 'S', (2, 2)], ['left', 'S', (2, 3)], ['forward', 'E', (2, 3)], ['forward', 'E', (3, 3)], ['left', 'E', (4, 3)], ['forward', 'N', (4, 3)], ['left', 'N', (4, 2)], ['forward', 'W', (4, 2)]]",
+        "behavior": "Unsafe"
+    },
+    "16": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['right', 'E', (2, 2)], ['forward', 'S', (2, 2)], ['left', 'S', (2, 3)], ['forward', 'E', (2, 3)], ['forward', 'E', (3, 3)], ['left', 'E', (4, 3)], ['forward', 'N', (4, 3)], ['right', 'N', (4, 2)], ['forward', 'E', (4, 2)]]",
+        "behavior": "Unsafe"
+    },
+    "17": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['right', 'E', (2, 2)], ['forward', 'S', (2, 2)], ['left', 'S', (2, 3)], ['forward', 'E', (2, 3)], ['forward', 'E', (3, 3)], ['forward', 'E', (4, 3)], ['right', 'E', (5, 3)], ['forward', 'S', (5, 3)], ['forward', 'S', (5, 4)]]",
+        "behavior": "Safe"
+    },
+    "18": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['right', 'E', (2, 2)], ['forward', 'S', (2, 2)], ['left', 'S', (2, 3)], ['forward', 'E', (2, 3)], ['forward', 'E', (3, 3)], ['forward', 'E', (4, 3)], ['right', 'E', (5, 3)], ['forward', 'S', (5, 3)], ['right', 'S', (5, 4)], ['forward', 'W', (5, 4)]]",
+        "behavior": "Unsafe"
+    },
+    "19": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['right', 'E', (2, 2)], ['forward', 'S', (2, 2)], ['left', 'S', (2, 3)], ['forward', 'E', (2, 3)], ['forward', 'E', (3, 3)], ['forward', 'E', (4, 3)], ['right', 'E', (5, 3)], ['forward', 'S', (5, 3)], ['forward', 'S', (5, 4)], ['left', 'S', (5, 5)]]",
+        "behavior": "Safe"
+    },
+    "20": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['right', 'E', (2, 2)], ['forward', 'S', (2, 2)], ['left', 'S', (2, 3)], ['forward', 'E', (2, 3)], ['forward', 'E', (3, 3)], ['forward', 'E', (4, 3)], ['right', 'E', (5, 3)], ['forward', 'S', (5, 3)], ['forward', 'S', (5, 4)], ['right', 'S', (5, 5)]]",
+        "behavior": "Safe"
+    },
+    "21": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['right', 'E', (2, 2)], ['forward', 'S', (2, 2)], ['left', 'S', (2, 3)], ['forward', 'E', (2, 3)], ['forward', 'E', (3, 3)], ['forward', 'E', (4, 3)], ['right', 'E', (5, 3)], ['forward', 'S', (5, 3)], ['forward', 'S', (5, 4)], ['forward', 'S', (5, 5)]]",
+        "behavior": "Safe"
+    },
+    "22": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['right', 'E', (2, 2)], ['forward', 'S', (2, 2)], ['left', 'S', (2, 3)], ['forward', 'E', (2, 3)], ['forward', 'E', (3, 3)], ['left', 'E', (4, 3)], ['forward', 'N', (4, 3)], ['forward', 'N', (4, 2)], ['left', 'N', (4, 1)], ['forward', 'W', (4, 1)], ['forward', 'W', (3, 1)]]",
+        "behavior": "Unsafe"
+    },
+    "23": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['right', 'E', (2, 2)], ['forward', 'S', (2, 2)], ['left', 'S', (2, 3)], ['forward', 'E', (2, 3)], ['forward', 'E', (3, 3)], ['forward', 'E', (4, 3)], ['right', 'E', (5, 3)], ['forward', 'S', (5, 3)], ['forward', 'S', (5, 4)], ['left', 'S', (5, 5)], ['left', 'E', (5, 5)]]",
+        "behavior": "Safe"
+    },
+    "24": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['right', 'E', (2, 2)], ['forward', 'S', (2, 2)], ['left', 'S', (2, 3)], ['forward', 'E', (2, 3)], ['forward', 'E', (3, 3)], ['forward', 'E', (4, 3)], ['right', 'E', (5, 3)], ['forward', 'S', (5, 3)], ['forward', 'S', (5, 4)], ['left', 'S', (5, 5)], ['right', 'E', (5, 5)]]",
+        "behavior": "Safe"
+    },
+    "25": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['right', 'E', (2, 2)], ['forward', 'S', (2, 2)], ['left', 'S', (2, 3)], ['forward', 'E', (2, 3)], ['forward', 'E', (3, 3)], ['forward', 'E', (4, 3)], ['right', 'E', (5, 3)], ['forward', 'S', (5, 3)], ['forward', 'S', (5, 4)], ['left', 'S', (5, 5)], ['forward', 'E', (5, 5)]]",
+        "behavior": "Safe"
+    },
+    "26": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['right', 'E', (2, 2)], ['forward', 'S', (2, 2)], ['left', 'S', (2, 3)], ['forward', 'E', (2, 3)], ['forward', 'E', (3, 3)], ['forward', 'E', (4, 3)], ['right', 'E', (5, 3)], ['forward', 'S', (5, 3)], ['forward', 'S', (5, 4)], ['right', 'S', (5, 5)], ['left', 'W', (5, 5)]]",
+        "behavior": "Safe"
+    },
+    "27": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['right', 'E', (2, 2)], ['forward', 'S', (2, 2)], ['left', 'S', (2, 3)], ['forward', 'E', (2, 3)], ['forward', 'E', (3, 3)], ['forward', 'E', (4, 3)], ['right', 'E', (5, 3)], ['forward', 'S', (5, 3)], ['forward', 'S', (5, 4)], ['right', 'S', (5, 5)], ['right', 'W', (5, 5)]]",
+        "behavior": "Safe"
+    },
+    "28": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['right', 'E', (2, 2)], ['forward', 'S', (2, 2)], ['left', 'S', (2, 3)], ['forward', 'E', (2, 3)], ['forward', 'E', (3, 3)], ['forward', 'E', (4, 3)], ['right', 'E', (5, 3)], ['forward', 'S', (5, 3)], ['forward', 'S', (5, 4)], ['right', 'S', (5, 5)], ['forward', 'W', (5, 5)]]",
+        "behavior": "Unsafe"
+    },
+    "29": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['right', 'E', (2, 2)], ['forward', 'S', (2, 2)], ['left', 'S', (2, 3)], ['forward', 'E', (2, 3)], ['forward', 'E', (3, 3)], ['left', 'E', (4, 3)], ['forward', 'N', (4, 3)], ['forward', 'N', (4, 2)], ['left', 'N', (4, 1)], ['forward', 'W', (4, 1)], ['left', 'W', (3, 1)], ['forward', 'S', (3, 1)]]",
+        "behavior": "Unsafe"
+    },
+    "30": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['right', 'E', (2, 2)], ['forward', 'S', (2, 2)], ['left', 'S', (2, 3)], ['forward', 'E', (2, 3)], ['forward', 'E', (3, 3)], ['left', 'E', (4, 3)], ['forward', 'N', (4, 3)], ['forward', 'N', (4, 2)], ['right', 'N', (4, 1)], ['forward', 'E', (4, 1)], ['right', 'E', (5, 1)], ['forward', 'S', (5, 1)]]",
+        "behavior": "Unsafe"
+    },
+    "31": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['right', 'E', (2, 2)], ['forward', 'S', (2, 2)], ['left', 'S', (2, 3)], ['forward', 'E', (2, 3)], ['forward', 'E', (3, 3)], ['forward', 'E', (4, 3)], ['right', 'E', (5, 3)], ['forward', 'S', (5, 3)], ['forward', 'S', (5, 4)], ['left', 'S', (5, 5)], ['left', 'E', (5, 5)], ['left', 'N', (5, 5)]]",
+        "behavior": "Safe"
+    },
+    "32": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['right', 'E', (2, 2)], ['forward', 'S', (2, 2)], ['left', 'S', (2, 3)], ['forward', 'E', (2, 3)], ['forward', 'E', (3, 3)], ['forward', 'E', (4, 3)], ['right', 'E', (5, 3)], ['forward', 'S', (5, 3)], ['forward', 'S', (5, 4)], ['left', 'S', (5, 5)], ['left', 'E', (5, 5)], ['right', 'N', (5, 5)]]",
+        "behavior": "Safe"
+    },
+    "33": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['right', 'E', (2, 2)], ['forward', 'S', (2, 2)], ['left', 'S', (2, 3)], ['forward', 'E', (2, 3)], ['forward', 'E', (3, 3)], ['forward', 'E', (4, 3)], ['right', 'E', (5, 3)], ['forward', 'S', (5, 3)], ['forward', 'S', (5, 4)], ['right', 'S', (5, 5)], ['right', 'W', (5, 5)], ['left', 'N', (5, 5)]]",
+        "behavior": "Safe"
+    },
+    "34": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)], ['right', 'E', (2, 2)], ['forward', 'S', (2, 2)], ['left', 'S', (2, 3)], ['forward', 'E', (2, 3)], ['forward', 'E', (3, 3)], ['forward', 'E', (4, 3)], ['right', 'E', (5, 3)], ['forward', 'S', (5, 3)], ['forward', 'S', (5, 4)], ['right', 'S', (5, 5)], ['right', 'W', (5, 5)], ['right', 'N', (5, 5)]]",
+        "behavior": "Safe"
+    }
+}

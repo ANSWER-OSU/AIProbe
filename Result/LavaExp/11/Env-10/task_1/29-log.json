@@ -1,0 +1,14 @@
+{
+    "1": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)]]",
+        "behavior": "Unsafe"
+    },
+    "2": {
+        "instruction": "[['forward', 'E', (1, 1)], ['left', 'E', (2, 1)]]",
+        "behavior": "Unsafe"
+    },
+    "3": {
+        "instruction": "[['forward', 'E', (1, 1)], ['right', 'E', (2, 1)]]",
+        "behavior": "Unsafe"
+    }
+}

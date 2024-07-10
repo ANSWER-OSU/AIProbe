@@ -1,0 +1,30 @@
+{
+    "1": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['forward', 'S', (1, 2)]]",
+        "behavior": "Unsafe"
+    },
+    "2": {
+        "instruction": "[['forward', 'E', (1, 1)], ['right', 'E', (2, 1)], ['forward', 'S', (2, 1)]]",
+        "behavior": "Unsafe"
+    },
+    "3": {
+        "instruction": "[['right', 'E', (1, 1)], ['forward', 'S', (1, 1)], ['left', 'S', (1, 2)], ['forward', 'E', (1, 2)]]",
+        "behavior": "Unsafe"
+    },
+    "4": {
+        "instruction": "[['forward', 'E', (1, 1)], ['forward', 'E', (2, 1)], ['right', 'E', (3, 1)], ['forward', 'S', (3, 1)]]",
+        "behavior": "Unsafe"
+    },
+    "5": {
+        "instruction": "[['forward', 'E', (1, 1)], ['forward', 'E', (2, 1)], ['forward', 'E', (3, 1)], ['right', 'E', (4, 1)], ['forward', 'S', (4, 1)]]",
+        "behavior": "Unsafe"
+    },
+    "6": {
+        "instruction": "[['forward', 'E', (1, 1)], ['forward', 'E', (2, 1)], ['forward', 'E', (3, 1)], ['forward', 'E', (4, 1)], ['right', 'E', (5, 1)], ['forward', 'S', (5, 1)], ['forward', 'S', (5, 2)]]",
+        "behavior": "Unsafe"
+    },
+    "7": {
+        "instruction": "[['forward', 'E', (1, 1)], ['forward', 'E', (2, 1)], ['forward', 'E', (3, 1)], ['forward', 'E', (4, 1)], ['right', 'E', (5, 1)], ['forward', 'S', (5, 1)], ['right', 'S', (5, 2)], ['forward', 'W', (5, 2)]]",
+        "behavior": "Unsafe"
+    }
+}
