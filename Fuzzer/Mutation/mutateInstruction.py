@@ -1,14 +1,18 @@
 import random
+import time
+import copy
 import os
 import json
+import numpy as np
 from datetime import datetime, timedelta
 import traceback
+import pprint
 
 import sys
 
 import Minigrid.environment
 from Fuzzer.Mutation.mutateEnv import EnvName
-from Minigrid.environment import execute_and_evaluate_task
+from Minigrid.environment import execute_and_evaluate_task,apply_instruction
 from Fuzzer.LoadConfig import load_InitialState
 
 #Action space
@@ -579,6 +583,213 @@ def fuzz_instruction(env_name,coverage_matrix,remaining_coverage_matrix,instruct
 
     #return mutator.random_fuzzing(env_config_path,instruction_log_path)
     return mutator.coverage_guided_fuzzer(coverage_matrix,remaining_coverage_matrix,instruction_log,env_config_path,instruction_log_path,remove_pervoius_data)
+
+
+InstructionPool = [[]]
+
+
+def fuzzInstructions(initial_state,final_state,timeout,action_map,unsafe_states,log_path,mutated_env_path):
+    start_time = time.time()
+    remaining_coverage_matrix = copy.deepcopy(action_map)
+    instruction_pool = {
+    }
+    previous_state = initial_state
+# Initialize a queue with the initial state and an empty instruction list
+    queue = [(initial_state, [])]
+
+    log_json_path = f"{log_path}-log.json"
+    log_text_path = f"{log_path}-log.txt"
+
+    already_tested_instruction = []
+
+    while time.time() - start_time < timeout:
+        if not queue:
+            break
+
+        previous_state, accumulated_instructions = queue.pop(0)
+
+        instuctionList = genrateInstruction(instruction_pool, remaining_coverage_matrix, previous_state)
+
+        for instruction in instuctionList:
+
+
+
+            # if instruction  in already_tested_instruction:
+            #     continue
+
+            new_state, info,instruction_log = apply_instruction(instruction,mutated_env_path)
+            improvedCoverage = check_coverage_improvement(instruction_log,remaining_coverage_matrix)
+
+            log_instruction_and_state(log_text_path, instruction, remaining_coverage_matrix, instruction_log)
+
+
+            if new_state.agent.dest_pos in unsafe_states:
+                append_to_json_file_with_sequence(log_json_path, instruction_log, "Unsafe")
+
+                continue
+
+            if new_state.agent.dest_pos == final_state.agent.dest_pos:
+                print(instruction_log)
+                append_to_json_file_with_sequence(log_json_path, instruction_log,"Safe")
+                  # Exit the function if the final state is reached
+
+            # Append the new instructions to the instruction pool
+
+            new_target_state = (new_state.agent.dest_pos, new_state.agent.dest_direction)
+            if new_target_state not in instruction_pool:
+                instruction_pool[new_target_state] = []
+            instruction_pool[new_target_state].append(instruction)
+
+            #already_tested_instruction.append(instruction)
+
+            if(improvedCoverage):
+            # Add the new state and the updated instruction list to the queue
+                queue.append((new_state, accumulated_instructions + [instruction]))
+
+
+
+def genrateInstruction(instruction_pool,remaining_coverage_matrix,previous_state):
+    position = previous_state.agent.dest_pos
+    direction = previous_state.agent.dest_direction
+
+    if(position == None):
+        position = previous_state.agent.init_pos
+
+    target_state = ((position[0], position[1]), direction)
+
+    matchInstructionList = []
+
+    if target_state in instruction_pool:
+        matchInstructionList = instruction_pool[target_state]
+    else:
+        if target_state in remaining_coverage_matrix:
+            matchInstructionList = [[action] for action in remaining_coverage_matrix[target_state]]
+
+
+
+
+
+    new_instructions = []
+
+    for instruction in matchInstructionList:
+        if target_state in remaining_coverage_matrix:
+            actions_to_add = remaining_coverage_matrix[target_state][:]
+            if not actions_to_add:
+                continue
+            for action in actions_to_add:
+                new_instruction = instruction + [action]
+                new_instructions.append(new_instruction)
+
+
+    # Return the position and direction in the desired format
+    return new_instructions
+
+
+def check_coverage_improvement(instruction_log, remaining_coverage_matrix):
+    # Initialize a variable to track if coverage was improved
+    coverage_improved = False
+
+    # Iterate through the instruction log
+    for log_entry in instruction_log:
+        action = log_entry[0]
+        direction = log_entry[1].lower()
+        position = log_entry[2]
+
+        target_state = (position, direction)
+
+        # Check if the action was present in the remaining coverage matrix for the target state
+        if target_state in remaining_coverage_matrix and action in remaining_coverage_matrix[target_state]:
+            # Remove the action from the remaining coverage matrix
+            remaining_coverage_matrix[target_state].remove(action)
+
+            # If there are no more actions left for this state, remove the state from the coverage matrix
+            if not remaining_coverage_matrix[target_state]:
+                del remaining_coverage_matrix[target_state]
+
+            # Set coverage improved to True
+            coverage_improved = True
+
+    return coverage_improved
+
+
+def append_to_json_file_with_sequence(file_path, new_data, behavior):
+    """
+        Appends new data and behavior to a JSON file with sequential numbering as keys.
+        If the file does not exist, it will be created.
+
+        :param file_path: Path to the JSON file.
+        :param new_data: Data to append (should be a list of lists).
+        :param behavior: Behavior to append.
+        """
+    # Convert new_data and behavior to strings
+    new_data_str = str(new_data)
+
+    # Ensure the directory exists
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+
+    try:
+        # Read existing data from the file
+        with open(file_path, 'r') as file:
+            data = json.load(file)
+    except (FileNotFoundError, json.JSONDecodeError):
+        # If file does not exist or has invalid JSON, initialize an empty dictionary
+        data = {}
+
+    # Determine the next key
+    if data:
+        next_key = max(map(int, data.keys())) + 1
+    else:
+        next_key = 1
+
+    # Add the new data with the next key under the appropriate tags
+    data[str(next_key)] = {
+        "instruction": new_data_str,
+        "behavior": behavior
+    }
+
+    # Write updated data back to the file
+    with open(file_path, 'w') as file:
+        json.dump(data, file, indent=4)
+
+
+def log_instruction_and_state(log_file_path, instruction, remaining_coverage_matrix, instruction_log):
+
+    # Ensure the directory exists
+    os.makedirs(os.path.dirname(log_file_path), exist_ok=True)
+    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    formatted_remaining_coverage_matrix = convert_np_types(remaining_coverage_matrix)
+
+    # Open the file in append mode, which creates the file if it does not exist
+    with open(log_file_path, 'a') as log_file:
+        log_file.write(f"Timestamp: {timestamp}\n")
+        log_file.write(f"Instruction: {instruction}\n")
+        log_file.write(f"Instruction Log: {instruction_log}\n\n")
+        log_file.write(f"Remaining coverage Log: \n\n")
+        for key, value in formatted_remaining_coverage_matrix.items():
+            log_file.write(f"  {key}: {value}\n")
+        log_file.write("\n")
+
+
+
+def convert_np_types(obj):
+        """Recursively convert numpy data types to native Python types."""
+        if isinstance(obj, dict):
+            return {key: convert_np_types(value) for key, value in obj.items()}
+        elif isinstance(obj, list):
+            return [convert_np_types(element) for element in obj]
+        elif isinstance(obj, tuple):
+            return tuple(convert_np_types(element) for element in obj)
+        elif isinstance(obj, np.integer):
+            return int(obj)
+        elif isinstance(obj, np.floating):
+            return float(obj)
+        elif isinstance(obj, np.ndarray):
+            return obj.tolist()
+        elif hasattr(obj, '__dict__'):
+            return {key: convert_np_types(value) for key, value in obj.__dict__.items()}
+        else:
+            return obj
+
 
 
 

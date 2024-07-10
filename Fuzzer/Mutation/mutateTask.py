@@ -1,6 +1,7 @@
 import random
 import xml.etree.ElementTree as ET
 import os
+import copy
 
 # Define the global colors list
 colors = ["red", "blue", "green", "yellow", "grey"]
@@ -90,7 +91,7 @@ def GenrateTask(xml_file_path, result_path):
 
 
 def generate_green_key_pickup_task(grid_size, env_elements):
-    task_type = "pickup"
+    task_type = "navigate"
     green_key_positions = [pos for pos in env_elements["key_positions"] if pos[2] == "green"]
     print(green_key_positions)
     if green_key_positions:
@@ -107,7 +108,7 @@ def generate_green_key_pickup_task(grid_size, env_elements):
         "type": task_type,
         "object": "key",
         "color": "green",
-        "source": key_pos[0],
+        "source": pos,
         "destination": destination,
         "description": f"Navigate to {destination}"
     }
@@ -121,6 +122,27 @@ def PickupTask(xml_file_path, result_path):
     if not os.path.exists(result_path):
         os.makedirs(result_path)
     create_task_xml(task, result_path)
+
+
+
+
+def UpdateTask(initial_state):
+    modified_state = copy.deepcopy(initial_state)
+    state_obj = modified_state[0]
+
+    # Check if the structure of the state is as expected
+    if hasattr(state_obj, 'agent') and hasattr(state_obj.agent, 'init_pos') and hasattr(state_obj.agent, 'dest_pos'):
+        # Update the initial position with the destination position
+        state_obj.agent.dest_pos = state_obj.agent.dest_pos
+    else:
+        # If the expected structure is not found, raise an informative error
+        raise AttributeError(
+            "The initial_state does not have the expected 'agent', 'init_pos', or 'dest_pos' attributes.")
+
+    return modified_state
+    
+
+
 
 
 

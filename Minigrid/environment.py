@@ -238,6 +238,10 @@ class CustomMiniGridEnv(MiniGridEnv):
     def step(self, action):
 
         obs, reward, done, info = super().step(action)[:4]
+
+        new_pos = tuple(self.agent_pos)
+        if isinstance(self.grid.get(*new_pos), Lava):
+            done = True
         # After performing an action, update the final state
         return obs, reward, done, info
     def get_coverage(self):
@@ -382,7 +386,7 @@ def get_next_pos(agent_direction,agent_postion):
             return next_agent_pos
 
 
-def execute_instructions(env,log_file_path, instruction):
+def execute_instructions(env, instruction):
     action_map = {
         "forward": env.actions.forward,
         "right": env.actions.right,
@@ -408,6 +412,7 @@ def execute_instructions(env,log_file_path, instruction):
             obs, reward, done, info = env.step(action)[:4]
 
 
+
             env.update_final_state(action,env)
             #if action == Actions.pickup:
                 #if key_status_changed(env):
@@ -425,8 +430,8 @@ def execute_instructions(env,log_file_path, instruction):
         else:
             print(f"Unrecognized instruction: {action}")
 
-    env.log_state(log_file_path,instruction)
-    return   instruction_log
+    #env.log_state(log_file_path,instruction)
+    return obs, reward, done, info ,instruction_log
 
 def key_status_changed(env):
     # Compare the initial state of the environment with the current state
@@ -758,3 +763,45 @@ def test():
 
 
 #test()
+
+
+def  apply_instruction (instruction,mutated_env_path):
+
+    initial_environment, gridSize = load_InitialState(mutated_env_path)
+
+    initial_environment.agent.dest_pos= initial_environment.agent.init_pos
+    env = CustomMiniGridEnv(state=initial_environment, grid_size=gridSize, render_mode='rgb_array')  # rgb_array
+    initial_state = env.setInitialState()
+
+    obs = env.reset()
+    env.render()
+
+    obs, reward, done, info, instruction_log =  execute_instructions(env, instruction)
+
+    final_state = env.returnFinalState()
+    return final_state,info,instruction_log
+
+    # final_initial_environment, gridSize = load_InitialState(config_path)
+    # is_valid_instruction = check_environment_changes(final_initial_environment, final_state)
+    # is_valid_capabilities = False
+    # possible_actions = ["forward", "left", "right","pickup","toggle","drop","done"]
+    # COVERAGE = env.get_coverage()
+    # # averageCoverage = calculate_coverage(env.get_coverage(),gridSize,possible_actions,final_initial_environment.agent.dest_pos)
+    # averageCoverage, di = calculate_coverage_and_return_actions(env.get_coverage(), gridSize, possible_actions,
+    #                                                             initial_environment.lava_tiles,
+    #                                                             final_initial_environment.agent.dest_pos)
+    # averageCoverage2 = calculate_coverages(env.get_coverage(), gridSize, possible_actions,
+    #                                        final_initial_environment.agent.dest_pos)
+    # if (is_valid_instruction):
+    #
+    #     is_capable = check_task_achieved(final_initial_environment, final_state, log_file_path)
+    #     is_valid_capabilities = is_capable
+    #     logCapabilities(log_file_path, is_valid_capabilities,averageCoverage)
+    #
+    # else:
+    #     logCapabilities(log_file_path, False, averageCoverage)
+    #
+    #     # Close the environment
+    # env.close()
+    #
+    # return is_valid_instruction, is_valid_capabilities, averageCoverage, di,instruction_log

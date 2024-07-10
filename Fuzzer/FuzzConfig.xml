@@ -2,10 +2,10 @@
     <!-- General Fuzzer Settings -->
     <Settings>
         <Timeout>5</Timeout> <!-- Timeout for each test case in min -->
-        <LogFilePath>Result/FourRoom</LogFilePath>
+        <LogFilePath>Result/LavaExp</LogFilePath>
         <Enviroment>four_room</Enviroment>
         <EnviromentConfig>Minigrid/Config.xml</EnviromentConfig>
-        <MutateEnv>true</MutateEnv>
+        <MutateEnv>false</MutateEnv>
         <MutateTask>false</MutateTask>
         <MutateEnvTime>3600</MutateEnvTime>
         <TaskMutateTime>6</TaskMutateTime> <!-- Time for task mutation in minutes -->
