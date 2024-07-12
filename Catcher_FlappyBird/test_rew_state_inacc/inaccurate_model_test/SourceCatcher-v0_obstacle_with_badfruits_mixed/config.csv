@@ -1,0 +1,6 @@
+inaccuracy_type, is_obstacle, obj_x2, obj_x2, agent_side, is_accurate_model, badfruit_region
+2, True, 250, 300, left, True, [50, 150, 250, 350, 450]
+2, True, 250, 300, left, True, [50, 150, 250, 350, 450]
+2, True, 250, 300, left, True, [50, 150, 250, 350, 450]
+2, True, 250, 300, left, True, [50, 150, 250, 350, 450]
+2, True, 250, 300, left, True, [50, 150, 250, 350, 450]

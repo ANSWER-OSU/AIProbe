@@ -61,27 +61,33 @@ class TargetCatcher(SourceCatcher):
                              range(0, self.height, self.fruit_size),
                              range(0, self.fruit_num_types, 1)]
         self.feature_map = {"player_x":0, "fruit_x":1, "fruit_y": 2, "fruit_type":3}
-        self.states = []
         self.badfruit_region = [250,300,350,400,450]
+        self.is_obstacle = False
+        self.obj_x1 = None
+        self.obj_x2 = None
+        self.ob_width = 50
+        self.agent_side = None
 
     def init(self):
+        self.states = []
         super(TargetCatcher, self).init()
 
-        if len(self.badfruit_region) > 0 and len(self.states) == 0:
-            for s in product(*self.feature_bins):
-                # Remove states in which the fruit has already hit the ground (The agent does not take an action in these states because they are goal states - Q-value will be 0).
-                if s[self.feature_map["fruit_y"]] == self.y_locs[len(self.y_locs)-1]:
-                    continue
-                # Remove states with bad fruits in the "good" region. There will never be a bad fruit initialized there.
-                elif s[self.feature_map["fruit_x"]] not in self.badfruit_region and s[self.feature_map["fruit_type"]] == self.bad_fruit_id:
-                    continue
-                # Remove states with good fruits in the "bad" region. There will never be a bad fruit initialized there.
-                elif s[self.feature_map["fruit_x"]] in self.badfruit_region and s[self.feature_map["fruit_type"]] == self.good_fruit_id:
-                    continue
+        if self.badfruit_region!=None:
+            if len(self.badfruit_region) > 0 and len(self.states) == 0:
+                for s in product(*self.feature_bins):
+                    # Remove states in which the fruit has already hit the ground (The agent does not take an action in these states because they are goal states - Q-value will be 0).
+                    if s[self.feature_map["fruit_y"]] == self.y_locs[len(self.y_locs)-1]:
+                        continue
+                    # Remove states with bad fruits in the "good" region. There will never be a bad fruit initialized there.
+                    elif s[self.feature_map["fruit_x"]] not in self.badfruit_region and s[self.feature_map["fruit_type"]] == self.bad_fruit_id:
+                        continue
+                    # Remove states with good fruits in the "bad" region. There will never be a bad fruit initialized there.
+                    elif s[self.feature_map["fruit_x"]] in self.badfruit_region and s[self.feature_map["fruit_type"]] == self.good_fruit_id:
+                        continue
 
-                else:
-                    self.states.append(s)
-            print("Total no. of states = ", len(self.states))
+                    else:
+                        self.states.append(s)
+                print("Total no. of states = ", len(self.states))
 
         self.fruit = UncertainFruit(self.fruit_fall_speed, self.fruit_size,
                            self.width, self.height, self.rng,
@@ -95,6 +101,15 @@ class TargetCatcher(SourceCatcher):
     def getGameState(self):
         state_id = np.random.choice(range(len(self.states)))
         state = self.states[state_id]
+        if self.is_obstacle:
+            if self.agent_side=='left':
+                while state[0]>=self.obj_x1:
+                    state_id = np.random.choice(range(len(self.states)))
+                    state = self.states[state_id]
+            elif self.agent_side=='right':
+                while state[0]<self.obj_x2:
+                    state_id = np.random.choice(range(len(self.states)))
+                    state = self.states[state_id]
         return state
 
     def get_source_state(self, state):
@@ -119,6 +134,7 @@ class TargetCatcher(SourceCatcher):
         success_prob = 1
         x_p, x_f, y_f, t_f = state
         new_x_p, new_y_f, new_x_f, new_t_f = -1, -1, -1, -1
+        min_x_p, max_x_p = 0, self.screen_width
         dx = 0
 
         # update paddle position
@@ -129,10 +145,16 @@ class TargetCatcher(SourceCatcher):
         else: # NOOP
             dx = 0
         new_x_p = x_p + dx
-        if new_x_p <= 0:
-            new_x_p = 0
-        if new_x_p + self.paddle_width >= self.screen_width:
-            new_x_p = self.screen_width - self.paddle_width
+        if self.is_obstacle:
+            if x_p < self.obj_x1:
+                max_x_p = self.obj_x1
+            elif x_p >= self.obj_x2:
+                min_x_p = self.obj_x2
+
+        if new_x_p <= min_x_p:
+            new_x_p = min_x_p
+        if new_x_p + self.paddle_width >= max_x_p:
+            new_x_p = max_x_p - self.paddle_width
 
          # update fruit position
         self.y_feature_bins = self.feature_bins[self.feature_map["fruit_y"]]
@@ -149,7 +171,7 @@ class TargetCatcher(SourceCatcher):
             new_y_f = self.y_feature_bins[new_y_bin]
             new_x_f = x_f
             new_t_f = t_f
-        if y_f==450 or new_y_f==450:
+        if y_f>=450 or new_y_f>=450:
             x_bins = self.feature_bins[self.feature_map["fruit_x"]]
             new_x_f = random.choice(x_bins) # Choose randomly from one of the possible values in x_bins
             if new_x_f in self.badfruit_region:
@@ -158,3 +180,14 @@ class TargetCatcher(SourceCatcher):
                 new_t_f = 1
             new_y_f = 0
         return [(new_x_p, new_x_f, new_y_f, new_t_f)], [success_prob]
+
+    def set_badfruit_region(self, region_array):
+        self.badfruit_region = region_array
+
+    def set_obstacle(self, value, x1, x2):
+        self.is_obstacle = value
+        self.obj_x1 = x1
+        self.obj_x2 = x2
+
+    def set_agent_side(self, value):
+        self.agent_side = value

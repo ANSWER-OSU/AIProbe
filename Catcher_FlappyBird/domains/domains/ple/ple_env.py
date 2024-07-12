@@ -229,10 +229,11 @@ class PLEEnv(gym.Env):
             self.badfruit_region = region_array
             return self.game.set_badfruit_region(region_array)
 
-    def set_is_accurate_model(self, value):
+    def set_is_accurate_model(self, value1, value2):
         if hasattr(self.game, 'set_is_accurate_model'):
-            self.is_accurate_model = value
-            return self.game.set_accurate_model(value)
+            self.is_accurate_model = value1
+            self.inaccuracy_type = value2
+            return self.game.set_accurate_model(value1, value2)
 
     def _generatePipes(self, offset=0, pipe=None):
         if hasattr(self.game, '_generatePipes'):

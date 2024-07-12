@@ -56,12 +56,20 @@ def load_InitialState(file_path):
         )
         initialEnvironment.lava_tiles.append(lava)
 
-    # for wall_elem in root.find('Walls').findall('Wall'):
-    #     wall = Wall(
-    #         x=int(wall_elem.get('x')),
-    #         y=int(wall_elem.get('y'))
-    #     )
-    #     initialEnvironment.walls.append(wall)
+    for lava_elem in root.find('Landmines').findall('Landmine'):
+        lava = Lava(
+             x=int(lava_elem.get('x')),  # x coordinate of lava tile
+             y=int(lava_elem.get('y')),  # y coordinate of lava tile
+             is_present=int(lava_elem.get('is_present')) #check if lava is present
+        )
+        initialEnvironment.lava_tiles.append(lava)
+
+    for wall_elem in root.find('Walls').findall('Wall'):
+        wall = Wall(
+            x=int(wall_elem.get('x')),
+            y=int(wall_elem.get('y'))
+        )
+        initialEnvironment.walls.append(wall)
     return initialEnvironment,GridSize
 
 

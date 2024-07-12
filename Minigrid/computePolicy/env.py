@@ -6,8 +6,60 @@ from minigrid.core.world_object import Lava, Goal, Door, Key, Wall, Ball
 from minigrid.core.actions import Actions
 import numpy as np
 
+from minigrid.core.world_object import WorldObj
+from minigrid.core.constants import COLOR_NAMES, COLORS
+from minigrid.core.world_object import WorldObj
+from minigrid.core.constants import COLORS
+from minigrid.core.world_object import WorldObj
+from minigrid.core.constants import OBJECT_TO_IDX, IDX_TO_OBJECT, COLORS
+from minigrid.core.constants import COLOR_NAMES, COLOR_TO_IDX, COLORS
+from PIL import Image
+
+if 'orange' not in COLORS:
+    COLORS['orange'] = np.array([255, 165, 0])
+
+if 'orange' not in COLOR_TO_IDX:
+    COLOR_TO_IDX['orange'] = len(COLOR_TO_IDX)
+
+def fill_coords(img, coords, color):
+    for x, y in coords:
+        if 0 <= y < img.shape[0] and 0 <= x < img.shape[1]:
+            img[int(y)][int(x)] = color
+
+def point_in_circle(cx, cy, r, cell_size):
+    points = []
+    for y in range(int(cy * cell_size - r * cell_size), int(cy * cell_size + r * cell_size) + 1):
+        for x in range(int(cx * cell_size - r * cell_size), int(cx * cell_size + r * cell_size) + 1):
+            if (x - cx * cell_size) ** 2 + (y - cy * cell_size) ** 2 <= (r * cell_size) ** 2:
+                points.append((x, y))
+    return points
+
+class Landmine(WorldObj):
+    def __init__(self, x, y, is_present):
+        super().__init__('landmine', 'orange')
+        self.x = x
+        self.y = y
+        self.is_present = is_present
+
+    def can_overlap(self):
+        return False
+
+    def see_behind(self):
+        return True
+
+    def render(self, img):
+        c = COLORS[self.color]
+        cell_size = 32  # Define the cell size, typically 32 pixels
+        coords = point_in_circle(1.5, 1.5, 0.5, cell_size)  # Centered circle with larger radius
+        for coord in coords:
+            if 0 <= coord[1] < img.shape[0] and 0 <= coord[0] < img.shape[1]:
+                img[int(coord[1]), int(coord[0]), :] = c
+
+OBJECT_TO_IDX['landmine'] = len(OBJECT_TO_IDX)
+IDX_TO_OBJECT[len(IDX_TO_OBJECT)] = 'landmine'
+
 class CustomMiniGridEnv(MiniGridEnv):
-    def __init__(self, grid_spec=State, grid_size=None, accurate_model=False, task='escLava', inaccuracy_type=1, **kwargs):
+    def __init__(self, grid_spec=State, grid_size=None, accurate_model=False, task='escLava', inaccuracy_type=None, **kwargs):
         self.dir = {'e': 0, 's': 1, 'w': 2, 'n': 3 }
         self.width = self.height = grid_size
         self.grid_size = [self.width, self.height]
@@ -24,6 +76,8 @@ class CustomMiniGridEnv(MiniGridEnv):
         self.task = task
         self.inaccuracy_type = inaccuracy_type
         self.grid_list = None
+        self.exe = False
+        self.picked_key_color = None
         mission_space = MissionSpace(mission_func=self._gen_mission)
         super().__init__(
                     width=self.width,
@@ -74,8 +128,12 @@ class CustomMiniGridEnv(MiniGridEnv):
             self.grid.set(wall.x, wall.y, Wall())
             self.grid.get(wall.x, wall.y).color = 'blue'
 
-        ## Place a goal square in the bottom-right corner
-        # self.put_obj(Goal(), self.goal_pos[0], self.goal_pos[1])
+        for landmine in self.grid_spec.landmines:
+            is_present = bool(landmine.is_present)
+            if is_present:
+                self.grid.set(landmine.x, landmine.y, Landmine(landmine.x, landmine.y, is_present))
+            else:
+                continue
 
         # Place a destination square
         # destination_position = self.initial_state.agent.dest_pos
@@ -104,11 +162,19 @@ class CustomMiniGridEnv(MiniGridEnv):
                             else:
                                 state_feature_rep.append((j, i, k, True if s=='lava' else False))
                         elif self.task=='keyToGoal':
-                            for key in ['green', 'yellow', 'blue', 'grey', 'red', 'none']:
-                                if self.inaccuracy_type in set([2, 3]):
-                                    state_feature_rep.append((j, i, k, key))
-                                else:
-                                    state_feature_rep.append((j, i, k, key, True if s=='lava' else False))
+                            key_picked = [True, False]
+                            for kp in key_picked:
+                                if kp==False:
+                                    if self.inaccuracy_type in set([2, 3]):
+                                        state_feature_rep.append((j, i, k, kp))
+                                    else:
+                                        state_feature_rep.append((j, i, k, kp, 'none', True if s=='lava' else False))
+                                elif kp==True:
+                                    if self.inaccuracy_type in set([2, 3]):
+                                        state_feature_rep.append((j, i, k, kp))
+                                    else:
+                                        for key_color in ['green', 'yellow', 'blue', 'grey', 'red']:
+                                            state_feature_rep.append((j, i, k, kp, key_color, True if s=='lava' else False))
         return state_feature_rep
 
 
@@ -122,9 +188,9 @@ class CustomMiniGridEnv(MiniGridEnv):
 
         elif self.task=='keyToGoal':
             if self.inaccuracy_type in set([2, 3]):
-                self.agent_curr_state = (self.agent_start_pos[0], self.agent_start_pos[1], self.agent_start_dir, 'none')
+                self.agent_curr_state = (self.agent_start_pos[0], self.agent_start_pos[1], self.agent_start_dir, False)
             else:
-                self.agent_curr_state = (self.agent_start_pos[0], self.agent_start_pos[1], self.agent_start_dir, 'none', False)
+                self.agent_curr_state = (self.agent_start_pos[0], self.agent_start_pos[1], self.agent_start_dir, False, 'none', False)
         # Generate a new random grid at the start of each episode
         self._gen_grid(self.width, self.height)
 
@@ -150,21 +216,39 @@ class CustomMiniGridEnv(MiniGridEnv):
             if state[0]==self.goal_pos[0] and state[1]==self.goal_pos[1]:
                 return True
         elif self.task=='keyToGoal':
-            if state[0]==self.goal_pos[0] and state[1]==self.goal_pos[1] and state[3]=='green': # at the goal state with GREEN key
-                return True
+            if self.inaccuracy_type in set([0, 1]):
+                if state[0]==self.goal_pos[0] and state[1]==self.goal_pos[1] and state[3]==True and state[4]=='green':
+                    return True
+            else:
+                if state[0]==self.goal_pos[0] and state[1]==self.goal_pos[1] and state[3]==True:
+                    if self.exe==True and self.picked_key_color=='green':
+                        return True
+                    elif self.exe==False:
+                        return True
         return False
 
     def is_terminal(self, state):
         if self.task=='escLava':
-            if self.inaccuracy_type in set([2, 3]):
+            if self.inaccuracy_type in set([2, 3]) and self.exe==False:
                 return False
+            if self.inaccuracy_type in set([2, 3]) and self.exe==True:
+                if self.grid_list[state[1]][state[0]]!=None and self.grid_list[state[1]][state[0]].type=='lava':
+                    return True
+                else:
+                    return False
             else:
                 _, _, _, lava = state
         elif self.task=='keyToGoal':
-            if self.inaccuracy_type in set([2, 3]):
+            if self.inaccuracy_type in set([2, 3]) and self.exe==False:
+                return False
+            if self.inaccuracy_type in set([2, 3]) and self.exe==True:
+                if self.grid_list[state[1]][state[0]]!=None and self.grid_list[state[1]][state[0]].type=='lava':
+                    return True
+                elif state[0]==self.goal_pos[0] and state[1]==self.goal_pos[1] and state[3]==True and self.picked_key_color!='green':
+                    return True
                 return False
             else:
-                _, _, _, _, lava = state
+                _, _, _, _, _, lava = state
 
         if lava:
             return True
@@ -175,19 +259,33 @@ class CustomMiniGridEnv(MiniGridEnv):
         state_reward = None
         goal_state = 100
         undesired_state = -200
+        wrong_key = -10
+        correct_key = 10
         step_reward = -1
+        x, y = state[0], state[1]
 
         if self.action_mapping[action] in self.valid_actions:
             if self.is_goal(state)==True:
                 return goal_state
 
             if self.accurate_model==True:
-                if self.is_terminal(state)==True or (self.inaccuracy_type==2 and self.is_terminal(state)==True):
+                if self.is_terminal(state)==True:
                     return undesired_state
+                elif self.grid_list[y][x]!=None and self.grid_list[y][x].type=='key' and self.grid_list[y][x].color!='green':
+                    return wrong_key
                 else:
                     return step_reward
             else:
-                return step_reward
+                # 2: '_accurate_reward_inaccurate_state_rep'
+                if (self.inaccuracy_type==2 and self.is_terminal(state)==True):
+                    if self.grid_list[state[1]][state[0]]!=None and self.grid_list[state[1]][state[0]].type=='lava':
+                        return undesired_state
+                    elif state[0]==self.goal_pos[0] and state[1]==self.goal_pos[1] and state[3]==True and self.picked_key_color!='green':
+                        return wrong_key
+                    elif state[0]==self.goal_pos[0] and state[1]==self.goal_pos[1] and state[3]==True and self.picked_key_color=='green':
+                        return correct_key
+                else:
+                    return step_reward
         return state_reward
 
     def is_boundary(self, state):
@@ -208,7 +306,7 @@ class CustomMiniGridEnv(MiniGridEnv):
             if self.inaccuracy_type in set([2, 3]):
                 x, y, direction, key = curr_state
             else:
-                x, y, direction, key, lava = curr_state
+                x, y, direction, key, key_color, lava = curr_state
         new_direction = None
         # Turn left
         if action == Actions.left:
@@ -224,7 +322,7 @@ class CustomMiniGridEnv(MiniGridEnv):
                 if self.inaccuracy_type in set([2, 3]):
                     return (x, y, new_direction, key), False
                 else:
-                    return (x, y, new_direction, key, lava), False
+                    return (x, y, new_direction, key, key_color, lava), False
 
         # Turn right
         elif action == Actions.right:
@@ -238,7 +336,7 @@ class CustomMiniGridEnv(MiniGridEnv):
                 if self.inaccuracy_type in set([2, 3]):
                     return (x, y, new_direction, key), False
                 else:
-                    return (x, y, new_direction, key, lava), False
+                    return (x, y, new_direction, key, key_color, lava), False
 
         # Move forward
         elif action == Actions.forward:
@@ -267,17 +365,18 @@ class CustomMiniGridEnv(MiniGridEnv):
                         if self.inaccuracy_type in set([2, 3]):
                             return (i, j, direction, key), False
                         else:
-                            new_key_val = key
+                            # new_key_val = key
                             new_lava_val = True if s=='lava' else False
-                            return (i, j, direction, new_key_val, new_lava_val), False
+                            return (i, j, direction, key, key_color, new_lava_val), False
 
         elif action == Actions.pickup:
             if self.grid_list[y][x]!=None:
-                if self.grid_list[y][x].type=='key' and key=='none':
+                if self.grid_list[y][x].type=='key' and key==False:
+                    self.picked_key_color = str(self.grid_list[y][x].color).lower()
                     if self.inaccuracy_type in set([2, 3]):
-                        return (x, y, direction, str(self.grid_list[y][x].color).lower()), False
+                        return (x, y, direction, True), False
                     else:
-                        return (x, y, direction, str(self.grid_list[y][x].color).lower(), lava), False
+                        return (x, y, direction, True, str(self.grid_list[y][x].color).lower(), lava), False
 
         if self.task=='escLava':
             if self.inaccuracy_type in set([2, 3]):
@@ -286,7 +385,7 @@ class CustomMiniGridEnv(MiniGridEnv):
         elif self.task=='keyToGoal':
             if self.inaccuracy_type in set([2, 3]):
                 return (x, y, direction, key), False
-            return (x, y, direction, key, lava), False
+            return (x, y, direction, key, key_color, lava), False
 
 
 
