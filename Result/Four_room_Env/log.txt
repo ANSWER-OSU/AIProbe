@@ -1796,3 +1796,434 @@
 2024-07-11 17:49:16,979 - INFO - Instruction generation for seed 11 started at Thu Jul 11 17:49:16 2024
 2024-07-11 17:49:37,641 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-219\task_1\11
 2024-07-11 17:49:37,678 - INFO - Instruction generation for seed 56 started at Thu Jul 11 17:49:37 2024
+2024-07-11 18:17:36,056 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 18:17:36,056 - INFO - Overall mutation process started at Thu Jul 11 18:17:36 2024
+2024-07-11 18:17:36,056 - INFO - Processing seed: 11
+2024-07-11 18:17:36,056 - INFO - Processing environment: Env-7 started at Thu Jul 11 18:17:36 2024
+2024-07-11 18:17:36,056 - INFO - Result folder path: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-7
+2024-07-11 18:17:36,158 - INFO - Task 1 for environment Env-7 started at Thu Jul 11 18:17:36 2024
+2024-07-11 18:17:36,158 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x7c4ff869cfb0>, 11)
+2024-07-11 18:17:36,171 - INFO - Instruction generation for seed 11 started at Thu Jul 11 18:17:36 2024
+2024-07-11 18:17:37,662 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-7/task_1/11
+2024-07-11 18:17:37,675 - INFO - Instruction generation for seed 56 started at Thu Jul 11 18:17:37 2024
+2024-07-11 18:17:38,846 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-7/task_1/56
+2024-07-11 18:17:38,859 - INFO - Instruction generation for seed 32 started at Thu Jul 11 18:17:38 2024
+2024-07-11 18:17:40,031 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-7/task_1/32
+2024-07-11 18:17:40,044 - INFO - Instruction generation for seed 88 started at Thu Jul 11 18:17:40 2024
+2024-07-11 18:17:41,222 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-7/task_1/88
+2024-07-11 18:17:41,234 - INFO - Instruction generation for seed 41 started at Thu Jul 11 18:17:41 2024
+2024-07-11 18:17:42,414 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-7/task_1/41
+2024-07-11 18:17:42,427 - INFO - Instruction generation for seed 29 started at Thu Jul 11 18:17:42 2024
+2024-07-11 18:17:43,600 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-7/task_1/29
+2024-07-11 18:17:43,612 - INFO - Instruction generation for seed 78 started at Thu Jul 11 18:17:43 2024
+2024-07-11 18:17:44,790 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-7/task_1/78
+2024-07-11 18:17:44,802 - INFO - Instruction generation for seed 93 started at Thu Jul 11 18:17:44 2024
+2024-07-11 18:17:45,976 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-7/task_1/93
+2024-07-11 18:17:45,988 - INFO - Instruction generation for seed 100 started at Thu Jul 11 18:17:45 2024
+2024-07-11 18:17:47,161 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-7/task_1/100
+2024-07-11 18:17:47,174 - INFO - Instruction generation for seed 200 started at Thu Jul 11 18:17:47 2024
+2024-07-11 18:17:48,346 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-7/task_1/200
+2024-07-11 18:17:48,346 - INFO - Processing environment: Env-7 completed at Thu Jul 11 18:17:48 2024
+2024-07-11 18:17:48,346 - INFO - Total time for environment Env-7: 12.289915561676025 seconds
+2024-07-11 18:17:48,346 - INFO - Processing environment: Env-29 started at Thu Jul 11 18:17:48 2024
+2024-07-11 18:17:48,346 - INFO - Result folder path: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-29
+2024-07-11 18:17:48,358 - INFO - Task 1 for environment Env-29 started at Thu Jul 11 18:17:48 2024
+2024-07-11 18:17:48,358 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x7c4ff869cfb0>, 11)
+2024-07-11 18:17:48,370 - INFO - Instruction generation for seed 11 started at Thu Jul 11 18:17:48 2024
+2024-07-11 18:17:50,552 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-29/task_1/11
+2024-07-11 18:17:50,564 - INFO - Instruction generation for seed 56 started at Thu Jul 11 18:17:50 2024
+2024-07-11 18:17:52,745 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-29/task_1/56
+2024-07-11 18:17:52,756 - INFO - Instruction generation for seed 32 started at Thu Jul 11 18:17:52 2024
+2024-07-11 18:17:54,930 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-29/task_1/32
+2024-07-11 18:17:54,942 - INFO - Instruction generation for seed 88 started at Thu Jul 11 18:17:54 2024
+2024-07-11 18:17:57,114 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-29/task_1/88
+2024-07-11 18:17:57,126 - INFO - Instruction generation for seed 41 started at Thu Jul 11 18:17:57 2024
+2024-07-11 18:17:59,299 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-29/task_1/41
+2024-07-11 18:17:59,311 - INFO - Instruction generation for seed 29 started at Thu Jul 11 18:17:59 2024
+2024-07-11 18:18:01,483 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-29/task_1/29
+2024-07-11 18:18:01,494 - INFO - Instruction generation for seed 78 started at Thu Jul 11 18:18:01 2024
+2024-07-11 18:18:03,669 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-29/task_1/78
+2024-07-11 18:18:03,681 - INFO - Instruction generation for seed 93 started at Thu Jul 11 18:18:03 2024
+2024-07-11 18:18:05,854 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-29/task_1/93
+2024-07-11 18:18:05,866 - INFO - Instruction generation for seed 100 started at Thu Jul 11 18:18:05 2024
+2024-07-11 18:18:08,043 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-29/task_1/100
+2024-07-11 18:18:08,055 - INFO - Instruction generation for seed 200 started at Thu Jul 11 18:18:08 2024
+2024-07-11 18:18:10,228 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-29/task_1/200
+2024-07-11 18:18:10,228 - INFO - Processing environment: Env-29 completed at Thu Jul 11 18:18:10 2024
+2024-07-11 18:18:10,228 - INFO - Total time for environment Env-29: 21.881746530532837 seconds
+2024-07-11 18:18:10,228 - INFO - Processing environment: Env-32 started at Thu Jul 11 18:18:10 2024
+2024-07-11 18:18:10,228 - INFO - Result folder path: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-32
+2024-07-11 18:18:10,240 - INFO - Task 1 for environment Env-32 started at Thu Jul 11 18:18:10 2024
+2024-07-11 18:18:10,240 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x7c4ff869cfb0>, 11)
+2024-07-11 18:18:10,272 - INFO - Instruction generation for seed 11 started at Thu Jul 11 18:18:10 2024
+2024-07-11 18:18:10,647 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-32/task_1/11
+2024-07-11 18:18:10,679 - INFO - Instruction generation for seed 56 started at Thu Jul 11 18:18:10 2024
+2024-07-11 18:18:11,051 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-32/task_1/56
+2024-07-11 18:18:11,082 - INFO - Instruction generation for seed 32 started at Thu Jul 11 18:18:11 2024
+2024-07-11 18:18:11,453 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-32/task_1/32
+2024-07-11 18:18:11,485 - INFO - Instruction generation for seed 88 started at Thu Jul 11 18:18:11 2024
+2024-07-11 18:18:11,853 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-32/task_1/88
+2024-07-11 18:18:11,884 - INFO - Instruction generation for seed 41 started at Thu Jul 11 18:18:11 2024
+2024-07-11 18:18:12,252 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-32/task_1/41
+2024-07-11 18:18:12,283 - INFO - Instruction generation for seed 29 started at Thu Jul 11 18:18:12 2024
+2024-07-11 18:18:12,651 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-32/task_1/29
+2024-07-11 18:18:12,682 - INFO - Instruction generation for seed 78 started at Thu Jul 11 18:18:12 2024
+2024-07-11 18:18:13,049 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-32/task_1/78
+2024-07-11 18:18:13,081 - INFO - Instruction generation for seed 93 started at Thu Jul 11 18:18:13 2024
+2024-07-11 18:18:13,448 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-32/task_1/93
+2024-07-11 18:18:13,479 - INFO - Instruction generation for seed 100 started at Thu Jul 11 18:18:13 2024
+2024-07-11 18:18:13,847 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-32/task_1/100
+2024-07-11 18:18:13,879 - INFO - Instruction generation for seed 200 started at Thu Jul 11 18:18:13 2024
+2024-07-11 18:18:14,247 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-32/task_1/200
+2024-07-11 18:18:14,247 - INFO - Processing environment: Env-32 completed at Thu Jul 11 18:18:14 2024
+2024-07-11 18:18:14,247 - INFO - Total time for environment Env-32: 4.019183158874512 seconds
+2024-07-11 18:18:14,247 - INFO - Processing environment: Env-236 started at Thu Jul 11 18:18:14 2024
+2024-07-11 18:18:14,247 - INFO - Result folder path: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-236
+2024-07-11 18:18:14,260 - INFO - Task 1 for environment Env-236 started at Thu Jul 11 18:18:14 2024
+2024-07-11 18:18:14,260 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x7c4ffa770c20>, 11)
+2024-07-11 18:18:14,308 - INFO - Instruction generation for seed 11 started at Thu Jul 11 18:18:14 2024
+2024-07-11 18:18:14,528 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-236/task_1/11
+2024-07-11 18:18:14,577 - INFO - Instruction generation for seed 56 started at Thu Jul 11 18:18:14 2024
+2024-07-11 18:18:14,789 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-236/task_1/56
+2024-07-11 18:18:14,837 - INFO - Instruction generation for seed 32 started at Thu Jul 11 18:18:14 2024
+2024-07-11 18:18:15,050 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-236/task_1/32
+2024-07-11 18:18:15,098 - INFO - Instruction generation for seed 88 started at Thu Jul 11 18:18:15 2024
+2024-07-11 18:18:15,310 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-236/task_1/88
+2024-07-11 18:18:15,359 - INFO - Instruction generation for seed 41 started at Thu Jul 11 18:18:15 2024
+2024-07-11 18:18:15,571 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-236/task_1/41
+2024-07-11 18:18:15,619 - INFO - Instruction generation for seed 29 started at Thu Jul 11 18:18:15 2024
+2024-07-11 18:18:15,832 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-236/task_1/29
+2024-07-11 18:18:15,880 - INFO - Instruction generation for seed 78 started at Thu Jul 11 18:18:15 2024
+2024-07-11 18:18:16,099 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-236/task_1/78
+2024-07-11 18:18:16,148 - INFO - Instruction generation for seed 93 started at Thu Jul 11 18:18:16 2024
+2024-07-11 18:18:16,361 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-236/task_1/93
+2024-07-11 18:18:16,408 - INFO - Instruction generation for seed 100 started at Thu Jul 11 18:18:16 2024
+2024-07-11 18:18:16,621 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-236/task_1/100
+2024-07-11 18:18:16,669 - INFO - Instruction generation for seed 200 started at Thu Jul 11 18:18:16 2024
+2024-07-11 18:18:16,882 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-236/task_1/200
+2024-07-11 18:18:16,882 - INFO - Processing environment: Env-236 completed at Thu Jul 11 18:18:16 2024
+2024-07-11 18:18:16,882 - INFO - Total time for environment Env-236: 2.6346065998077393 seconds
+2024-07-11 18:18:16,882 - INFO - Processing environment: Env-12 started at Thu Jul 11 18:18:16 2024
+2024-07-11 18:18:16,882 - INFO - Result folder path: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-12
+2024-07-11 18:18:16,885 - INFO - Task 1 for environment Env-12 started at Thu Jul 11 18:18:16 2024
+2024-07-11 18:18:16,886 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x7c4ffa770c20>, 11)
+2024-07-11 18:18:16,901 - INFO - Instruction generation for seed 11 started at Thu Jul 11 18:18:16 2024
+2024-07-11 18:18:31,820 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-12/task_1/11
+2024-07-11 18:18:31,836 - INFO - Instruction generation for seed 56 started at Thu Jul 11 18:18:31 2024
+2024-07-11 18:18:46,763 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-12/task_1/56
+2024-07-11 18:18:46,778 - INFO - Instruction generation for seed 32 started at Thu Jul 11 18:18:46 2024
+2024-07-11 18:19:01,727 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-12/task_1/32
+2024-07-11 18:19:01,742 - INFO - Instruction generation for seed 88 started at Thu Jul 11 18:19:01 2024
+2024-07-11 18:19:16,693 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-12/task_1/88
+2024-07-11 18:19:16,708 - INFO - Instruction generation for seed 41 started at Thu Jul 11 18:19:16 2024
+2024-07-11 18:19:31,663 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-12/task_1/41
+2024-07-11 18:19:31,678 - INFO - Instruction generation for seed 29 started at Thu Jul 11 18:19:31 2024
+2024-07-11 18:19:46,628 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-12/task_1/29
+2024-07-11 18:19:46,643 - INFO - Instruction generation for seed 78 started at Thu Jul 11 18:19:46 2024
+2024-07-11 18:20:01,598 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-12/task_1/78
+2024-07-11 18:20:01,614 - INFO - Instruction generation for seed 93 started at Thu Jul 11 18:20:01 2024
+2024-07-11 18:20:16,564 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-12/task_1/93
+2024-07-11 18:20:16,579 - INFO - Instruction generation for seed 100 started at Thu Jul 11 18:20:16 2024
+2024-07-11 18:20:31,550 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-12/task_1/100
+2024-07-11 18:20:31,566 - INFO - Instruction generation for seed 200 started at Thu Jul 11 18:20:31 2024
+2024-07-11 18:20:46,507 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-12/task_1/200
+2024-07-11 18:20:46,507 - INFO - Processing environment: Env-12 completed at Thu Jul 11 18:20:46 2024
+2024-07-11 18:20:46,507 - INFO - Total time for environment Env-12: 149.62501573562622 seconds
+2024-07-11 18:20:46,507 - INFO - Processing environment: Env-119 started at Thu Jul 11 18:20:46 2024
+2024-07-11 18:20:46,507 - INFO - Result folder path: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-119
+2024-07-11 18:20:46,511 - INFO - Task 1 for environment Env-119 started at Thu Jul 11 18:20:46 2024
+2024-07-11 18:20:46,511 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x7c4ffa770c20>, 11)
+2024-07-11 18:20:46,519 - INFO - Instruction generation for seed 11 started at Thu Jul 11 18:20:46 2024
+2024-07-11 18:21:33,853 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-119/task_1/11
+2024-07-11 18:21:33,862 - INFO - Instruction generation for seed 56 started at Thu Jul 11 18:21:33 2024
+2024-07-11 18:22:21,184 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-119/task_1/56
+2024-07-11 18:22:21,193 - INFO - Instruction generation for seed 32 started at Thu Jul 11 18:22:21 2024
+2024-07-11 18:23:08,526 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-119/task_1/32
+2024-07-11 18:23:08,535 - INFO - Instruction generation for seed 88 started at Thu Jul 11 18:23:08 2024
+2024-07-11 18:23:55,881 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-119/task_1/88
+2024-07-11 18:23:55,889 - INFO - Instruction generation for seed 41 started at Thu Jul 11 18:23:55 2024
+2024-07-11 18:24:43,183 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-119/task_1/41
+2024-07-11 18:24:43,192 - INFO - Instruction generation for seed 29 started at Thu Jul 11 18:24:43 2024
+2024-07-11 18:25:30,508 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-119/task_1/29
+2024-07-11 18:25:30,517 - INFO - Instruction generation for seed 78 started at Thu Jul 11 18:25:30 2024
+2024-07-11 18:26:17,825 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-119/task_1/78
+2024-07-11 18:26:17,834 - INFO - Instruction generation for seed 93 started at Thu Jul 11 18:26:17 2024
+2024-07-11 18:27:05,141 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-119/task_1/93
+2024-07-11 18:27:05,150 - INFO - Instruction generation for seed 100 started at Thu Jul 11 18:27:05 2024
+2024-07-11 18:27:52,455 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-119/task_1/100
+2024-07-11 18:27:52,464 - INFO - Instruction generation for seed 200 started at Thu Jul 11 18:27:52 2024
+2024-07-11 18:28:39,770 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-119/task_1/200
+2024-07-11 18:28:39,770 - INFO - Processing environment: Env-119 completed at Thu Jul 11 18:28:39 2024
+2024-07-11 18:28:39,770 - INFO - Total time for environment Env-119: 473.2634253501892 seconds
+2024-07-11 18:28:39,770 - INFO - Processing environment: Env-219 started at Thu Jul 11 18:28:39 2024
+2024-07-11 18:28:39,770 - INFO - Result folder path: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-219
+2024-07-11 18:28:39,782 - INFO - Task 1 for environment Env-219 started at Thu Jul 11 18:28:39 2024
+2024-07-11 18:28:39,782 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x7c4ffa770c20>, 11)
+2024-07-11 18:28:39,793 - INFO - Instruction generation for seed 11 started at Thu Jul 11 18:28:39 2024
+2024-07-11 18:28:47,116 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-219/task_1/11
+2024-07-11 18:28:47,127 - INFO - Instruction generation for seed 56 started at Thu Jul 11 18:28:47 2024
+2024-07-11 18:28:54,435 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-219/task_1/56
+2024-07-11 18:28:54,446 - INFO - Instruction generation for seed 32 started at Thu Jul 11 18:28:54 2024
+2024-07-11 18:29:01,754 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-219/task_1/32
+2024-07-11 18:29:01,765 - INFO - Instruction generation for seed 88 started at Thu Jul 11 18:29:01 2024
+2024-07-11 18:29:09,081 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-219/task_1/88
+2024-07-11 18:29:09,092 - INFO - Instruction generation for seed 41 started at Thu Jul 11 18:29:09 2024
+2024-07-11 18:29:16,404 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-219/task_1/41
+2024-07-11 18:29:16,415 - INFO - Instruction generation for seed 29 started at Thu Jul 11 18:29:16 2024
+2024-07-11 18:29:23,726 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-219/task_1/29
+2024-07-11 18:29:23,737 - INFO - Instruction generation for seed 78 started at Thu Jul 11 18:29:23 2024
+2024-07-11 18:29:31,054 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-219/task_1/78
+2024-07-11 18:29:31,065 - INFO - Instruction generation for seed 93 started at Thu Jul 11 18:29:31 2024
+2024-07-11 18:29:38,379 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-219/task_1/93
+2024-07-11 18:29:38,389 - INFO - Instruction generation for seed 100 started at Thu Jul 11 18:29:38 2024
+2024-07-11 18:29:45,710 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-219/task_1/100
+2024-07-11 18:29:45,720 - INFO - Instruction generation for seed 200 started at Thu Jul 11 18:29:45 2024
+2024-07-11 18:29:53,033 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-219/task_1/200
+2024-07-11 18:29:53,033 - INFO - Processing environment: Env-219 completed at Thu Jul 11 18:29:53 2024
+2024-07-11 18:29:53,033 - INFO - Total time for environment Env-219: 73.26273822784424 seconds
+2024-07-11 18:29:53,033 - INFO - Processing environment: Env-1433 started at Thu Jul 11 18:29:53 2024
+2024-07-11 18:29:53,033 - INFO - Result folder path: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1433
+2024-07-11 18:29:53,037 - INFO - Task 1 for environment Env-1433 started at Thu Jul 11 18:29:53 2024
+2024-07-11 18:29:53,037 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x7c4ffa770c20>, 11)
+2024-07-11 18:29:53,045 - INFO - Instruction generation for seed 11 started at Thu Jul 11 18:29:53 2024
+2024-07-11 18:30:06,606 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1433/task_1/11
+2024-07-11 18:30:06,614 - INFO - Instruction generation for seed 56 started at Thu Jul 11 18:30:06 2024
+2024-07-11 18:30:20,179 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1433/task_1/56
+2024-07-11 18:30:20,186 - INFO - Instruction generation for seed 32 started at Thu Jul 11 18:30:20 2024
+2024-07-11 18:30:33,749 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1433/task_1/32
+2024-07-11 18:30:33,757 - INFO - Instruction generation for seed 88 started at Thu Jul 11 18:30:33 2024
+2024-07-11 18:30:47,318 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1433/task_1/88
+2024-07-11 18:30:47,326 - INFO - Instruction generation for seed 41 started at Thu Jul 11 18:30:47 2024
+2024-07-11 18:31:00,897 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1433/task_1/41
+2024-07-11 18:31:00,905 - INFO - Instruction generation for seed 29 started at Thu Jul 11 18:31:00 2024
+2024-07-11 18:31:14,469 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1433/task_1/29
+2024-07-11 18:31:14,477 - INFO - Instruction generation for seed 78 started at Thu Jul 11 18:31:14 2024
+2024-07-11 18:31:28,044 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1433/task_1/78
+2024-07-11 18:31:28,052 - INFO - Instruction generation for seed 93 started at Thu Jul 11 18:31:28 2024
+2024-07-11 18:31:41,618 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1433/task_1/93
+2024-07-11 18:31:41,625 - INFO - Instruction generation for seed 100 started at Thu Jul 11 18:31:41 2024
+2024-07-11 18:31:55,192 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1433/task_1/100
+2024-07-11 18:31:55,200 - INFO - Instruction generation for seed 200 started at Thu Jul 11 18:31:55 2024
+2024-07-11 18:32:08,769 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1433/task_1/200
+2024-07-11 18:32:08,769 - INFO - Processing environment: Env-1433 completed at Thu Jul 11 18:32:08 2024
+2024-07-11 18:32:08,769 - INFO - Total time for environment Env-1433: 135.73646998405457 seconds
+2024-07-11 18:32:08,769 - INFO - Processing environment: Env-126 started at Thu Jul 11 18:32:08 2024
+2024-07-11 18:32:08,769 - INFO - Result folder path: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-126
+2024-07-11 18:32:08,774 - INFO - Task 1 for environment Env-126 started at Thu Jul 11 18:32:08 2024
+2024-07-11 18:32:08,774 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x7c4ffa770c20>, 11)
+2024-07-11 18:32:08,800 - INFO - Instruction generation for seed 11 started at Thu Jul 11 18:32:08 2024
+2024-07-11 18:32:18,508 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-126/task_1/11
+2024-07-11 18:32:18,534 - INFO - Instruction generation for seed 56 started at Thu Jul 11 18:32:18 2024
+2024-07-11 18:32:28,168 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-126/task_1/56
+2024-07-11 18:32:28,194 - INFO - Instruction generation for seed 32 started at Thu Jul 11 18:32:28 2024
+2024-07-11 18:32:37,834 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-126/task_1/32
+2024-07-11 18:32:37,860 - INFO - Instruction generation for seed 88 started at Thu Jul 11 18:32:37 2024
+2024-07-11 18:32:47,494 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-126/task_1/88
+2024-07-11 18:32:47,520 - INFO - Instruction generation for seed 41 started at Thu Jul 11 18:32:47 2024
+2024-07-11 18:32:57,154 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-126/task_1/41
+2024-07-11 18:32:57,180 - INFO - Instruction generation for seed 29 started at Thu Jul 11 18:32:57 2024
+2024-07-11 18:33:06,815 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-126/task_1/29
+2024-07-11 18:33:06,841 - INFO - Instruction generation for seed 78 started at Thu Jul 11 18:33:06 2024
+2024-07-11 18:33:16,473 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-126/task_1/78
+2024-07-11 18:33:16,499 - INFO - Instruction generation for seed 93 started at Thu Jul 11 18:33:16 2024
+2024-07-11 18:33:26,131 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-126/task_1/93
+2024-07-11 18:33:26,157 - INFO - Instruction generation for seed 100 started at Thu Jul 11 18:33:26 2024
+2024-07-11 18:33:35,793 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-126/task_1/100
+2024-07-11 18:33:35,819 - INFO - Instruction generation for seed 200 started at Thu Jul 11 18:33:35 2024
+2024-07-11 18:33:45,468 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-126/task_1/200
+2024-07-11 18:33:45,468 - INFO - Processing environment: Env-126 completed at Thu Jul 11 18:33:45 2024
+2024-07-11 18:33:45,468 - INFO - Total time for environment Env-126: 96.6983106136322 seconds
+2024-07-11 18:33:45,468 - INFO - Processing environment: Env-23 started at Thu Jul 11 18:33:45 2024
+2024-07-11 18:33:45,468 - INFO - Result folder path: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-23
+2024-07-11 18:33:45,472 - INFO - Task 1 for environment Env-23 started at Thu Jul 11 18:33:45 2024
+2024-07-11 18:33:45,472 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x7c4ffa770c20>, 11)
+2024-07-11 18:33:45,486 - INFO - Instruction generation for seed 11 started at Thu Jul 11 18:33:45 2024
+2024-07-11 18:34:09,312 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-23/task_1/11
+2024-07-11 18:34:09,326 - INFO - Instruction generation for seed 56 started at Thu Jul 11 18:34:09 2024
+2024-07-11 18:34:33,160 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-23/task_1/56
+2024-07-11 18:34:33,174 - INFO - Instruction generation for seed 32 started at Thu Jul 11 18:34:33 2024
+2024-07-11 18:34:56,986 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-23/task_1/32
+2024-07-11 18:34:57,001 - INFO - Instruction generation for seed 88 started at Thu Jul 11 18:34:57 2024
+2024-07-11 18:35:20,846 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-23/task_1/88
+2024-07-11 18:35:20,860 - INFO - Instruction generation for seed 41 started at Thu Jul 11 18:35:20 2024
+2024-07-11 18:35:44,687 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-23/task_1/41
+2024-07-11 18:35:44,702 - INFO - Instruction generation for seed 29 started at Thu Jul 11 18:35:44 2024
+2024-07-11 18:36:08,534 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-23/task_1/29
+2024-07-11 18:36:08,548 - INFO - Instruction generation for seed 78 started at Thu Jul 11 18:36:08 2024
+2024-07-11 18:36:32,373 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-23/task_1/78
+2024-07-11 18:36:32,387 - INFO - Instruction generation for seed 93 started at Thu Jul 11 18:36:32 2024
+2024-07-11 18:36:56,206 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-23/task_1/93
+2024-07-11 18:36:56,220 - INFO - Instruction generation for seed 100 started at Thu Jul 11 18:36:56 2024
+2024-07-11 18:37:20,046 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-23/task_1/100
+2024-07-11 18:37:20,060 - INFO - Instruction generation for seed 200 started at Thu Jul 11 18:37:20 2024
+2024-07-11 18:37:43,887 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-23/task_1/200
+2024-07-11 18:37:43,887 - INFO - Processing environment: Env-23 completed at Thu Jul 11 18:37:43 2024
+2024-07-11 18:37:43,887 - INFO - Total time for environment Env-23: 238.41915011405945 seconds
+2024-07-11 18:37:43,887 - INFO - Processing environment: Env-110 started at Thu Jul 11 18:37:43 2024
+2024-07-11 18:37:43,887 - INFO - Result folder path: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-110
+2024-07-11 18:37:43,896 - INFO - Task 1 for environment Env-110 started at Thu Jul 11 18:37:43 2024
+2024-07-11 18:37:43,896 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x7c4ffa770c20>, 11)
+2024-07-11 18:37:43,925 - INFO - Instruction generation for seed 11 started at Thu Jul 11 18:37:43 2024
+2024-07-11 18:37:50,663 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-110/task_1/11
+2024-07-11 18:37:50,691 - INFO - Instruction generation for seed 56 started at Thu Jul 11 18:37:50 2024
+2024-07-11 18:37:57,437 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-110/task_1/56
+2024-07-11 18:37:57,466 - INFO - Instruction generation for seed 32 started at Thu Jul 11 18:37:57 2024
+2024-07-11 18:38:04,205 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-110/task_1/32
+2024-07-11 18:38:04,233 - INFO - Instruction generation for seed 88 started at Thu Jul 11 18:38:04 2024
+2024-07-11 18:38:10,973 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-110/task_1/88
+2024-07-11 18:38:11,002 - INFO - Instruction generation for seed 41 started at Thu Jul 11 18:38:11 2024
+2024-07-11 18:38:17,740 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-110/task_1/41
+2024-07-11 18:38:17,769 - INFO - Instruction generation for seed 29 started at Thu Jul 11 18:38:17 2024
+2024-07-11 18:38:24,509 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-110/task_1/29
+2024-07-11 18:38:24,538 - INFO - Instruction generation for seed 78 started at Thu Jul 11 18:38:24 2024
+2024-07-11 18:38:31,277 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-110/task_1/78
+2024-07-11 18:38:31,305 - INFO - Instruction generation for seed 93 started at Thu Jul 11 18:38:31 2024
+2024-07-11 18:38:38,043 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-110/task_1/93
+2024-07-11 18:38:38,072 - INFO - Instruction generation for seed 100 started at Thu Jul 11 18:38:38 2024
+2024-07-11 18:38:44,810 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-110/task_1/100
+2024-07-11 18:38:44,839 - INFO - Instruction generation for seed 200 started at Thu Jul 11 18:38:44 2024
+2024-07-11 18:38:51,582 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-110/task_1/200
+2024-07-11 18:38:51,582 - INFO - Processing environment: Env-110 completed at Thu Jul 11 18:38:51 2024
+2024-07-11 18:38:51,582 - INFO - Total time for environment Env-110: 67.69504594802856 seconds
+2024-07-11 18:38:51,582 - INFO - Processing environment: Env-87 started at Thu Jul 11 18:38:51 2024
+2024-07-11 18:38:51,582 - INFO - Result folder path: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-87
+2024-07-11 18:38:51,586 - INFO - Task 1 for environment Env-87 started at Thu Jul 11 18:38:51 2024
+2024-07-11 18:38:51,586 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x7c4ffa770c20>, 11)
+2024-07-11 18:38:51,590 - INFO - Instruction generation for seed 11 started at Thu Jul 11 18:38:51 2024
+2024-07-11 18:40:32,833 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-87/task_1/11
+2024-07-11 18:40:32,837 - INFO - Instruction generation for seed 56 started at Thu Jul 11 18:40:32 2024
+2024-07-11 18:42:14,137 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-87/task_1/56
+2024-07-11 18:42:14,141 - INFO - Instruction generation for seed 32 started at Thu Jul 11 18:42:14 2024
+2024-07-11 18:43:55,422 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-87/task_1/32
+2024-07-11 18:43:55,427 - INFO - Instruction generation for seed 88 started at Thu Jul 11 18:43:55 2024
+2024-07-11 18:45:36,710 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-87/task_1/88
+2024-07-11 18:45:36,714 - INFO - Instruction generation for seed 41 started at Thu Jul 11 18:45:36 2024
+2024-07-11 18:47:17,891 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-87/task_1/41
+2024-07-11 18:47:17,895 - INFO - Instruction generation for seed 29 started at Thu Jul 11 18:47:17 2024
+2024-07-11 18:48:59,085 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-87/task_1/29
+2024-07-11 18:48:59,089 - INFO - Instruction generation for seed 78 started at Thu Jul 11 18:48:59 2024
+2024-07-11 18:50:40,336 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-87/task_1/78
+2024-07-11 18:50:40,340 - INFO - Instruction generation for seed 93 started at Thu Jul 11 18:50:40 2024
+2024-07-11 18:52:21,624 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-87/task_1/93
+2024-07-11 18:52:21,629 - INFO - Instruction generation for seed 100 started at Thu Jul 11 18:52:21 2024
+2024-07-11 18:54:02,894 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-87/task_1/100
+2024-07-11 18:54:02,899 - INFO - Instruction generation for seed 200 started at Thu Jul 11 18:54:02 2024
+2024-07-11 18:55:44,232 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-87/task_1/200
+2024-07-11 18:55:44,232 - INFO - Processing environment: Env-87 completed at Thu Jul 11 18:55:44 2024
+2024-07-11 18:55:44,232 - INFO - Total time for environment Env-87: 1012.6502182483673 seconds
+2024-07-11 18:55:44,232 - INFO - Processing environment: Env-13 started at Thu Jul 11 18:55:44 2024
+2024-07-11 18:55:44,232 - INFO - Result folder path: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-13
+2024-07-11 18:55:44,236 - INFO - Task 1 for environment Env-13 started at Thu Jul 11 18:55:44 2024
+2024-07-11 18:55:44,236 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x7c4ffa770c20>, 11)
+2024-07-11 18:55:44,244 - INFO - Instruction generation for seed 11 started at Thu Jul 11 18:55:44 2024
+2024-07-11 18:56:04,748 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-13/task_1/11
+2024-07-11 18:56:04,756 - INFO - Instruction generation for seed 56 started at Thu Jul 11 18:56:04 2024
+2024-07-11 18:56:25,255 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-13/task_1/56
+2024-07-11 18:56:25,263 - INFO - Instruction generation for seed 32 started at Thu Jul 11 18:56:25 2024
+2024-07-11 18:56:45,780 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-13/task_1/32
+2024-07-11 18:56:45,787 - INFO - Instruction generation for seed 88 started at Thu Jul 11 18:56:45 2024
+2024-07-11 18:57:06,316 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-13/task_1/88
+2024-07-11 18:57:06,324 - INFO - Instruction generation for seed 41 started at Thu Jul 11 18:57:06 2024
+2024-07-11 18:57:26,837 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-13/task_1/41
+2024-07-11 18:57:26,845 - INFO - Instruction generation for seed 29 started at Thu Jul 11 18:57:26 2024
+2024-07-11 18:57:47,365 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-13/task_1/29
+2024-07-11 18:57:47,373 - INFO - Instruction generation for seed 78 started at Thu Jul 11 18:57:47 2024
+2024-07-11 18:58:07,894 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-13/task_1/78
+2024-07-11 18:58:07,902 - INFO - Instruction generation for seed 93 started at Thu Jul 11 18:58:07 2024
+2024-07-11 18:58:28,413 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-13/task_1/93
+2024-07-11 18:58:28,421 - INFO - Instruction generation for seed 100 started at Thu Jul 11 18:58:28 2024
+2024-07-11 18:58:48,946 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-13/task_1/100
+2024-07-11 18:58:48,954 - INFO - Instruction generation for seed 200 started at Thu Jul 11 18:58:48 2024
+2024-07-11 18:59:09,469 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-13/task_1/200
+2024-07-11 18:59:09,469 - INFO - Processing environment: Env-13 completed at Thu Jul 11 18:59:09 2024
+2024-07-11 18:59:09,469 - INFO - Total time for environment Env-13: 205.2366659641266 seconds
+2024-07-11 18:59:09,469 - INFO - Processing environment: Env-1595 started at Thu Jul 11 18:59:09 2024
+2024-07-11 18:59:09,469 - INFO - Result folder path: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1595
+2024-07-11 18:59:09,473 - INFO - Task 1 for environment Env-1595 started at Thu Jul 11 18:59:09 2024
+2024-07-11 18:59:09,473 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x7c4ff7908650>, 11)
+2024-07-11 18:59:09,476 - INFO - Instruction generation for seed 11 started at Thu Jul 11 18:59:09 2024
+2024-07-11 19:00:15,243 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1595/task_1/11
+2024-07-11 19:00:15,247 - INFO - Instruction generation for seed 56 started at Thu Jul 11 19:00:15 2024
+2024-07-11 19:01:21,090 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1595/task_1/56
+2024-07-11 19:01:21,093 - INFO - Instruction generation for seed 32 started at Thu Jul 11 19:01:21 2024
+2024-07-11 19:02:26,889 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1595/task_1/32
+2024-07-11 19:02:26,892 - INFO - Instruction generation for seed 88 started at Thu Jul 11 19:02:26 2024
+2024-07-11 19:03:32,692 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1595/task_1/88
+2024-07-11 19:03:32,695 - INFO - Instruction generation for seed 41 started at Thu Jul 11 19:03:32 2024
+2024-07-11 19:04:38,522 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1595/task_1/41
+2024-07-11 19:04:38,525 - INFO - Instruction generation for seed 29 started at Thu Jul 11 19:04:38 2024
+2024-07-11 19:05:44,337 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1595/task_1/29
+2024-07-11 19:05:44,340 - INFO - Instruction generation for seed 78 started at Thu Jul 11 19:05:44 2024
+2024-07-11 19:06:50,153 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1595/task_1/78
+2024-07-11 19:06:50,156 - INFO - Instruction generation for seed 93 started at Thu Jul 11 19:06:50 2024
+2024-07-11 19:07:55,947 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1595/task_1/93
+2024-07-11 19:07:55,951 - INFO - Instruction generation for seed 100 started at Thu Jul 11 19:07:55 2024
+2024-07-11 19:09:01,819 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1595/task_1/100
+2024-07-11 19:09:01,822 - INFO - Instruction generation for seed 200 started at Thu Jul 11 19:09:01 2024
+2024-07-11 19:10:07,613 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1595/task_1/200
+2024-07-11 19:10:07,613 - INFO - Processing environment: Env-1595 completed at Thu Jul 11 19:10:07 2024
+2024-07-11 19:10:07,613 - INFO - Total time for environment Env-1595: 658.1445074081421 seconds
+2024-07-11 19:10:07,613 - INFO - Processing environment: Env-1518 started at Thu Jul 11 19:10:07 2024
+2024-07-11 19:10:07,614 - INFO - Result folder path: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1518
+2024-07-11 19:10:07,618 - INFO - Task 1 for environment Env-1518 started at Thu Jul 11 19:10:07 2024
+2024-07-11 19:10:07,618 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x7c4ff7908650>, 11)
+2024-07-11 19:10:07,630 - INFO - Instruction generation for seed 11 started at Thu Jul 11 19:10:07 2024
+2024-07-11 19:10:37,296 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1518/task_1/11
+2024-07-11 19:10:37,308 - INFO - Instruction generation for seed 56 started at Thu Jul 11 19:10:37 2024
+2024-07-11 19:11:06,979 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1518/task_1/56
+2024-07-11 19:11:06,992 - INFO - Instruction generation for seed 32 started at Thu Jul 11 19:11:06 2024
+2024-07-11 19:11:36,662 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1518/task_1/32
+2024-07-11 19:11:36,674 - INFO - Instruction generation for seed 88 started at Thu Jul 11 19:11:36 2024
+2024-07-11 19:12:06,313 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1518/task_1/88
+2024-07-11 19:12:06,325 - INFO - Instruction generation for seed 41 started at Thu Jul 11 19:12:06 2024
+2024-07-11 19:12:35,989 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1518/task_1/41
+2024-07-11 19:12:36,002 - INFO - Instruction generation for seed 29 started at Thu Jul 11 19:12:36 2024
+2024-07-11 19:13:05,707 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1518/task_1/29
+2024-07-11 19:13:05,719 - INFO - Instruction generation for seed 78 started at Thu Jul 11 19:13:05 2024
+2024-07-11 19:13:35,367 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1518/task_1/78
+2024-07-11 19:13:35,380 - INFO - Instruction generation for seed 93 started at Thu Jul 11 19:13:35 2024
+2024-07-11 19:14:05,029 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1518/task_1/93
+2024-07-11 19:14:05,042 - INFO - Instruction generation for seed 100 started at Thu Jul 11 19:14:05 2024
+2024-07-11 19:14:34,727 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1518/task_1/100
+2024-07-11 19:14:34,740 - INFO - Instruction generation for seed 200 started at Thu Jul 11 19:14:34 2024
+2024-07-11 19:15:04,406 - INFO - Fuzz instructions logged at: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/11/Env-1518/task_1/200
+2024-07-11 19:15:04,406 - INFO - Processing environment: Env-1518 completed at Thu Jul 11 19:15:04 2024
+2024-07-11 19:15:04,406 - INFO - Total time for environment Env-1518: 296.7922306060791 seconds
+2024-07-11 19:15:04,406 - INFO - Processing seed: 56
+2024-07-11 19:15:04,406 - INFO - Processing environment: Env-8 started at Thu Jul 11 19:15:04 2024
+2024-07-11 19:15:04,406 - INFO - Result folder path: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/56/Env-8
+2024-07-11 19:15:04,406 - WARNING - Mutated environment path does not exist: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/56/Env-8/Config.xml
+2024-07-11 19:15:04,406 - INFO - Processing seed: 32
+2024-07-11 19:15:04,406 - INFO - Processing environment: Env-8 started at Thu Jul 11 19:15:04 2024
+2024-07-11 19:15:04,406 - INFO - Result folder path: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/32/Env-8
+2024-07-11 19:15:04,406 - WARNING - Mutated environment path does not exist: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/32/Env-8/Config.xml
+2024-07-11 19:15:04,406 - INFO - Processing seed: 88
+2024-07-11 19:15:04,406 - INFO - Processing environment: Env-8 started at Thu Jul 11 19:15:04 2024
+2024-07-11 19:15:04,406 - INFO - Result folder path: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/88/Env-8
+2024-07-11 19:15:04,406 - WARNING - Mutated environment path does not exist: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/88/Env-8/Config.xml
+2024-07-11 19:15:04,406 - INFO - Processing seed: 41
+2024-07-11 19:15:04,406 - INFO - Processing environment: Env-8 started at Thu Jul 11 19:15:04 2024
+2024-07-11 19:15:04,406 - INFO - Result folder path: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/41/Env-8
+2024-07-11 19:15:04,406 - WARNING - Mutated environment path does not exist: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/41/Env-8/Config.xml
+2024-07-11 19:15:04,406 - INFO - Processing seed: 29
+2024-07-11 19:15:04,406 - INFO - Processing environment: Env-8 started at Thu Jul 11 19:15:04 2024
+2024-07-11 19:15:04,406 - INFO - Result folder path: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/29/Env-8
+2024-07-11 19:15:04,406 - WARNING - Mutated environment path does not exist: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/29/Env-8/Config.xml
+2024-07-11 19:15:04,406 - INFO - Processing seed: 78
+2024-07-11 19:15:04,406 - INFO - Processing environment: Env-8 started at Thu Jul 11 19:15:04 2024
+2024-07-11 19:15:04,406 - INFO - Result folder path: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/78/Env-8
+2024-07-11 19:15:04,406 - WARNING - Mutated environment path does not exist: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/78/Env-8/Config.xml
+2024-07-11 19:15:04,406 - INFO - Processing seed: 93
+2024-07-11 19:15:04,406 - INFO - Processing environment: Env-8 started at Thu Jul 11 19:15:04 2024
+2024-07-11 19:15:04,406 - INFO - Result folder path: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/93/Env-8
+2024-07-11 19:15:04,406 - WARNING - Mutated environment path does not exist: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/93/Env-8/Config.xml
+2024-07-11 19:15:04,406 - INFO - Processing seed: 100
+2024-07-11 19:15:04,406 - INFO - Processing environment: Env-8 started at Thu Jul 11 19:15:04 2024
+2024-07-11 19:15:04,406 - INFO - Result folder path: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/100/Env-8
+2024-07-11 19:15:04,406 - WARNING - Mutated environment path does not exist: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/100/Env-8/Config.xml
+2024-07-11 19:15:04,406 - INFO - Processing seed: 200
+2024-07-11 19:15:04,406 - INFO - Processing environment: Env-8 started at Thu Jul 11 19:15:04 2024
+2024-07-11 19:15:04,406 - INFO - Result folder path: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/200/Env-8
+2024-07-11 19:15:04,406 - WARNING - Mutated environment path does not exist: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/200/Env-8/Config.xml
+2024-07-11 19:15:04,406 - INFO - Overall mutation process completed at Thu Jul 11 19:15:04 2024
+2024-07-11 19:15:04,406 - INFO - Total runtime: 3448.3502049446106 seconds
