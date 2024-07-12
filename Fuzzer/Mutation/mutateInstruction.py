@@ -20,7 +20,7 @@ action_space = {
     0: ("left", "Turn left"),
     1: ("right", "Turn right"),
     2: ("forward", "Move forward"),
-    #3: ("pickup", "pickup"),
+    3: ("pickup", "pickup"),
 
 }
 
@@ -588,69 +588,103 @@ def fuzz_instruction(env_name,coverage_matrix,remaining_coverage_matrix,instruct
 InstructionPool = [[]]
 
 
-def fuzzInstructions(initial_state,final_state,timeout,action_map,unsafe_states,log_path,mutated_env_path):
+import copy
+import time
+
+def fuzzInstructions(initial_state, final_state, timeout, action_map, unsafe_states, log_path, mutated_env_path):
+    agent = initial_state.agent
+    x, y = agent.init_pos
+    d = agent.init_direction
+    key_color = None
+    landmines = sorted([(landmine.x, landmine.y, landmine.is_present) for landmine in initial_state.landmines])
+
+    init_agent_state = (x, y, d, key_color, tuple(landmines))
+
     start_time = time.time()
     remaining_coverage_matrix = copy.deepcopy(action_map)
-    instruction_pool = {
-    }
-    previous_state = initial_state
-# Initialize a queue with the initial state and an empty instruction list
-    queue = [(initial_state, [])]
+    instruction_pool = {}
+    previous_state = init_agent_state
+
+    # Initialize a queue with the initial state and an empty instruction list
+    queue = [(init_agent_state, [])]
+    halfqueue = [(init_agent_state, [])]
 
     log_json_path = f"{log_path}-log.json"
     log_text_path = f"{log_path}-log.txt"
 
     already_tested_instruction = []
 
+    ins_pool = []
+
     while time.time() - start_time < timeout:
-        if not queue:
+        if not queue and not halfqueue:
             break
 
-        previous_state, accumulated_instructions = queue.pop(0)
+        if queue:
+            previous_state, accumulated_instructions = queue.pop(0)
+        elif halfqueue:
+            previous_state, accumulated_instructions = halfqueue.pop(0)
 
-        instuctionList = genrateInstruction(instruction_pool, remaining_coverage_matrix, previous_state)
+        if any(state == previous_state for state, _ in halfqueue):
+            print("ds")
 
-        for instruction in instuctionList:
+        instructionList = genrateInstruction(instruction_pool, remaining_coverage_matrix, previous_state, action_map)
+
+        for instruction in instructionList:
+            if instruction in ins_pool:
+                continue
+            new_state, info, instruction_log = apply_instruction(instruction, mutated_env_path)
+            # Update the agent state
+            new_agent_state = (
+                new_state.agent.dest_pos[0],
+                new_state.agent.dest_pos[1],
+                new_state.agent.dest_direction,
+                next((key.color for key in new_state.keys if key.is_picked), key_color),
+                tuple(sorted([(landmine.x, landmine.y, landmine.is_present) for landmine in new_state.landmines]))
+            )
 
 
-
-            # if instruction  in already_tested_instruction:
-            #     continue
-
-            new_state, info,instruction_log = apply_instruction(instruction,mutated_env_path)
-            improvedCoverage = check_coverage_improvement(instruction_log,remaining_coverage_matrix)
-
-            log_instruction_and_state(log_text_path, instruction, remaining_coverage_matrix, instruction_log)
-
+            improvedCoverage, coverage_percentage = check_coverage_improvement(instruction_log, remaining_coverage_matrix,action_map)
+            ins_pool.append(instruction)
+            log_instruction_and_state(log_text_path, instruction, coverage_percentage, instruction_log)
 
             if new_state.agent.dest_pos in unsafe_states:
                 append_to_json_file_with_sequence(log_json_path, instruction_log, "Unsafe")
-
+                print("unsafe")
                 continue
 
-            if new_state.agent.dest_pos == final_state.agent.dest_pos:
+            is_green_key_picked = any(key.color == 'green' and key.is_picked for key in new_state.keys)
+
+            if is_green_key_picked:
+                print("green key picked")
+
+            if new_state.agent.dest_pos == final_state.agent.dest_pos and is_green_key_picked:
                 print(instruction_log)
-                append_to_json_file_with_sequence(log_json_path, instruction_log,"Safe")
-                  # Exit the function if the final state is reached
-
-            # Append the new instructions to the instruction pool
-
-            new_target_state = (new_state.agent.dest_pos, new_state.agent.dest_direction)
-            if new_target_state not in instruction_pool:
-                instruction_pool[new_target_state] = []
-            instruction_pool[new_target_state].append(instruction)
-
-            #already_tested_instruction.append(instruction)
-
-            if(improvedCoverage):
-            # Add the new state and the updated instruction list to the queue
-                queue.append((new_state, accumulated_instructions + [instruction]))
+                append_to_json_file_with_sequence(log_json_path, instruction_log, "Safe")
+                # Exit the function if the final state is reached
 
 
 
-def genrateInstruction(instruction_pool,remaining_coverage_matrix,previous_state):
-    position = previous_state.agent.dest_pos
-    direction = previous_state.agent.dest_direction
+            # Use new_agent_state as the key in instruction_pool
+            if new_agent_state not in instruction_pool:
+                instruction_pool[new_agent_state] = []
+            instruction_pool[new_agent_state].append(instruction)
+
+            # already_tested_instruction.append(instruction)
+
+            if improvedCoverage:
+                # Add the new agent state and the updated instruction list to the queue
+                queue.append((new_agent_state, accumulated_instructions + [instruction]))
+
+            #if is_green_key_picked:
+                #halfqueue.append((new_agent_state, accumulated_instructions + [instruction]))
+
+    return
+
+
+def genrateInstruction(instruction_pool,remaining_coverage_matrix,previous_state,action_map):
+    position = (previous_state[0],previous_state[1])
+    direction = (previous_state[2])
 
     if(position == None):
         position = previous_state.agent.init_pos
@@ -659,11 +693,11 @@ def genrateInstruction(instruction_pool,remaining_coverage_matrix,previous_state
 
     matchInstructionList = []
 
-    if target_state in instruction_pool:
-        matchInstructionList = instruction_pool[target_state]
+    if previous_state in instruction_pool:
+        matchInstructionList = instruction_pool[previous_state]
     else:
-        if target_state in remaining_coverage_matrix:
-            matchInstructionList = [[action] for action in remaining_coverage_matrix[target_state]]
+        if previous_state in remaining_coverage_matrix:
+            matchInstructionList = [[action] for action in remaining_coverage_matrix[previous_state]]
 
 
 
@@ -672,8 +706,8 @@ def genrateInstruction(instruction_pool,remaining_coverage_matrix,previous_state
     new_instructions = []
 
     for instruction in matchInstructionList:
-        if target_state in remaining_coverage_matrix:
-            actions_to_add = remaining_coverage_matrix[target_state][:]
+        if previous_state in remaining_coverage_matrix:
+            actions_to_add = remaining_coverage_matrix[previous_state][:]
             if not actions_to_add:
                 continue
             for action in actions_to_add:
@@ -681,21 +715,78 @@ def genrateInstruction(instruction_pool,remaining_coverage_matrix,previous_state
                 new_instructions.append(new_instruction)
 
 
+
     # Return the position and direction in the desired format
     return new_instructions
 
 
-def check_coverage_improvement(instruction_log, remaining_coverage_matrix):
+
+# def genrateInstruction(instruction_pool, remaining_coverage_matrix, previous_state, action_map):
+#     # Extract the relevant parts of previous_state
+#     position = (previous_state[0], previous_state[1])
+#     direction = previous_state[2]
+#     key_color = previous_state[3]
+#
+#     if position is None:
+#         position = previous_state.agent.init_pos
+#
+#     target_state = ((position[0], position[1]), direction)
+#
+#     matchInstructionList = []
+#
+#     # Extract a simplified state for comparison (x, y, direction, color)
+#     simplified_previous_state = (previous_state[0], previous_state[1], previous_state[2], previous_state[3])
+#
+#     # Iterate through the instruction_pool to find a match with simplified state
+#     for state in instruction_pool:
+#         simplified_state = (state[0], state[1], state[2], state[3])
+#         if simplified_state == simplified_previous_state:
+#             matchInstructionList = instruction_pool[state]
+#             break
+#
+#     # If no match is found in instruction_pool, check remaining_coverage_matrix
+#     if not matchInstructionList:
+#         for state in remaining_coverage_matrix:
+#             simplified_state = (state[0], state[1], state[2], state[3])
+#             if simplified_state == simplified_previous_state:
+#                 matchInstructionList = [[action] for action in remaining_coverage_matrix[state]]
+#                 break
+#
+#     new_instructions = []
+#
+#     for instruction in matchInstructionList:
+#         if target_state in remaining_coverage_matrix:
+#             actions_to_add = remaining_coverage_matrix[target_state][:]
+#             if not actions_to_add:
+#                 continue
+#             for action in actions_to_add:
+#                 new_instruction = instruction + [action]
+#                 new_instructions.append(new_instruction)
+#
+#     # Return the position and direction in the desired format
+#     return new_instructions
+
+def check_coverage_improvement(instruction_log, remaining_coverage_matrix, coverage_matrix):
     # Initialize a variable to track if coverage was improved
     coverage_improved = False
 
+    # Calculate the total number of actions in the coverage matrix
+    total_actions_coverage_matrix = sum(len(actions) for actions in coverage_matrix.values())
+
     # Iterate through the instruction log
     for log_entry in instruction_log:
-        action = log_entry[0]
-        direction = log_entry[1].lower()
-        position = log_entry[2]
+        # Extract state and action from the log entry
+        state = log_entry[0]
+        action = log_entry[1]
 
-        target_state = (position, direction)
+        # Extract individual components from the state
+        position = (state[0], state[1])
+        direction = state[2].lower()
+        key_color = state[3]
+        landmines = state[4]
+
+        # Construct the target state
+        target_state = (position[0], position[1], direction, key_color, tuple(sorted(landmines)))
 
         # Check if the action was present in the remaining coverage matrix for the target state
         if target_state in remaining_coverage_matrix and action in remaining_coverage_matrix[target_state]:
@@ -709,7 +800,13 @@ def check_coverage_improvement(instruction_log, remaining_coverage_matrix):
             # Set coverage improved to True
             coverage_improved = True
 
-    return coverage_improved
+    # Calculate the remaining number of actions in the remaining coverage matrix
+    total_remaining_actions = sum(len(actions) for actions in remaining_coverage_matrix.values())
+
+    # Calculate the percentage of coverage done
+    coverage_done_percentage = ((total_actions_coverage_matrix - total_remaining_actions) / total_actions_coverage_matrix) * 100 if total_actions_coverage_matrix > 0 else 0
+
+    return coverage_improved, coverage_done_percentage
 
 
 def append_to_json_file_with_sequence(file_path, new_data, behavior):
@@ -764,9 +861,9 @@ def log_instruction_and_state(log_file_path, instruction, remaining_coverage_mat
         log_file.write(f"Timestamp: {timestamp}\n")
         log_file.write(f"Instruction: {instruction}\n")
         log_file.write(f"Instruction Log: {instruction_log}\n\n")
-        log_file.write(f"Remaining coverage Log: \n\n")
-        for key, value in formatted_remaining_coverage_matrix.items():
-            log_file.write(f"  {key}: {value}\n")
+        log_file.write(f"Remaining coverage Log: {remaining_coverage_matrix}\n\n")
+        # for key, value in formatted_remaining_coverage_matrix.items():
+        #     log_file.write(f"  {key}: {value}\n")
         log_file.write("\n")
 
 

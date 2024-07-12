@@ -2,14 +2,14 @@
     <!-- General Fuzzer Settings -->
     <Settings>
         <Timeout>5</Timeout> <!-- Timeout for each test case in min -->
-        <LogFilePath>Result/LavaExp</LogFilePath>
+        <LogFilePath>Result/Four_room_Env</LogFilePath>
         <Enviroment>four_room</Enviroment>
         <EnviromentConfig>Minigrid/Config.xml</EnviromentConfig>
         <MutateEnv>false</MutateEnv>
         <MutateTask>false</MutateTask>
         <MutateEnvTime>3600</MutateEnvTime>
         <TaskMutateTime>6</TaskMutateTime> <!-- Time for task mutation in minutes -->
-        <InstructionGenerationTime>300</InstructionGenerationTime> <!-- Time for instruction generation in minutes -->
+        <InstructionGenerationTime>3000</InstructionGenerationTime> <!-- Time for instruction generation in minutes -->
     </Settings>
 
     <!-- Numeric Seed Inputs for the Fuzzer -->

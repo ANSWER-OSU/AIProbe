@@ -2,7 +2,7 @@ import xml.etree.ElementTree as ET
 import os
 import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), '/Minigrid'))
-from Minigrid.EnvironmentState import Agent, Door, Key, Object, Lava, State , Wall
+from Minigrid.EnvironmentState import Agent, Door, Key, Object, Lava, State , Wall,Landmines
 
 def load_InitialState(file_path):
     initialEnvironment = State()
@@ -66,6 +66,14 @@ def load_InitialState(file_path):
             y=int(wall_elem.get('y'))
         )
         initialEnvironment.walls.append(wall)
+
+    for lava_elem in root.find('Landmines').findall('Landmine'):
+        landmine = Landmines(
+            x=int(lava_elem.get('x')),
+            y=int(lava_elem.get('y')),
+            is_present=int(lava_elem.get('is_present'))
+        )
+        initialEnvironment.landmines.append(landmine)
     return initialEnvironment,GridSize
 
 

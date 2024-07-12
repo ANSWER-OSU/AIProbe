@@ -405,28 +405,22 @@ def execute_instructions(env, instruction):
     instruction_log = []
     for action in instruction:
         agent_pos = tuple(env.agent_pos)
+        dir = direction_map[env.agent_dir]
+        key_color = next((key.color for key in env.initial_state.keys if key.is_picked), None)
+        landmines = sorted([(landmine.x, landmine.y, landmine.is_present) for landmine in env.initial_state.landmines])
+
+        state_info = (agent_pos[0], agent_pos[1], dir, key_color, tuple(landmines))
         ins = action
         action = action_map.get(action)
+
         if action is not None:
-            dir = direction_map[env.agent_dir]
             obs, reward, done, info = env.step(action)[:4]
-
-
-
-            env.update_final_state(action,env)
-            #if action == Actions.pickup:
-                #if key_status_changed(env):
-
-                    #print("Key has been picked up!")
-
+            env.update_final_state(action, env)
             env.render()
-            # Print the RGB array of the agent's position
             agent_rgb = env.get_agent_rgb()
-            instruction_log.append([ins, dir,agent_pos])
-            # print(f"RGB array of the agent's position: {agent_rgb}")
-            # Print the current position of the agent
-
-
+            instruction_log.append((state_info, ins))
+            if done:
+                break  # Terminate if done is True
         else:
             print(f"Unrecognized instruction: {action}")
 
@@ -520,7 +514,9 @@ def execute_and_evaluate_task(instruction, config_path,log_file_path):
     obs = env.reset()
     env.render()
 
-    instruction_log =     execute_instructions(env, log_file_path, instruction)
+    obs, reward, done, info, instruction_log = execute_instructions(env, instruction)
+
+    #instruction_log =     execute_instructions(env, log_file_path, instruction)
 
     final_state = env.returnFinalState()
     final_initial_environment, gridSize = load_InitialState(config_path)
@@ -756,8 +752,9 @@ def aumate_enviromet_human_mode(screenshot_path, config_path):
 
 
 def test():
-    instruction = ["forward","forward","right","pickup","forward","forward","right","forward","forward","forward","forward"]
-    lo = r"A:\Github repos\Answer\AIProbe\Result\FourRoom\29\Env-7\task_1\11-log.txt"
+    instruction = ['right', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'pickup', 'left', 'forward', 'forward', 'forward', 'right', 'forward']
+
+    lo = r"A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-23\task_1\11-log.txt"
     is_valid_instruction, is_valid_capabilities, averageCoverage, di ,c  = execute_and_evaluate_task(instruction, "A:\Github repos\Answer\AIProbe\Minigrid\Config.xml", lo)
     print(is_valid_capabilities)
 

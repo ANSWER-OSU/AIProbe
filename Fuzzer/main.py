@@ -120,7 +120,7 @@ def Main():
                             break  # Exit the task loop
 
                 task_count += 1
-                break;
+                break
 
             env_count += 1
 
@@ -295,7 +295,8 @@ def main():
                 use_exsisting_enviroment(xml_file_path, mutated_env_path)
                 aumate_enviromet_human_mode(result_folder, xml_file_path)
 
-            action_map = compute_valid_actions(mutated_env_path)
+            initial_state = LoadConfig.load_InitialState(mutated_env_path)
+            action_map = compute_valid_actions(initial_state)
             unsafe_states = compute_unsafe_states(xml_file_path)
 
             task_count = 1  # Initialize task_count

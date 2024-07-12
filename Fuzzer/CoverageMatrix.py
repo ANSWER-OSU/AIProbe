@@ -86,13 +86,61 @@ def compute_valid_actionss(file_path):
 
     action_map = defaultdict(dict)
 
-def is_valid_cell(x, y, grid_size, walls, lava):
-    return 0 <= x < grid_size and 0 <= y < grid_size and (x, y) not in walls and (x, y) not in lava
+def is_valid_cell(x, y, grid_size, walls, lava,landmin):
+    return 0 <= x < grid_size and 0 <= y < grid_size and (x, y) not in walls and (x, y) not in lava and (x, y) not in landmin
 
 
-def compute_valid_actions(file_path):
-    # Load the initial environment and grid size from the given file
-    initialEnvironment, GridSize = load_InitialState(file_path)
+# def compute_valid_actions(file_path):
+#     # Load the initial environment and grid size from the given file
+#     initialEnvironment, GridSize = load_InitialState(file_path)
+#
+#     # Create sets for walls and boundaries
+#     walls = {(wall.x, wall.y) for wall in initialEnvironment.walls}
+#     for i in range(GridSize):
+#         walls.add((i, 0))  # Top boundary
+#         walls.add((i, GridSize - 1))  # Bottom boundary
+#         walls.add((0, i))  # Left boundary
+#         walls.add((GridSize - 1, i))  # Right boundary
+#
+#     # Create a set for lava tiles
+#     lava = {(lava_tile.x, lava_tile.y) for lava_tile in initialEnvironment.lava_tiles if lava_tile.is_present}
+#     landmin = {(lava_tile.x, lava_tile.y) for lava_tile in initialEnvironment.landmines if lava_tile.is_present}
+#
+#     # Create a dictionary for keys, mapping their positions to their colors
+#     keys = {(key.x_init, key.y_init): key.color for key in initialEnvironment.keys if key.is_present}
+#
+#     # Define the action space with action IDs and descriptions
+#     action_space = {
+#         0: "left",
+#         1: "right",
+#         2: "forward",
+#         3: "pickup"
+#     }
+#
+#     # Initialize a dictionary to store valid cells and their possible actions
+#     valid_cells = {}
+#
+#     # Possible directions
+#     directions = ['n', 'e', 's', 'w']
+#
+#     # Iterate over each cell in the grid
+#     for x in range(GridSize):
+#         for y in range(GridSize):
+#             for direction in directions:
+#                 if is_valid_cell(x, y, GridSize, walls, lava,landmin):
+#                     actions = ["left", "right", "forward"]
+#                     if (x, y) in keys and keys[(x, y)]:  # Check if the key is present
+#                         actions.append("pickup")
+#                     valid_cells[((x, y), direction)] = actions
+#
+#     return valid_cells
+
+
+
+def compute_valid_actions(initial_state):
+    # Extract the initial environment and grid size from the given initial state
+    initialEnvironment = initial_state[0]
+    GridSize = initial_state[1]
 
     # Create sets for walls and boundaries
     walls = {(wall.x, wall.y) for wall in initialEnvironment.walls}
@@ -104,9 +152,11 @@ def compute_valid_actions(file_path):
 
     # Create a set for lava tiles
     lava = {(lava_tile.x, lava_tile.y) for lava_tile in initialEnvironment.lava_tiles if lava_tile.is_present}
+    landmines = sorted([(landmine.x, landmine.y, landmine.is_present) for landmine in initialEnvironment.landmines])
 
     # Create a dictionary for keys, mapping their positions to their colors
     keys = {(key.x_init, key.y_init): key.color for key in initialEnvironment.keys if key.is_present}
+    key_colors = list(keys.values()) + [None]
 
     # Define the action space with action IDs and descriptions
     action_space = {
@@ -122,17 +172,26 @@ def compute_valid_actions(file_path):
     # Possible directions
     directions = ['n', 'e', 's', 'w']
 
+    def key_nearby(x, y):
+        return (x, y) in keys or (x - 1, y) in keys or (x, y - 1) in keys
+
     # Iterate over each cell in the grid
     for x in range(GridSize):
         for y in range(GridSize):
             for direction in directions:
-                if is_valid_cell(x, y, GridSize, walls, lava):
-                    actions = ["left", "right", "forward"]
-                    if (x, y) in keys:
-                        actions.append("pickup")
-                    valid_cells[((x, y), direction)] = actions
+                if is_valid_cell(x, y, GridSize, walls, lava, landmines):
+                    for key_color in key_colors:
+                        actions = ["left", "right", "forward"]
+                        if key_nearby(x, y):  # Check if the key is present or nearby
+                            actions.append("pickup")
+                        valid_cells[(x, y, direction, key_color, tuple(landmines))] = actions
 
     return valid_cells
+
+
+
+
+
 
 
 
