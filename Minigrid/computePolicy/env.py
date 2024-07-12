@@ -259,8 +259,8 @@ class CustomMiniGridEnv(MiniGridEnv):
         state_reward = None
         goal_state = 100
         undesired_state = -200
-        wrong_key = -10
-        correct_key = 10
+        # wrong_key = -10
+        # correct_key = 10
         step_reward = -1
         x, y = state[0], state[1]
 
@@ -271,21 +271,14 @@ class CustomMiniGridEnv(MiniGridEnv):
             if self.accurate_model==True:
                 if self.is_terminal(state)==True:
                     return undesired_state
-                elif self.grid_list[y][x]!=None and self.grid_list[y][x].type=='key' and self.grid_list[y][x].color!='green':
-                    return wrong_key
+                # elif self.grid_list[y][x]!=None and self.grid_list[y][x].type=='key' and self.grid_list[y][x].color!='green':
+                #     return wrong_key
+                # elif self.grid_list[y][x]!=None and self.grid_list[y][x].type=='key' and self.grid_list[y][x].color=='green':
+                #     return correct_key
                 else:
                     return step_reward
             else:
-                # 2: '_accurate_reward_inaccurate_state_rep'
-                if (self.inaccuracy_type==2 and self.is_terminal(state)==True):
-                    if self.grid_list[state[1]][state[0]]!=None and self.grid_list[state[1]][state[0]].type=='lava':
-                        return undesired_state
-                    elif state[0]==self.goal_pos[0] and state[1]==self.goal_pos[1] and state[3]==True and self.picked_key_color!='green':
-                        return wrong_key
-                    elif state[0]==self.goal_pos[0] and state[1]==self.goal_pos[1] and state[3]==True and self.picked_key_color=='green':
-                        return correct_key
-                else:
-                    return step_reward
+                return step_reward
         return state_reward
 
     def is_boundary(self, state):

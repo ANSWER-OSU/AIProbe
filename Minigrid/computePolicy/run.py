@@ -29,7 +29,7 @@ start_idx = env_config_dir.rfind('/') + 1
 end_idx = env_config_dir.rfind('')
 filename = str(env_config_dir[start_idx:end_idx].replace(' ', '_'))
 model = inaccuracy[inaccuracy_type]
-output_path = 'Minigrid/computePolicy/outputs_for_new_config/'+filename+model+'.csv'
+output_path = 'Minigrid/computePolicy/outputs_for_new_config_2/'+filename+model+'.csv'
 
 # for env_id in range(1, num_envs+1):
 #     file_path = os.path.join(env_config_dir+'/Env-'+str(env_id), 'Config.xml')
