@@ -267,8 +267,6 @@ def main():
                         os.path.isdir(os.path.join(screenshot_path, d)) and d.startswith("Env-")]
 
         for environment in environments:
-
-
             env_start_time = time.time()
             log_message(f"Processing environment: {environment} started at {time.ctime(env_start_time)}")
 

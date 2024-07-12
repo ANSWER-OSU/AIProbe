@@ -30,6 +30,20 @@ from PIL import Image
 
 from minigrid.core.constants import COLOR_NAMES, COLOR_TO_IDX, COLORS
 
+
+
+class NonBlockingKey(Key):
+    def __init__(self, color='blue'):
+        super().__init__(color)
+
+    def can_pickup(self):
+        # Override to make the key non-pickable
+        return False
+
+    def can_overlap(self):
+        # Override to make the key not block the agent's movement
+        return True
+
 if 'orange' not in COLORS:
     COLORS['orange'] = np.array([255, 165, 0])
 
@@ -114,13 +128,9 @@ class CustomMiniGridEnv(MiniGridEnv):
 
         for key in self.initial_state.keys:
             is_present = bool(key.is_present)
-            if not is_present:
-                continue
-            else:
+            if is_present:
                 key_color = key.color
-                is_picked = bool(key.is_picked)
-                if not is_picked:
-                    self.grid.set(key.x_init, key.y_init, Key(key_color))
+                self.grid.set(key.x_init, key.y_init, NonBlockingKey(key_color))
 
         for lava in self.initial_state.lava_tiles:
             is_present = bool(lava.is_present)
@@ -168,18 +178,94 @@ class CustomMiniGridEnv(MiniGridEnv):
                     agent_x * cell_size:(agent_x + 1) * cell_size]
         return agent_rgb
 
+    # def update_final_state(self, instruction, env):
+    #     current_position = (self.agent_pos[0], self.agent_pos[1])
+    #     if current_position not in self.coverage:
+    #         self.coverage[current_position] = []
+    #     # Check if the action is not already recorded for the current position
+    #     if instruction not in self.coverage[current_position]:
+    #         self.coverage[current_position].append(instruction)
+    #
+    #     if instruction == env.actions.forward:
+    #         new_pos = self.front_pos
+    #         if self.grid.get(*new_pos) is None or self.grid.get(*new_pos).can_overlap() or isinstance(self.grid.get(*new_pos), Key):
+    #             self.agent_pos = new_pos
+    #             self.final_state.agent.dest_pos = new_pos
+    #             self.final_state.agent.path.append(new_pos)
+    #
+    #
+    #
+    #     elif instruction == env.actions.left:
+    #         if self.final_state.agent.dest_direction == 'e':
+    #             self.final_state.agent.dest_direction = 'n'
+    #         elif self.final_state.agent.dest_direction == 'n':
+    #             self.final_state.agent.dest_direction = 'w'
+    #         elif self.final_state.agent.dest_direction == 'w':
+    #             self.final_state.agent.dest_direction = 's'
+    #         else:
+    #             self.final_state.agent.dest_direction = 'e'
+    #
+    #     elif instruction == env.actions.right:
+    #         if self.final_state.agent.dest_direction == 'e':
+    #             self.final_state.agent.dest_direction = 's'
+    #         elif self.final_state.agent.dest_direction == 's':
+    #             self.final_state.agent.dest_direction = 'w'
+    #         elif self.final_state.agent.dest_direction == 'w':
+    #             self.final_state.agent.dest_direction = 'n'
+    #         else:
+    #             self.final_state.agent.dest_direction = 'e'
+    #
+    #     elif instruction == env.actions.pickup:
+    #         next_pos = get_next_pos(self.final_state.agent.dest_direction, env.agent_pos)
+    #         for key in self.final_state.keys:
+    #             if (key.x_init, key.y_init) == next_pos and bool(key.is_present):
+    #                  key.is_picked = 1
+    #                  return
+    #         for object in self.final_state.objects:
+    #             if(object.x , object.y) == next_pos and bool(object.is_present):
+    #                 object.pick_status = 1
+    #                 return
+    #
+    #
+    #
+    #     elif instruction == env.actions.toggle:
+    #         next_pos = get_next_pos(self.final_state.agent.dest_direction, env.agent_pos)
+    #         for door in self.final_state.doors:
+    #             if (door.x, door.y) == next_pos:
+    #                 for key in self.final_state.keys:
+    #                     if door.color == key.color:
+    #                         door.door_status = 1
+    #
+    #     elif instruction == env.actions.drop:
+    #         # Find the position where the agent should drop the key
+    #         next_pos = tuple(env.agent_pos)
+    #         for key in self.final_state.keys:
+    #             if key.is_picked == 1:
+    #                 key.x_init, key.y_init = next_pos  # Change the key position to the drop position
+    #                 break
+    #
+    #         for object in self.final_state.objects:
+    #             if object.pick_status == 1 :
+    #                 object.v, object.w = next_pos  # Change the key position to the drop position
+    #                 break
+
     def update_final_state(self, instruction, env):
-        current_position = (self.agent_pos[0], self.agent_pos[1])
+        current_position = tuple(self.agent_pos)
+        #print(f"Current Position: {current_position}")
+
         if current_position not in self.coverage:
             self.coverage[current_position] = []
-        # Check if the action is not already recorded for the current position
+
         if instruction not in self.coverage[current_position]:
             self.coverage[current_position].append(instruction)
 
         if instruction == env.actions.forward:
-            new_pos = tuple(env.agent_pos)  # Convert position to tuple before appending
-            self.final_state.agent.dest_pos = new_pos
-            self.final_state.agent.path.append(new_pos)
+            new_pos = self.front_pos
+           # print(f"Attempting to move to: {new_pos}")
+            if self.grid.get(*new_pos) is None or self.grid.get(*new_pos).can_overlap():
+                self.final_state.agent.dest_pos = (new_pos[0],new_pos[1])
+                self.final_state.agent.path.append(new_pos)
+                #print(f"Moved to: {new_pos}")
 
         elif instruction == env.actions.left:
             if self.final_state.agent.dest_direction == 'e':
@@ -190,6 +276,7 @@ class CustomMiniGridEnv(MiniGridEnv):
                 self.final_state.agent.dest_direction = 's'
             else:
                 self.final_state.agent.dest_direction = 'e'
+            #print(f"Turned left to direction: {self.final_state.agent.dest_direction}")
 
         elif instruction == env.actions.right:
             if self.final_state.agent.dest_direction == 'e':
@@ -200,50 +287,68 @@ class CustomMiniGridEnv(MiniGridEnv):
                 self.final_state.agent.dest_direction = 'n'
             else:
                 self.final_state.agent.dest_direction = 'e'
+            #print(f"Turned right to direction: {self.final_state.agent.dest_direction}")
 
         elif instruction == env.actions.pickup:
             next_pos = get_next_pos(self.final_state.agent.dest_direction, env.agent_pos)
+            #print(f"Attempting to pick up at: {next_pos}")
             for key in self.final_state.keys:
                 if (key.x_init, key.y_init) == next_pos and bool(key.is_present):
-                     key.is_picked = 1
-                     return
-            for object in self.final_state.objects:
-                if(object.x , object.y) == next_pos and bool(object.is_present):
-                    object.pick_status = 1
+                    key.is_picked = 1
+                    #print(f"Picked up key at: {next_pos}")
                     return
-
-
+            for object in self.final_state.objects:
+                if (object.x, object.y) == next_pos and bool(object.is_present):
+                    object.pick_status = 1
+                    #print(f"Picked up object at: {next_pos}")
+                    return
 
         elif instruction == env.actions.toggle:
             next_pos = get_next_pos(self.final_state.agent.dest_direction, env.agent_pos)
+            print(f"Attempting to toggle at: {next_pos}")
             for door in self.final_state.doors:
                 if (door.x, door.y) == next_pos:
                     for key in self.final_state.keys:
                         if door.color == key.color:
                             door.door_status = 1
+                            #print(f"Toggled door at: {next_pos}")
 
         elif instruction == env.actions.drop:
-            # Find the position where the agent should drop the key
             next_pos = tuple(env.agent_pos)
+            print(f"Attempting to drop at: {next_pos}")
             for key in self.final_state.keys:
                 if key.is_picked == 1:
-                    key.x_init, key.y_init = next_pos  # Change the key position to the drop position
+                    key.x_init, key.y_init = next_pos
+                    print(f"Dropped key at: {next_pos}")
                     break
 
             for object in self.final_state.objects:
-                if object.pick_status == 1 :
-                    object.v, object.w = next_pos  # Change the key position to the drop position
+                if object.pick_status == 1:
+                    object.v, object.w = next_pos
+                    print(f"Dropped object at: {next_pos}")
                     break
 
     def step(self, action):
+        # Get the current position and direction of the agent
+        current_pos = tuple(self.agent_pos)
+        current_dir = self.agent_dir
 
+        # Perform the action and get the result
         obs, reward, done, info = super().step(action)[:4]
 
+        # Determine the new position after the action
         new_pos = tuple(self.agent_pos)
+
+
+
+        # Handle if the agent steps on lava
         if isinstance(self.grid.get(*new_pos), Lava):
             done = True
+
         # After performing an action, update the final state
+        #self.update_final_state(action, self)
         return obs, reward, done, info
+
     def get_coverage(self):
         return self.coverage
     def get_agent_rgb(self):
@@ -424,8 +529,8 @@ def execute_instructions(env, instruction):
         else:
             print(f"Unrecognized instruction: {action}")
 
-    #env.log_state(log_file_path,instruction)
-    return obs, reward, done, info ,instruction_log
+    return obs, reward, done, info, instruction_log
+
 
 def key_status_changed(env):
     # Compare the initial state of the environment with the current state
@@ -465,6 +570,7 @@ def GetFuzzInstruction(instructions,iteration):
     env = CustomMiniGridEnv(state=test_environment,grid_size=gridSize, render_mode='rgb_array') #rgb_array
     #env.log_grid_state(logFile_Setting.environment_logs_path)
     initial_state = env.setInitialState()
+
 
 
     obs = env.reset()
@@ -752,9 +858,9 @@ def aumate_enviromet_human_mode(screenshot_path, config_path):
 
 
 def test():
-    instruction = ['right', 'forward', 'forward', 'right', 'forward', 'left', 'forward', 'forward', 'left', 'pickup', 'left', 'forward', 'forward', 'forward', 'right', 'forward']
+    instruction = ['forward', 'forward', 'forward', 'forward', 'forward', 'forward']
 
-    lo = r"A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-23\task_1\11-log.txt"
+    lo = r"A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29\Config.xml"
     is_valid_instruction, is_valid_capabilities, averageCoverage, di ,c  = execute_and_evaluate_task(instruction, "A:\Github repos\Answer\AIProbe\Minigrid\Config.xml", lo)
     print(is_valid_capabilities)
 
@@ -763,6 +869,8 @@ def test():
 
 
 def  apply_instruction (instruction,mutated_env_path):
+
+
 
     initial_environment, gridSize = load_InitialState(mutated_env_path)
 

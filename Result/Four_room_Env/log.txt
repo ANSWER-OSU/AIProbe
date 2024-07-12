@@ -2227,3 +2227,221 @@
 2024-07-11 19:15:04,406 - WARNING - Mutated environment path does not exist: /home/mehtara/Documents/Project/AIProbe/Result/Four_room_Env/200/Env-8/Config.xml
 2024-07-11 19:15:04,406 - INFO - Overall mutation process completed at Thu Jul 11 19:15:04 2024
 2024-07-11 19:15:04,406 - INFO - Total runtime: 3448.3502049446106 seconds
+2024-07-11 20:49:41,113 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 20:49:41,113 - INFO - Overall mutation process started at Thu Jul 11 20:49:41 2024
+2024-07-11 20:49:41,113 - INFO - Processing seed: 11
+2024-07-11 20:50:47,133 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 20:50:47,136 - INFO - Overall mutation process started at Thu Jul 11 20:50:47 2024
+2024-07-11 20:50:47,136 - INFO - Processing seed: 11
+2024-07-11 20:52:21,719 - INFO - Processing environment: Env-29 started at Thu Jul 11 20:52:21 2024
+2024-07-11 20:52:21,719 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29
+2024-07-11 20:52:22,456 - INFO - Task 1 for environment Env-29 started at Thu Jul 11 20:52:22 2024
+2024-07-11 20:52:22,458 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x00000214D30C6B60>, 11)
+2024-07-11 20:52:22,660 - INFO - Instruction generation for seed 11 started at Thu Jul 11 20:52:22 2024
+2024-07-11 20:53:47,923 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 20:53:47,923 - INFO - Overall mutation process started at Thu Jul 11 20:53:47 2024
+2024-07-11 20:53:47,923 - INFO - Processing seed: 11
+2024-07-11 20:53:47,924 - INFO - Processing environment: Env-29 started at Thu Jul 11 20:53:47 2024
+2024-07-11 20:53:47,924 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29
+2024-07-11 20:53:48,741 - INFO - Task 1 for environment Env-29 started at Thu Jul 11 20:53:48 2024
+2024-07-11 20:53:48,743 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x000002AB2A1A66E0>, 11)
+2024-07-11 20:53:48,969 - INFO - Instruction generation for seed 11 started at Thu Jul 11 20:53:48 2024
+2024-07-11 20:54:24,567 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 20:54:24,567 - INFO - Overall mutation process started at Thu Jul 11 20:54:24 2024
+2024-07-11 20:54:24,567 - INFO - Processing seed: 11
+2024-07-11 20:54:24,568 - INFO - Processing environment: Env-29 started at Thu Jul 11 20:54:24 2024
+2024-07-11 20:54:24,568 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29
+2024-07-11 20:54:25,353 - INFO - Task 1 for environment Env-29 started at Thu Jul 11 20:54:25 2024
+2024-07-11 20:54:25,356 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x00000266F7D54D90>, 11)
+2024-07-11 20:54:25,571 - INFO - Instruction generation for seed 11 started at Thu Jul 11 20:54:25 2024
+2024-07-11 20:55:25,557 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 20:55:25,557 - INFO - Overall mutation process started at Thu Jul 11 20:55:25 2024
+2024-07-11 20:55:25,557 - INFO - Processing seed: 11
+2024-07-11 20:55:25,558 - INFO - Processing environment: Env-29 started at Thu Jul 11 20:55:25 2024
+2024-07-11 20:55:25,558 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29
+2024-07-11 20:55:26,362 - INFO - Task 1 for environment Env-29 started at Thu Jul 11 20:55:26 2024
+2024-07-11 20:55:26,364 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x000001CAC02F66E0>, 11)
+2024-07-11 20:55:26,600 - INFO - Instruction generation for seed 11 started at Thu Jul 11 20:55:26 2024
+2024-07-11 20:58:00,574 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 20:58:00,574 - INFO - Overall mutation process started at Thu Jul 11 20:58:00 2024
+2024-07-11 20:58:00,574 - INFO - Processing seed: 11
+2024-07-11 20:58:00,575 - INFO - Processing environment: Env-29 started at Thu Jul 11 20:58:00 2024
+2024-07-11 20:58:00,575 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29
+2024-07-11 20:58:01,346 - INFO - Task 1 for environment Env-29 started at Thu Jul 11 20:58:01 2024
+2024-07-11 20:58:01,348 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x000002B0613DE6E0>, 11)
+2024-07-11 20:58:01,590 - INFO - Instruction generation for seed 11 started at Thu Jul 11 20:58:01 2024
+2024-07-11 20:59:01,442 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 20:59:01,443 - INFO - Overall mutation process started at Thu Jul 11 20:59:01 2024
+2024-07-11 20:59:01,443 - INFO - Processing seed: 11
+2024-07-11 20:59:01,443 - INFO - Processing environment: Env-29 started at Thu Jul 11 20:59:01 2024
+2024-07-11 20:59:01,444 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29
+2024-07-11 20:59:02,239 - INFO - Task 1 for environment Env-29 started at Thu Jul 11 20:59:02 2024
+2024-07-11 20:59:02,242 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x000002831D4266E0>, 11)
+2024-07-11 20:59:02,451 - INFO - Instruction generation for seed 11 started at Thu Jul 11 20:59:02 2024
+2024-07-11 20:59:55,496 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 20:59:55,496 - INFO - Overall mutation process started at Thu Jul 11 20:59:55 2024
+2024-07-11 20:59:55,496 - INFO - Processing seed: 11
+2024-07-11 20:59:55,497 - INFO - Processing environment: Env-29 started at Thu Jul 11 20:59:55 2024
+2024-07-11 20:59:55,497 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29
+2024-07-11 20:59:56,272 - INFO - Task 1 for environment Env-29 started at Thu Jul 11 20:59:56 2024
+2024-07-11 20:59:56,274 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x0000023B92D166E0>, 11)
+2024-07-11 20:59:56,485 - INFO - Instruction generation for seed 11 started at Thu Jul 11 20:59:56 2024
+2024-07-11 21:00:30,409 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 21:00:30,409 - INFO - Overall mutation process started at Thu Jul 11 21:00:30 2024
+2024-07-11 21:00:30,409 - INFO - Processing seed: 11
+2024-07-11 21:00:30,410 - INFO - Processing environment: Env-29 started at Thu Jul 11 21:00:30 2024
+2024-07-11 21:00:30,410 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29
+2024-07-11 21:00:31,187 - INFO - Task 1 for environment Env-29 started at Thu Jul 11 21:00:31 2024
+2024-07-11 21:00:31,189 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x0000026BDFD166E0>, 11)
+2024-07-11 21:00:31,394 - INFO - Instruction generation for seed 11 started at Thu Jul 11 21:00:31 2024
+2024-07-11 22:40:51,059 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 22:40:51,060 - INFO - Overall mutation process started at Thu Jul 11 22:40:51 2024
+2024-07-11 22:40:51,060 - INFO - Processing seed: 11
+2024-07-11 22:40:51,060 - INFO - Processing environment: Env-29 started at Thu Jul 11 22:40:51 2024
+2024-07-11 22:40:51,060 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29
+2024-07-11 22:41:06,339 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 22:41:06,339 - INFO - Overall mutation process started at Thu Jul 11 22:41:06 2024
+2024-07-11 22:41:06,339 - INFO - Processing seed: 11
+2024-07-11 22:41:06,340 - INFO - Processing environment: Env-29 started at Thu Jul 11 22:41:06 2024
+2024-07-11 22:41:06,340 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29
+2024-07-11 22:41:59,364 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 22:41:59,364 - INFO - Overall mutation process started at Thu Jul 11 22:41:59 2024
+2024-07-11 22:41:59,364 - INFO - Processing seed: 11
+2024-07-11 22:41:59,365 - INFO - Processing environment: Env-29 started at Thu Jul 11 22:41:59 2024
+2024-07-11 22:41:59,365 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29
+2024-07-11 22:42:31,277 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 22:42:31,278 - INFO - Overall mutation process started at Thu Jul 11 22:42:31 2024
+2024-07-11 22:42:31,278 - INFO - Processing seed: 11
+2024-07-11 22:42:31,279 - INFO - Processing environment: Env-29 started at Thu Jul 11 22:42:31 2024
+2024-07-11 22:42:31,279 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29
+2024-07-11 22:42:54,483 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 22:42:55,480 - INFO - Overall mutation process started at Thu Jul 11 22:42:54 2024
+2024-07-11 22:42:56,438 - INFO - Processing seed: 11
+2024-07-11 22:43:12,810 - INFO - Processing environment: Env-29 started at Thu Jul 11 22:43:10 2024
+2024-07-11 22:43:14,232 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29
+2024-07-11 22:44:07,613 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 22:44:07,613 - INFO - Overall mutation process started at Thu Jul 11 22:44:07 2024
+2024-07-11 22:44:07,613 - INFO - Processing seed: 11
+2024-07-11 22:44:07,614 - INFO - Processing environment: Env-29 started at Thu Jul 11 22:44:07 2024
+2024-07-11 22:44:07,614 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29
+2024-07-11 22:45:00,818 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 22:45:01,666 - INFO - Overall mutation process started at Thu Jul 11 22:45:01 2024
+2024-07-11 22:45:02,300 - INFO - Processing seed: 11
+2024-07-11 22:45:19,054 - INFO - Processing environment: Env-29 started at Thu Jul 11 22:45:18 2024
+2024-07-11 22:45:23,176 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29
+2024-07-11 22:46:01,592 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 22:46:01,925 - INFO - Overall mutation process started at Thu Jul 11 22:46:01 2024
+2024-07-11 22:46:02,256 - INFO - Processing seed: 11
+2024-07-11 22:46:10,372 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 22:46:10,372 - INFO - Overall mutation process started at Thu Jul 11 22:46:10 2024
+2024-07-11 22:46:10,372 - INFO - Processing seed: 11
+2024-07-11 22:46:10,373 - INFO - Processing environment: Env-29 started at Thu Jul 11 22:46:10 2024
+2024-07-11 22:46:10,373 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29
+2024-07-11 22:46:26,607 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 22:46:26,607 - INFO - Overall mutation process started at Thu Jul 11 22:46:26 2024
+2024-07-11 22:46:26,607 - INFO - Processing seed: 11
+2024-07-11 22:46:26,608 - INFO - Processing environment: Env-29 started at Thu Jul 11 22:46:26 2024
+2024-07-11 22:46:26,608 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29
+2024-07-11 22:46:47,842 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 22:46:47,842 - INFO - Overall mutation process started at Thu Jul 11 22:46:47 2024
+2024-07-11 22:46:47,842 - INFO - Processing seed: 11
+2024-07-11 22:46:47,843 - INFO - Processing environment: Env-29 started at Thu Jul 11 22:46:47 2024
+2024-07-11 22:46:47,843 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29
+2024-07-11 22:46:48,107 - INFO - Task 1 for environment Env-29 started at Thu Jul 11 22:46:48 2024
+2024-07-11 22:46:48,107 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x000001B3A8777CA0>, 11)
+2024-07-11 22:46:48,147 - INFO - Instruction generation for seed 11 started at Thu Jul 11 22:46:48 2024
+2024-07-11 22:47:27,999 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 22:47:28,000 - INFO - Overall mutation process started at Thu Jul 11 22:47:28 2024
+2024-07-11 22:47:28,000 - INFO - Processing seed: 11
+2024-07-11 22:47:28,000 - INFO - Processing environment: Env-29 started at Thu Jul 11 22:47:28 2024
+2024-07-11 22:47:28,001 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29
+2024-07-11 22:47:36,618 - INFO - Task 1 for environment Env-29 started at Thu Jul 11 22:47:36 2024
+2024-07-11 22:47:37,479 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x0000016632026770>, 11)
+2024-07-11 22:47:38,582 - INFO - Instruction generation for seed 11 started at Thu Jul 11 22:47:38 2024
+2024-07-11 23:16:26,985 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 23:16:26,985 - INFO - Overall mutation process started at Thu Jul 11 23:16:26 2024
+2024-07-11 23:16:26,985 - INFO - Processing seed: 11
+2024-07-11 23:16:26,986 - INFO - Processing environment: Env-29 started at Thu Jul 11 23:16:26 2024
+2024-07-11 23:16:26,986 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29
+2024-07-11 23:16:40,824 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 23:16:40,825 - INFO - Overall mutation process started at Thu Jul 11 23:16:40 2024
+2024-07-11 23:16:40,825 - INFO - Processing seed: 11
+2024-07-11 23:16:40,826 - INFO - Processing environment: Env-29 started at Thu Jul 11 23:16:40 2024
+2024-07-11 23:16:40,826 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29
+2024-07-11 23:16:41,575 - INFO - Task 1 for environment Env-29 started at Thu Jul 11 23:16:41 2024
+2024-07-11 23:16:41,578 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x000001B505B84FA0>, 11)
+2024-07-11 23:16:41,785 - INFO - Instruction generation for seed 11 started at Thu Jul 11 23:16:41 2024
+2024-07-11 23:16:53,626 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 23:16:53,626 - INFO - Overall mutation process started at Thu Jul 11 23:16:53 2024
+2024-07-11 23:16:53,626 - INFO - Processing seed: 11
+2024-07-11 23:16:53,627 - INFO - Processing environment: Env-29 started at Thu Jul 11 23:16:53 2024
+2024-07-11 23:16:53,627 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29
+2024-07-11 23:16:54,364 - INFO - Task 1 for environment Env-29 started at Thu Jul 11 23:16:54 2024
+2024-07-11 23:16:54,366 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x000001C61C084F70>, 11)
+2024-07-11 23:16:54,566 - INFO - Instruction generation for seed 11 started at Thu Jul 11 23:16:54 2024
+2024-07-11 23:18:00,705 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 23:18:00,705 - INFO - Overall mutation process started at Thu Jul 11 23:18:00 2024
+2024-07-11 23:18:00,705 - INFO - Processing seed: 11
+2024-07-11 23:18:00,706 - INFO - Processing environment: Env-29 started at Thu Jul 11 23:18:00 2024
+2024-07-11 23:18:00,706 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29
+2024-07-11 23:18:01,458 - INFO - Task 1 for environment Env-29 started at Thu Jul 11 23:18:01 2024
+2024-07-11 23:18:01,460 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x0000023B10DBA680>, 11)
+2024-07-11 23:18:01,672 - INFO - Instruction generation for seed 11 started at Thu Jul 11 23:18:01 2024
+2024-07-11 23:20:04,433 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 23:20:04,433 - INFO - Overall mutation process started at Thu Jul 11 23:20:04 2024
+2024-07-11 23:20:04,433 - INFO - Processing seed: 11
+2024-07-11 23:20:04,434 - INFO - Processing environment: Env-29 started at Thu Jul 11 23:20:04 2024
+2024-07-11 23:20:04,434 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29
+2024-07-11 23:20:05,203 - INFO - Task 1 for environment Env-29 started at Thu Jul 11 23:20:05 2024
+2024-07-11 23:20:05,205 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x0000027B2E034F70>, 11)
+2024-07-11 23:20:05,422 - INFO - Instruction generation for seed 11 started at Thu Jul 11 23:20:05 2024
+2024-07-11 23:24:20,813 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 23:24:20,814 - INFO - Overall mutation process started at Thu Jul 11 23:24:20 2024
+2024-07-11 23:24:20,814 - INFO - Processing seed: 11
+2024-07-11 23:24:20,815 - INFO - Processing environment: Env-29 started at Thu Jul 11 23:24:20 2024
+2024-07-11 23:24:20,815 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29
+2024-07-11 23:24:21,550 - INFO - Task 1 for environment Env-29 started at Thu Jul 11 23:24:21 2024
+2024-07-11 23:24:21,552 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x000001A502FF4F10>, 11)
+2024-07-11 23:24:21,754 - INFO - Instruction generation for seed 11 started at Thu Jul 11 23:24:21 2024
+2024-07-11 23:24:41,280 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 23:24:41,281 - INFO - Overall mutation process started at Thu Jul 11 23:24:41 2024
+2024-07-11 23:24:41,281 - INFO - Processing seed: 11
+2024-07-11 23:24:41,282 - INFO - Processing environment: Env-29 started at Thu Jul 11 23:24:41 2024
+2024-07-11 23:24:41,282 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29
+2024-07-11 23:24:42,060 - INFO - Task 1 for environment Env-29 started at Thu Jul 11 23:24:42 2024
+2024-07-11 23:24:42,062 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x0000021C48614F10>, 11)
+2024-07-11 23:24:42,263 - INFO - Instruction generation for seed 11 started at Thu Jul 11 23:24:42 2024
+2024-07-11 23:29:14,540 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 23:29:14,541 - INFO - Overall mutation process started at Thu Jul 11 23:29:14 2024
+2024-07-11 23:29:14,541 - INFO - Processing seed: 11
+2024-07-11 23:29:14,541 - INFO - Processing environment: Env-29 started at Thu Jul 11 23:29:14 2024
+2024-07-11 23:29:14,542 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29
+2024-07-11 23:29:15,276 - INFO - Task 1 for environment Env-29 started at Thu Jul 11 23:29:15 2024
+2024-07-11 23:29:15,278 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x000001F2EDFE4FA0>, 11)
+2024-07-11 23:29:15,486 - INFO - Instruction generation for seed 11 started at Thu Jul 11 23:29:15 2024
+2024-07-11 23:29:23,577 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 23:29:23,578 - INFO - Overall mutation process started at Thu Jul 11 23:29:23 2024
+2024-07-11 23:29:23,578 - INFO - Processing seed: 11
+2024-07-11 23:29:23,579 - INFO - Processing environment: Env-29 started at Thu Jul 11 23:29:23 2024
+2024-07-11 23:29:23,579 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29
+2024-07-11 23:29:24,323 - INFO - Task 1 for environment Env-29 started at Thu Jul 11 23:29:24 2024
+2024-07-11 23:29:24,325 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x00000212E3634F40>, 11)
+2024-07-11 23:29:24,532 - INFO - Instruction generation for seed 11 started at Thu Jul 11 23:29:24 2024
+2024-07-11 23:30:47,612 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 23:30:47,813 - INFO - Overall mutation process started at Thu Jul 11 23:30:47 2024
+2024-07-11 23:30:47,813 - INFO - Processing seed: 11
+2024-07-11 23:30:47,814 - INFO - Processing environment: Env-29 started at Thu Jul 11 23:30:47 2024
+2024-07-11 23:30:47,814 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29
+2024-07-11 23:30:48,110 - INFO - Task 1 for environment Env-29 started at Thu Jul 11 23:30:48 2024
+2024-07-11 23:30:48,111 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x000001F920947CA0>, 11)
+2024-07-11 23:30:48,154 - INFO - Instruction generation for seed 11 started at Thu Jul 11 23:30:48 2024
+2024-07-11 23:33:34,863 - INFO - Loaded fuzzer settings from 'FuzzConfig.xml'.
+2024-07-11 23:33:34,864 - INFO - Overall mutation process started at Thu Jul 11 23:33:34 2024
+2024-07-11 23:33:34,864 - INFO - Processing seed: 11
+2024-07-11 23:33:34,865 - INFO - Processing environment: Env-29 started at Thu Jul 11 23:33:34 2024
+2024-07-11 23:33:34,865 - INFO - Result folder path: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29
+2024-07-11 23:33:35,147 - INFO - Task 1 for environment Env-29 started at Thu Jul 11 23:33:35 2024
+2024-07-11 23:33:35,148 - INFO - Updated task with initial state: (<Minigrid.EnvironmentState.State object at 0x0000021594A9F580>, 11)
+2024-07-11 23:33:35,187 - INFO - Instruction generation for seed 11 started at Thu Jul 11 23:33:35 2024
+2024-07-11 23:37:37,535 - INFO - Fuzz instructions logged at: A:\Github repos\Answer\AIProbe\Result\Four_room_Env\11\Env-29\task_1\11
+2024-07-11 23:37:37,586 - INFO - Instruction generation for seed 56 started at Thu Jul 11 23:37:37 2024

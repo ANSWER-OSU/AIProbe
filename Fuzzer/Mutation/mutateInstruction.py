@@ -617,7 +617,7 @@ def fuzzInstructions(initial_state, final_state, timeout, action_map, unsafe_sta
     ins_pool = []
 
     while time.time() - start_time < timeout:
-        if not queue and not halfqueue:
+        if not queue:
             break
 
         if queue:
@@ -628,9 +628,14 @@ def fuzzInstructions(initial_state, final_state, timeout, action_map, unsafe_sta
         if any(state == previous_state for state, _ in halfqueue):
             print("ds")
 
+        for ins in accumulated_instructions:
+            if ins == ['forward', 'forward', 'forward', 'forward']:
+                 print("x")
+
         instructionList = genrateInstruction(instruction_pool, remaining_coverage_matrix, previous_state, action_map)
 
         for instruction in instructionList:
+
             if instruction in ins_pool:
                 continue
             new_state, info, instruction_log = apply_instruction(instruction, mutated_env_path)
@@ -648,6 +653,7 @@ def fuzzInstructions(initial_state, final_state, timeout, action_map, unsafe_sta
             ins_pool.append(instruction)
             log_instruction_and_state(log_text_path, instruction, coverage_percentage, instruction_log)
 
+            #print(new_state.agent.dest_pos)
             if new_state.agent.dest_pos in unsafe_states:
                 append_to_json_file_with_sequence(log_json_path, instruction_log, "Unsafe")
                 print("unsafe")
@@ -711,6 +717,8 @@ def genrateInstruction(instruction_pool,remaining_coverage_matrix,previous_state
             if not actions_to_add:
                 continue
             for action in actions_to_add:
+                if(action == 'pickup'):
+                   x =  instruction + [action]
                 new_instruction = instruction + [action]
                 new_instructions.append(new_instruction)
 
