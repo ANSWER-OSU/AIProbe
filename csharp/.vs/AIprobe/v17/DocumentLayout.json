@@ -1,0 +1,177 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "A:\\mASTERS\\Project\\Aiprobe\\AIprobe\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2143B325-C5BC-402C-A277-05FB21FBE0A2}|AIprobe.csproj|a:\\masters\\project\\aiprobe\\aiprobe\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2143B325-C5BC-402C-A277-05FB21FBE0A2}|AIprobe.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2143B325-C5BC-402C-A277-05FB21FBE0A2}|AIprobe.csproj|a:\\masters\\project\\aiprobe\\aiprobe\\parsers\\actionspaceparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2143B325-C5BC-402C-A277-05FB21FBE0A2}|AIprobe.csproj|solutionrelative:parsers\\actionspaceparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2143B325-C5BC-402C-A277-05FB21FBE0A2}|AIprobe.csproj|a:\\masters\\project\\aiprobe\\aiprobe\\parsers\\environmentparse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2143B325-C5BC-402C-A277-05FB21FBE0A2}|AIprobe.csproj|solutionrelative:parsers\\environmentparse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2143B325-C5BC-402C-A277-05FB21FBE0A2}|AIprobe.csproj|a:\\masters\\project\\aiprobe\\aiprobe\\models\\positionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2143B325-C5BC-402C-A277-05FB21FBE0A2}|AIprobe.csproj|solutionrelative:models\\positionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2143B325-C5BC-402C-A277-05FB21FBE0A2}|AIprobe.csproj|a:\\masters\\project\\aiprobe\\aiprobe\\models\\objectmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2143B325-C5BC-402C-A277-05FB21FBE0A2}|AIprobe.csproj|solutionrelative:models\\objectmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2143B325-C5BC-402C-A277-05FB21FBE0A2}|AIprobe.csproj|a:\\masters\\project\\aiprobe\\aiprobe\\models\\environmentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2143B325-C5BC-402C-A277-05FB21FBE0A2}|AIprobe.csproj|solutionrelative:models\\environmentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2143B325-C5BC-402C-A277-05FB21FBE0A2}|AIprobe.csproj|a:\\masters\\project\\aiprobe\\aiprobe\\models\\environmentalfeaturesmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2143B325-C5BC-402C-A277-05FB21FBE0A2}|AIprobe.csproj|solutionrelative:models\\environmentalfeaturesmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2143B325-C5BC-402C-A277-05FB21FBE0A2}|AIprobe.csproj|a:\\masters\\project\\aiprobe\\aiprobe\\models\\agentsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2143B325-C5BC-402C-A277-05FB21FBE0A2}|AIprobe.csproj|solutionrelative:models\\agentsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2143B325-C5BC-402C-A277-05FB21FBE0A2}|AIprobe.csproj|a:\\masters\\project\\aiprobe\\aiprobe\\models\\actionspacemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2143B325-C5BC-402C-A277-05FB21FBE0A2}|AIprobe.csproj|solutionrelative:models\\actionspacemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ObjectModel.cs",
+              "DocumentMoniker": "A:\\mASTERS\\Project\\Aiprobe\\AIprobe\\Models\\ObjectModel.cs",
+              "RelativeDocumentMoniker": "Models\\ObjectModel.cs",
+              "ToolTip": "A:\\mASTERS\\Project\\Aiprobe\\AIprobe\\Models\\ObjectModel.cs",
+              "RelativeToolTip": "Models\\ObjectModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-03T16:14:23.648Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PositionModel.cs",
+              "DocumentMoniker": "A:\\mASTERS\\Project\\Aiprobe\\AIprobe\\Models\\PositionModel.cs",
+              "RelativeDocumentMoniker": "Models\\PositionModel.cs",
+              "ToolTip": "A:\\mASTERS\\Project\\Aiprobe\\AIprobe\\Models\\PositionModel.cs",
+              "RelativeToolTip": "Models\\PositionModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-03T16:12:52.281Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ActionSpaceParser.cs",
+              "DocumentMoniker": "A:\\mASTERS\\Project\\Aiprobe\\AIprobe\\Parsers\\ActionSpaceParser.cs",
+              "RelativeDocumentMoniker": "Parsers\\ActionSpaceParser.cs",
+              "ToolTip": "A:\\mASTERS\\Project\\Aiprobe\\AIprobe\\Parsers\\ActionSpaceParser.cs",
+              "RelativeToolTip": "Parsers\\ActionSpaceParser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-03T16:59:00.152Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EnvironmentParse.cs",
+              "DocumentMoniker": "A:\\mASTERS\\Project\\Aiprobe\\AIprobe\\Parsers\\EnvironmentParse.cs",
+              "RelativeDocumentMoniker": "Parsers\\EnvironmentParse.cs",
+              "ToolTip": "A:\\mASTERS\\Project\\Aiprobe\\AIprobe\\Parsers\\EnvironmentParse.cs",
+              "RelativeToolTip": "Parsers\\EnvironmentParse.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwCUAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-03T16:38:21.893Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "A:\\mASTERS\\Project\\Aiprobe\\AIprobe\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "A:\\mASTERS\\Project\\Aiprobe\\AIprobe\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-01T16:30:37.167Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EnvironmentModel.cs",
+              "DocumentMoniker": "A:\\mASTERS\\Project\\Aiprobe\\AIprobe\\Models\\EnvironmentModel.cs",
+              "RelativeDocumentMoniker": "Models\\EnvironmentModel.cs",
+              "ToolTip": "A:\\mASTERS\\Project\\Aiprobe\\AIprobe\\Models\\EnvironmentModel.cs",
+              "RelativeToolTip": "Models\\EnvironmentModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-03T16:11:25.315Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "EnvironmentalFeaturesModel.cs",
+              "DocumentMoniker": "A:\\mASTERS\\Project\\Aiprobe\\AIprobe\\Models\\EnvironmentalFeaturesModel.cs",
+              "RelativeDocumentMoniker": "Models\\EnvironmentalFeaturesModel.cs",
+              "ToolTip": "A:\\mASTERS\\Project\\Aiprobe\\AIprobe\\Models\\EnvironmentalFeaturesModel.cs",
+              "RelativeToolTip": "Models\\EnvironmentalFeaturesModel.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAowBIAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-03T16:14:56.886Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AgentsModel.cs",
+              "DocumentMoniker": "A:\\mASTERS\\Project\\Aiprobe\\AIprobe\\Models\\AgentsModel.cs",
+              "RelativeDocumentMoniker": "Models\\AgentsModel.cs",
+              "ToolTip": "A:\\mASTERS\\Project\\Aiprobe\\AIprobe\\Models\\AgentsModel.cs",
+              "RelativeToolTip": "Models\\AgentsModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-03T16:12:10.257Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ActionSpaceModel.cs",
+              "DocumentMoniker": "A:\\mASTERS\\Project\\Aiprobe\\AIprobe\\Models\\ActionSpaceModel.cs",
+              "RelativeDocumentMoniker": "Models\\ActionSpaceModel.cs",
+              "ToolTip": "A:\\mASTERS\\Project\\Aiprobe\\AIprobe\\Models\\ActionSpaceModel.cs",
+              "RelativeToolTip": "Models\\ActionSpaceModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-03T16:53:49.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

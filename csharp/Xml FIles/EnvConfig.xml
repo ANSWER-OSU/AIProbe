@@ -1,0 +1,65 @@
+
+<Environment name="ComplexEnvironment" type="simulation">
+    
+    <!-- Defining the agent in the environment -->
+    <Agents>
+        <Agent id="1" name="MainAgent" type="Robot">
+            <Position>
+                <X value="0" min="-10" max="10" dataType="float" step="0.1" mutable="true"/>
+                <Y value="0" min="-10" max="10" dataType="float" step="0.1" mutable="false"/>
+                <Z value="0" min="0" max="10" dataType="float" step="0.1" mutable="true"/>
+            </Position>
+            <Direction>
+                <Angle value="90" min="0" max="360" dataType="float" step="1" mutable="true"/>
+            </Direction>
+        </Agent>
+    </Agents>
+
+    <!-- Defining the objects in the environment -->
+    <Objects>
+        <Object id="1" name="Wall" type="Static">
+            <Position>
+                <X value="2" min="-10" max="10" dataType="float" step="0.1" mutable="false"/>
+                <Y value="3" min="-10" max="10" dataType="float" step="0.1" mutable="false"/>
+                <Z value="0" min="0" max="10" dataType="float" step="0.1" mutable="false"/>
+            </Position>
+            <Color value="#808080" description="The wall is gray in color" mutable="false"/>
+            <Impassable value="true" description="The wall cannot be passed through by the agent" mutable="false"/>
+        </Object>
+
+        <Object id="3" name="Door" type="Interactive">
+            <Position>
+                <X value="6" min="-10" max="10" dataType="float" step="0.1" mutable="true"/>
+                <Y value="6" min="-10" max="10" dataType="float" step="0.1" mutable="true"/>
+                <Z value="0" min="0" max="10" dataType="float" step="0.1" mutable="false"/>
+            </Position>
+            <Color value="blue" description="The door is blue in color" mutable="false"/>
+            <Locked value="true" description="The door is initially locked" mutable="true"/>
+            <Open value="false" description="The door is currently closed" mutable="true"/>
+        </Object>
+    </Objects>
+
+    <!-- Defining environmental features -->
+    <EnvironmentFeatures>
+      
+        <PhysicalProperties>
+            <Property name="Gravity" value="9.8" unit="m/s^2" description="The gravitational force in the environment" mutable="true"/>
+            <Property name="Friction" value="0.5" description="Coefficient of friction affecting movement across surfaces" mutable="true"/>
+            <Property name="Wind" speed="5" direction="East" unit="m/s" description="Wind blowing eastward at 5 meters per second" mutable="true"/>
+            <Property name="Boundary" width="10" height="10" depth="10" minWidth="5" maxWidth="20" minHeight="5" maxHeight="20" minDepth="5" maxDepth="20" step="1" description="Boundary of the environment where the agent is placed/has access to" mutable="true"/>
+        </PhysicalProperties>
+
+        <!-- Hazardous environmental features like lava or land mine -->
+        <Hazards>
+            <Object id="4" name="Lava" type="Hazard">
+                <Position>
+                    <X value="5" min="-10" max="10" dataType="float" step="0.1" mutable="false"/>
+                    <Y value="5" min="-10" max="10" dataType="float" step="0.1" mutable="false"/>
+                    <Z value="0" min="0" max="10" dataType="float" step="0.1" mutable="false"/>
+                </Position>
+                <Color value="red" description="The lava is red and causes damage" mutable="false"/>
+            
+        </Hazards>
+
+    </EnvironmentFeatures>
+</Environment>

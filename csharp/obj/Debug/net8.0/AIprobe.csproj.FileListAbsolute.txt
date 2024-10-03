@@ -1,0 +1,14 @@
+A:\mASTERS\Project\Aiprobe\AIprobe\bin\Debug\net8.0\AIprobe.exe
+A:\mASTERS\Project\Aiprobe\AIprobe\bin\Debug\net8.0\AIprobe.deps.json
+A:\mASTERS\Project\Aiprobe\AIprobe\bin\Debug\net8.0\AIprobe.runtimeconfig.json
+A:\mASTERS\Project\Aiprobe\AIprobe\bin\Debug\net8.0\AIprobe.dll
+A:\mASTERS\Project\Aiprobe\AIprobe\bin\Debug\net8.0\AIprobe.pdb
+A:\mASTERS\Project\Aiprobe\AIprobe\obj\Debug\net8.0\AIprobe.GeneratedMSBuildEditorConfig.editorconfig
+A:\mASTERS\Project\Aiprobe\AIprobe\obj\Debug\net8.0\AIprobe.AssemblyInfoInputs.cache
+A:\mASTERS\Project\Aiprobe\AIprobe\obj\Debug\net8.0\AIprobe.AssemblyInfo.cs
+A:\mASTERS\Project\Aiprobe\AIprobe\obj\Debug\net8.0\AIprobe.csproj.CoreCompileInputs.cache
+A:\mASTERS\Project\Aiprobe\AIprobe\obj\Debug\net8.0\AIprobe.dll
+A:\mASTERS\Project\Aiprobe\AIprobe\obj\Debug\net8.0\refint\AIprobe.dll
+A:\mASTERS\Project\Aiprobe\AIprobe\obj\Debug\net8.0\AIprobe.pdb
+A:\mASTERS\Project\Aiprobe\AIprobe\obj\Debug\net8.0\AIprobe.genruntimeconfig.cache
+A:\mASTERS\Project\Aiprobe\AIprobe\obj\Debug\net8.0\ref\AIprobe.dll
