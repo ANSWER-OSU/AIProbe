@@ -1,0 +1,124 @@
+<Environment name="CartPole-v1" type="simulation">
+
+    <!-- Defining the agent in the environment -->
+    <Agents>
+        <Agent id="1" name="MainAgent" type="AI_Agent">
+            <Position>
+                    <Attribute>
+                        <Name value="X"/>
+                        <DataType value="float"/>
+                        <Value value="0"/>
+                        <Min value="-4.8"/>
+                        <Max value="4.8"/>
+                        <Step value="0.1"/>
+                        <Mutable value="true"/>
+                    </Attribute>
+                    <Attribute>
+                        <Name value="Y"/>
+                        <DataType value="float"/>
+                        <Value value="0"/>
+                        <Min value="-Inf"/>
+                        <Max value="Inf"/>
+                        <Step value="0.1"/>
+                        <Mutable value="true"/>
+                    </Attribute>
+            </Position>
+        </Agent>
+    </Agents>
+
+    <!-- Defining the objects in the environment -->
+    <Objects>
+
+        <!-- Pole Object -->
+        <Object id="1" name="Pole" type="Dynamic">
+            <Position>
+                
+                    <Attribute>
+                        <Name value="Angle"/>
+                        <DataType value="float"/>
+                        <Value value="0"/>
+                        <Min value="-0.418"/>
+                        <Max value="0.418"/>
+                        <Step value="0.01"/>
+                        <Description value="Angle of the pole relative to vertical"/>
+                        <Mutable value="true"/>
+                    </Attribute>
+                    <Attribute>
+                        <Name value="AngularVelocity"/>
+                        <DataType value="float"/>
+                        <Value value="0"/>
+                        <Min value="-Inf"/>
+                        <Max value="Inf"/>
+                        <Step value="0.01"/>
+                        <Description value="Velocity at which the pole is rotating"/>
+                        <Mutable value="true"/>
+                    </Attribute>
+               
+            </Position>
+        </Object>
+
+    </Objects>
+
+    <!-- Environmental Features -->
+    <EnvironmentalProperties>
+       
+    <Property name="Gravity">
+        
+            <Attribute>
+                <Name value="Gravity"/>
+                <DataType value="float"/>
+                <Value value="9.8"/>
+                <Min value="0"/>
+                <Max value="20"/>
+                <Step value="0.1"/>
+                <Description value="The gravitational force in the environment"/>
+                <Mutable value="true"/>
+            </Attribute>
+       
+    </Property>
+
+    <Property name="Friction">
+        
+            <Attribute>
+                <Name value="Friction"/>
+                <DataType value="float"/>
+                <Value value="0.5"/>
+                <Min value="0"/>
+                <Max value="1"/>
+                <Step value="0.01"/>
+                <Description value="Friction coefficient affecting cart movement"/>
+                <Mutable value="true"/>
+            </Attribute>
+       
+    </Property>
+
+
+    <Property name="Boundary">
+        
+            <Attribute>
+                <Name value="Width"/>
+                <DataType value="float"/>
+                <Value value="10"/>
+                <Min value="5"/>
+                <Max value="20"/>
+                <Step value="1"/>
+                <Description value="The width of the track"/>
+                <Mutable value="true"/>
+            </Attribute>
+            <Attribute>
+                <Name value="Height"/>
+                <DataType value="float"/>
+                <Value value="10"/>
+                <Min value="5"/>
+                <Max value="20"/>
+                <Step value="1"/>
+                <Description value="The height of the environment boundary"/>
+                <Mutable value="true"/>
+            </Attribute>
+        
+    </Property>
+
+        
+    </EnvironmentalProperties>
+
+</Environment>
