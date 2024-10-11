@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "5p4gcWNJBsI=",
+  "dgSpecHash": "i9akNc9P/PQ=",
   "success": true,
-  "projectFilePath": "A:\\mASTERS\\Project\\Aiprobe\\AIprobe\\AIprobe.csproj",
+  "projectFilePath": "/Users/rahil/Documents/GitHub/AIProbe/csharp/AIprobe.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\rahil\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.21.0\\microsoft.visualstudio.azure.containers.tools.targets.1.21.0.nupkg.sha512"
+    "/Users/rahil/.nuget/packages/microsoft.visualstudio.azure.containers.tools.targets/1.21.0/microsoft.visualstudio.azure.containers.tools.targets.1.21.0.nupkg.sha512",
+    "/Users/rahil/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []
 }

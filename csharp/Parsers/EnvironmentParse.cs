@@ -1,46 +1,35 @@
 ﻿using System;
 using System.IO;
 using System.Xml.Serialization;
+using AIprobe.Logging;
+using AIprobe.Models;
 
-namespace AIprobe
+namespace AIprobe.Parsers
 {
-    /// <summary>
-    /// This class handles the parsing of the XML file into the EnvironmentModel object
-    /// </summary>
     public class EnvironmentParser
     {
-        private string _filePath;
+        private readonly string _filePath;
 
-        
         public EnvironmentParser(string filePath)
         {
             _filePath = filePath;
         }
 
-        /// <summary>
-        /// Method to parse the XML file and return the EnvironmentModel object
-        /// </summary>
-        /// <returns> Environment object </returns>
-        public EnvironmentModel ParseEnvironment()
+        public AIprobe.Models.Environment ParseEnvironment()
         {
             try
             {
-                // Create an XmlSerializer for the EnvironmentModel
-                XmlSerializer serializer = new XmlSerializer(typeof(EnvironmentModel));
-
-                // Open the XML file and deserialize it
+                XmlSerializer serializer = new XmlSerializer(typeof(AIprobe.Models.Environment));
                 using (StreamReader reader = new StreamReader(_filePath))
                 {
-                    // Deserialize the XML into an EnvironmentModel object
-                    EnvironmentModel environment = (EnvironmentModel)serializer.Deserialize(reader);
-
-                    // Return the parsed object
+                    AIprobe.Models.Environment environment = (AIprobe.Models.Environment)serializer.Deserialize(reader);
+                    Logger.LogInfo("Environment file parsed successfully.");
                     return environment;
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error parsing the Environment XML file: {ex.Message}");
+                Logger.LogError($"Error parsing the environment XML file: {ex.Message}");
                 return null;
             }
         }

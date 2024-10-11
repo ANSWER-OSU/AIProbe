@@ -1,32 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "A:\\mASTERS\\Project\\Aiprobe\\AIprobe\\AIprobe.csproj": {}
+    "/Users/rahil/Documents/GitHub/AIProbe/csharp/AIprobe.csproj": {}
   },
   "projects": {
-    "A:\\mASTERS\\Project\\Aiprobe\\AIprobe\\AIprobe.csproj": {
+    "/Users/rahil/Documents/GitHub/AIProbe/csharp/AIprobe.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "A:\\mASTERS\\Project\\Aiprobe\\AIprobe\\AIprobe.csproj",
+        "projectUniqueName": "/Users/rahil/Documents/GitHub/AIProbe/csharp/AIprobe.csproj",
         "projectName": "AIprobe",
-        "projectPath": "A:\\mASTERS\\Project\\Aiprobe\\AIprobe\\AIprobe.csproj",
-        "packagesPath": "C:\\Users\\rahil\\.nuget\\packages\\",
-        "outputPath": "A:\\mASTERS\\Project\\Aiprobe\\AIprobe\\obj\\",
+        "projectPath": "/Users/rahil/Documents/GitHub/AIProbe/csharp/AIprobe.csproj",
+        "packagesPath": "/Users/rahil/.nuget/packages/",
+        "outputPath": "/Users/rahil/Documents/GitHub/AIProbe/csharp/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\rahil\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/rahil/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -53,6 +46,10 @@
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.21.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             }
           },
           "imports": [
@@ -71,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/Users/rahil/.dotnet/sdk/8.0.303/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

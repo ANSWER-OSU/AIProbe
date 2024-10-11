@@ -1,5 +1,11 @@
-﻿using AIprobe.Models;
+﻿using System;
+using AIprobe.Comparers;
+using AIprobe.EnvironmentGenerator;
+using AIprobe.Logging;
+using AIprobe.Models;
 using AIprobe.Parsers;
+using AIprobe.TaskGenerator;
+using AIprobe.InstructionGenerator;
 
 namespace AIprobe
 {
@@ -7,61 +13,62 @@ namespace AIprobe
     {
         static void Main(string[] args)
         {
-            string filePath = @"C:\Users\rahil\Downloads\EnvConfig.xml";
-            string ActionSpacefilePath = @"C:\Users\rahil\Downloads\actionspace.xml";
+            // Set the log file path
+            string logFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AIprobeLog.txt");
+            Logger.Initialize(logFilePath);
 
-            EnvironmentParser enviromentParser = new EnvironmentParser(filePath);
-
-            EnvironmentModel environment = enviromentParser.ParseEnvironment();
-
-            ActionSpaceParser actionSpacPparser = new ActionSpaceParser(filePath);
-
-            ActionSpaceModel actionSpace = actionSpacPparser.ParseActionSpace();
-
-            if (actionSpace != null && environment != null) { 
-            
+            Logger.LogInfo("Starting AIprobe...");
+ 
+            // Parse the AIprobe configuration file
+            ConfigParser configParser = new ConfigParser();
+            AIprobeConfig config = configParser.ParseConfig();
+            if (config == null)
+            {
+                Logger.LogError("Failed to parse Aiprobe's configuration file. Exiting...");
+                return;
             }
+            
+            
 
+            // Parse the initial environment file
+            Logger.LogInfo($"Initial Environment File Path: {config.FileSettings.InitialEnvironmentFilePath}");
+            EnvironmentParser intialParser = new EnvironmentParser(config.FileSettings.InitialEnvironmentFilePath);
+            AIprobe.Models.Environment initialEnvironment = intialParser.ParseEnvironment();
 
-            //if (environment != null)
-            //{
-            //    // Print environment details
-            //    Console.WriteLine($"Environment Name: {environment.Name}, Type: {environment.Type}");
+            if (initialEnvironment != null)
+            {
+                Logger.LogInfo("Initial Environment parsed successfully.");
+            }
+            else
+            {
+                Logger.LogError("Error parsing environment. Please check the input file.");
+            }
+            
+            
+            EnvConfigGenerator envConfigGenerator = new EnvConfigGenerator();
+            EnvTaskGenerator envTaskGenerator = new EnvTaskGenerator();
+            InstructionChecker instructionChecker = new InstructionChecker();
+            
+            // generating new env from inital env 
+            List<AIprobe.Models.Environment> environments =  envConfigGenerator.GenerateEnvConfigs(initialEnvironment);
+            
+            foreach(AIprobe.Models.Environment env in environments)
+            {
+                // Generating new tasks list
+                List<AIprobe.Models.Environment> tasksList = envTaskGenerator.GenerateTasks(env,config.TimeSettings.TaskGenerationTime);
 
-            //    // Print agent details
-            //    foreach (var agent in environment.Agents.AgentList)
-            //    {
-            //        Console.WriteLine($"Agent ID: {agent.Id}, Name: {agent.Name}, Type: {agent.Type}");
-            //    }
+                foreach (AIprobe.Models.Environment task  in tasksList)
+                {
+                    List<object[]> taskResults = instructionChecker.InstructionExists(env,task,config.TimeSettings.InstructionGenerationTime);
+                    ResultSaver.SaveTaskResults(taskResults,config.LogSettings.LogFilePath);
+                }
 
-            //    // Print object details
-            //    foreach (var obj in environment.Objects.ObjectList)
-            //    {
-            //        Console.WriteLine($"Object ID: {obj.Id}, Name: {obj.Name}, Type: {obj.Type}");
-            //    }
-
-            //    // Print hazardous objects
-            //    if (environment.EnvironmentFeatures?.Hazards?.HazardList != null)
-            //    {
-            //        foreach (var hazard in environment.EnvironmentFeatures.Hazards.HazardList)
-            //        {
-            //            Console.WriteLine($"Hazard ID: {hazard.Id}, Name: {hazard.Name}, Damage: {hazard.Damage}");
-            //        }
-            //    }
-
-            //    // Print physical properties
-            //    if (environment.EnvironmentFeatures?.PhysicalProperties?.Properties != null)
-            //    {
-            //        foreach (var property in environment.EnvironmentFeatures.PhysicalProperties.Properties)
-            //        {
-            //            Console.WriteLine($"Property Name: {property.Name}, Value: {property.Value}, Description: {property.Description}");
-            //        }
-            //    }
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Failed to parse the environment XML.");
-            //}
+            }
+            
+            Logger.LogInfo("AIprobe execution completed.");
         }
+        
     }
+    
+   
 }

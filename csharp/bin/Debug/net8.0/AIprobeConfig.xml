@@ -1,0 +1,15 @@
+<AIprobeConfig>
+    <LogSettings>
+        <LogLevel>Info</LogLevel>
+        <LogFilePath>/path/to/logfile.log</LogFilePath>
+    </LogSettings>
+
+    <FileSettings>
+        <EnvironmentFilePath>/path/to/environment.xml</EnvironmentFilePath>
+    </FileSettings>
+
+    <TimeSettings><!-- Time in seconds-->
+        <TaskGenerationTime>10</TaskGenerationTime> 
+        <InstructionGenerationTime>500</InstructionGenerationTime> 
+    </TimeSettings>
+</AIprobeConfig>
