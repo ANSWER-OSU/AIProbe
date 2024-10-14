@@ -1,5 +1,5 @@
 ﻿using System;
-using AIprobe.Comparers;
+
 using AIprobe.EnvironmentGenerator;
 using AIprobe.Logging;
 using AIprobe.Models;
@@ -32,6 +32,7 @@ namespace AIprobe
 
             // Parse the initial environment file
             Logger.LogInfo($"Initial Environment File Path: {config.FileSettings.InitialEnvironmentFilePath}");
+            Console.WriteLine(config.FileSettings.InitialEnvironmentFilePath);
             EnvironmentParser intialParser = new EnvironmentParser(config.FileSettings.InitialEnvironmentFilePath);
             AIprobe.Models.Environment initialEnvironment = intialParser.ParseEnvironment();
 
@@ -46,13 +47,14 @@ namespace AIprobe
             
             
             EnvConfigGenerator envConfigGenerator = new EnvConfigGenerator();
-            EnvTaskGenerator envTaskGenerator = new EnvTaskGenerator();
+            EnvTaskGenerator envTaskGenerator = new EnvTaskGenerator(config.RandomSettings.Seed);
             InstructionChecker instructionChecker = new InstructionChecker();
             
             // generating new env from inital env 
             List<AIprobe.Models.Environment> environments =  envConfigGenerator.GenerateEnvConfigs(initialEnvironment);
-            
-            foreach(AIprobe.Models.Environment env in environments)
+
+            var env = initialEnvironment;
+            //foreach(AIprobe.Models.Environment env in environments)
             {
                 // Generating new tasks list
                 List<AIprobe.Models.Environment> tasksList = envTaskGenerator.GenerateTasks(env,config.TimeSettings.TaskGenerationTime);

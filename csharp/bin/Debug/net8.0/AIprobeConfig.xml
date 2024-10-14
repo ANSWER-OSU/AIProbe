@@ -5,11 +5,15 @@
     </LogSettings>
 
     <FileSettings>
-        <EnvironmentFilePath>/path/to/environment.xml</EnvironmentFilePath>
+       <FinalEnviromentFilePath>/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/FourRoomEnv.xml</FinalEnviromentFilePath>
+       <InitialEnvironmentFilePath>/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/FourRoomEnv.xml</InitialEnvironmentFilePath>
     </FileSettings>
 
     <TimeSettings><!-- Time in seconds-->
         <TaskGenerationTime>10</TaskGenerationTime> 
         <InstructionGenerationTime>500</InstructionGenerationTime> 
     </TimeSettings>
+     <RandomSettings>
+        <Seed>12345</Seed>
+    </RandomSettings>
 </AIprobeConfig>

@@ -7,6 +7,6 @@ namespace AIprobe.Models
     public class Direction
     {
         [XmlElement("Attribute")]
-        public Attribute Attribute { get; set; }
+        public List<Attribute>  Attributes { get; set; }
     }
 }

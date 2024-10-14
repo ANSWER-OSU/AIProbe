@@ -13,6 +13,9 @@ namespace AIprobe.Models
         
         [XmlElement("TimeSettings")]
         public TimeSettings TimeSettings { get; set; }
+        
+        [XmlElement("RandomSettings")]
+        public RandomSettings RandomSettings { get; set; }
     }
 
     public class LogSettings
@@ -45,5 +48,12 @@ namespace AIprobe.Models
 
         [XmlElement("InstructionGenerationTime")]
         public int InstructionGenerationTime { get; set; } // Time in seconds for interaction generation
+    }
+
+
+    public class RandomSettings
+    {
+        [XmlElement("Seed")]
+        public int Seed { get; set; }
     }
 }

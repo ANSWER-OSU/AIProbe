@@ -5,6 +5,7 @@ namespace AIprobe.Models
 {
     public class Position
     {
-        [XmlElement("Attribute")] public List<Attribute> Attributes { get; set; }
+        [XmlElement("Attribute")] 
+        public List<Attribute> Attributes { get; set; }
     }
 }

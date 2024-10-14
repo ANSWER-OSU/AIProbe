@@ -6,7 +6,7 @@
             <Position>
                     <Attribute>
                         <Name value="X"/>
-                        <DataType value="integer"/>
+                        <DataType value="int"/>
                         <Value value="1"/>
                         <Min value="1"/>
                         <Max value="8"/>
@@ -15,7 +15,7 @@
                     </Attribute>
                     <Attribute>
                         <Name value="Y"/>
-                        <DataType value="integer"/>
+                        <DataType value="int"/>
                         <Value value="1"/>
                         <Min value="1"/>
                         <Max value="8"/>

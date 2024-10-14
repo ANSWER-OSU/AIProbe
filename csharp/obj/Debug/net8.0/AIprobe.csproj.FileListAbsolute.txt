@@ -27,3 +27,6 @@ A:/mASTERS/Project/Aiprobe/AIprobe/obj/Debug/net8.0/ref/AIprobe.dll
 /Users/rahil/Documents/GitHub/AIProbe/csharp/obj/Debug/net8.0/AIprobe.pdb
 /Users/rahil/Documents/GitHub/AIProbe/csharp/obj/Debug/net8.0/AIprobe.genruntimeconfig.cache
 /Users/rahil/Documents/GitHub/AIProbe/csharp/obj/Debug/net8.0/ref/AIprobe.dll
+/Users/rahil/Documents/GitHub/AIProbe/csharp/bin/Debug/net8.0/Newtonsoft.Json.dll
+/Users/rahil/Documents/GitHub/AIProbe/csharp/obj/Debug/net8.0/AIprobe.csproj.AssemblyReference.cache
+/Users/rahil/Documents/GitHub/AIProbe/csharp/obj/Debug/net8.0/AIprobe.csproj.Up2Date

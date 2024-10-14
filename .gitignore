@@ -128,3 +128,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+/csharp/bin
+/csharp/bin/Debug/net8.0
+/csharp/bin/Debug
+/csharp/bin/Debug

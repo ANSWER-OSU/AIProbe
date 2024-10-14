@@ -5,11 +5,14 @@
     </LogSettings>
 
     <FileSettings>
-        <EnvironmentFilePath>/path/to/environment.xml</EnvironmentFilePath>
+        <EnvironmentFilePath>/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/FourRoomEnv.xml</EnvironmentFilePath>
     </FileSettings>
 
     <TimeSettings><!-- Time in seconds-->
         <TaskGenerationTime>10</TaskGenerationTime> 
         <InteractionGenerationTime>500</InteractionGenerationTime> 
     </TimeSettings>
+    <RandomSettings>
+        <Seed>12345</Seed> <!-- Seed for controlling random generation -->
+    </RandomSettings>
 </AIprobeConfig>
