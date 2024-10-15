@@ -7,10 +7,11 @@
     <FileSettings>
        <FinalEnviromentFilePath>/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/FourRoomEnv.xml</FinalEnviromentFilePath>
        <InitialEnvironmentFilePath>/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/FourRoomEnv.xml</InitialEnvironmentFilePath>
+        <ActionSpaceFilePath>/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/old env config /ActionSpace.xml</ActionSpaceFilePath>
     </FileSettings>
 
     <TimeSettings><!-- Time in seconds-->
-        <TaskGenerationTime>10</TaskGenerationTime> 
+        <TaskGenerationTime>1</TaskGenerationTime> 
         <InstructionGenerationTime>500</InstructionGenerationTime> 
     </TimeSettings>
      <RandomSettings>

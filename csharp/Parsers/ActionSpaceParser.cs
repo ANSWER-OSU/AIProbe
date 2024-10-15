@@ -19,18 +19,18 @@ namespace AIprobe.Parsers
         /// To parse the Action space XML
         /// </summary>
         /// <returns> ActionSpaceModel object</returns>
-        public ActionSpaceModel ParseActionSpace()
+        public ActionSpace ParseActionSpace()
         {
             try
             {
                 // Create an XmlSerializer for the ActionSpaceModel
-                XmlSerializer serializer = new XmlSerializer(typeof(ActionSpaceModel));
+                XmlSerializer serializer = new XmlSerializer(typeof(ActionSpace));
 
                 // Open the XML file and deserialize it
                 using (StreamReader reader = new StreamReader(_filePath))
                 {
                     // Deserialize the XML into an ActionSpaceModel object
-                    ActionSpaceModel actionSpace = (ActionSpaceModel)serializer.Deserialize(reader);
+                    ActionSpace actionSpace = (ActionSpace)serializer.Deserialize(reader);
 
                     // Return the parsed ActionSpaceModel object
                     return actionSpace;

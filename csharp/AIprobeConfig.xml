@@ -3,6 +3,7 @@
         <LogLevel>Info</LogLevel>
         <LogFilePath>/path/to/logfile.log</LogFilePath>
     </LogSettings>
+    
 
     <FileSettings>
         <EnvironmentFilePath>/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/FourRoomEnv.xml</EnvironmentFilePath>
@@ -15,4 +16,9 @@
     <RandomSettings>
         <Seed>12345</Seed> <!-- Seed for controlling random generation -->
     </RandomSettings>
+    <PythonSettings>
+        <ScriptFilePath>/Users/rahil/Documents/GitHub/AIProbe/Minigrid/newMinigrid.py</ScriptFilePath> 
+        <TempLocation>/path/to/temp/location</TempLocation> 
+        <PythonEnvironment>/opt/anaconda3/envs/aiprobe/bin/python</PythonEnvironment>
+    </PythonSettings>
 </AIprobeConfig>

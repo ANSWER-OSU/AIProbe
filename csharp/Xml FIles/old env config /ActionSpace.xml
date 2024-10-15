@@ -9,14 +9,5 @@
         <Action id="2" name="right" >
             <Description>Turn the agent 90 degrees right</Description>
         </Action>
-        <Action id="3" name="pick_up" >
-            <Description>Pick up an object if one is present</Description>
-        </Action>
-        <Action id="4" name="drop">
-            <Description>Drop the currently held object</Description>
-        </Action>
-        <Action id="5" name="toggle" >
-            <Description>Toggle the state of an object (e.g., open a door)</Description>
-        </Action>
     </Actions>
 </ActionSpace>

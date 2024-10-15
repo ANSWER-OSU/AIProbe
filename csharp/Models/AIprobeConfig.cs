@@ -16,6 +16,10 @@ namespace AIprobe.Models
         
         [XmlElement("RandomSettings")]
         public RandomSettings RandomSettings { get; set; }
+        
+        
+        [XmlElement("PythonSettings")]
+        public PythonSettings PythonSettings { get; set; }
     }
 
     public class LogSettings
@@ -35,11 +39,27 @@ namespace AIprobe.Models
         [XmlElement("FinalEnviromentFilePath")]
         public string FinalEnviromentFilePath { get; set; }
         
+        [XmlElement("ActionSpaceFilePath")]
+        public string ActionSpaceFilePath { get; set; }
+        
+       
+        
    
         
         
     }
     
+    public class PythonSettings
+    {
+        [XmlElement("ScriptFilePath")]
+        public string ScriptFilePath { get; set; }
+
+        [XmlElement("TempLocation")]
+        public string TempLocation { get; set; }
+
+        [XmlElement("PythonEnvironment")]
+        public string PythonEnvironment { get; set; }
+    }
     
     public class TimeSettings
     {
