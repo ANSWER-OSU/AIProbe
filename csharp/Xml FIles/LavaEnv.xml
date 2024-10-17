@@ -36,10 +36,10 @@
                 <Attribute>
                     <Name value="Angle"/>
                     <DataType value="integer"/>
-                    <Value value="90"/>
+                    <Value value="0"/>
                     <Min value="0"/>
-                    <Max value="360"/>
-                    <Step value="90"/>
+                    <Max value="3"/>
+                    <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
             </Direction>
@@ -631,7 +631,7 @@
                 </Attribute>
             </ObjectAttributes>
         </Object>
-        <Object id="21" name="Lava" type="Hazard">
+        <Object id="22" name="Lava" type="Hazard">
             <Position>
                 <Attribute>
                     <Name value="X"/>

@@ -1,7 +1,7 @@
 <ActionSpace type="Discrete">
     <Actions>
         <Action id="0" name="forward" >
-            <Description>Move the agent one step forward</Description>
+            <Description>Turn the agent 90 degrees left</Description>
         </Action>
         <Action id="1" name="left" >
             <Description>Turn the agent 90 degrees left</Description>

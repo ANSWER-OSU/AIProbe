@@ -3,6 +3,10 @@
         <LogLevel>Info</LogLevel>
         <LogFilePath>/path/to/logfile.log</LogFilePath>
     </LogSettings>
+    <ResultSetting>
+        <ResultFolderPath>
+            /Users/rahil/Documents/GitHub/AIProbe/csharp/Result</ResultFolderPath>
+    </ResultSetting>
     
 
     <FileSettings>
@@ -14,7 +18,7 @@
         <InteractionGenerationTime>500</InteractionGenerationTime> 
     </TimeSettings>
     <RandomSettings>
-        <Seed>12345</Seed> <!-- Seed for controlling random generation -->
+        <Seed>12345</Seed> 
     </RandomSettings>
     <PythonSettings>
         <ScriptFilePath>/Users/rahil/Documents/GitHub/AIProbe/Minigrid/newMinigrid.py</ScriptFilePath> 

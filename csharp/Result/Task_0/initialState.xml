@@ -15,7 +15,7 @@
         <Attribute>
           <Name value="Y"/>
           <DataType value="int"/>
-          <Value value="2"/>
+          <Value value="1"/>
           <Min value="1"/>
           <Max value="8"/>
           <Step value="1"/>

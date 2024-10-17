@@ -20,8 +20,18 @@ namespace AIprobe.Models
         
         [XmlElement("PythonSettings")]
         public PythonSettings PythonSettings { get; set; }
+        
+        [XmlElement("ResultSetting")]
+        public ResultSetting ResultSetting { get; set; }
     }
 
+
+    public class ResultSetting
+    {
+        [XmlElement("ResultFolderPath")]
+        public string ResultFolderPath { get; set; }
+    }
+    
     public class LogSettings
     {
         // [XmlElement("LogLevel")]
@@ -41,10 +51,6 @@ namespace AIprobe.Models
         
         [XmlElement("ActionSpaceFilePath")]
         public string ActionSpaceFilePath { get; set; }
-        
-       
-        
-   
         
         
     }
@@ -69,7 +75,6 @@ namespace AIprobe.Models
         [XmlElement("InstructionGenerationTime")]
         public int InstructionGenerationTime { get; set; } // Time in seconds for interaction generation
     }
-
 
     public class RandomSettings
     {

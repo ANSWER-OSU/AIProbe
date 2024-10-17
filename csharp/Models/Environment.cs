@@ -20,5 +20,8 @@ namespace AIprobe.Models
 
         [XmlElement("EnvironmentalProperties")]
         public EnvironmentalProperties EnvironmentalProperties { get; set; }
+        
+        
+        
     }
 }

@@ -1,16 +1,15 @@
 import os
 import xml.etree.ElementTree as ET
 import sys
-import json
 
+import numpy as np
 import pygame
-from minigrid.minigrid_env import MiniGridEnv
-from minigrid.core.grid import Grid
-from minigrid.core.world_object import Wall, Lava, Goal, Ball
-from minigrid.core.actions import Actions
-from minigrid.core.mission import MissionSpace
 from PIL import Image
-os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "1"
+
+import MinigridEnv
+
+
+# Wrapper Code
 
 
 class Attribute:
@@ -127,109 +126,6 @@ def parse_environment(xml_file):
     return Environment(env_name, env_type, agents, objects, properties)
 
 
-# Custom environment based on the parsed XML data
-class CustomMiniGridEnv(MiniGridEnv):
-    def __init__(self, environment_data, **kwargs):
-        # Extract grid size from XML file's EnvironmentalProperties (Boundary width/height)
-        boundary = next(prop for prop in environment_data.properties if prop['name'] == 'Boundary')
-        grid_width = int(boundary['attributes'][0].value)  # Width
-        grid_height = int(boundary['attributes'][1].value)  # Height
-
-        # Make sure to pass only one value for grid_size (assuming the grid is square)
-        assert grid_width == grid_height, "Grid width and height must be the same for MiniGridEnv"
-
-        # Initialize the mission space and grid size based on the XML data
-        mission_space = MissionSpace(mission_func=lambda: "Reach the goal while avoiding obstacles")
-        super().__init__(grid_size=grid_width, mission_space=mission_space, **kwargs)
-
-        # Save the environment data for later use
-        self.environment_data = environment_data
-
-    def _gen_grid(self, width, height):
-        # Create an empty grid and set boundaries
-        self.grid = Grid(width, height)
-        self.grid.wall_rect(0, 0, width, height)
-
-        # Place walls, landmines, and other objects based on the parsed XML data
-        for obj in self.environment_data.objects:
-            self.add_object_to_grid(obj)
-
-        # Set agent's initial position
-        agent = self.environment_data.agents[0]
-        x_pos = int(agent.position[0].value)
-        y_pos = int(agent.position[1].value)
-        self.agent_pos = (x_pos, y_pos)
-
-        # Set agent direction (convert angle to MiniGrid's direction)
-        direction = int(agent.direction[0].value) //90
-        self.agent_dir = direction  # Convert degrees to grid directions (0: East, 1: South, etc.)
-
-    def add_object_to_grid(self, obj):
-        # Extract the object's position
-        x = int(obj.position[0].value)
-        y = int(obj.position[1].value)
-
-        # Add objects like walls and landmines based on the parsed XML data
-        if obj.name == "Wall":
-            self.grid.set(x, y, Wall())
-        elif obj.name == "Lava":
-            self.grid.set(x, y, Lava())  # You can customize the landmine object further if needed
-        elif obj.name == "Goal":
-            self.grid.set(x, y, Goal())  # Set goal object
-        elif obj.name == "Ball":
-            self.grid.set(x, y, Ball())
-
-    def step(self, action):
-        # Step through the environment and capture the results
-        result = super().step(action)
-
-        # Unpack the first four values (obs, reward, done, info) and ignore any extras
-        obs, reward, done, info, *extra = result
-
-        # Handle landmine (Lava) condition
-        if isinstance(self.grid.get(*self.agent_pos), Lava):
-            done = True
-            reward = -1
-
-        return obs, reward, done, info
-
-
-# Map the action string to MiniGrid actions
-def map_user_input_to_action(user_input):
-    action_map = {
-        'forward': Actions.forward,
-        'left': Actions.left,
-        'right': Actions.right,
-        'pickup': Actions.pickup,
-        'drop': Actions.drop,
-        'toggle': Actions.toggle
-    }
-    return action_map.get(user_input, None)
-
-
-# Run the environment using a list of predefined actions
-def run_minigrid_with_action_list(xml_parsed_data, action_list):
-    env = CustomMiniGridEnv(environment_data=xml_parsed_data)
-    obs = env.reset()
-
-    done = False
-    for user_input in action_list:
-        if done:
-            print("The environment is finished (either goal reached or landmine hit).")
-            break
-
-        # Map the action from the list
-        action = map_user_input_to_action(user_input)
-        if action is None:
-            print(f"Invalid action: {user_input}. Skipping...")
-            continue
-
-        # Perform the action in the environment
-        obs, reward, done, info = env.step(action)
-
-    return xml_parsed_data  # Return the updated environment data
-
-
 # Convert Attribute object to XML element
 def attribute_to_xml(attribute):
     attr_elem = ET.Element("Attribute")
@@ -319,15 +215,65 @@ def environment_to_xml(environment):
     return tree
 
 
+
+
+# Save the updated environment to an XML file
+import xml.dom.minidom
+
+
+# Save the updated environment to an XML file
+import xml.dom.minidom
+import re
+
+# Save the updated environment to an XML file
+# Convert the entire Environment object to XML
+def environment_to_xml(environment):
+    root = ET.Element("Environment")
+    root.set("name", environment.name)
+    root.set("type", environment.env_type)
+
+    # Add Agents
+    agents_elem = ET.SubElement(root, "Agents")
+    for agent in environment.agents:
+        agents_elem.append(agent_to_xml(agent))
+
+    # Add Objects
+    objects_elem = ET.SubElement(root, "Objects")
+    for obj in environment.objects:
+        objects_elem.append(object_to_xml(obj))
+
+    # Add EnvironmentalProperties
+    properties_elem = ET.SubElement(root, "EnvironmentalProperties")
+    for prop in environment.properties:
+        properties_elem.append(property_to_xml(prop))
+
+    tree = ET.ElementTree(root)
+    return tree
+
 # Save the updated environment to an XML file
 def save_environment_to_xml(environment, file_path):
     tree = environment_to_xml(environment)
-    tree.write(file_path, encoding="utf-8", xml_declaration=True)
 
+    # Convert the tree to a string
+    xml_str = ET.tostring(tree.getroot(), encoding="utf-8", method="xml").decode('utf-8')
+
+    # Add space before self-closing tags "/>"
+    xml_str = re.sub(r'(?<!\s)/>', r' />', xml_str)  # ensures space before self-closing tags
+
+    # Use xml.dom.minidom for pretty printing the XML
+    dom = xml.dom.minidom.parseString(xml_str)
+    pretty_xml_as_str = dom.toprettyxml(indent="  ")
+
+    # Remove extra newlines introduced by toprettyxml()
+    pretty_xml_as_str = re.sub(r'\n\s*\n', r'\n', pretty_xml_as_str)
+
+    # Write the formatted XML to the output file
+    with open(file_path, "w", encoding="utf-8") as f:
+        f.write(pretty_xml_as_str)
 
 # Run the environment using a single action
 def run_minigrid_with_single_actions(xml_parsed_data, action):
-    env = CustomMiniGridEnv(environment_data=xml_parsed_data)
+    env = MinigridEnv.CustomMiniGridEnv(environment_data=xml_parsed_data)
     obs = env.reset()
 
     done = False
@@ -338,7 +284,7 @@ def run_minigrid_with_single_actions(xml_parsed_data, action):
         env.render()
 
         # Map the single action from the argument
-        mapped_action = map_user_input_to_action(action)
+        mapped_action = MinigridEnv.map_user_input_to_action(action)
         if mapped_action is None:
             print(f"Invalid action: {action}. Skipping...")
         else:
@@ -363,26 +309,63 @@ def run_minigrid_with_single_actions(xml_parsed_data, action):
 # Run the environment using a single action
 def run_minigrid_with_single_action(environment_data, action):
     # Create the custom MiniGrid environment
-    env = CustomMiniGridEnv(environment_data=environment_data)
+    env = MinigridEnv.CustomMiniGridEnv(environment_data=environment_data)
     env.reset()
 
     # Map action from the input to MiniGrid action
-    mapped_action = map_user_input_to_action(action)
+    mapped_action = MinigridEnv.map_user_input_to_action(action)
 
     # Step through the environment with the mapped action
-    obs, reward, done, info = env.step(mapped_action)
+    obs, reward, terminated, info = env.step(mapped_action)
 
-    agent = environment_data.agents[0]  # Assuming there's only one agent
-    agent.position[0].value = str(env.agent_pos[0])  # Update X position
-    agent.position[1].value = str(env.agent_pos[1])  # Update Y position
-    agent.direction[0].value = str(env.agent_dir * 90)  # Update direction (0: East, 90: South, 180: West, 270: North)
+    new_enviroment_data = getEnvFromCustomMiniGridEnv(env,environment_data)
+
+    # Save the environment image after performing the action
+    #save_minigrid_image(env, "minigrid_after_action.png")
 
     # Close environment after execution
     env.close()
 
     # Return the updated environment data (as an XML object)
-    return environment_data
+    return new_enviroment_data , terminated
 
+
+def getEnvFromCustomMiniGridEnv(env, environment_data):
+
+    # Update agents
+    for i, agent in enumerate(environment_data.agents):
+        # Assuming env.agent_pos is a tuple (x, y)
+        # Update position (env.agent_pos gives (x, y))
+        agent.position[0].value = str(env.agent_pos[0])  # X position
+        agent.position[1].value = str(env.agent_pos[1])  # Y position
+
+        # Assuming env.agent_dir is an integer representing the direction
+        agent.direction[0].value = str(env.agent_dir)
+
+    # Update objects
+    for i, obj in enumerate(environment_data.objects):
+        # Find the object in the grid
+        for x in range(env.width):
+            for y in range(env.height):
+                grid_obj = env.grid.get(x, y)
+                if grid_obj and isinstance(grid_obj, type(obj)):  # Match the object type
+                    obj.position[0].value = str(x)  # X position
+                    obj.position[1].value = str(y)  # Y position
+                    obj.position[2].value = "0"  # Z position (assuming 2D grid)
+
+        # Update object attributes if they exist in env (assuming env.object_attributes)
+        if hasattr(env, 'object_attributes') and i < len(env.object_attributes):
+            for j, attr in enumerate(obj.object_attributes):
+                if j < len(env.object_attributes[i]):
+                    attr.value = str(env.object_attributes[i][j])
+
+    if hasattr(env, 'env_properties'):
+        for i, prop in enumerate(environment_data.properties):
+            if i < len(env.env_properties):
+                prop.value = str(env.env_properties[i])
+
+    # Return the updated environment data
+    return environment_data
 
 
 def main():
@@ -391,24 +374,67 @@ def main():
     action = sys.argv[2]  # Single action to perform
     output_xml_file = sys.argv[3]  # Temporary output file path
 
-    #xml_file = "/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/LavaEnv.xml" # Input XML file path
-    #action = "forward"  # Single action to perform
-    #output_xml_file = "/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/TempLavaEnv.xml"  # Temporary output file path
+    #xml_file = "/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/TempLavaEnv.xml" # Input XML file path
+    #action = "right"  # Single action to perform
+    #output_xml_file = "/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/outputTEMPLava.xml"  # Temporary output file path
 
-    # Parse the environment from the XML file
+    if os.path.exists(output_xml_file): os.remove(output_xml_file)
+
     environment_data = parse_environment(xml_file)
 
+    # Parse the environment from the XML file
+    agent_updated_position, agent_direction = get_agent_position(environment_data)
+    #print(f"Agent's Updated Position: X={agent_updated_position['X']}, Y={agent_updated_position['Y']}, Z={agent_updated_position['Z']}, Direction={agent_direction} degrees")
+
     # Run the environment with the provided single action
-    updated_environment_data = run_minigrid_with_single_action(environment_data, action)
+    updated_environment_data, terminated = run_minigrid_with_single_action(environment_data, action)
+    if(terminated):
+        print("Condition: unsafe")
+    else:
+        print("Condition: safe")
+    # Get the updated agent's position and direction after action
+    agent_updated_position, agent_direction = get_agent_position(updated_environment_data)
+    #print(f"Agent's Updated Position: X={agent_updated_position['X']}, Y={agent_updated_position['Y']}, Z={agent_updated_position['Z']}, Direction={agent_direction} degrees")
 
     # Save the updated environment data to the output XML file
     save_environment_to_xml(updated_environment_data, output_xml_file)
 
-
     # Print the file path for C# to retrieve
-    print(output_xml_file)
+    #print(output_xml_file)
 
+def get_agent_position(environment_data):
+    """Extracts and returns the agent's position and direction from the environment data."""
+    agent = environment_data.agents[0]  # Access the first agent
 
+    # Assuming `Position` is a list of `Attribute` objects
+    position_attributes = agent.position  # Get the list of position attributes
+
+    # Assuming `Direction` is a list of `Attribute` objects
+    direction_attributes = agent.direction  # Get the list of direction attributes
+
+    # Now extract X, Y, Z from the position attributes list
+    position = {
+        'X': int(position_attributes[0].value),  # Assuming first attribute corresponds to X
+        'Y': int(position_attributes[1].value),  # Assuming second attribute corresponds to Y
+        'Z': int(position_attributes[2].value)   # Assuming third attribute corresponds to Z
+    }
+
+    # Extract direction index and convert it to the corresponding cardinal direction (East, South, West, North)
+    direction_index = int(direction_attributes[0].value)  # Get the direction index
+    direction_str = direction_index_to_direction(direction_index)  # Convert index to direction name
+
+    return position, direction_str
+
+# Helper function to convert direction index to direction name
+def direction_index_to_direction(direction_index):
+    # Map MiniGrid's direction indices 0, 1, 2, 3 to cardinal directions
+    index_map = {
+        0: "East",  # 0 corresponds to East
+        1: "South", # 1 corresponds to South
+        2: "West",  # 2 corresponds to West
+        3: "North"  # 3 corresponds to North
+    }
+    return index_map.get(direction_index, "Unknown")  # Default to "Unknown" if index is invalid
 
 
 
