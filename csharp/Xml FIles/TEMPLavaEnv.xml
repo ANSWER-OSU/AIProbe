@@ -6,7 +6,7 @@
         <Attribute>
           <Name value="X"/>
           <DataType value="int"/>
-          <Value value="1"/>
+          <Value value="8"/>
           <Min value="1"/>
           <Max value="8"/>
           <Step value="1"/>
@@ -15,7 +15,7 @@
         <Attribute>
           <Name value="Y"/>
           <DataType value="int"/>
-          <Value value="2"/>
+          <Value value="8"/>
           <Min value="1"/>
           <Max value="8"/>
           <Step value="1"/>
@@ -35,7 +35,7 @@
         <Attribute>
           <Name value="Angle"/>
           <DataType value="integer"/>
-          <Value value="0"/>
+          <Value value="3"/>
           <Min value="0"/>
           <Max value="3"/>
           <Step value="1"/>

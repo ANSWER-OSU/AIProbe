@@ -122,10 +122,6 @@ namespace AIprobe
                     
                     
                     
-                    
-                    
-                    
-                    
                     tasksCount++;
                     
                 }

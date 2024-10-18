@@ -28,24 +28,7 @@ namespace AIprobe.Models
         
         
         
-        public override bool Equals(object obj)
-        {
-            if (obj is Object other)
-            {
-                // Compare Id, Name, Type, Position, and ObjectAttributes
-                return Id == other.Id &&
-                       Name == other.Name &&
-                       Type == other.Type &&
-                       Position.Equals(other.Position) &&
-                       ObjectAttributes.Equals(other.ObjectAttributes);
-            }
-            return false;
-        }
-
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(Id, Name, Type, Position, ObjectAttributes);
-        }
+       
         
     }
 }

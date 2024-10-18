@@ -175,31 +175,7 @@ namespace AIprobe.Models
         [XmlElement("Pair")]
         public List<Pair> Pairs { get; set; }
         
-        
-        public override bool Equals(object obj)
-        {
-            if (obj is ValueList other)
-            {
-                // Compare the count of pairs
-                if (Pairs.Count != other.Pairs.Count)
-                    return false;
-
-                // Compare each pair
-                for (int i = 0; i < Pairs.Count; i++)
-                {
-                    if (!Pairs[i].Equals(other.Pairs[i]))
-                        return false;
-                }
-
-                return true;
-            }
-            return false;
-        }
-
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(Pairs);
-        }
+      
     }
 
     public class Pair

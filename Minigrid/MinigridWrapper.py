@@ -378,13 +378,13 @@ def main():
     #action = "right"  # Single action to perform
     #output_xml_file = "/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/outputTEMPLava.xml"  # Temporary output file path
 
-    if os.path.exists(output_xml_file): os.remove(output_xml_file)
+    #if os.path.exists(output_xml_file): os.remove(output_xml_file)
 
     environment_data = parse_environment(xml_file)
 
     # Parse the environment from the XML file
     agent_updated_position, agent_direction = get_agent_position(environment_data)
-    #print(f"Agent's Updated Position: X={agent_updated_position['X']}, Y={agent_updated_position['Y']}, Z={agent_updated_position['Z']}, Direction={agent_direction} degrees")
+    print(f"Agent's Updated Position: X={agent_updated_position['X']}, Y={agent_updated_position['Y']}, Z={agent_updated_position['Z']}, Direction={agent_direction} degrees")
 
     # Run the environment with the provided single action
     updated_environment_data, terminated = run_minigrid_with_single_action(environment_data, action)
@@ -394,7 +394,7 @@ def main():
         print("Condition: safe")
     # Get the updated agent's position and direction after action
     agent_updated_position, agent_direction = get_agent_position(updated_environment_data)
-    #print(f"Agent's Updated Position: X={agent_updated_position['X']}, Y={agent_updated_position['Y']}, Z={agent_updated_position['Z']}, Direction={agent_direction} degrees")
+    print(f"Agent's Updated Position: X={agent_updated_position['X']}, Y={agent_updated_position['Y']}, Z={agent_updated_position['Z']}, Direction={agent_direction} degrees")
 
     # Save the updated environment data to the output XML file
     save_environment_to_xml(updated_environment_data, output_xml_file)
@@ -429,10 +429,10 @@ def get_agent_position(environment_data):
 def direction_index_to_direction(direction_index):
     # Map MiniGrid's direction indices 0, 1, 2, 3 to cardinal directions
     index_map = {
-        0: "East",  # 0 corresponds to East
-        1: "South", # 1 corresponds to South
-        2: "West",  # 2 corresponds to West
-        3: "North"  # 3 corresponds to North
+        0: "south",  # 0 corresponds to East
+        1: "West", # 1 corresponds to South
+        2: "North",  # 2 corresponds to West
+        3: "East"  # 3 corresponds to North
     }
     return index_map.get(direction_index, "Unknown")  # Default to "Unknown" if index is invalid
 
