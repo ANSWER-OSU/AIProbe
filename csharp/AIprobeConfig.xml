@@ -8,7 +8,6 @@
             /Users/rahil/Documents/GitHub/AIProbe/csharp/Result</ResultFolderPath>
     </ResultSetting>
     
-
     <FileSettings>
         <EnvironmentFilePath>/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/FourRoomEnv.xml</EnvironmentFilePath>
     </FileSettings>
@@ -19,6 +18,7 @@
     </TimeSettings>
     <RandomSettings>
         <Seed>12345</Seed> 
+        <MaxEnviromentCount>10</MaxEnviromentCount>
     </RandomSettings>
     <PythonSettings>
         <ScriptFilePath>/Users/rahil/Documents/GitHub/AIProbe/Minigrid/newMinigrid.py</ScriptFilePath> 

@@ -14,17 +14,16 @@ namespace AIprobe.TaskGenerator
             random = new Random(seed); 
         }
         
-        
         /// <summary>
         /// Generate various tasks based on the environment within the given time
         /// </summary>
         /// <param name="environmentConfig">environment config object</param>
         /// <param name="timeLimitInSeconds">time</param>
         /// <returns></returns>
-        public List<AIprobe.Models.Environment> GenerateTasks(Environment environmentConfig,
+        public List<(AIprobe.Models.Environment,Environment)> GenerateTasks(Environment environmentConfig,
             int timeLimitInSeconds)
         {
-            List<AIprobe.Models.Environment> tasks = new List<AIprobe.Models.Environment>();
+            List<(AIprobe.Models.Environment,Environment)> tasks = new List<(AIprobe.Models.Environment,Environment)>();
             DateTime startTime = DateTime.Now;
 
             Logger.LogInfo($"Task generation started with a time limit of {timeLimitInSeconds} seconds.");
@@ -32,10 +31,17 @@ namespace AIprobe.TaskGenerator
             int taskCount = 0;
             while ((DateTime.Now - startTime).TotalSeconds < timeLimitInSeconds)
             {
-                AIprobe.Models.Environment newEnvironment = environmentConfig;
-                MutateAgentProperties(newEnvironment);
-                MutateObjectProperties((newEnvironment));
-                tasks.Add(newEnvironment);
+                AIprobe.Models.Environment initialState = Program.DeepCopy(environmentConfig);
+                //AIprobe.Models.Environment finalState = Program.DeepCopy(environmentConfig);
+                
+                // gentrating new initial state
+                MutateAgentProperties(initialState);
+                MutateObjectProperties((initialState));
+
+                AIprobe.Models.Environment finalState = Program.DeepCopy(initialState);
+                MutateAgentProperties(finalState);
+                //MutateObjectProperties((finalState));
+                tasks.Add((initialState, finalState));
             }
 
             Logger.LogInfo(
@@ -227,6 +233,14 @@ namespace AIprobe.TaskGenerator
                     }
                 }
 
+                foreach (var attr in obj.Position.Attributes)
+                {
+                    if (attr.Mutable?.Value == true)
+                    {
+                        mutableAttributeNames.Add(attr.Name.Value); // Add the name of the mutable attribute
+                    }
+                }
+
                 // If there are mutable attributes, add them to the dictionary with the object's ID
                 if (mutableAttributeNames.Count > 0)
                 {
@@ -251,6 +265,8 @@ namespace AIprobe.TaskGenerator
                 {
                     // Get the mutable attribute names for this object
                     List<string> attributesToMutate = mutableAttributes[obj.Id.ToString()];
+                    
+                    ModifyEntityAttributes(obj.Position.Attributes, attributesToMutate);
 
                     // Modify Object attributes and store the selected values
                     ModifyEntityAttributes(obj.ObjectAttributes.Attributes, attributesToMutate);

@@ -8,13 +8,13 @@ namespace AIprobe
 {
     public class PythonRunner
     {
-        public AIprobe.Models.Environment RunPythonScript(string filePath, string action,out bool safeCondition,out string hashValue)
+        public AIprobe.Models.Environment RunPythonScript(string tempInputFilePath,string tempOutputFilePath, string action,out bool safeCondition)
         {
             
 
             // Save XML to a temporary file
-            string tempInputFilePath = "/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/TEMPLavaEnv.xml";  
-            string tempOutputFilePath = "/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/outputTEMPLava.xml";  
+             //tempInputFilePath = "/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/TEMPLavaEnv.xml";  
+             //tempOutputFilePath = "/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/outputTEMPLava.xml";  
             
             string tempXmlFilePath = "TEMPLavaEnv.xml";
             
@@ -64,8 +64,8 @@ namespace AIprobe
            
             //string updatedXmlData = File.ReadAllText(updatedXmlFilePath);
             
-            EnvironmentParser parser = new EnvironmentParser("/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/outputTEMPLava.xml");
-            return parser.ParseEnvironment(out hashValue);
+            EnvironmentParser parser = new EnvironmentParser(tempOutputFilePath);
+            return parser.ParseEnvironment();
         }
 
         private string SerializeEnvironment(AIprobe.Models.Environment environment)

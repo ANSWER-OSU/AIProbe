@@ -422,7 +422,7 @@ def run_minigrid_with_single_actions(xml_parsed_data, action):
 
 # Run the environment using a single action
 
-def run_minigrid_with_single_action(environment_data, action):
+def run_minigrid_with_single_action(environment_data):
     # Create the custom MiniGrid environment
     env = CustomMiniGridEnv(environment_data=environment_data)
     env.reset()
@@ -440,7 +440,7 @@ def run_minigrid_with_single_action(environment_data, action):
     env.render()  # This will draw the environment using pygame
 
     # Take a screenshot using pygame's image saving functionality
-    pygame.image.save(pygame.display.get_surface(), "minigrid_screenshot.png")
+    pygame.image.save(pygame.display.get_surface(), "minigrid_screenshot1.png")
 
     # Close the environment after execution
     env.close()
@@ -531,12 +531,12 @@ def main():
     #action = sys.argv[2]  # Single action to perform
     #output_xml_file = sys.argv[3]  # Temporary output file path
 
-    xml_file = "/Users/rahil/Documents/GitHub/AIProbe/csharp/Result/Task_0/finalState.xml" # Input XML file path
-    xml_file = ""
-    action = [
-      "right", "forward", "forward", "left", "right", "forward", "left", "right", "left", "forward", "left", "right", "forward", "left", "left", "right", "forward", "left"
-    ]
-    action=["right", "forward", "forward", "left", "right", "forward", "left","right", "forward", "left", "forward", "left", "right", "forward", "left", "forward", "left", "right", "forward", "left"]
+    xml_file = "/Users/rahil/Documents/GitHub/AIProbe/csharp/Result/Task_1/initialState.xml" # Input XML file path
+    #xml_file = "/Users/rahil/Documents/GitHub/AIProbe/csharp/Result/Task_1/finalState.xml"
+    #action = [
+    #  "right", "forward", "forward", "left", "right", "forward", "left", "right", "left", "forward", "left", "right", "forward", "left", "left", "right", "forward", "left"
+    #]
+    #action=["right", "forward", "forward", "left", "right", "forward", "left","right", "forward", "left", "forward", "left", "right", "forward", "left", "forward", "left", "right", "forward", "left"]
 
     # Single action to perform
     output_xml_file = "/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/outputTEMPLava.xml"  # Temporary output file path
@@ -551,7 +551,7 @@ def main():
     #print(f"Agent's Updated Position: X={agent_updated_position['X']}, Y={agent_updated_position['Y']}, Z={agent_updated_position['Z']}, Direction={agent_direction} degrees")
 
     # Run the environment with the provided single action
-    updated_environment_data, terminated = run_minigrid_with_multiple_actions(environment_data, action)
+    updated_environment_data, terminated = run_minigrid_with_single_action(environment_data)
     if (terminated):
         print("Condition: unsafe")
     else:

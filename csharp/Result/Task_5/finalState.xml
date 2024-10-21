@@ -6,7 +6,7 @@
         <Attribute>
           <Name value="X"/>
           <DataType value="int"/>
-          <Value value="7"/>
+          <Value value="3"/>
           <Min value="1"/>
           <Max value="8"/>
           <Step value="1"/>
@@ -15,7 +15,7 @@
         <Attribute>
           <Name value="Y"/>
           <DataType value="int"/>
-          <Value value="4"/>
+          <Value value="1"/>
           <Min value="1"/>
           <Max value="8"/>
           <Step value="1"/>
@@ -59,7 +59,7 @@
         <Attribute>
           <Name value="Y"/>
           <DataType value="int"/>
-          <Value value="0"/>
+          <Value value="1"/>
           <Min value="0"/>
           <Max value="9"/>
           <Step value="1"/>
@@ -147,7 +147,7 @@
         <Attribute>
           <Name value="Y"/>
           <DataType value="int"/>
-          <Value value="4"/>
+          <Value value="6"/>
           <Min value="0"/>
           <Max value="9"/>
           <Step value="1"/>
@@ -182,7 +182,7 @@
         <Attribute>
           <Name value="X"/>
           <DataType value="int"/>
-          <Value value="0"/>
+          <Value value="5"/>
           <Min value="0"/>
           <Max value="9"/>
           <Step value="1"/>
@@ -191,7 +191,7 @@
         <Attribute>
           <Name value="Y"/>
           <DataType value="int"/>
-          <Value value="2"/>
+          <Value value="8"/>
           <Min value="0"/>
           <Max value="9"/>
           <Step value="1"/>
@@ -226,7 +226,7 @@
         <Attribute>
           <Name value="X"/>
           <DataType value="int"/>
-          <Value value="0"/>
+          <Value value="2"/>
           <Min value="0"/>
           <Max value="9"/>
           <Step value="1"/>
@@ -235,7 +235,7 @@
         <Attribute>
           <Name value="Y"/>
           <DataType value="int"/>
-          <Value value="3"/>
+          <Value value="0"/>
           <Min value="0"/>
           <Max value="9"/>
           <Step value="1"/>
@@ -270,7 +270,7 @@
         <Attribute>
           <Name value="X"/>
           <DataType value="int"/>
-          <Value value="2"/>
+          <Value value="5"/>
           <Min value="0"/>
           <Max value="9"/>
           <Step value="1"/>
@@ -314,7 +314,7 @@
         <Attribute>
           <Name value="X"/>
           <DataType value="int"/>
-          <Value value="3"/>
+          <Value value="2"/>
           <Min value="0"/>
           <Max value="9"/>
           <Step value="1"/>
@@ -323,7 +323,7 @@
         <Attribute>
           <Name value="Y"/>
           <DataType value="int"/>
-          <Value value="5"/>
+          <Value value="7"/>
           <Min value="0"/>
           <Max value="9"/>
           <Step value="1"/>
@@ -402,7 +402,7 @@
         <Attribute>
           <Name value="X"/>
           <DataType value="int"/>
-          <Value value="3"/>
+          <Value value="4"/>
           <Min value="0"/>
           <Max value="9"/>
           <Step value="1"/>
@@ -411,7 +411,7 @@
         <Attribute>
           <Name value="Y"/>
           <DataType value="int"/>
-          <Value value="4"/>
+          <Value value="0"/>
           <Min value="0"/>
           <Max value="9"/>
           <Step value="1"/>
@@ -446,7 +446,7 @@
         <Attribute>
           <Name value="X"/>
           <DataType value="int"/>
-          <Value value="6"/>
+          <Value value="1"/>
           <Min value="0"/>
           <Max value="9"/>
           <Step value="1"/>
@@ -455,7 +455,7 @@
         <Attribute>
           <Name value="Y"/>
           <DataType value="int"/>
-          <Value value="1"/>
+          <Value value="5"/>
           <Min value="0"/>
           <Max value="9"/>
           <Step value="1"/>
@@ -490,7 +490,7 @@
         <Attribute>
           <Name value="X"/>
           <DataType value="int"/>
-          <Value value="7"/>
+          <Value value="6"/>
           <Min value="0"/>
           <Max value="9"/>
           <Step value="1"/>
@@ -499,7 +499,7 @@
         <Attribute>
           <Name value="Y"/>
           <DataType value="int"/>
-          <Value value="5"/>
+          <Value value="8"/>
           <Min value="0"/>
           <Max value="9"/>
           <Step value="1"/>
@@ -534,7 +534,7 @@
         <Attribute>
           <Name value="X"/>
           <DataType value="int"/>
-          <Value value="5"/>
+          <Value value="0"/>
           <Min value="0"/>
           <Max value="9"/>
           <Step value="1"/>
@@ -543,7 +543,7 @@
         <Attribute>
           <Name value="Y"/>
           <DataType value="int"/>
-          <Value value="2"/>
+          <Value value="0"/>
           <Min value="0"/>
           <Max value="9"/>
           <Step value="1"/>
@@ -578,7 +578,7 @@
         <Attribute>
           <Name value="X"/>
           <DataType value="int"/>
-          <Value value="2"/>
+          <Value value="8"/>
           <Min value="0"/>
           <Max value="9"/>
           <Step value="1"/>
@@ -622,7 +622,7 @@
         <Attribute>
           <Name value="X"/>
           <DataType value="int"/>
-          <Value value="1"/>
+          <Value value="7"/>
           <Min value="0"/>
           <Max value="9"/>
           <Step value="1"/>
@@ -631,7 +631,7 @@
         <Attribute>
           <Name value="Y"/>
           <DataType value="int"/>
-          <Value value="1"/>
+          <Value value="2"/>
           <Min value="0"/>
           <Max value="9"/>
           <Step value="1"/>
@@ -693,18 +693,6 @@
         <Step value="0"/>
         <Mutable value="false"/>
         <Description value="The depth of the boundary"/>
-      </Attribute>
-    </Property>
-    <Property name="Lava">
-      <Attribute>
-        <Name value="Quantity"/>
-        <DataType value="int"/>
-        <Value value="10"/>
-        <Min value="0"/>
-        <Max value="100"/>
-        <Step value="1"/>
-        <Mutable value="true"/>
-        <Description value="The quantity of the lava tiles."/>
       </Attribute>
     </Property>
   </EnvironmentalProperties>

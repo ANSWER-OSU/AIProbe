@@ -32,7 +32,7 @@ namespace AIprobe.Parsers
             }
         }
 
-        public AIprobe.Models.Environment ParseEnvironment(out string hashValue)
+        public AIprobe.Models.Environment ParseEnvironment()
         {
             try
             {
@@ -44,22 +44,22 @@ namespace AIprobe.Parsers
                 }
 
                 // Compute the hash value
-                hashValue = GenerateHash(xmlContent);
-                Logger.LogInfo($"Hash Value: {hashValue}");
+                //hashValue = GenerateHash(xmlContent);
+                //Logger.LogInfo($"Hash Value: {hashValue}");
 
                 // Deserialize the XML content
                 XmlSerializer serializer = new XmlSerializer(typeof(AIprobe.Models.Environment));
                 using (StringReader stringReader = new StringReader(xmlContent))
                 {
                     AIprobe.Models.Environment environment = (AIprobe.Models.Environment)serializer.Deserialize(stringReader);
-                    Logger.LogInfo("Environment file parsed successfully.");
+                    //Logger.LogInfo("Environment file parsed successfully.");
                     return environment;
                 }
             }
             catch (Exception ex)
             {
                 Logger.LogError($"Error parsing the environment XML file: {ex.Message}");
-                hashValue = null;
+                //hashValue = null;
                 return null;
             }
         }
@@ -98,7 +98,7 @@ namespace AIprobe.Parsers
                     writer.Write(xmlContent);
                 }
 
-                Logger.LogInfo("Environment object serialized and written to file successfully.");
+                //Logger.LogInfo("Environment object serialized and written to file successfully.");
                 return true;
             }
             catch (Exception ex)
