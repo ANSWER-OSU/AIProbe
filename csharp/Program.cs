@@ -111,10 +111,7 @@ namespace AIprobe
                 int totaltaskachieved = 0;
                 foreach (var task in tasksList)
                 {
-                    if (tasksCount > 0)
-                    {
-                        continue;
-                    }
+                   
                     string taskFolder = Path.Combine(resultEnviromentPath, $"Task_{tasksCount}");
                     string initalStateTaskPath = Path.Combine(taskFolder,"initialState.xml");
                     string finalStateTaskPath = Path.Combine(taskFolder,"finalState.xml");
