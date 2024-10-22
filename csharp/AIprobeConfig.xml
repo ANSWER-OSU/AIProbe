@@ -1,31 +1,27 @@
 <AIprobeConfig>
     <LogSettings>
         <LogLevel>Info</LogLevel>
-	<LogFilePath>logs/log_FourRoomEnv_8030.log</LogFilePath>
+        <LogFilePath>logs/log_LavaEnv_8030.txt</LogFilePath>
     </LogSettings>
     <ResultSetting>
-        <ResultFolderPath>results/result_FourRoomEnv_8030</ResultFolderPath>
+        <ResultFolderPath>Result/Result_LavaEnv_8030</ResultFolderPath>
     </ResultSetting>
-    
+
     <FileSettings>
-       <FinalEnviromentFilePath>Xml_Files/LavaEnv.xml</FinalEnviromentFilePath>
-       <InitialEnvironmentFilePath>Xml_Files/LavaEnv.xml</InitialEnvironmentFilePath>
-        <ActionSpaceFilePath>Xml_Files/old_env_config/ActionSpace.xml</ActionSpaceFilePath>
+        <FinalEnviromentFilePath>Data/LavaEnv.xml</FinalEnviromentFilePath>
+        <InitialEnvironmentFilePath>Data/LavaEnv.xml</InitialEnvironmentFilePath>
+        <ActionSpaceFilePath>Data/ActionSpace.xml</ActionSpaceFilePath>
     </FileSettings>
 
     <TimeSettings><!-- Time in seconds-->
-        <TaskGenerationTime>1</TaskGenerationTime> 
-        <InteractionGenerationTime>500</InteractionGenerationTime> 
+        <TaskGenerationTime>1</TaskGenerationTime>
+        <Timeout>130</Timeout>
+        <InstructionGenerationTime>500</InstructionGenerationTime>
     </TimeSettings>
     <RandomSettings>
-        <Seed>8308</Seed> 
-        <MaxEnviromentCount>10</MaxEnviromentCount>
+        <Seed>8030</Seed>
     </RandomSettings>
     <PythonSettings>
-        <ScriptFilePath>Minigrid/newMinigrid.py</ScriptFilePath> 
-	<!-- 
-	<TempLocation>/tmp/</TempLocation> 
-	<PythonEnvironment>/opt/anaconda3/envs/aiprobe/bin/python</PythonEnvironment> 
-	-->
+        <ScriptFilePath>Minigrid/MinigridWrapper.py</ScriptFilePath>
     </PythonSettings>
 </AIprobeConfig>

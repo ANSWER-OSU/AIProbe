@@ -73,7 +73,10 @@ namespace AIprobe.Models
         public int TaskGenerationTime { get; set; } // Time in seconds for task generation
 
         [XmlElement("InstructionGenerationTime")]
-        public int InstructionGenerationTime { get; set; } // Time in seconds for interaction generation
+        public int InstructionGenerationTime { get; set; }
+        
+        [XmlElement("Timeout")]
+        public double Timeout { get; set; }
     }
 
     public class RandomSettings

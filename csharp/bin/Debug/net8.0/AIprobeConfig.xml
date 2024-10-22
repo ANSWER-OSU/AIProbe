@@ -15,6 +15,7 @@
 
     <TimeSettings><!-- Time in seconds-->
         <TaskGenerationTime>1</TaskGenerationTime> 
+        <Timeout>13</Timeout>
         <InstructionGenerationTime>500</InstructionGenerationTime> 
     </TimeSettings>
      <RandomSettings>
@@ -22,7 +23,5 @@
     </RandomSettings>
     <PythonSettings>
         <ScriptFilePath>Minigrid/MinigridWrapper.py</ScriptFilePath> 
-        <TempLocation>/path/to/temp/location</TempLocation> 
-        <PythonEnvironment>/opt/anaconda3/envs/aiprobe/bin/python</PythonEnvironment>
     </PythonSettings>
 </AIprobeConfig>
