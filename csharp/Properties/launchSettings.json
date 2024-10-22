@@ -1,8 +1,13 @@
 {
   "profiles": {
     "AIprobe": {
-      "commandName": "Project"
-    },
+      "commandName": "Project",
+      "environmentVariables": {
+        "AIPROBE_HOME": "/Users/rahil/Documents/GitHub/AIProbe/csharp",
+        "PYTHON_HOME": "/opt/anaconda3/envs/aiprobe/bin/python"
+      }
+
+      },
     "Container (Dockerfile)": {
       "commandName": "Docker"
     }

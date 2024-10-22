@@ -47,7 +47,7 @@ namespace AIprobe.Parsers
                 using (StreamReader reader = new StreamReader(configFilePath))
                 {
                     AIprobeConfig config = (AIprobeConfig)serializer.Deserialize(reader);
-                    Logger.LogInfo("Configuration file parsed successfully.");
+                    //Logger.LogInfo("Configuration file parsed successfully.");
                     return config;
                 }
             }

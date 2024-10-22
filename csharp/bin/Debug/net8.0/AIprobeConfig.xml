@@ -1,16 +1,16 @@
 <AIprobeConfig>
     <LogSettings>
         <LogLevel>Info</LogLevel>
-        <LogFilePath>/path/to/logfile.log</LogFilePath>
+        <LogFilePath>logs/log_LavaEnv_8030.txt</LogFilePath>
     </LogSettings>
     <ResultSetting>
-        <ResultFolderPath>/Users/rahil/Documents/GitHub/AIProbe/csharp/Result</ResultFolderPath>
+        <ResultFolderPath>Result/Result_LavaEnv_8030</ResultFolderPath>
     </ResultSetting>
 
     <FileSettings>
-       <FinalEnviromentFilePath>/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/LavaEnv.xml</FinalEnviromentFilePath>
-       <InitialEnvironmentFilePath>/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/LavaEnv.xml</InitialEnvironmentFilePath>
-        <ActionSpaceFilePath>/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/old env config /ActionSpace.xml</ActionSpaceFilePath>
+       <FinalEnviromentFilePath>Data/LavaEnv.xml</FinalEnviromentFilePath>
+       <InitialEnvironmentFilePath>Data/LavaEnv.xml</InitialEnvironmentFilePath>
+        <ActionSpaceFilePath>Data/ActionSpace.xml</ActionSpaceFilePath>
     </FileSettings>
 
     <TimeSettings><!-- Time in seconds-->
@@ -18,10 +18,10 @@
         <InstructionGenerationTime>500</InstructionGenerationTime> 
     </TimeSettings>
      <RandomSettings>
-        <Seed>12345</Seed>
+        <Seed>8030</Seed>
     </RandomSettings>
     <PythonSettings>
-        <ScriptFilePath>/Users/rahil/Documents/GitHub/AIProbe/Minigrid/MinigridWrapper.py</ScriptFilePath> 
+        <ScriptFilePath>Minigrid/MinigridWrapper.py</ScriptFilePath> 
         <TempLocation>/path/to/temp/location</TempLocation> 
         <PythonEnvironment>/opt/anaconda3/envs/aiprobe/bin/python</PythonEnvironment>
     </PythonSettings>

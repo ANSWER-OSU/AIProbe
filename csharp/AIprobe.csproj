@@ -15,7 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Data\untitled folder\" />
     <Folder Include="Result\" />
+    <Folder Include="Result\Result_LavaEnv_8030\" />
   </ItemGroup>
 
 </Project>

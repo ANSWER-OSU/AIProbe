@@ -134,3 +134,6 @@ dmypy.json
 /csharp/bin/Debug
 csharp/obj/Debug/net8.0/AIprobe.sourcelink.json
 *.dll
+csharp/AIprobe.sln.DotSettings.user
+csharp/AIprobe.sln.DotSettings.user
+/csharp/bin

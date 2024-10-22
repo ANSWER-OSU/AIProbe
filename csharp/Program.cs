@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Xml.Serialization;
-//using AIprobe.EnvironmentGenerator;
+using AIprobe.EnvironmentGenerator;
 using AIprobe.Logging;
 using AIprobe.Models;
 using AIprobe.Parsers;
@@ -18,6 +18,7 @@ namespace AIprobe
         public static string pythonInterpreterPath = String.Empty;
         public static string  resultFolder = String.Empty;
         public static string tempFolder = String.Empty;
+        public static string testingHardCoddedEnvs = String.Empty;
         
         
         static void Main(string[] args)
@@ -50,6 +51,8 @@ namespace AIprobe
 
             // Set the log file path
             string logFilePath = aiprobe_root_path + "/" + config.LogSettings.LogFilePath;
+            //string logFilePath = "/tmp/aiprobe_log.txt";
+            
             Logger.Initialize(logFilePath);
             
             Logger.LogInfo("Starting AIprobe...");
@@ -80,32 +83,38 @@ namespace AIprobe
             Logger.LogInfo($"Action Space File Path: {aiprobe_root_path + "/" + config.FileSettings.ActionSpaceFilePath}");
             ActionSpaceParser actionSpaceParser = new ActionSpaceParser(aiprobe_root_path + "/" + config.FileSettings.ActionSpaceFilePath);
             ActionSpace  actionSpace = actionSpaceParser.ParseActionSpace();
+            testingHardCoddedEnvs = aiprobe_root_path + "/" + "Data/13_lava_env";
             
             
-            
-            //EnvConfigGenerator envConfigGenerator = new EnvConfigGenerator();
+            EnvConfigGenerator envConfigGenerator = new EnvConfigGenerator();
             EnvTaskGenerator envTaskGenerator = new EnvTaskGenerator(config.RandomSettings.Seed);
             InstructionChecker instructionChecker = new InstructionChecker();
             
             // generating new env from inital env 
-            //List<AIprobe.Models.Environment> environments =  envConfigGenerator.GenerateEnvConfigs(initialEnvironment,config.RandomSettings.Seed);
-
+            Logger.LogInfo($"Enviroment generation Started");
+            List<AIprobe.Models.Environment> environments =  envConfigGenerator.GenerateEnvConfigs(initialEnvironment,config.RandomSettings.Seed);
+            Logger.LogInfo($"Enviroment generation completed. {environments.Count} environment were generated.");
             //var env = initialEnvironment;
             
-            //foreach(AIprobe.Models.Environment env in environments)
+            int count  = 1;
+            foreach(AIprobe.Models.Environment env in environments)
             {
-                string resultEnviromentPath = resultFolder;
+                string resultEnviromentDir = resultFolder;
+                string resultEnviromentPath = Path.Combine(resultFolder, $"Env_{count}");
+                Directory.CreateDirectory(Path.GetDirectoryName(resultEnviromentPath));
                 // Generating new tasks list
-                List<(AIprobe.Models.Environment,Environment)> tasksList = envTaskGenerator.GenerateTasks(initialEnvironment,config.TimeSettings.TaskGenerationTime);
-
-                // foreach ( var task  in tasksList)
-                // {
+                Logger.LogInfo($"Creating new tasks for Environment {count}");
+                List<(AIprobe.Models.Environment,Environment)> tasksList = envTaskGenerator.GenerateTasks(env,config.TimeSettings.TaskGenerationTime);
+                
                 
                 int tasksCount =0;
                 int totaltaskachieved = 0;
                 foreach (var task in tasksList)
                 {
-                    
+                    if (tasksCount > 0)
+                    {
+                        continue;
+                    }
                     string taskFolder = Path.Combine(resultEnviromentPath, $"Task_{tasksCount}");
                     string initalStateTaskPath = Path.Combine(taskFolder,"initialState.xml");
                     string finalStateTaskPath = Path.Combine(taskFolder,"finalState.xml");
@@ -146,13 +155,13 @@ namespace AIprobe
                 }
                 
                 Logger.LogInfo($"Total task achieved {totaltaskachieved} from {tasksList.Count} task.");
-                
-        
-                
-                    // List<object[]> taskResults = instructionChecker.InstructionExists(initialEnvironment,tasksList[0],actionSpace,config.TimeSettings.InstructionGenerationTime,initalEnviromentHashValue);
-                    //
-                    // ResultSaver.SaveTaskResults(taskResults,"/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/AIprobe.json");
-                    //
+                count++;
+
+
+                // List<object[]> taskResults = instructionChecker.InstructionExists(initialEnvironment,tasksList[0],actionSpace,config.TimeSettings.InstructionGenerationTime,initalEnviromentHashValue);
+                //
+                // ResultSaver.SaveTaskResults(taskResults,"/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/AIprobe.json");
+                //
 
             }
             

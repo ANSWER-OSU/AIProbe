@@ -49,6 +49,7 @@ public class InstructionChecker
             // Dequeue the current environment state to explore
             var currentEnvironment = environmentQueue.Dequeue();
             
+            
             EnvironmentParser parser = new EnvironmentParser(tempFuzzerFilePath);
             parser.WriteEnvironment(currentEnvironment,out string currentEnviromentHashValues);
             
@@ -110,8 +111,7 @@ public class InstructionChecker
             List<string> remainingActions = new List<string>();
           
             remainingActions = AddEnvironmentAndCheckActions(currentEnviromentHashValues, actionSpace, completedActionsDictionary);
-                
-          
+            
             // else
             // {
             //     remainingActions = GetRemaingActions(currentEnvironment, actionSpace, completedActionsDictionary);
