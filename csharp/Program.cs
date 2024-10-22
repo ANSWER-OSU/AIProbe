@@ -22,11 +22,22 @@ namespace AIprobe
         
         static void Main(string[] args)
         {
-            // Set the log file path
-            string logFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AIprobeLog.txt");
-            Logger.Initialize(logFilePath);
+		
+	    // get the root path
+	     string aiprobe_root_path = System.Environment.GetEnvironmentVariable("AIPROBE_HOME");
+	     if (aiprobe_root_path == null)
+             {
+            	Console.WriteLine("Error! please set AIPROBE_HOME env variable to point to \"<path-to>AIProbe/csharp\" directory.");
+             }
+     	// get the python pathSystem
+             string py_path = System.Environment.GetEnvironmentVariable("PYTHON_HOME");
+             if (py_path == null)
+             {
+                Console.WriteLine("Error! please set PYTHON_HOME env variable to point to \"<path-to-aiprobe conda env>/bin/python\" file.");
+             }
 
-            Logger.LogInfo("Starting AIprobe...");
+		
+
  
             // Parse the AIprobe configuration file
             ConfigParser configParser = new ConfigParser();
@@ -37,22 +48,28 @@ namespace AIprobe
                 return;
             }
 
+            // Set the log file path
+            string logFilePath = aiprobe_root_path + "/" + config.LogSettings.LogFilePath;
+            Logger.Initialize(logFilePath);
             
-            pythonScriptFilePath = config.PythonSettings.ScriptFilePath;
-            pythonInterpreterPath = config.PythonSettings.PythonEnvironment;
-            resultFolder = config.ResultSetting.ResultFolderPath;
+            Logger.LogInfo("Starting AIprobe...");
+            pythonScriptFilePath = aiprobe_root_path + "/../" + config.PythonSettings.ScriptFilePath;
+            pythonInterpreterPath = py_path; //config.PythonSettings.PythonEnvironment;
+            resultFolder = aiprobe_root_path + "/" + config.ResultSetting.ResultFolderPath;
 
             // Parse the initial environment file
-            envConfigFile = config.FileSettings.InitialEnvironmentFilePath;
+            Console.WriteLine(resultFolder);
+            envConfigFile = aiprobe_root_path + "/" + config.FileSettings.InitialEnvironmentFilePath;
             Logger.LogInfo($"Initial Environment File Path: {config.FileSettings.InitialEnvironmentFilePath}");
-            Console.WriteLine(config.FileSettings.InitialEnvironmentFilePath);
-            EnvironmentParser intialParser = new EnvironmentParser(config.FileSettings.InitialEnvironmentFilePath);
+            Console.WriteLine(envConfigFile);
+            EnvironmentParser intialParser = new EnvironmentParser(envConfigFile);
             AIprobe.Models.Environment initialEnvironment = intialParser.ParseEnvironment();
 
             
             if (initialEnvironment == null)
             {
-                Logger.LogError("Error parsing environment. Please check the input file.");
+                Console.WriteLine("Error parsing environment. Please check the input file.");
+		Logger.LogError("Error parsing environment. Please check the input file.");
                 return;
             }
            
@@ -60,8 +77,8 @@ namespace AIprobe
             Logger.LogInfo("Initial Environment parsed successfully.");
             
             // Parse the action space of the Environment.
-            Logger.LogInfo($"Action Space File Path: {config.FileSettings.ActionSpaceFilePath}");
-            ActionSpaceParser actionSpaceParser = new ActionSpaceParser(config.FileSettings.ActionSpaceFilePath);
+            Logger.LogInfo($"Action Space File Path: {aiprobe_root_path + "/" + config.FileSettings.ActionSpaceFilePath}");
+            ActionSpaceParser actionSpaceParser = new ActionSpaceParser(aiprobe_root_path + "/" + config.FileSettings.ActionSpaceFilePath);
             ActionSpace  actionSpace = actionSpaceParser.ParseActionSpace();
             
             

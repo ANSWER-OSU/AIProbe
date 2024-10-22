@@ -15,12 +15,21 @@ namespace AIprobe
             // Save XML to a temporary file
              //tempInputFilePath = "/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/TEMPLavaEnv.xml";  
              //tempOutputFilePath = "/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/outputTEMPLava.xml";  
-            
+          
+		 // get the python path
+             string py_path = Environment.GetEnvironmentVariable("PYTHON_HOME");
+             if (py_path == null)
+             {
+                Console.WriteLine("Error! please set PYTHON_HOME env variable to point to \"<path-to-aiprobe conda env>/bin/python\" file.");
+             }
+
+
+
             string tempXmlFilePath = "TEMPLavaEnv.xml";
             
             ProcessStartInfo psi = new ProcessStartInfo
             {
-                FileName = Program.pythonInterpreterPath,
+                FileName = py_path,
                 Arguments = $"{Program.pythonScriptFilePath} \"{tempInputFilePath}\" \"{action}\" \"{tempOutputFilePath}\"",
                 RedirectStandardOutput = true, // Capture the output (file path) from Python
                 RedirectStandardError = true,
