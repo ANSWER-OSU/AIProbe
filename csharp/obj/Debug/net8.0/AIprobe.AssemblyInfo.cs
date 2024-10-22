@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AIprobe")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e05776cca6dad642d4648defcb74db0aa7d05b17")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0605498186f0622015f7b001c6365a0fb044c7d3")]
 [assembly: System.Reflection.AssemblyProductAttribute("AIprobe")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AIprobe")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

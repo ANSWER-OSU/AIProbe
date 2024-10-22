@@ -163,15 +163,29 @@ public class InstructionChecker
             {
                 string filePath = Program.envConfigFile;
 
+                bool safeCondition = true;
+                Environment updatedEnvironment = new Environment();
+                try
+                {
+                    updatedEnvironment =
+                        runner.RunPythonScript( tempFuzzerFilePath,wraperFilePath, action, out safeCondition);
+
+                }
+                catch (Exception e)
+                {
+                    
+                    Console.WriteLine(e.Message);
+                    return results;
+
+                }
                 // Run the Python script to get the updated environment statE
-                Environment updatedEnvironment =
-                    runner.RunPythonScript( tempFuzzerFilePath,wraperFilePath, action, out bool safeCondition);
                 
                 
                 EnvironmentParser current = new EnvironmentParser(dumperFilePath);
                 current.WriteEnvironment(updatedEnvironment,out string currentvalue);
                 
                 string updatedEnviromentHashValue = currentvalue;
+               
 
                 if (updatedEnviromentHashValue.Equals(finalStateHashValue))
                 {

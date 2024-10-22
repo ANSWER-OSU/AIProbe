@@ -76,7 +76,6 @@ namespace AIprobe
                 return;
             }
 
-
             Logger.LogInfo("Initial Environment parsed successfully.");
 
             // Parse the action space of the Environment.
@@ -102,26 +101,21 @@ namespace AIprobe
             int count = 1;
             //foreach(AIprobe.Models.Environment env in environments)
             //{
-            string resultEnviromentDir = resultFolder;
-            string resultEnviromentPath = Path.Combine(resultFolder, $"Env_{count}");
-            Directory.CreateDirectory(Path.GetDirectoryName(resultEnviromentPath));
+            //string resultEnviromentDir = resultFolder;
+            //string resultEnviromentPath = Path.Combine(resultFolder, $"Env_{count}");
+            //Directory.CreateDirectory(Path.GetDirectoryName(resultEnviromentPath));
             // Generating new tasks list
             Logger.LogInfo($"Creating new tasks for Environment {count}");
             List<(AIprobe.Models.Environment, Environment)> tasksList =
                 envTaskGenerator.GenerateTasks(initialEnvironment, config.TimeSettings.TaskGenerationTime);
             DateTime startTime = DateTime.Now;
-
-            TimeSpan timeoutDuration =
-                TimeSpan.FromMinutes(
-                    Convert.ToDouble(config.TimeSettings.Timeout)); // Set your desired timeout duration
-            Stopwatch stopwatch = new Stopwatch(); // To track time
-
-            stopwatch.Start();
+            
+            
             int tasksCount = 0;
             int totaltaskachieved = 0;
             foreach (var task in tasksList)
             {
-                string taskFolder = Path.Combine(resultEnviromentPath, $"Task_{tasksCount}");
+                string taskFolder = Path.Combine(resultFolder, $"Task_{tasksCount}");
                 string initalStateTaskPath = Path.Combine(taskFolder, "initialState.xml");
                 string finalStateTaskPath = Path.Combine(taskFolder, "finalState.xml");
                 string instructionsPath = Path.Combine(taskFolder, "AIprobe.json");
