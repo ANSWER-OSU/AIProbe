@@ -1,28 +1,31 @@
 <AIprobeConfig>
     <LogSettings>
         <LogLevel>Info</LogLevel>
-        <LogFilePath>/path/to/logfile.log</LogFilePath>
+	<LogFilePath>logs/log_FourRoomEnv_8030.log</LogFilePath>
     </LogSettings>
     <ResultSetting>
-        <ResultFolderPath>
-            /Users/rahil/Documents/GitHub/AIProbe/csharp/Result</ResultFolderPath>
+        <ResultFolderPath>results/result_FourRoomEnv_8030</ResultFolderPath>
     </ResultSetting>
     
     <FileSettings>
-        <EnvironmentFilePath>/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/FourRoomEnv.xml</EnvironmentFilePath>
+       <FinalEnviromentFilePath>Xml_Files/LavaEnv.xml</FinalEnviromentFilePath>
+       <InitialEnvironmentFilePath>Xml_Files/LavaEnv.xml</InitialEnvironmentFilePath>
+        <ActionSpaceFilePath>Xml_Files/old_env_config/ActionSpace.xml</ActionSpaceFilePath>
     </FileSettings>
 
     <TimeSettings><!-- Time in seconds-->
-        <TaskGenerationTime>10</TaskGenerationTime> 
+        <TaskGenerationTime>1</TaskGenerationTime> 
         <InteractionGenerationTime>500</InteractionGenerationTime> 
     </TimeSettings>
     <RandomSettings>
-        <Seed>12345</Seed> 
+        <Seed>8308</Seed> 
         <MaxEnviromentCount>10</MaxEnviromentCount>
     </RandomSettings>
     <PythonSettings>
-        <ScriptFilePath>/Users/rahil/Documents/GitHub/AIProbe/Minigrid/newMinigrid.py</ScriptFilePath> 
-        <TempLocation>/path/to/temp/location</TempLocation> 
-        <PythonEnvironment>/opt/anaconda3/envs/aiprobe/bin/python</PythonEnvironment>
+        <ScriptFilePath>Minigrid/newMinigrid.py</ScriptFilePath> 
+	<!-- 
+	<TempLocation>/tmp/</TempLocation> 
+	<PythonEnvironment>/opt/anaconda3/envs/aiprobe/bin/python</PythonEnvironment> 
+	-->
     </PythonSettings>
 </AIprobeConfig>
