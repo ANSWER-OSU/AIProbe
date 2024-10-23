@@ -312,7 +312,12 @@ def run_minigrid_with_single_action(environment_data, action):
     env = MinigridEnv.CustomMiniGridEnv(environment_data=environment_data)
     env.reset()
 
-    # Map action from the input to MiniGrid action
+    if isinstance(env.grid.get(*env.agent_pos), MinigridEnv.Lava):
+        print("Condition: unsafe (Agent starting on Lava tile)")
+        env.close()  # Make sure to close the environment
+        return environment_data, True
+
+        # Map action from the input to MiniGrid action
     mapped_action = MinigridEnv.map_user_input_to_action(action)
 
     # Step through the environment with the mapped action
@@ -370,13 +375,13 @@ def getEnvFromCustomMiniGridEnv(env, environment_data):
 
 def main():
     # Get the file path to the XML file and the single action from command-line arguments
-    xml_file = sys.argv[1]  # Input XML file path
-    action = sys.argv[2]  # Single action to perform
-    output_xml_file = sys.argv[3]  # Temporary output file path
+    #xml_file = sys.argv[1]  # Input XML file path
+    #action = sys.argv[2]  # Single action to perform
+    #output_xml_file = sys.argv[3]  # Temporary output file path
 
-    #xml_file = "/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/TempLavaEnv.xml" # Input XML file path
-    #action = "right"  # Single action to perform
-    #output_xml_file = "/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/outputTEMPLava.xml"  # Temporary output file path
+    xml_file = "/Users/rahil/Documents/GitHub/AIProbe/csharp/results/Result_LavaEnv6_8030/Task_22/initialState.xml" # Input XML file path
+    action = "forward"  # Single action to perform
+    output_xml_file = "/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/outputTEMPLava.xml"  # Temporary output file path
 
     #if os.path.exists(output_xml_file): os.remove(output_xml_file)
 
@@ -384,7 +389,7 @@ def main():
 
     # Parse the environment from the XML file
     agent_updated_position, agent_direction = get_agent_position(environment_data)
-    print(f"Agent's Updated Position: X={agent_updated_position['X']}, Y={agent_updated_position['Y']}, Z={agent_updated_position['Z']}, Direction={agent_direction} degrees")
+    #print(f"Agent's Updated Position: X={agent_updated_position['X']}, Y={agent_updated_position['Y']}, Z={agent_updated_position['Z']}, Direction={agent_direction} degrees")
 
     # Run the environment with the provided single action
     updated_environment_data, terminated = run_minigrid_with_single_action(environment_data, action)
@@ -394,7 +399,7 @@ def main():
         print("Condition: safe")
     # Get the updated agent's position and direction after action
     agent_updated_position, agent_direction = get_agent_position(updated_environment_data)
-    print(f"Agent's Updated Position: X={agent_updated_position['X']}, Y={agent_updated_position['Y']}, Z={agent_updated_position['Z']}, Direction={agent_direction} degrees")
+    #print(f"Agent's Updated Position: X={agent_updated_position['X']}, Y={agent_updated_position['Y']}, Z={agent_updated_position['Z']}, Direction={agent_direction} degrees")
 
     # Save the updated environment data to the output XML file
     save_environment_to_xml(updated_environment_data, output_xml_file)

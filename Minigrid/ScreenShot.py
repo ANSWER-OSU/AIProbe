@@ -531,8 +531,8 @@ def main():
     #action = sys.argv[2]  # Single action to perform
     #output_xml_file = sys.argv[3]  # Temporary output file path
 
-    xml_file = "/Users/rahil/Downloads/AIProbe/csharp/Xml FIles/0onlyLeft.xml" # Input XML file path
-    #xml_file = "/Users/rahil/Documents/GitHub/AIProbe/csharp/Result/Task_1/finalState.xml"
+    xml_file = "/Users/rahil/Documents/GitHub/AIProbe/csharp/results/Result_LavaEnv1_8030/Task_11/initialState.xml" # Input XML file path
+    xml_file = "/Users/rahil/Documents/GitHub/AIProbe/Result/lava_exp_result/Result_LavaEnv5_8030/Task_3/finalState.xml"
     #action = [
     #  "right", "forward", "forward", "left", "right", "forward", "left", "right", "left", "forward", "left", "right", "forward", "left", "left", "right", "forward", "left"
     #]
@@ -590,6 +590,15 @@ def save_screenshot(env, screenshot_path):
     if screen:
         pygame.image.save(screen, screenshot_path)  # Save the surface as an image
         print(f"Screenshot saved to {screenshot_path}")
+
+
+
+
+
+
+
+
+
 
 # Helper function to convert direction index to direction name
 def direction_index_to_direction(direction_index):
