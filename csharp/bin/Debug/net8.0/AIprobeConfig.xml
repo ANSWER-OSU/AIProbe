@@ -1,15 +1,15 @@
 <AIprobeConfig>
     <LogSettings>
         <LogLevel>Info</LogLevel>
-        <LogFilePath>logs/log_LavaEnv8_9957.txt</LogFilePath>
+        <LogFilePath>logs/log_LavaEnv13_2503.txt</LogFilePath>
     </LogSettings>
     <ResultSetting>
-        <ResultFolderPath>results/Result_LavaEnv8_9957</ResultFolderPath>
+        <ResultFolderPath>results/Result_LavaEnv13_2503</ResultFolderPath>
     </ResultSetting>
 
     <FileSettings>
-	    <FinalEnviromentFilePath>Data/13_lava_env/LavaEnv8.xml</FinalEnviromentFilePath>
-	    <InitialEnvironmentFilePath>Data/13_lava_env/LavaEnv8.xml</InitialEnvironmentFilePath>
+	    <FinalEnviromentFilePath>Data/13_lava_env/LavaEnv13.xml</FinalEnviromentFilePath>
+	    <InitialEnvironmentFilePath>Data/13_lava_env/LavaEnv13.xml</InitialEnvironmentFilePath>
         <ActionSpaceFilePath>Data/ActionSpace.xml</ActionSpaceFilePath>
     </FileSettings>
 
@@ -19,7 +19,7 @@
         <InstructionGenerationTime>500</InstructionGenerationTime>
     </TimeSettings>
     <RandomSettings>
-        <Seed>9957</Seed>
+        <Seed>2503</Seed>
     </RandomSettings>
     <PythonSettings>
         <ScriptFilePath>Minigrid/MinigridWrapper.py</ScriptFilePath>
