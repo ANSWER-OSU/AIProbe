@@ -375,13 +375,13 @@ def getEnvFromCustomMiniGridEnv(env, environment_data):
 
 def main():
     # Get the file path to the XML file and the single action from command-line arguments
-    #xml_file = sys.argv[1]  # Input XML file path
-    #action = sys.argv[2]  # Single action to perform
-    #output_xml_file = sys.argv[3]  # Temporary output file path
+    xml_file = sys.argv[1]  # Input XML file path
+    action = sys.argv[2]  # Single action to perform
+    output_xml_file = sys.argv[3]  # Temporary output file path
 
-    xml_file = "/Users/rahil/Documents/GitHub/AIProbe/csharp/results/Result_LavaEnv6_8030/Task_22/initialState.xml" # Input XML file path
-    action = "forward"  # Single action to perform
-    output_xml_file = "/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/outputTEMPLava.xml"  # Temporary output file path
+    #xml_file = "/Users/rahil/Documents/GitHub/AIProbe/csharp/results/Result_LavaEnv6_8030/Task_22/initialState.xml" # Input XML file path
+    #action = "forward"  # Single action to perform
+    #output_xml_file = "/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/outputTEMPLava.xml"  # Temporary output file path
 
     #if os.path.exists(output_xml_file): os.remove(output_xml_file)
 
