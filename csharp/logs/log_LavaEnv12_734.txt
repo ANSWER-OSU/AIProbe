@@ -1,0 +1,183 @@
+Log initialized on 10/23/2024 5:33:52 AM
+[10/23/2024 5:33:52 AM] INFO: Starting AIprobe...
+[10/23/2024 5:33:52 AM] INFO: Initial Environment File Path: Data/13_lava_env/LavaEnv12.xml
+[10/23/2024 5:33:52 AM] INFO: Initial Environment parsed successfully.
+[10/23/2024 5:33:52 AM] INFO: Action Space File Path: /home/projects/AIProbe/csharp/Data/ActionSpace.xml
+[10/23/2024 5:33:52 AM] INFO: Enviroment generation Started
+[10/23/2024 5:33:52 AM] INFO: Environment generation started.
+[10/23/2024 5:33:52 AM] INFO: Parsed environment from file: /home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv1.xml
+[10/23/2024 5:33:52 AM] INFO: Parsed environment from file: /home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv7.xml
+[10/23/2024 5:33:52 AM] INFO: Parsed environment from file: /home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv12.xml
+[10/23/2024 5:33:52 AM] INFO: Parsed environment from file: /home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv6.xml
+[10/23/2024 5:33:52 AM] INFO: Parsed environment from file: /home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv5.xml
+[10/23/2024 5:33:52 AM] INFO: Parsed environment from file: /home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv13.xml
+[10/23/2024 5:33:52 AM] INFO: Parsed environment from file: /home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv11.xml
+[10/23/2024 5:33:52 AM] INFO: Parsed environment from file: /home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv3.xml
+[10/23/2024 5:33:52 AM] INFO: Parsed environment from file: /home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv4.xml
+[10/23/2024 5:33:52 AM] INFO: Parsed environment from file: /home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv9.xml
+[10/23/2024 5:33:52 AM] INFO: Parsed environment from file: /home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv8.xml
+[10/23/2024 5:33:53 AM] INFO: Parsed environment from file: /home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv10.xml
+[10/23/2024 5:33:53 AM] INFO: Parsed environment from file: /home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv2.xml
+[10/23/2024 5:33:53 AM] INFO: Edge case environment with 0 objects added.
+[10/23/2024 5:33:53 AM] INFO: All environments generated successfully.
+[10/23/2024 5:33:53 AM] INFO: Enviroment generation completed. 13 environment were generated.
+[10/23/2024 5:33:53 AM] INFO: Creating new tasks for Environment 1
+[10/23/2024 5:33:53 AM] INFO: Task generation started with a time limit of 1 seconds.
+[10/23/2024 5:33:54 AM] INFO: Task generation completed. 576 tasks were generated within 1 seconds.
+[10/23/2024 5:33:54 AM] INFO: Starting instruction validation.
+[10/23/2024 5:44:19 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 5:44:19 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_0/AIprobe.json
+[10/23/2024 5:44:19 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 5:44:19 AM] INFO: Starting instruction validation.
+[10/23/2024 5:53:58 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 5:53:58 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_1/AIprobe.json
+[10/23/2024 5:53:58 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 5:53:58 AM] INFO: Starting instruction validation.
+[10/23/2024 6:03:27 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 6:03:27 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_2/AIprobe.json
+[10/23/2024 6:03:27 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 6:03:27 AM] INFO: Starting instruction validation.
+[10/23/2024 6:12:44 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 6:12:44 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_3/AIprobe.json
+[10/23/2024 6:12:44 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 6:12:44 AM] INFO: Starting instruction validation.
+[10/23/2024 6:21:46 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 6:21:46 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_4/AIprobe.json
+[10/23/2024 6:21:46 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 6:21:46 AM] INFO: Starting instruction validation.
+[10/23/2024 6:30:35 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 6:30:35 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_5/AIprobe.json
+[10/23/2024 6:30:35 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 6:30:35 AM] INFO: Starting instruction validation.
+[10/23/2024 6:39:32 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 6:39:32 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_6/AIprobe.json
+[10/23/2024 6:39:32 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 6:39:32 AM] INFO: Starting instruction validation.
+[10/23/2024 6:48:40 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 6:48:40 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_7/AIprobe.json
+[10/23/2024 6:48:40 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 6:48:40 AM] INFO: Starting instruction validation.
+[10/23/2024 6:57:44 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 6:57:44 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_8/AIprobe.json
+[10/23/2024 6:57:44 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 6:57:44 AM] INFO: Starting instruction validation.
+[10/23/2024 7:06:38 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 7:06:38 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_9/AIprobe.json
+[10/23/2024 7:06:38 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 7:06:38 AM] INFO: Starting instruction validation.
+[10/23/2024 7:15:14 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 7:15:14 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_10/AIprobe.json
+[10/23/2024 7:15:14 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 7:15:14 AM] INFO: Starting instruction validation.
+[10/23/2024 7:23:41 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 7:23:41 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_11/AIprobe.json
+[10/23/2024 7:23:41 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 7:23:41 AM] INFO: Starting instruction validation.
+[10/23/2024 7:33:24 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 7:33:24 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_12/AIprobe.json
+[10/23/2024 7:33:24 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 7:33:24 AM] INFO: Starting instruction validation.
+[10/23/2024 7:43:01 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 7:43:01 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_13/AIprobe.json
+[10/23/2024 7:43:01 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 7:43:01 AM] INFO: Starting instruction validation.
+[10/23/2024 7:52:22 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 7:52:22 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_14/AIprobe.json
+[10/23/2024 7:52:22 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 7:52:22 AM] INFO: Starting instruction validation.
+[10/23/2024 8:01:53 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 8:01:53 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_15/AIprobe.json
+[10/23/2024 8:01:53 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 8:01:53 AM] INFO: Starting instruction validation.
+[10/23/2024 8:11:03 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 8:11:03 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_16/AIprobe.json
+[10/23/2024 8:11:03 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 8:11:03 AM] INFO: Starting instruction validation.
+[10/23/2024 8:19:48 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 8:19:48 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_17/AIprobe.json
+[10/23/2024 8:19:48 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 8:19:48 AM] INFO: Starting instruction validation.
+[10/23/2024 8:28:35 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 8:28:35 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_18/AIprobe.json
+[10/23/2024 8:28:35 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 8:28:35 AM] INFO: Starting instruction validation.
+[10/23/2024 8:37:17 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 8:37:17 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_19/AIprobe.json
+[10/23/2024 8:37:17 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 8:37:17 AM] INFO: Starting instruction validation.
+[10/23/2024 8:46:51 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 8:46:51 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_20/AIprobe.json
+[10/23/2024 8:46:51 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 8:46:51 AM] INFO: Starting instruction validation.
+[10/23/2024 8:55:24 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 8:55:24 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_21/AIprobe.json
+[10/23/2024 8:55:24 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 8:55:24 AM] INFO: Starting instruction validation.
+[10/23/2024 9:03:45 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 9:03:45 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_22/AIprobe.json
+[10/23/2024 9:03:45 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 9:03:45 AM] INFO: Starting instruction validation.
+[10/23/2024 9:12:06 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 9:12:06 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_23/AIprobe.json
+[10/23/2024 9:12:06 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 9:12:06 AM] INFO: Starting instruction validation.
+[10/23/2024 9:21:37 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 9:21:37 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_24/AIprobe.json
+[10/23/2024 9:21:37 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 9:21:37 AM] INFO: Starting instruction validation.
+[10/23/2024 9:31:18 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 9:31:18 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_25/AIprobe.json
+[10/23/2024 9:31:18 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 9:31:18 AM] INFO: Starting instruction validation.
+[10/23/2024 9:40:50 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 9:40:50 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_26/AIprobe.json
+[10/23/2024 9:40:50 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 9:40:50 AM] INFO: Starting instruction validation.
+[10/23/2024 9:50:16 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 9:50:16 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_27/AIprobe.json
+[10/23/2024 9:50:16 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 9:50:16 AM] INFO: Starting instruction validation.
+[10/23/2024 9:59:27 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 9:59:27 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_28/AIprobe.json
+[10/23/2024 9:59:27 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 9:59:27 AM] INFO: Starting instruction validation.
+[10/23/2024 10:08:22 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 10:08:22 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_29/AIprobe.json
+[10/23/2024 10:08:22 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 10:08:22 AM] INFO: Starting instruction validation.
+[10/23/2024 10:17:23 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 10:17:23 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_30/AIprobe.json
+[10/23/2024 10:17:23 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 10:17:23 AM] INFO: Starting instruction validation.
+[10/23/2024 10:26:22 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 10:26:22 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_31/AIprobe.json
+[10/23/2024 10:26:22 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 10:26:22 AM] INFO: Starting instruction validation.
+[10/23/2024 10:35:00 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 10:35:00 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_32/AIprobe.json
+[10/23/2024 10:35:00 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 10:35:00 AM] INFO: Starting instruction validation.
+[10/23/2024 10:43:38 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 10:43:38 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_33/AIprobe.json
+[10/23/2024 10:43:38 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 10:43:38 AM] INFO: Starting instruction validation.
+[10/23/2024 10:52:16 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 10:52:16 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_34/AIprobe.json
+[10/23/2024 10:52:16 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 10:52:16 AM] INFO: Starting instruction validation.
+[10/23/2024 11:01:03 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 11:01:03 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_35/AIprobe.json
+[10/23/2024 11:01:03 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 11:01:03 AM] INFO: Starting instruction validation.
+[10/23/2024 11:09:43 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 11:09:43 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_36/AIprobe.json
+[10/23/2024 11:09:43 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 11:09:43 AM] INFO: Starting instruction validation.
+[10/23/2024 11:18:12 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 11:18:12 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_37/AIprobe.json
+[10/23/2024 11:18:12 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 11:18:12 AM] INFO: Starting instruction validation.
+[10/23/2024 11:27:30 AM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 11:27:30 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_734/Task_38/AIprobe.json
+[10/23/2024 11:27:30 AM] INFO: Total task achieved 0 from 576 task.
+[10/23/2024 11:27:30 AM] INFO: Starting instruction validation.

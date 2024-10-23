@@ -1,0 +1,20 @@
+{
+  "1": {
+    "Instructions": [
+      "left, forward"
+    ],
+    "Result": "Unsafe"
+  },
+  "2": {
+    "Instructions": [
+      "forward, forward, left, forward"
+    ],
+    "Result": "Unsafe"
+  },
+  "3": {
+    "Instructions": [
+      "right, forward, forward, forward"
+    ],
+    "Result": "Safe"
+  }
+}
