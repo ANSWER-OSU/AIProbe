@@ -1,0 +1,25 @@
+Log initialized on 10/22/2024 4:41:16 PM
+[10/22/2024 4:41:16 PM] INFO: Starting AIprobe...
+[10/22/2024 4:41:16 PM] INFO: Initial Environment File Path: Data/13_lava_env/LavaEnv73.xml
+[10/22/2024 4:41:16 PM] ERROR: Error parsing the environment XML file: Could not find file '/home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv73.xml'.
+[10/22/2024 4:41:16 PM] ERROR: Error parsing environment. Please check the input file.
+[10/22/2024 4:41:16 PM] INFO: Starting AIprobe...
+[10/22/2024 4:41:16 PM] INFO: Initial Environment File Path: Data/13_lava_env/LavaEnv73.xml
+[10/22/2024 4:41:16 PM] ERROR: Error parsing the environment XML file: Could not find file '/home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv73.xml'.
+[10/22/2024 4:41:16 PM] ERROR: Error parsing environment. Please check the input file.
+[10/22/2024 4:41:16 PM] INFO: Starting AIprobe...
+[10/22/2024 4:41:16 PM] INFO: Initial Environment File Path: Data/13_lava_env/LavaEnv73.xml
+[10/22/2024 4:41:16 PM] ERROR: Error parsing the environment XML file: Could not find file '/home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv73.xml'.
+[10/22/2024 4:41:16 PM] ERROR: Error parsing environment. Please check the input file.
+[10/22/2024 4:41:16 PM] INFO: Starting AIprobe...
+[10/22/2024 4:41:16 PM] INFO: Initial Environment File Path: Data/13_lava_env/LavaEnv73.xml
+[10/22/2024 4:41:16 PM] ERROR: Error parsing the environment XML file: Could not find file '/home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv73.xml'.
+[10/22/2024 4:41:16 PM] ERROR: Error parsing environment. Please check the input file.
+[10/22/2024 4:41:16 PM] INFO: Starting AIprobe...
+[10/22/2024 4:41:16 PM] INFO: Initial Environment File Path: Data/13_lava_env/LavaEnv73.xml
+[10/22/2024 4:41:16 PM] ERROR: Error parsing the environment XML file: Could not find file '/home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv73.xml'.
+[10/22/2024 4:41:16 PM] ERROR: Error parsing environment. Please check the input file.
+[10/22/2024 4:41:16 PM] INFO: Starting AIprobe...
+[10/22/2024 4:41:16 PM] INFO: Initial Environment File Path: Data/13_lava_env/LavaEnv73.xml
+[10/22/2024 4:41:16 PM] ERROR: Error parsing the environment XML file: Could not find file '/home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv73.xml'.
+[10/22/2024 4:41:16 PM] ERROR: Error parsing environment. Please check the input file.

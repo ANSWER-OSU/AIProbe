@@ -1,27 +1,27 @@
 <AIprobeConfig>
     <LogSettings>
         <LogLevel>Info</LogLevel>
-        <LogFilePath>logs/log_LavaEnv_8030.txt</LogFilePath>
+        <LogFilePath>logs/log_LavaEnv8_9957.txt</LogFilePath>
     </LogSettings>
     <ResultSetting>
-        <ResultFolderPath>Result/Result_LavaEnv3_8030</ResultFolderPath>
+        <ResultFolderPath>results/Result_LavaEnv8_9957</ResultFolderPath>
     </ResultSetting>
 
     <FileSettings>
-       <FinalEnviromentFilePath>Data/13_lava_env/LavaEnv2.xml</FinalEnviromentFilePath>
-       <InitialEnvironmentFilePath>Data/13_lava_env/LavaEnv2.xml</InitialEnvironmentFilePath>
+	    <FinalEnviromentFilePath>Data/13_lava_env/LavaEnv8.xml</FinalEnviromentFilePath>
+	    <InitialEnvironmentFilePath>Data/13_lava_env/LavaEnv8.xml</InitialEnvironmentFilePath>
         <ActionSpaceFilePath>Data/ActionSpace.xml</ActionSpaceFilePath>
     </FileSettings>
 
     <TimeSettings><!-- Time in seconds-->
-        <TaskGenerationTime>1</TaskGenerationTime> 
-        <Timeout>13</Timeout>
-        <InstructionGenerationTime>500</InstructionGenerationTime> 
+        <TaskGenerationTime>1</TaskGenerationTime>
+        <Timeout>130</Timeout>
+        <InstructionGenerationTime>500</InstructionGenerationTime>
     </TimeSettings>
-     <RandomSettings>
-        <Seed>8030</Seed>
+    <RandomSettings>
+        <Seed>9957</Seed>
     </RandomSettings>
     <PythonSettings>
-        <ScriptFilePath>Minigrid/MinigridWrapper.py</ScriptFilePath> 
+        <ScriptFilePath>Minigrid/MinigridWrapper.py</ScriptFilePath>
     </PythonSettings>
 </AIprobeConfig>

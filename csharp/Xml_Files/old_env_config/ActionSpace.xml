@@ -1,0 +1,13 @@
+<ActionSpace type="Discrete">
+    <Actions>
+        <Action id="0" name="forward" >
+            <Description>Turn the agent 90 degrees left</Description>
+        </Action>
+        <Action id="1" name="left" >
+            <Description>Turn the agent 90 degrees left</Description>
+        </Action>
+        <Action id="2" name="right" >
+            <Description>Turn the agent 90 degrees right</Description>
+        </Action>
+    </Actions>
+</ActionSpace>

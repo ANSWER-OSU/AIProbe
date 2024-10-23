@@ -1,0 +1,55 @@
+    PID TTY      STAT   TIME COMMAND
+   3655 ?        Ss     0:00 /usr/lib/systemd/systemd --user
+   3656 ?        S      0:00 (sd-pam)
+   3927 ?        S      0:07 sshd: mehtara@pts/3
+   3928 pts/3    Ss     0:00 -bash
+   4661 ?        Ss     0:00 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+  62505 ?        S      0:00 sshd: mehtara@pts/6
+  62553 pts/6    Ss     0:00 -bash
+  63456 pts/6    S+     0:00 bash
+1295189 pts/3    S      0:00 bash
+1322139 pts/3    S      0:00 timeout 3h dotnet AIprobe.dll
+1322141 pts/3    Sl     0:29 dotnet AIprobe.dll
+1322164 pts/3    S      0:00 timeout 3h dotnet AIprobe.dll
+1322232 pts/3    Sl     0:30 dotnet AIprobe.dll
+1322308 pts/3    S      0:00 timeout 3h dotnet AIprobe.dll
+1322373 pts/3    Sl     0:30 dotnet AIprobe.dll
+1322379 pts/3    S      0:00 timeout 3h dotnet AIprobe.dll
+1322382 pts/3    S      0:00 timeout 3h dotnet AIprobe.dll
+1322388 pts/3    S      0:00 timeout 3h dotnet AIprobe.dll
+1322391 pts/3    Sl     0:30 dotnet AIprobe.dll
+1322394 pts/3    Sl     0:30 dotnet AIprobe.dll
+1322442 pts/3    Sl     0:30 dotnet AIprobe.dll
+1322460 pts/3    S      0:00 timeout 3h dotnet AIprobe.dll
+1322462 pts/3    S      0:00 timeout 3h dotnet AIprobe.dll
+1322465 pts/3    Sl     0:30 dotnet AIprobe.dll
+1322469 pts/3    Sl     0:29 dotnet AIprobe.dll
+1322489 pts/3    S      0:00 timeout 3h dotnet AIprobe.dll
+1322498 pts/3    Sl     0:30 dotnet AIprobe.dll
+1322547 pts/3    S      0:00 timeout 3h dotnet AIprobe.dll
+1322555 pts/3    Sl     0:30 dotnet AIprobe.dll
+1322556 pts/3    S      0:00 timeout 3h dotnet AIprobe.dll
+1322593 pts/3    Sl     0:28 dotnet AIprobe.dll
+1322602 pts/3    S      0:00 timeout 3h dotnet AIprobe.dll
+1322645 pts/3    Sl     0:29 dotnet AIprobe.dll
+1322646 pts/3    S      0:00 timeout 3h dotnet AIprobe.dll
+1322653 pts/3    Sl     0:30 dotnet AIprobe.dll
+1322664 pts/3    S      0:00 timeout 3h dotnet AIprobe.dll
+1322666 pts/3    S      0:00 timeout 3h dotnet AIprobe.dll
+1322673 pts/3    Sl     0:30 dotnet AIprobe.dll
+1322676 pts/3    Sl     0:30 dotnet AIprobe.dll
+3552202 pts/3    Rl     0:09 /home/projects/miniconda3/envs/aiprobe/bin/python /home/projects/AIProbe/csharp/../Minigrid/MinigridWrapper.py /home/projects/AIProbe/csharp/results/Result_LavaEnv7_9957/Task_121/Temp_121/tempFuzzer.xml right /home/projects/AIProbe/csharp/results/Result_LavaEnv7_9957/Task_121/Temp_121/tempWraper.xml
+3552203 pts/3    Rl     0:07 /home/projects/miniconda3/envs/aiprobe/bin/python /home/projects/AIProbe/csharp/../Minigrid/MinigridWrapper.py /home/projects/AIProbe/csharp/results/Result_LavaEnv7_9957/Task_119/Temp_119/tempFuzzer.xml left /home/projects/AIProbe/csharp/results/Result_LavaEnv7_9957/Task_119/Temp_119/tempWraper.xml
+3552300 pts/3    Rl     0:03 /home/projects/miniconda3/envs/aiprobe/bin/python /home/projects/AIProbe/csharp/../Minigrid/MinigridWrapper.py /home/projects/AIProbe/csharp/results/Result_LavaEnv7_9957/Task_158/Temp_158/tempFuzzer.xml left /home/projects/AIProbe/csharp/results/Result_LavaEnv7_9957/Task_158/Temp_158/tempWraper.xml
+3552335 pts/3    Rl     0:03 /home/projects/miniconda3/envs/aiprobe/bin/python /home/projects/AIProbe/csharp/../Minigrid/MinigridWrapper.py /home/projects/AIProbe/csharp/results/Result_LavaEnv7_9957/Task_147/Temp_147/tempFuzzer.xml forward /home/projects/AIProbe/csharp/results/Result_LavaEnv7_9957/Task_147/Temp_147/tempWraper.xml
+3552337 pts/3    Rl     0:05 /home/projects/miniconda3/envs/aiprobe/bin/python /home/projects/AIProbe/csharp/../Minigrid/MinigridWrapper.py /home/projects/AIProbe/csharp/results/Result_LavaEnv7_9957/Task_139/Temp_139/tempFuzzer.xml left /home/projects/AIProbe/csharp/results/Result_LavaEnv7_9957/Task_139/Temp_139/tempWraper.xml
+3552340 pts/3    Rl     0:04 /home/projects/miniconda3/envs/aiprobe/bin/python /home/projects/AIProbe/csharp/../Minigrid/MinigridWrapper.py /home/projects/AIProbe/csharp/results/Result_LavaEnv7_9957/Task_136/Temp_136/tempFuzzer.xml forward /home/projects/AIProbe/csharp/results/Result_LavaEnv7_9957/Task_136/Temp_136/tempWraper.xml
+3552632 pts/3    Rl     0:07 /home/projects/miniconda3/envs/aiprobe/bin/python /home/projects/AIProbe/csharp/../Minigrid/MinigridWrapper.py /home/projects/AIProbe/csharp/results/Result_LavaEnv7_9957/Task_115/Temp_115/tempFuzzer.xml left /home/projects/AIProbe/csharp/results/Result_LavaEnv7_9957/Task_115/Temp_115/tempWraper.xml
+3552935 pts/3    Rl     0:04 /home/projects/miniconda3/envs/aiprobe/bin/python /home/projects/AIProbe/csharp/../Minigrid/MinigridWrapper.py /home/projects/AIProbe/csharp/results/Result_LavaEnv7_9957/Task_113/Temp_113/tempFuzzer.xml right /home/projects/AIProbe/csharp/results/Result_LavaEnv7_9957/Task_113/Temp_113/tempWraper.xml
+3553023 pts/3    Rl     0:06 /home/projects/miniconda3/envs/aiprobe/bin/python /home/projects/AIProbe/csharp/../Minigrid/MinigridWrapper.py /home/projects/AIProbe/csharp/results/Result_LavaEnv7_9957/Task_129/Temp_129/tempFuzzer.xml forward /home/projects/AIProbe/csharp/results/Result_LavaEnv7_9957/Task_129/Temp_129/tempWraper.xml
+3553155 pts/3    Rl     0:04 /home/projects/miniconda3/envs/aiprobe/bin/python /home/projects/AIProbe/csharp/../Minigrid/MinigridWrapper.py /home/projects/AIProbe/csharp/results/Result_LavaEnv7_9957/Task_140/Temp_140/tempFuzzer.xml forward /home/projects/AIProbe/csharp/results/Result_LavaEnv7_9957/Task_140/Temp_140/tempWraper.xml
+3553156 pts/3    Rl     0:05 /home/projects/miniconda3/envs/aiprobe/bin/python /home/projects/AIProbe/csharp/../Minigrid/MinigridWrapper.py /home/projects/AIProbe/csharp/results/Result_LavaEnv7_9957/Task_166/Temp_166/tempFuzzer.xml left /home/projects/AIProbe/csharp/results/Result_LavaEnv7_9957/Task_166/Temp_166/tempWraper.xml
+3553224 pts/3    Rl     0:05 /home/projects/miniconda3/envs/aiprobe/bin/python /home/projects/AIProbe/csharp/../Minigrid/MinigridWrapper.py /home/projects/AIProbe/csharp/results/Result_LavaEnv7_9957/Task_143/Temp_143/tempFuzzer.xml forward /home/projects/AIProbe/csharp/results/Result_LavaEnv7_9957/Task_143/Temp_143/tempWraper.xml
+3553280 pts/3    Rl     0:03 /home/projects/miniconda3/envs/aiprobe/bin/python /home/projects/AIProbe/csharp/../Minigrid/MinigridWrapper.py /home/projects/AIProbe/csharp/results/Result_LavaEnv7_9957/Task_144/Temp_144/tempFuzzer.xml forward /home/projects/AIProbe/csharp/results/Result_LavaEnv7_9957/Task_144/Temp_144/tempWraper.xml
+3553715 pts/3    Dl     0:00 /home/projects/miniconda3/envs/aiprobe/bin/python /home/projects/AIProbe/csharp/../Minigrid/MinigridWrapper.py /home/projects/AIProbe/csharp/results/Result_LavaEnv7_9957/Task_120/Temp_120/tempFuzzer.xml left /home/projects/AIProbe/csharp/results/Result_LavaEnv7_9957/Task_120/Temp_120/tempWraper.xml
+3553728 pts/3    R+     0:00 ps -x

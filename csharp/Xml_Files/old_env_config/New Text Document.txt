@@ -1,0 +1,23 @@
+<ActionSpace type="Continuous">
+    <Action id="0" name="MoveX" description="Move the agent along the X-axis">
+        <Range>
+            <Min>-1.0</Min>
+            <Max>1.0</Max>
+            <Step>0.1</Step>
+        </Range>
+    </Action>
+    <Action id="1" name="MoveY" description="Move the agent along the Y-axis">
+        <Range>
+            <Min>-1.0</Min>
+            <Max>1.0</Max>
+            <Step>0.1</Step>
+        </Range>
+    </Action>
+    <Action id="2" name="Rotate" description="Rotate the agent">
+        <Range>
+            <Min>0</Min>
+            <Max>360</Max>
+            <Step>1</Step>
+        </Range>
+    </Action>
+</ActionSpace>

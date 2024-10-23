@@ -18,7 +18,9 @@ namespace AIprobe.Parsers
 
             if (File.Exists(configFilePath))
             {
-                return configFilePath;
+		Console.WriteLine("config file path used by AIProbe ###############################################");	    
+                Console.WriteLine(configFilePath);
+		return configFilePath;
             }
 
             string configSubDir = Path.Combine(baseDirectory, "config", _configFileName);

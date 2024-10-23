@@ -1,15 +1,15 @@
 <AIprobeConfig>
     <LogSettings>
         <LogLevel>Info</LogLevel>
-        <LogFilePath>logs/log_LavaEnv_8030.txt</LogFilePath>
+        <LogFilePath>logs/log_LavaEnv1_8030.txt</LogFilePath>
     </LogSettings>
     <ResultSetting>
-        <ResultFolderPath>Result/Result_LavaEnv_8030</ResultFolderPath>
+        <ResultFolderPath>results/Result_LavaEnv1_8030</ResultFolderPath>
     </ResultSetting>
 
     <FileSettings>
-        <FinalEnviromentFilePath>Data/LavaEnv.xml</FinalEnviromentFilePath>
-        <InitialEnvironmentFilePath>Data/LavaEnv.xml</InitialEnvironmentFilePath>
+	    <FinalEnviromentFilePath>Data/13_lava_env/LavaEnv1.xml</FinalEnviromentFilePath>
+	    <InitialEnvironmentFilePath>Data/13_lava_env/LavaEnv1.xml</InitialEnvironmentFilePath>
         <ActionSpaceFilePath>Data/ActionSpace.xml</ActionSpaceFilePath>
     </FileSettings>
 
