@@ -1,15 +1,15 @@
 <AIprobeConfig>
     <LogSettings>
         <LogLevel>Info</LogLevel>
-        <LogFilePath>logs/log_LavaEnv13_6161.txt</LogFilePath>
+        <LogFilePath>logs/log_LavaEnv7_6161.txt</LogFilePath>
     </LogSettings>
     <ResultSetting>
-        <ResultFolderPath>results/Result_LavaEnv13_6161</ResultFolderPath>
+        <ResultFolderPath>results/Result_LavaEnv7_6161</ResultFolderPath>
     </ResultSetting>
 
     <FileSettings>
-	    <FinalEnviromentFilePath>Data/13_lava_env/LavaEnv13.xml</FinalEnviromentFilePath>
-	    <InitialEnvironmentFilePath>Data/13_lava_env/LavaEnv13.xml</InitialEnvironmentFilePath>
+	    <FinalEnviromentFilePath>Data/13_lava_env/LavaEnv7.xml</FinalEnviromentFilePath>
+	    <InitialEnvironmentFilePath>Data/13_lava_env/LavaEnv7.xml</InitialEnvironmentFilePath>
         <ActionSpaceFilePath>Data/ActionSpace.xml</ActionSpaceFilePath>
     </FileSettings>
 

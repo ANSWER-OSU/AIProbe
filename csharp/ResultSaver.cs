@@ -3,6 +3,8 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
+using JsonSerializer = Newtonsoft.Json.JsonSerializer;
 
 namespace AIprobe
 {
@@ -100,6 +102,27 @@ namespace AIprobe
             catch (Exception ex)
             {
                 Logger.LogError($"Failed to save results to JSON: {ex.Message}");
+            }
+        }
+        
+        
+        
+        // Function to save the dictionary to a JSON file
+        public static void SaveDictionaryToJson(Dictionary<double,double> unsafeStatePosition, string filePath)
+        {
+            try
+            {
+                // Serialize the dictionary to JSON using Newtonsoft.Json
+                string jsonString = JsonConvert.SerializeObject(unsafeStatePosition, Formatting.Indented);
+            
+                // Write the JSON string to a file
+                File.WriteAllText(filePath, jsonString);
+            
+                Console.WriteLine("Dictionary saved to JSON file successfully.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
             }
         }
     }

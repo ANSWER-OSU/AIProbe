@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/projects/AIProbe/csharp/AIprobe.csproj": {}
+    "/Users/rahil/Documents/GitHub/AIProbe/csharp/AIprobe.csproj": {}
   },
   "projects": {
-    "/home/projects/AIProbe/csharp/AIprobe.csproj": {
+    "/Users/rahil/Documents/GitHub/AIProbe/csharp/AIprobe.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/projects/AIProbe/csharp/AIprobe.csproj",
+        "projectUniqueName": "/Users/rahil/Documents/GitHub/AIProbe/csharp/AIprobe.csproj",
         "projectName": "AIprobe",
-        "projectPath": "/home/projects/AIProbe/csharp/AIprobe.csproj",
-        "packagesPath": "/home/mehtara/.nuget/packages/",
-        "outputPath": "/home/projects/AIProbe/csharp/obj/",
+        "projectPath": "/Users/rahil/Documents/GitHub/AIProbe/csharp/AIprobe.csproj",
+        "packagesPath": "/Users/rahil/.nuget/packages/",
+        "outputPath": "/Users/rahil/Documents/GitHub/AIProbe/csharp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/mehtara/.nuget/NuGet/NuGet.Config"
+          "/Users/rahil/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -32,6 +32,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -63,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.110/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -20,14 +20,20 @@ namespace AIprobe
         public static string resultFolder = String.Empty;
         public static string tempFolder = String.Empty;
         public static string testingHardCoddedEnvs = String.Empty;
+        public static double totalEnviroementState = 0;
+        public static Dictionary<double,double> unsafeStatePosition = new Dictionary<double,double>();
+        
 
 
         static void Main(string[] args)
         {
             // get the root path
             string aiprobe_root_path = System.Environment.GetEnvironmentVariable("AIPROBE_HOME");
+            
             if (aiprobe_root_path == null)
             {
+                aiprobe_root_path = "/Users/rahil/Documents/GitHub/AIProbe/csharp";
+             
                 Console.WriteLine(
                     "Error! please set AIPROBE_HOME env variable to point to \"<path-to>AIProbe/csharp\" directory.");
             }
@@ -36,6 +42,7 @@ namespace AIprobe
             string py_path = System.Environment.GetEnvironmentVariable("PYTHON_HOME");
             if (py_path == null)
             {
+                py_path = "/opt/anaconda3/envs/aiprobe/bin/python";
                 Console.WriteLine(
                     "Error! please set PYTHON_HOME env variable to point to \"<path-to-aiprobe conda env>/bin/python\" file.");
             }
@@ -92,10 +99,9 @@ namespace AIprobe
             InstructionChecker instructionChecker = new InstructionChecker();
 
             // generating new env from inital env 
-            Logger.LogInfo($"Enviroment generation Started");
-            List<AIprobe.Models.Environment> environments =
-                envConfigGenerator.GenerateEnvConfigs(initialEnvironment, config.RandomSettings.Seed);
-            Logger.LogInfo($"Enviroment generation completed. {environments.Count} environment were generated.");
+            //Logger.LogInfo($"Enviroment generation Started");
+            //List<AIprobe.Models.Environment> environments = envConfigGenerator.GenerateEnvConfigs(initialEnvironment, config.RandomSettings.Seed);
+            //Logger.LogInfo($"Enviroment generation completed. {environments.Count} environment were generated.");
             //var env = initialEnvironment;
 
             int count = 1;
@@ -115,6 +121,8 @@ namespace AIprobe
             int totaltaskachieved = 0;
             foreach (var task in tasksList)
             {
+                
+                
                 string taskFolder = Path.Combine(resultFolder, $"Task_{tasksCount}");
                 string initalStateTaskPath = Path.Combine(taskFolder, "initialState.xml");
                 string finalStateTaskPath = Path.Combine(taskFolder, "finalState.xml");
@@ -134,11 +142,23 @@ namespace AIprobe
                 finalStateTaskPasser.WriteEnvironment(task.Item2, out string finalStateHashValue);
 
 
-                // EnvironmentParser initalxml = new EnvironmentParser("/Users/rahil/Documents/GitHub/AIProbe/csharp/Result/Task_0/initialState.xml");
-                // AIprobe.Models.Environment initialEnvironmentxml = initalxml.ParseEnvironment(out string initalEnviromentHashValuexml);
+                // EnvironmentParser initalxml = new EnvironmentParser("/Users/rahil/Documents/GitHub/AIProbe/Result/lava_exp_result/Result_LavaEnv1_329/Task_0/initialState.xml");
+                // AIprobe.Models.Environment initialEnvironmentxml = initalxml.ParseEnvironment();
+                // //
+                // EnvironmentParser finalxml = new EnvironmentParser("/Users/rahil/Documents/GitHub/AIProbe/Result/lava_exp_result/Result_LavaEnv1_329/Task_0/finalState.xml");
+                // AIprobe.Models.Environment finaEnvironmentxml = finalxml.ParseEnvironment();
                 //
-                // EnvironmentParser finalxml = new EnvironmentParser("/Users/rahil/Documents/GitHub/AIProbe/csharp/Result/Task_0/finalState.xml");
-                // AIprobe.Models.Environment finaEnvironmentxml = finalxml.ParseEnvironment(out string finalEnviromentHashValuexml);
+                // //EnvironmentParser parser = new EnvironmentParser(initialEnvironmentxml);
+                // initalxml.WriteEnvironment(initialEnvironmentxml,out string intialStateHashValue);
+                //
+                //
+                // finalxml.WriteEnvironment(finaEnvironmentxml,out string finalStateHashValue);
+                
+                // List<object[]> taskResults = instructionChecker.InstructionExists(initialEnvironmentxml, finaEnvironmentxml, actionSpace,
+                //     config.TimeSettings.InstructionGenerationTime, intialStateHashValue, finalStateHashValue,
+                //     out bool instructionExists);
+                
+                //
                 //
 
                 List<object[]> taskResults = instructionChecker.InstructionExists(task.Item1, task.Item2, actionSpace,
@@ -150,12 +170,13 @@ namespace AIprobe
                     totaltaskachieved++;
                     Logger.LogInfo($"Task {tasksCount} instructions found saved to {taskFolder}");
                 }
+                Logger.LogInfo($"Total no of state explored: {totalEnviroementState}");
 
                 tasksCount++;
 
 
                 Logger.LogInfo($"Total task achieved {totaltaskachieved} from {tasksList.Count} task.");
-                count++;
+                
 
 
                 // List<object[]> taskResults = instructionChecker.InstructionExists(initialEnvironment,tasksList[0],actionSpace,config.TimeSettings.InstructionGenerationTime,initalEnviromentHashValue);
@@ -163,7 +184,11 @@ namespace AIprobe
                 // ResultSaver.SaveTaskResults(taskResults,"/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/AIprobe.json");
                 //
             }
-
+            
+            Logger.LogInfo($" Total {unsafeStatePosition.Keys.Count().ToString()} unsafe state found in the environment");
+            string unsafeStateData  = Path.Combine(resultFolder, $"unsafeSate.json");
+            ResultSaver.SaveDictionaryToJson(unsafeStatePosition, unsafeStateData);
+            Logger.LogInfo($" Unsafe states data stored at {unsafeStateData}");
             Logger.LogInfo("AIprobe execution completed.");
         }
 
@@ -183,5 +208,8 @@ namespace AIprobe
                 return (T)serializer.Deserialize(ms);
             }
         }
+        
+        
+        
     }
 }

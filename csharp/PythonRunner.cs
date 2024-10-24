@@ -20,6 +20,7 @@ namespace AIprobe
              string py_path = Environment.GetEnvironmentVariable("PYTHON_HOME");
              if (py_path == null)
              {
+                 py_path = "/opt/anaconda3/envs/aiprobe/bin/python";
                 Console.WriteLine("Error! please set PYTHON_HOME env variable to point to \"<path-to-aiprobe conda env>/bin/python\" file.");
              }
 
@@ -47,6 +48,12 @@ namespace AIprobe
                     string outputLine;
                     while ((outputLine = reader.ReadLine()) != null)
                     {
+                        
+                        if (outputLine.Contains("WARNING:"))
+                        {
+                            Console.WriteLine($"Python Warning: {outputLine}");
+                        }
+                        
                         // Check if the output contains "Condition: safe"
                         if (outputLine.Contains("Condition: safe"))
                         {
@@ -64,7 +71,12 @@ namespace AIprobe
                 string error = process.StandardError.ReadToEnd();
                 if (!string.IsNullOrEmpty(error))
                 {
-                      throw new Exception($"Python script error: {error}");
+                    if (!error.Contains("WARNING:"))
+                    {
+                        // Console.WriteLine($"Python Warning: {outputLine}");
+                        throw new Exception($"Python script error: {error}");
+                    }
+                     
                 }
 
                 process.WaitForExit();

@@ -389,7 +389,7 @@ def main():
 
     # Parse the environment from the XML file
     agent_updated_position, agent_direction = get_agent_position(environment_data)
-    #print(f"Agent's Updated Position: X={agent_updated_position['X']}, Y={agent_updated_position['Y']}, Z={agent_updated_position['Z']}, Direction={agent_direction} degrees")
+    print(f"Agent's Updated Position: X={agent_updated_position['X']}, Y={agent_updated_position['Y']}, Z={agent_updated_position['Z']}, Direction={agent_direction} degrees")
 
     # Run the environment with the provided single action
     updated_environment_data, terminated = run_minigrid_with_single_action(environment_data, action)
@@ -399,7 +399,7 @@ def main():
         print("Condition: safe")
     # Get the updated agent's position and direction after action
     agent_updated_position, agent_direction = get_agent_position(updated_environment_data)
-    #print(f"Agent's Updated Position: X={agent_updated_position['X']}, Y={agent_updated_position['Y']}, Z={agent_updated_position['Z']}, Direction={agent_direction} degrees")
+    print(f"Agent's Updated Position: X={agent_updated_position['X']}, Y={agent_updated_position['Y']}, Z={agent_updated_position['Z']}, Direction={agent_direction} degrees")
 
     # Save the updated environment data to the output XML file
     save_environment_to_xml(updated_environment_data, output_xml_file)

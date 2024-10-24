@@ -9,7 +9,7 @@
                     <DataType value="int"/>
                     <Value value="1"/>
                     <Min value="1"/>
-                    <Max value="14"/>
+                    <Max value="16"/>
                     <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
@@ -18,7 +18,7 @@
                     <DataType value="int"/>
                     <Value value="1"/>
                     <Min value="1"/>
-                    <Max value="14"/>
+                    <Max value="16"/>
                     <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
@@ -958,9 +958,9 @@
             <Attribute>
                 <Name value="Width"/>
                 <DataType value="int"/>
-                <Value value="16"/>
+                <Value value="18"/>
                 <Min value="3"/>
-                <Max value="16"/>
+                <Max value="18"/>
                 <Step value="1"/>
                 <Description value="The width of the boundary"/>
                 <Mutable value="true"/>
@@ -968,9 +968,9 @@
             <Attribute>
                 <Name value="Height"/>
                 <DataType value="int"/>
-                <Value value="16"/>
+                <Value value="18"/>
                 <Min value="3"/>
-                <Max value="16"/>
+                <Max value="18"/>
                 <Step value="1"/>
                 <Description value="The height of the boundary"/>
                 <Mutable value="true"/>

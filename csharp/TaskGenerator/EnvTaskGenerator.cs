@@ -23,6 +23,9 @@ namespace AIprobe.TaskGenerator
         public List<(AIprobe.Models.Environment,Environment)> GenerateTasks(Environment environmentConfig,
             int timeLimitInSeconds)
         {
+            Console.WriteLine(random.Next()); 
+            
+            
             List<(AIprobe.Models.Environment,Environment)> tasks = new List<(AIprobe.Models.Environment,Environment)>();
             DateTime startTime = DateTime.Now;
 

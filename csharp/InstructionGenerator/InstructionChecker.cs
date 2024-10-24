@@ -43,7 +43,7 @@ public class InstructionChecker
         environmentQueue.Enqueue(initialEnvironmentState);
         DateTime startTime = DateTime.Now;
         
-        while (environmentQueue.Count > 0 && (DateTime.Now - startTime).TotalSeconds < timeLimitInSeconds)
+        while (environmentQueue.Count > 0)
         {
             
             // Dequeue the current environment state to explore
@@ -98,6 +98,7 @@ public class InstructionChecker
                 {
                    results.Add(new object[] { string.Join(", ", instructionSet), "Safe" });
                    instructionExists = true;
+                   
                    Console.WriteLine("####Found instruction set###");
                    return results;
                 }
@@ -274,6 +275,8 @@ public class InstructionChecker
 
                 if (instructionStateDictionary.TryAdd(updatedEnviromentHashValue, new List<string>()))
                 {
+
+                    Program.totalEnviroementState++;
                     
                     if(instructionStateDictionary.TryGetValue(currentEnviromentHashValues, out List<string> previousInstructionSet ))
                         if (previousInstructionSet.Count > 0)
@@ -289,14 +292,18 @@ public class InstructionChecker
                     {
                         newInstructionSet.Add(action);
                         instructionStateDictionary[updatedEnviromentHashValue] =  newInstructionSet;
-                        results.Add(new object[] { string.Join(", ", newInstructionSet), "Unsafe" }); 
+                        results.Add(new object[] { string.Join(", ", newInstructionSet), "Unsafe" });
+                        double keyCount = Program.unsafeStatePosition.Count();
+                        keyCount++;
+                        Program.unsafeStatePosition[keyCount] = Program.totalEnviroementState ;
+
                     }
                     else
                     {
                         newInstructionSet.Add(action);
                         instructionStateDictionary[updatedEnviromentHashValue] =  newInstructionSet;
                         //newInstructionSet.Add(action);
-                        Console.WriteLine(newInstructionSet);
+                        Console.WriteLine(newInstructionSet.Count);
                         environmentQueue.Enqueue(updatedEnvironment);
                     }
                     
