@@ -96,6 +96,7 @@ namespace AIprobe
 
             EnvConfigGenerator envConfigGenerator = new EnvConfigGenerator();
             EnvTaskGenerator envTaskGenerator = new EnvTaskGenerator(config.RandomSettings.Seed);
+            Logger.LogInfo($"Running for seed no {config.RandomSettings.Seed} ");
             InstructionChecker instructionChecker = new InstructionChecker();
 
             // generating new env from inital env 
