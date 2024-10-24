@@ -178,6 +178,9 @@ namespace AIprobe
 
                 Logger.LogInfo($"Total task achieved {totaltaskachieved} from {tasksList.Count} task.");
                 
+                string unsafeStateData  = Path.Combine(resultFolder, $"unsafeSate.json");
+                ResultSaver.SaveDictionaryToJson(unsafeStatePosition, unsafeStateData);
+                Logger.LogInfo($" Unsafe states data stored at {unsafeStateData}");
 
 
                 // List<object[]> taskResults = instructionChecker.InstructionExists(initialEnvironment,tasksList[0],actionSpace,config.TimeSettings.InstructionGenerationTime,initalEnviromentHashValue);
