@@ -440,7 +440,7 @@ def run_minigrid_with_single_action(environment_data):
     env.render()  # This will draw the environment using pygame
 
     # Take a screenshot using pygame's image saving functionality
-    pygame.image.save(pygame.display.get_surface(), "minigrid_screenshot1.png")
+    pygame.image.save(pygame.display.get_surface(), "minigrid_screenshot_initial1.png")
 
     # Close the environment after execution
     env.close()
@@ -531,15 +531,15 @@ def main():
     #action = sys.argv[2]  # Single action to perform
     #output_xml_file = sys.argv[3]  # Temporary output file path
 
-    xml_file = "/Users/rahil/Documents/GitHub/AIProbe/csharp/results/Result_LavaEnv1_8030/Task_11/initialState.xml" # Input XML file path
-    xml_file = "/Users/rahil/Documents/GitHub/AIProbe/Result/lava_exp_result/Result_LavaEnv5_8030/Task_3/finalState.xml"
+    xml_file = "test_file_goal.xml" # Input XML file path
+    # xml_file = "Result/lava_exp_result/Result_LavaEnv1_329/Task_0/finalState.xml"
     #action = [
     #  "right", "forward", "forward", "left", "right", "forward", "left", "right", "left", "forward", "left", "right", "forward", "left", "left", "right", "forward", "left"
     #]
     #action=["right", "forward", "forward", "left", "right", "forward", "left","right", "forward", "left", "forward", "left", "right", "forward", "left", "forward", "left", "right", "forward", "left"]
 
     # Single action to perform
-    output_xml_file = "/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/outputTEMPLava.xml"  # Temporary output file path
+    output_xml_file = "Minigrid/computePolicy/outputTEMPLava.xml"  # Temporary output file path
 
     #if os.path.exists(output_xml_file): os.remove(xml_file)
 
@@ -617,6 +617,3 @@ def direction_index_to_direction(direction_index):
 
 if __name__ == "__main__":
     main()
-
-
-

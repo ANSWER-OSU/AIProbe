@@ -7,8 +7,8 @@
 # in the AIProbeConfig.xml file
 # how to run: bash launchAIProbe.sh
 
-export AIPROBE_HOME=/home/mehtara/Documents/Github/AIProbe/csharp
-export PYTHON_HOME=/home/mehtara/miniconda3/envs/aiprobe/bin/python
+export AIPROBE_HOME=/home/projects/AIProbe/csharp
+export PYTHON_HOME=/home/projects/miniconda3/envs/aiprobe/bin/python
 cp AIprobeConfig.xml ./bin/Debug/net8.0/
 cd ./bin/Debug/net8.0/
 
@@ -39,7 +39,7 @@ launchAIProbe() {
 }
 
 # Define your seeds (only 6470 is being used in this example)
-seeds=(2503)
+seeds=(6161)
 
 # Iterate over the seeds and environments sequentially
 for seed in "${seeds[@]}"; do

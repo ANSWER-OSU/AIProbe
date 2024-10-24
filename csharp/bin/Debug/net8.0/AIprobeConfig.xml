@@ -1,10 +1,10 @@
 <AIprobeConfig>
     <LogSettings>
         <LogLevel>Info</LogLevel>
-        <LogFilePath>logs/log_LavaEnv13_2503.txt</LogFilePath>
+        <LogFilePath>logs/log_LavaEnv13_6161.txt</LogFilePath>
     </LogSettings>
     <ResultSetting>
-        <ResultFolderPath>results/Result_LavaEnv13_2503</ResultFolderPath>
+        <ResultFolderPath>results/Result_LavaEnv13_6161</ResultFolderPath>
     </ResultSetting>
 
     <FileSettings>
@@ -19,7 +19,7 @@
         <InstructionGenerationTime>500</InstructionGenerationTime>
     </TimeSettings>
     <RandomSettings>
-        <Seed>2503</Seed>
+        <Seed>6161</Seed>
     </RandomSettings>
     <PythonSettings>
         <ScriptFilePath>Minigrid/MinigridWrapper.py</ScriptFilePath>
