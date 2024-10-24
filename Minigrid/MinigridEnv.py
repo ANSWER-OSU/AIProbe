@@ -101,18 +101,6 @@ class CustomMiniGridEnv(MiniGridEnv):
         self._gen_grid(self.width, self.height)
 
         self.dir = {'s': 0, 'w': 1, 'n': 2, 'e': 3 }
-        if self.task=='escLava':
-            if self.inaccuracy_type in set([2, 3]):
-                self.agent_curr_state = (self.agent_pos[0], self.agent_pos[1], self.agent_dir)
-            else:
-                self.agent_curr_state = (self.agent_pos[0], self.agent_pos[1], self.agent_dir, False)
-
-        elif self.task=='keyToGoal':
-            if self.inaccuracy_type in set([2, 3]):
-                self.agent_curr_state = (self.agent_pos[0], self.agent_pos[1], self.agent_dir, False)
-            else:
-                self.agent_curr_state = (self.agent_pos[0], self.agent_pos[1], self.agent_dir, False, 'none', False)
-
         # These fields should be defined by _gen_grid
         assert (
             self.agent_pos >= (0, 0)
@@ -129,6 +117,21 @@ class CustomMiniGridEnv(MiniGridEnv):
         self.grid_list = np.array(self.grid.grid).reshape(self.width, self.height)
         self.grid_list = list(map(list, zip(*self.grid_list)))
         self.all_states = self.get_state_factor_rep()
+
+        if self.task=='escLava':
+            if self.inaccuracy_type in set([2, 3]):
+                self.agent_curr_state = (self.agent_pos[0], self.agent_pos[1], self.agent_dir)
+            else:
+                if self.grid_list[self.agent_pos[0]][self.agent_pos[1]]!=None and self.grid_list[self.agent_pos[0]][self.agent_pos[1]].type=='lava':
+                    self.agent_curr_state = (self.agent_pos[0], self.agent_pos[1], self.agent_dir, True)
+                else:
+                    self.agent_curr_state = (self.agent_pos[0], self.agent_pos[1], self.agent_dir, False)
+
+        elif self.task=='keyToGoal':
+            if self.inaccuracy_type in set([2, 3]):
+                self.agent_curr_state = (self.agent_pos[0], self.agent_pos[1], self.agent_dir, False)
+            else:
+                self.agent_curr_state = (self.agent_pos[0], self.agent_pos[1], self.agent_dir, False, 'none', False)
         return obs
 
     def get_state_factor_rep(self):

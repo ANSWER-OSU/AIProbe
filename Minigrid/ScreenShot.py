@@ -531,7 +531,7 @@ def main():
     #action = sys.argv[2]  # Single action to perform
     #output_xml_file = sys.argv[3]  # Temporary output file path
 
-    xml_file = "Result/lava_exp_result/Result_LavaEnv9_6470/Task_55/initialState.xml" # Input XML file path
+    xml_file = "Result/lava_exp_result/Result_LavaEnv9_6470/Task_14/initialState.xml" # Input XML file path
     # xml_file = "Result/lava_exp_result/Result_LavaEnv1_329/Task_0/finalState.xml"
     #action = [
     #  "right", "forward", "forward", "left", "right", "forward", "left", "right", "left", "forward", "left", "right", "forward", "left", "left", "right", "forward", "left"

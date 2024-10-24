@@ -445,3 +445,9 @@ Log initialized on 10/23/2024 1:45:04 PM
 [10/23/2024 6:11:09 PM] INFO: Total task achieved 0 from 1085 task.
 [10/23/2024 6:11:09 PM] INFO: Starting instruction validation.
 [10/23/2024 6:30:34 PM] ERROR: Error parsing the environment XML file: Could not find file '/home/projects/AIProbe/csharp/results/Result_LavaEnv12_6161/Task_134/Temp_134/tempWraper.xml'.
+[10/23/2024 6:50:49 PM] ERROR: Error parsing the environment XML file: Could not find file '/home/projects/AIProbe/csharp/results/Result_LavaEnv12_6161/Task_134/Temp_134/tempWraper.xml'.
+[10/23/2024 7:10:10 PM] ERROR: Error parsing the environment XML file: Could not find file '/home/projects/AIProbe/csharp/results/Result_LavaEnv12_6161/Task_134/Temp_134/tempWraper.xml'.
+[10/23/2024 7:10:10 PM] INFO: Stopping instruction validation. instruction found:False
+[10/23/2024 7:10:10 PM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv12_6161/Task_134/AIprobe.json
+[10/23/2024 7:10:10 PM] INFO: Total task achieved 0 from 1085 task.
+[10/23/2024 7:10:10 PM] INFO: Starting instruction validation.
