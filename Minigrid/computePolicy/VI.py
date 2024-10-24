@@ -1,5 +1,5 @@
 def valueIteration(grid, gamma=0.99, epsilon=0.0001):
-    print('begin VI')
+    # print('begin VI')
     v_new = {s: 0 for s in grid.all_states}
     pi_new = {s: 0 for s in grid.all_states}
     q_value = {s: [] for s in grid.all_states}

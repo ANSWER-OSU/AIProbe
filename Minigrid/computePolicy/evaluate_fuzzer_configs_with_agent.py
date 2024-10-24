@@ -424,55 +424,50 @@ def evaluate_fuzzer_config():
 
     inaccuracy = {0: '_accurate_reward_accurate_state_rep', 1: '_inaccurate_reward_accurate_state_rep', 2: '_accurate_reward_inaccurate_state_rep', 3: '_inaccurate_reward_inaccurate_state_rep'}
     env_config_dir = sys.argv[1]
-    # for env_for_seed in os.listdir(env_config_dir):
-    #     task_path = os.path.join(env_config_dir, env_for_seed)
-    #     for task in os.listdir(task_path):
-    #         filepath = os.path.join(task_path, task)
-    #         xml_file = os.path.join(filepath, 'initialState.xml')
-    #         goal_xml_file = os.path.join(filepath, 'finalState.xml')
-    xml_file = 'test_file.xml'
-    goal_xml_file = 'test_file_goal.xml'
-    for inaccuracy_type in inaccuracy.keys():
-        model = inaccuracy[inaccuracy_type]
-        accurate_model = True
-        if inaccuracy_type in (1,2,3):
-            accurate_model = False
-        # env_number = int(xml_file.split('/')[-2].split('_')[1].replace('LavaEnv', ''))
-        # seed = int(xml_file.split('/')[-3].split('_')[2])
-        # task = int(xml_file.split('/')[-2].split('_')[1])
-        # output_path = 'Minigrid/computePolicy/results_for_fuzzer_gen_configs/Env_'+str(env_number)+model+'.csv'
-        num_sim_trials = 1
+    for env_for_seed in os.listdir(env_config_dir):
+        task_path = os.path.join(env_config_dir, env_for_seed)
+        for task in os.listdir(task_path):
+            filepath = os.path.join(task_path, task)
+            xml_file = os.path.join(filepath, 'initialState.xml')
+            goal_xml_file = os.path.join(filepath, 'finalState.xml')
+            for inaccuracy_type in inaccuracy.keys():
+                model = inaccuracy[inaccuracy_type]
+                accurate_model = True
+                if inaccuracy_type in (1,2,3):
+                    accurate_model = False
+                env_number = int(xml_file.split('/')[-3].split('_')[1].replace('LavaEnv', ''))
+                seed = int(xml_file.split('/')[-3].split('_')[2])
+                task = int(xml_file.split('/')[-2].split('_')[1])
+                print('Env: ', env_number, 'Seed: ', seed, 'Task: ', task)
+                output_path = 'Minigrid/computePolicy/results_for_fuzzer_gen_configs/Env_'+str(env_number)+model+'.csv'
+                num_sim_trials = 1
 
-        environment_data = parse_environment(xml_file)
-        final_env_data = parse_environment(goal_xml_file)
-        goal_values, goal_direction = get_agent_position(final_env_data)
-        goal_xy = (goal_values['X'], goal_values['Y'])
-        goal_dir = direction_index_to_direction(goal_direction, get_key=True)
-        env = MinigridEnv.CustomMiniGridEnv(environment_data=environment_data,
-                                            accurate_model=accurate_model,
-                                            task='escLava',
-                                            inaccuracy_type=inaccuracy_type,
-                                            goal_pos=goal_xy,
-                                            goal_dir=goal_dir
-                                            )
-        env.reset()
-        print(env.get_state_factor_rep())
-        print(env.goal_pos)
-        print(env.grid_list[1][3])
-        # input()
+                environment_data = parse_environment(xml_file)
+                final_env_data = parse_environment(goal_xml_file)
+                goal_values, goal_direction = get_agent_position(final_env_data)
+                goal_xy = (goal_values['X'], goal_values['Y'])
+                goal_dir = direction_index_to_direction(goal_direction, get_key=True)
+                env = MinigridEnv.CustomMiniGridEnv(environment_data=environment_data,
+                                                    accurate_model=accurate_model,
+                                                    task='escLava',
+                                                    inaccuracy_type=inaccuracy_type,
+                                                    goal_pos=goal_xy,
+                                                    goal_dir=goal_dir
+                                                    )
+                env.reset()
 
-        v, pi = valueIteration(env)
-        if env.task=='keyToGoal':
-            avg_undesired_states, avg_wrong_key, times_goal_reached, avg_reward, reward_sd = get_num_undesired_states(env, pi, trials=num_sim_trials)
-            print(avg_undesired_states, avg_wrong_key, times_goal_reached, avg_reward)
+                v, pi = valueIteration(env)
+                if env.task=='keyToGoal':
+                    avg_undesired_states, avg_wrong_key, times_goal_reached, avg_reward, reward_sd = get_num_undesired_states(env, pi, trials=num_sim_trials)
+                    # print(avg_undesired_states, avg_wrong_key, times_goal_reached, avg_reward)
 
-            # write_metrics(num_sim_trials, env_id, avg_undesired_states, avg_wrong_key, times_goal_reached, avg_reward, reward_sd, to_write, output_path)
-        else:
-            avg_undesired_states, times_goal_reached, avg_reward, reward_sd = get_num_undesired_states(env, pi, trials=num_sim_trials)
-            print(avg_undesired_states, times_goal_reached, avg_reward)
+                    write_metrics(num_sim_trials, env_id, avg_undesired_states, avg_wrong_key, times_goal_reached, avg_reward, reward_sd, to_write, output_path)
+                else:
+                    avg_undesired_states, times_goal_reached, avg_reward, reward_sd = get_num_undesired_states(env, pi, trials=num_sim_trials)
+                    # print(avg_undesired_states, times_goal_reached, avg_reward)
 
-            # write_metrics(num_sim_trials, avg_undesired_states, times_goal_reached, avg_reward, reward_sd, output_path, seed, task)
-        input()
+                    write_metrics(num_sim_trials, avg_undesired_states, times_goal_reached, avg_reward, reward_sd, output_path, seed, task)
+                # input()
 
 
 if __name__ == "__main__":

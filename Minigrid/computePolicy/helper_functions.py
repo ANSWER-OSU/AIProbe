@@ -13,7 +13,6 @@ def get_num_undesired_states(grid, policy, trials=50):
         wrong_key = 0
         trajectory = []
         trial_reward, trajectory = simulate_trajectory(grid, policy)
-        print(trajectory)
 
         rewards.append(trial_reward)
 
