@@ -190,9 +190,9 @@ namespace AIprobe
             }
             
             Logger.LogInfo($" Total {unsafeStatePosition.Keys.Count().ToString()} unsafe state found in the environment");
-            string unsafeStateData  = Path.Combine(resultFolder, $"unsafeSate.json");
-            ResultSaver.SaveDictionaryToJson(unsafeStatePosition, unsafeStateData);
-            Logger.LogInfo($" Unsafe states data stored at {unsafeStateData}");
+            string unsafeStateDataPath  = Path.Combine(resultFolder, $"unsafeSate.json");
+            ResultSaver.SaveDictionaryToJson(unsafeStatePosition, unsafeStateDataPath);
+            Logger.LogInfo($" Unsafe states data stored at {unsafeStateDataPath}");
             Logger.LogInfo("AIprobe execution completed.");
         }
 
