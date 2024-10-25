@@ -9,7 +9,7 @@
                     <DataType value="int"/>
                     <Value value="1"/>
                     <Min value="1"/>
-                    <Max value="7"/>
+                    <Max value="5"/>
                     <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
@@ -18,7 +18,7 @@
                     <DataType value="int"/>
                     <Value value="1"/>
                     <Min value="1"/>
-                    <Max value="7"/>
+                    <Max value="5"/>
                     <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
@@ -26,7 +26,7 @@
                     <Name value="Z"/>
                     <DataType value="int"/>
                     <Value value="0"/>
-                    <Min value="0"/>
+                    <Min value="1"/>
                     <Max value="0"/>
                     <Step value="0"/>
                     <Mutable value="false"/>
@@ -54,8 +54,8 @@
                     <Name value="X"/>
                     <DataType value="int"/>
                     <Value value="3"/>
-                    <Min value="0"/>
-                    <Max value="7"/>
+                    <Min value="1"/>
+                    <Max value="5"/>
                     <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
@@ -63,8 +63,8 @@
                     <Name value="Y"/>
                     <DataType value="int"/>
                     <Value value="4"/>
-                    <Min value="0"/>
-                    <Max value="7"/>
+                    <Min value="1"/>
+                    <Max value="5"/>
                     <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
@@ -72,7 +72,7 @@
                     <Name value="Z"/>
                     <DataType value="float"/>
                     <Value value="0"/>
-                    <Min value="0"/>
+                    <Min value="1"/>
                     <Max value="200"/>
                     <Step value="0"/>
                     <Mutable value="false"/>
@@ -99,8 +99,8 @@
                     <Name value="X"/>
                     <DataType value="int"/>
                     <Value value="3"/>
-                    <Min value="0"/>
-                    <Max value="7"/>
+                    <Min value="1"/>
+                    <Max value="5"/>
                     <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
@@ -108,8 +108,8 @@
                     <Name value="Y"/>
                     <DataType value="int"/>
                     <Value value="4"/>
-                    <Min value="0"/>
-                    <Max value="7"/>
+                    <Min value="1"/>
+                    <Max value="5"/>
                     <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
@@ -117,7 +117,7 @@
                     <Name value="Z"/>
                     <DataType value="float"/>
                     <Value value="0"/>
-                    <Min value="0"/>
+                    <Min value="1"/>
                     <Max value="200"/>
                     <Step value="0"/>
                     <Mutable value="false"/>
@@ -144,8 +144,8 @@
                     <Name value="X"/>
                     <DataType value="int"/>
                     <Value value="3"/>
-                    <Min value="0"/>
-                    <Max value="7"/>
+                    <Min value="1"/>
+                    <Max value="5"/>
                     <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
@@ -153,8 +153,8 @@
                     <Name value="Y"/>
                     <DataType value="int"/>
                     <Value value="4"/>
-                    <Min value="0"/>
-                    <Max value="7"/>
+                    <Min value="1"/>
+                    <Max value="5"/>
                     <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
@@ -162,7 +162,7 @@
                     <Name value="Z"/>
                     <DataType value="float"/>
                     <Value value="0"/>
-                    <Min value="0"/>
+                    <Min value="1"/>
                     <Max value="200"/>
                     <Step value="0"/>
                     <Mutable value="false"/>
@@ -189,8 +189,8 @@
                     <Name value="X"/>
                     <DataType value="int"/>
                     <Value value="3"/>
-                    <Min value="0"/>
-                    <Max value="7"/>
+                    <Min value="1"/>
+                    <Max value="5"/>
                     <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
@@ -198,8 +198,8 @@
                     <Name value="Y"/>
                     <DataType value="int"/>
                     <Value value="4"/>
-                    <Min value="0"/>
-                    <Max value="7"/>
+                    <Min value="1"/>
+                    <Max value="5"/>
                     <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
@@ -207,7 +207,7 @@
                     <Name value="Z"/>
                     <DataType value="float"/>
                     <Value value="0"/>
-                    <Min value="0"/>
+                    <Min value="1"/>
                     <Max value="200"/>
                     <Step value="0"/>
                     <Mutable value="false"/>
@@ -234,8 +234,8 @@
                     <Name value="X"/>
                     <DataType value="int"/>
                     <Value value="3"/>
-                    <Min value="0"/>
-                    <Max value="7"/>
+                    <Min value="1"/>
+                    <Max value="5"/>
                     <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
@@ -243,8 +243,8 @@
                     <Name value="Y"/>
                     <DataType value="int"/>
                     <Value value="4"/>
-                    <Min value="0"/>
-                    <Max value="7"/>
+                    <Min value="1"/>
+                    <Max value="5"/>
                     <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
@@ -252,7 +252,7 @@
                     <Name value="Z"/>
                     <DataType value="float"/>
                     <Value value="0"/>
-                    <Min value="0"/>
+                    <Min value="1"/>
                     <Max value="200"/>
                     <Step value="0"/>
                     <Mutable value="false"/>
@@ -279,8 +279,8 @@
                     <Name value="X"/>
                     <DataType value="int"/>
                     <Value value="3"/>
-                    <Min value="0"/>
-                    <Max value="7"/>
+                    <Min value="1"/>
+                    <Max value="5"/>
                     <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
@@ -288,8 +288,8 @@
                     <Name value="Y"/>
                     <DataType value="int"/>
                     <Value value="4"/>
-                    <Min value="0"/>
-                    <Max value="7"/>
+                    <Min value="1"/>
+                    <Max value="5"/>
                     <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
@@ -297,7 +297,7 @@
                     <Name value="Z"/>
                     <DataType value="float"/>
                     <Value value="0"/>
-                    <Min value="0"/>
+                    <Min value="1"/>
                     <Max value="200"/>
                     <Step value="0"/>
                     <Mutable value="false"/>
@@ -324,8 +324,8 @@
                     <Name value="X"/>
                     <DataType value="int"/>
                     <Value value="3"/>
-                    <Min value="0"/>
-                    <Max value="7"/>
+                    <Min value="1"/>
+                    <Max value="5"/>
                     <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
@@ -333,8 +333,8 @@
                     <Name value="Y"/>
                     <DataType value="int"/>
                     <Value value="4"/>
-                    <Min value="0"/>
-                    <Max value="7"/>
+                    <Min value="1"/>
+                    <Max value="5"/>
                     <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
@@ -342,7 +342,7 @@
                     <Name value="Z"/>
                     <DataType value="float"/>
                     <Value value="0"/>
-                    <Min value="0"/>
+                    <Min value="1"/>
                     <Max value="200"/>
                     <Step value="0"/>
                     <Mutable value="false"/>
@@ -369,8 +369,8 @@
                     <Name value="X"/>
                     <DataType value="int"/>
                     <Value value="3"/>
-                    <Min value="0"/>
-                    <Max value="7"/>
+                    <Min value="1"/>
+                    <Max value="5"/>
                     <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
@@ -378,8 +378,8 @@
                     <Name value="Y"/>
                     <DataType value="int"/>
                     <Value value="4"/>
-                    <Min value="0"/>
-                    <Max value="7"/>
+                    <Min value="1"/>
+                    <Max value="5"/>
                     <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
@@ -387,7 +387,7 @@
                     <Name value="Z"/>
                     <DataType value="float"/>
                     <Value value="0"/>
-                    <Min value="0"/>
+                    <Min value="1"/>
                     <Max value="200"/>
                     <Step value="0"/>
                     <Mutable value="false"/>
@@ -414,8 +414,8 @@
                     <Name value="X"/>
                     <DataType value="int"/>
                     <Value value="3"/>
-                    <Min value="0"/>
-                    <Max value="7"/>
+                    <Min value="1"/>
+                    <Max value="5"/>
                     <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
@@ -423,8 +423,8 @@
                     <Name value="Y"/>
                     <DataType value="int"/>
                     <Value value="4"/>
-                    <Min value="0"/>
-                    <Max value="7"/>
+                    <Min value="1"/>
+                    <Max value="5"/>
                     <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
@@ -432,7 +432,7 @@
                     <Name value="Z"/>
                     <DataType value="float"/>
                     <Value value="0"/>
-                    <Min value="0"/>
+                    <Min value="1"/>
                     <Max value="200"/>
                     <Step value="0"/>
                     <Mutable value="false"/>
@@ -459,8 +459,8 @@
                     <Name value="X"/>
                     <DataType value="int"/>
                     <Value value="3"/>
-                    <Min value="0"/>
-                    <Max value="7"/>
+                    <Min value="1"/>
+                    <Max value="5"/>
                     <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
@@ -468,8 +468,8 @@
                     <Name value="Y"/>
                     <DataType value="int"/>
                     <Value value="4"/>
-                    <Min value="0"/>
-                    <Max value="7"/>
+                    <Min value="1"/>
+                    <Max value="5"/>
                     <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
@@ -477,7 +477,7 @@
                     <Name value="Z"/>
                     <DataType value="float"/>
                     <Value value="0"/>
-                    <Min value="0"/>
+                    <Min value="1"/>
                     <Max value="200"/>
                     <Step value="0"/>
                     <Mutable value="false"/>
@@ -504,8 +504,8 @@
                     <Name value="X"/>
                     <DataType value="int"/>
                     <Value value="3"/>
-                    <Min value="0"/>
-                    <Max value="7"/>
+                    <Min value="1"/>
+                    <Max value="5"/>
                     <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
@@ -513,8 +513,8 @@
                     <Name value="Y"/>
                     <DataType value="int"/>
                     <Value value="4"/>
-                    <Min value="0"/>
-                    <Max value="7"/>
+                    <Min value="1"/>
+                    <Max value="5"/>
                     <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
@@ -522,7 +522,7 @@
                     <Name value="Z"/>
                     <DataType value="float"/>
                     <Value value="0"/>
-                    <Min value="0"/>
+                    <Min value="1"/>
                     <Max value="200"/>
                     <Step value="0"/>
                     <Mutable value="false"/>
@@ -549,8 +549,8 @@
                     <Name value="X"/>
                     <DataType value="int"/>
                     <Value value="3"/>
-                    <Min value="0"/>
-                    <Max value="7"/>
+                    <Min value="1"/>
+                    <Max value="5"/>
                     <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
@@ -558,8 +558,8 @@
                     <Name value="Y"/>
                     <DataType value="int"/>
                     <Value value="4"/>
-                    <Min value="0"/>
-                    <Max value="7"/>
+                    <Min value="1"/>
+                    <Max value="5"/>
                     <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
@@ -567,7 +567,7 @@
                     <Name value="Z"/>
                     <DataType value="float"/>
                     <Value value="0"/>
-                    <Min value="0"/>
+                    <Min value="1"/>
                     <Max value="200"/>
                     <Step value="0"/>
                     <Mutable value="false"/>
@@ -594,8 +594,8 @@
                     <Name value="X"/>
                     <DataType value="int"/>
                     <Value value="3"/>
-                    <Min value="0"/>
-                    <Max value="7"/>
+                    <Min value="1"/>
+                    <Max value="5"/>
                     <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
@@ -603,8 +603,8 @@
                     <Name value="Y"/>
                     <DataType value="int"/>
                     <Value value="4"/>
-                    <Min value="0"/>
-                    <Max value="7"/>
+                    <Min value="1"/>
+                    <Max value="5"/>
                     <Step value="1"/>
                     <Mutable value="true"/>
                 </Attribute>
@@ -612,7 +612,7 @@
                     <Name value="Z"/>
                     <DataType value="float"/>
                     <Value value="0"/>
-                    <Min value="0"/>
+                    <Min value="1"/>
                     <Max value="200"/>
                     <Step value="0"/>
                     <Mutable value="false"/>
@@ -632,7 +632,7 @@
                 </Attribute>
             </ObjectAttributes>
         </Object>
-        
+
 
 
     </Objects>
@@ -644,7 +644,7 @@
             <Attribute>
                 <Name value="Width"/>
                 <DataType value="int"/>
-                <Value value="10"/>
+                <Value value="7"/>
                 <Min value="3"/>
                 <Max value="7"/>
                 <Step value="1"/>
@@ -654,9 +654,9 @@
             <Attribute>
                 <Name value="Height"/>
                 <DataType value="int"/>
-                <Value value="10"/>
+                <Value value="7"/>
                 <Min value="3"/>
-                <Max value="10"/>
+                <Max value="7"/>
                 <Step value="1"/>
                 <Description value="The height of the boundary"/>
                 <Mutable value="true"/>
@@ -665,7 +665,7 @@
                 <Name value="Depth"/>
                 <DataType value="int"/>
                 <Value value="0"/>
-                <Min value="0"/>
+                <Min value="1"/>
                 <Max value="0"/>
                 <Step value="0"/>
                 <Description value="The depth of the boundary"/>

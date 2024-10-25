@@ -136,35 +136,34 @@ namespace AIprobe
                 File.Create(initalStateTaskPath).Dispose();
                 File.Create(finalStateTaskPath).Dispose();
 
-                EnvironmentParser initalStateTaskPasser = new EnvironmentParser(initalStateTaskPath);
-                initalStateTaskPasser.WriteEnvironment(task.Item1, out string intialStateHashValue);
+                //EnvironmentParser initalStateTaskPasser = new EnvironmentParser(initalStateTaskPath);
+                //initalStateTaskPasser.WriteEnvironment(task.Item1, out string intialStateHashValue);
                 // //
-                EnvironmentParser finalStateTaskPasser = new EnvironmentParser(finalStateTaskPath);
-                finalStateTaskPasser.WriteEnvironment(task.Item2, out string finalStateHashValue);
+                //EnvironmentParser finalStateTaskPasser = new EnvironmentParser(finalStateTaskPath);
+                //finalStateTaskPasser.WriteEnvironment(task.Item2, out string finalStateHashValue);
 
 
-                // EnvironmentParser initalxml = new EnvironmentParser("/Users/rahil/Documents/GitHub/AIProbe/Result/lava_exp_result/Result_LavaEnv1_329/Task_0/initialState.xml");
-                // AIprobe.Models.Environment initialEnvironmentxml = initalxml.ParseEnvironment();
+                EnvironmentParser initalxml = new EnvironmentParser("/Users/rahil/Downloads/Archive/Task_10/initialState.xml");
+                AIprobe.Models.Environment initialEnvironmentxml = initalxml.ParseEnvironment();
                 // //
-                // EnvironmentParser finalxml = new EnvironmentParser("/Users/rahil/Documents/GitHub/AIProbe/Result/lava_exp_result/Result_LavaEnv1_329/Task_0/finalState.xml");
-                // AIprobe.Models.Environment finaEnvironmentxml = finalxml.ParseEnvironment();
+                EnvironmentParser finalxml = new EnvironmentParser("/Users/rahil/Downloads/Archive/Task_10/finalState.xml");
+                AIprobe.Models.Environment finaEnvironmentxml = finalxml.ParseEnvironment();
                 //
-                // //EnvironmentParser parser = new EnvironmentParser(initialEnvironmentxml);
-                // initalxml.WriteEnvironment(initialEnvironmentxml,out string intialStateHashValue);
+                initalxml.WriteEnvironment(initialEnvironmentxml,out string intialStateHashValue);
                 //
                 //
-                // finalxml.WriteEnvironment(finaEnvironmentxml,out string finalStateHashValue);
+                finalxml.WriteEnvironment(finaEnvironmentxml,out string finalStateHashValue);
                 
-                // List<object[]> taskResults = instructionChecker.InstructionExists(initialEnvironmentxml, finaEnvironmentxml, actionSpace,
-                //     config.TimeSettings.InstructionGenerationTime, intialStateHashValue, finalStateHashValue,
-                //     out bool instructionExists);
-                
-                //
-                //
-
-                List<object[]> taskResults = instructionChecker.InstructionExists(task.Item1, task.Item2, actionSpace,
+                List<object[]> taskResults = instructionChecker.InstructionExists(initialEnvironmentxml, finaEnvironmentxml, actionSpace,
                     config.TimeSettings.InstructionGenerationTime, intialStateHashValue, finalStateHashValue,
                     out bool instructionExists);
+                
+                //
+                //
+
+                // List<object[]> taskResults = instructionChecker.InstructionExists(task.Item1, task.Item2, actionSpace,
+                //     config.TimeSettings.InstructionGenerationTime, intialStateHashValue, finalStateHashValue,
+                //     out bool instructionExists);
                 ResultSaver.SaveTaskResults(taskResults, instructionsPath);
                 if (instructionExists)
                 {

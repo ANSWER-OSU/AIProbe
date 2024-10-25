@@ -186,19 +186,22 @@ public class InstructionChecker
                 current.WriteEnvironment(updatedEnvironment,out string currentvalue);
                 
                 string updatedEnviromentHashValue = currentvalue;
-               
-
+                
                 if (updatedEnviromentHashValue.Equals(finalStateHashValue))
                 {
-                    Console.WriteLine("####Found instruction set###");
-                    
-                    if (instructionStateDictionary.TryGetValue(currentEnviromentHashValues,out  List<string> instructionSet ))
+                    if (safeCondition)
                     {
-                        instructionExists = true;
-                        instructionSet.Add(action);
-                        results.Add(new object[] { string.Join(", ", instructionSet), "Safe" });
-                        Logger.LogInfo($"Stopping instruction validation. instruction found:{instructionExists}");
-                        return results;
+                        Console.WriteLine("####Found instruction set###");
+
+                        if (instructionStateDictionary.TryGetValue(currentEnviromentHashValues,
+                                out List<string> instructionSet))
+                        {
+                            instructionExists = true;
+                            instructionSet.Add(action);
+                            results.Add(new object[] { string.Join(", ", instructionSet), "Safe" });
+                            Logger.LogInfo($"Stopping instruction validation. instruction found:{instructionExists}");
+                            return results;
+                        }
                     }
                 }
 
@@ -212,7 +215,7 @@ public class InstructionChecker
                 
                 
                 // testing
-                // var updatedAgent = updatedEnvironment.Agents.AgentList.FirstOrDefault();
+                var updatedAgent = updatedEnvironment.Agents.AgentList.FirstOrDefault();
                 // var initialAgent = initialEnvironmentState.Agents.AgentList.FirstOrDefault();
                 // var currentAgent = currentEnvironment.Agents.AgentList.FirstOrDefault();
                 // //
@@ -223,17 +226,16 @@ public class InstructionChecker
                 // Console.WriteLine($"updated  agent position {updatedAgent.Position.Attributes[0].Value.ValueData},{updatedAgent.Position.Attributes[1].Value.ValueData} direction {updatedAgent.Direction.Attributes[0].Value.ValueData}");
                 //
                 // Console.WriteLine($"hash{updatedEnviromentHashValue}");
-                // if (updatedAgent.Position.Attributes[0].Value.ValueData == "1" &&
-                //     updatedAgent.Position.Attributes[1].Value.ValueData == "2" && updatedAgent.Direction.Attributes[0].Value.ValueData =="0")
-                // {
+                if (updatedAgent.Position.Attributes[0].Value.ValueData == "6" && updatedAgent.Position.Attributes[1].Value.ValueData == "2" )
+                {
                 //     
                 //     EnvironmentParser saved = new EnvironmentParser("/Users/rahil/Documents/GitHub/AIProbe/csharp/Result/Task_0/done.xml");
                 //     saved.WriteEnvironment(updatedEnvironment,out string value);
                 //
                 //     if (value.Equals(finalStateHashValue))
                 //     {
-                //         Console.WriteLine("found one");
-                //     }
+                 Console.WriteLine("found one");
+                }
                 //     
                 //     
                 //     
@@ -309,15 +311,6 @@ public class InstructionChecker
                     
                 }
 
-                 // List<string> instructionSet = instructionStateDictionary[currentEnvironment];
-                 // results.Add(new object[] { string.Join(", ", instructionSet), "no" }); 
-
-
-                // Update the remaining actions dictionary by removing the processed actions
-                // if (remainingActionsDictionary.ContainsKey(currentEnvironment))
-                // {
-                //     remainingActionsDictionary[currentEnvironment].Remove(action);
-                // }
             }
             
             
