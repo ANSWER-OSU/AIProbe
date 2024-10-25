@@ -1,7 +1,7 @@
 {
   "1": {
     "Instructions": [
-      "right, forward, forward, left"
+      "right, forward, forward"
     ],
     "Result": "Safe"
   }

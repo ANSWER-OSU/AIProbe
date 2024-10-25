@@ -1,26 +1,8 @@
 {
   "1": {
     "Instructions": [
-      "forward, forward, forward"
+      "forward"
     ],
     "Result": "Unsafe"
-  },
-  "2": {
-    "Instructions": [
-      "right, forward, forward"
-    ],
-    "Result": "Unsafe"
-  },
-  "3": {
-    "Instructions": [
-      "forward, right, forward, forward"
-    ],
-    "Result": "Unsafe"
-  },
-  "4": {
-    "Instructions": [
-      "left, left, forward, left"
-    ],
-    "Result": "Safe"
   }
 }

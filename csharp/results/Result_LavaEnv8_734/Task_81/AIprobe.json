@@ -7,13 +7,7 @@
   },
   "2": {
     "Instructions": [
-      "left"
-    ],
-    "Result": "Unsafe"
-  },
-  "3": {
-    "Instructions": [
-      "right"
+      "right, forward"
     ],
     "Result": "Unsafe"
   }

@@ -1,0 +1,50 @@
+{
+  "1": {
+    "Instructions": [
+      "forward, forward, right, forward"
+    ],
+    "Result": "Unsafe"
+  },
+  "2": {
+    "Instructions": [
+      "forward, right, forward, left, forward"
+    ],
+    "Result": "Unsafe"
+  },
+  "3": {
+    "Instructions": [
+      "forward, forward, forward, forward, right, forward, forward"
+    ],
+    "Result": "Unsafe"
+  },
+  "4": {
+    "Instructions": [
+      "forward, forward, forward, right, forward, forward, forward"
+    ],
+    "Result": "Unsafe"
+  },
+  "5": {
+    "Instructions": [
+      "forward, forward, forward, right, forward, right, forward"
+    ],
+    "Result": "Unsafe"
+  },
+  "6": {
+    "Instructions": [
+      "forward, forward, forward, right, forward, forward, left, forward"
+    ],
+    "Result": "Unsafe"
+  },
+  "7": {
+    "Instructions": [
+      "forward, right, forward, forward, forward, left, forward, forward"
+    ],
+    "Result": "Unsafe"
+  },
+  "8": {
+    "Instructions": [
+      "forward, right, forward, forward, forward, left, forward, left"
+    ],
+    "Result": "Safe"
+  }
+}

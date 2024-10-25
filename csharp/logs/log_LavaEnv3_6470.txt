@@ -1,299 +1,647 @@
-Log initialized on 10/23/2024 5:19:45 AM
-[10/23/2024 5:19:45 AM] INFO: Starting AIprobe...
-[10/23/2024 5:19:45 AM] INFO: Initial Environment File Path: Data/13_lava_env/LavaEnv3.xml
-[10/23/2024 5:19:45 AM] INFO: Initial Environment parsed successfully.
-[10/23/2024 5:19:45 AM] INFO: Action Space File Path: /home/projects/AIProbe/csharp/Data/ActionSpace.xml
-[10/23/2024 5:19:45 AM] INFO: Enviroment generation Started
-[10/23/2024 5:19:45 AM] INFO: Environment generation started.
-[10/23/2024 5:19:45 AM] INFO: Parsed environment from file: /home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv1.xml
-[10/23/2024 5:19:45 AM] INFO: Parsed environment from file: /home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv7.xml
-[10/23/2024 5:19:45 AM] INFO: Parsed environment from file: /home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv12.xml
-[10/23/2024 5:19:45 AM] INFO: Parsed environment from file: /home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv6.xml
-[10/23/2024 5:19:45 AM] INFO: Parsed environment from file: /home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv5.xml
-[10/23/2024 5:19:45 AM] INFO: Parsed environment from file: /home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv13.xml
-[10/23/2024 5:19:45 AM] INFO: Parsed environment from file: /home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv11.xml
-[10/23/2024 5:19:45 AM] INFO: Parsed environment from file: /home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv3.xml
-[10/23/2024 5:19:45 AM] INFO: Parsed environment from file: /home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv4.xml
-[10/23/2024 5:19:45 AM] INFO: Parsed environment from file: /home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv9.xml
-[10/23/2024 5:19:45 AM] INFO: Parsed environment from file: /home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv8.xml
-[10/23/2024 5:19:45 AM] INFO: Parsed environment from file: /home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv10.xml
-[10/23/2024 5:19:45 AM] INFO: Parsed environment from file: /home/projects/AIProbe/csharp/Data/13_lava_env/LavaEnv2.xml
-[10/23/2024 5:19:45 AM] INFO: Edge case environment with 0 objects added.
-[10/23/2024 5:19:45 AM] INFO: All environments generated successfully.
-[10/23/2024 5:19:45 AM] INFO: Enviroment generation completed. 13 environment were generated.
-[10/23/2024 5:19:45 AM] INFO: Creating new tasks for Environment 1
-[10/23/2024 5:19:45 AM] INFO: Task generation started with a time limit of 1 seconds.
-[10/23/2024 5:19:46 AM] INFO: Task generation completed. 133 tasks were generated within 1 seconds.
-[10/23/2024 5:19:46 AM] INFO: Starting instruction validation.
-[10/23/2024 5:23:19 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 5:23:19 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_0/AIprobe.json
-[10/23/2024 5:23:19 AM] INFO: Task 0 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_0
-[10/23/2024 5:23:19 AM] INFO: Total task achieved 1 from 133 task.
-[10/23/2024 5:23:19 AM] INFO: Starting instruction validation.
-[10/23/2024 5:26:30 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 5:26:30 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_1/AIprobe.json
-[10/23/2024 5:26:30 AM] INFO: Task 1 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_1
-[10/23/2024 5:26:30 AM] INFO: Total task achieved 2 from 133 task.
-[10/23/2024 5:26:30 AM] INFO: Starting instruction validation.
-[10/23/2024 5:34:50 AM] INFO: Stopping instruction validation. instruction found:False
-[10/23/2024 5:34:50 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_2/AIprobe.json
-[10/23/2024 5:34:50 AM] INFO: Total task achieved 2 from 133 task.
-[10/23/2024 5:34:50 AM] INFO: Starting instruction validation.
-[10/23/2024 5:43:11 AM] INFO: Stopping instruction validation. instruction found:False
-[10/23/2024 5:43:11 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_3/AIprobe.json
-[10/23/2024 5:43:11 AM] INFO: Total task achieved 2 from 133 task.
-[10/23/2024 5:43:11 AM] INFO: Starting instruction validation.
-[10/23/2024 5:43:11 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_4/AIprobe.json
-[10/23/2024 5:43:11 AM] INFO: Total task achieved 2 from 133 task.
-[10/23/2024 5:43:11 AM] INFO: Starting instruction validation.
-[10/23/2024 5:51:34 AM] INFO: Stopping instruction validation. instruction found:False
-[10/23/2024 5:51:34 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_5/AIprobe.json
-[10/23/2024 5:51:34 AM] INFO: Total task achieved 2 from 133 task.
-[10/23/2024 5:51:34 AM] INFO: Starting instruction validation.
-[10/23/2024 5:59:54 AM] INFO: Stopping instruction validation. instruction found:False
-[10/23/2024 5:59:54 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_6/AIprobe.json
-[10/23/2024 5:59:54 AM] INFO: Total task achieved 2 from 133 task.
-[10/23/2024 5:59:54 AM] INFO: Starting instruction validation.
-[10/23/2024 6:08:14 AM] INFO: Stopping instruction validation. instruction found:False
-[10/23/2024 6:08:14 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_7/AIprobe.json
-[10/23/2024 6:08:14 AM] INFO: Total task achieved 2 from 133 task.
-[10/23/2024 6:08:14 AM] INFO: Starting instruction validation.
-[10/23/2024 6:12:57 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 6:12:57 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_8/AIprobe.json
-[10/23/2024 6:12:57 AM] INFO: Task 8 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_8
-[10/23/2024 6:12:57 AM] INFO: Total task achieved 3 from 133 task.
-[10/23/2024 6:12:57 AM] INFO: Starting instruction validation.
-[10/23/2024 6:15:21 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 6:15:21 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_9/AIprobe.json
-[10/23/2024 6:15:21 AM] INFO: Task 9 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_9
-[10/23/2024 6:15:21 AM] INFO: Total task achieved 4 from 133 task.
-[10/23/2024 6:15:21 AM] INFO: Starting instruction validation.
-[10/23/2024 6:23:43 AM] INFO: Stopping instruction validation. instruction found:False
-[10/23/2024 6:23:43 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_10/AIprobe.json
-[10/23/2024 6:23:43 AM] INFO: Total task achieved 4 from 133 task.
-[10/23/2024 6:23:43 AM] INFO: Starting instruction validation.
-[10/23/2024 6:32:04 AM] INFO: Stopping instruction validation. instruction found:False
-[10/23/2024 6:32:04 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_11/AIprobe.json
-[10/23/2024 6:32:04 AM] INFO: Total task achieved 4 from 133 task.
-[10/23/2024 6:32:04 AM] INFO: Starting instruction validation.
-[10/23/2024 6:40:27 AM] INFO: Stopping instruction validation. instruction found:False
-[10/23/2024 6:40:27 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_12/AIprobe.json
-[10/23/2024 6:40:27 AM] INFO: Total task achieved 4 from 133 task.
-[10/23/2024 6:40:27 AM] INFO: Starting instruction validation.
-[10/23/2024 6:48:03 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 6:48:03 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_13/AIprobe.json
-[10/23/2024 6:48:03 AM] INFO: Task 13 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_13
-[10/23/2024 6:48:03 AM] INFO: Total task achieved 5 from 133 task.
-[10/23/2024 6:48:03 AM] INFO: Starting instruction validation.
-[10/23/2024 6:55:32 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 6:55:32 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_14/AIprobe.json
-[10/23/2024 6:55:32 AM] INFO: Task 14 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_14
-[10/23/2024 6:55:32 AM] INFO: Total task achieved 6 from 133 task.
-[10/23/2024 6:55:32 AM] INFO: Starting instruction validation.
-[10/23/2024 6:57:51 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 6:57:51 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_15/AIprobe.json
-[10/23/2024 6:57:51 AM] INFO: Task 15 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_15
-[10/23/2024 6:57:51 AM] INFO: Total task achieved 7 from 133 task.
-[10/23/2024 6:57:51 AM] INFO: Starting instruction validation.
-[10/23/2024 7:05:35 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 7:05:35 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_16/AIprobe.json
-[10/23/2024 7:05:35 AM] INFO: Task 16 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_16
-[10/23/2024 7:05:35 AM] INFO: Total task achieved 8 from 133 task.
-[10/23/2024 7:05:35 AM] INFO: Starting instruction validation.
-[10/23/2024 7:13:57 AM] INFO: Stopping instruction validation. instruction found:False
-[10/23/2024 7:13:57 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_17/AIprobe.json
-[10/23/2024 7:13:57 AM] INFO: Total task achieved 8 from 133 task.
-[10/23/2024 7:13:57 AM] INFO: Starting instruction validation.
-[10/23/2024 7:22:19 AM] INFO: Stopping instruction validation. instruction found:False
-[10/23/2024 7:22:19 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_18/AIprobe.json
-[10/23/2024 7:22:19 AM] INFO: Total task achieved 8 from 133 task.
-[10/23/2024 7:22:19 AM] INFO: Starting instruction validation.
-[10/23/2024 7:30:41 AM] INFO: Stopping instruction validation. instruction found:False
-[10/23/2024 7:30:41 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_19/AIprobe.json
-[10/23/2024 7:30:41 AM] INFO: Total task achieved 8 from 133 task.
-[10/23/2024 7:30:41 AM] INFO: Starting instruction validation.
-[10/23/2024 7:30:44 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 7:30:44 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_20/AIprobe.json
-[10/23/2024 7:30:44 AM] INFO: Task 20 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_20
-[10/23/2024 7:30:44 AM] INFO: Total task achieved 9 from 133 task.
-[10/23/2024 7:30:44 AM] INFO: Starting instruction validation.
-[10/23/2024 7:39:06 AM] INFO: Stopping instruction validation. instruction found:False
-[10/23/2024 7:39:06 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_21/AIprobe.json
-[10/23/2024 7:39:06 AM] INFO: Total task achieved 9 from 133 task.
-[10/23/2024 7:39:06 AM] INFO: Starting instruction validation.
-[10/23/2024 7:46:08 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 7:46:08 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_22/AIprobe.json
-[10/23/2024 7:46:08 AM] INFO: Task 22 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_22
-[10/23/2024 7:46:08 AM] INFO: Total task achieved 10 from 133 task.
-[10/23/2024 7:46:08 AM] INFO: Starting instruction validation.
-[10/23/2024 7:54:29 AM] INFO: Stopping instruction validation. instruction found:False
-[10/23/2024 7:54:29 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_23/AIprobe.json
-[10/23/2024 7:54:29 AM] INFO: Total task achieved 10 from 133 task.
-[10/23/2024 7:54:29 AM] INFO: Starting instruction validation.
-[10/23/2024 8:02:50 AM] INFO: Stopping instruction validation. instruction found:False
-[10/23/2024 8:02:50 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_24/AIprobe.json
-[10/23/2024 8:02:50 AM] INFO: Total task achieved 10 from 133 task.
-[10/23/2024 8:02:50 AM] INFO: Starting instruction validation.
-[10/23/2024 8:11:12 AM] INFO: Stopping instruction validation. instruction found:False
-[10/23/2024 8:11:12 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_25/AIprobe.json
-[10/23/2024 8:11:12 AM] INFO: Total task achieved 10 from 133 task.
-[10/23/2024 8:11:12 AM] INFO: Starting instruction validation.
-[10/23/2024 8:14:13 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 8:14:13 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_26/AIprobe.json
-[10/23/2024 8:14:13 AM] INFO: Task 26 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_26
-[10/23/2024 8:14:13 AM] INFO: Total task achieved 11 from 133 task.
-[10/23/2024 8:14:13 AM] INFO: Starting instruction validation.
-[10/23/2024 8:22:34 AM] INFO: Stopping instruction validation. instruction found:False
-[10/23/2024 8:22:34 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_27/AIprobe.json
-[10/23/2024 8:22:34 AM] INFO: Total task achieved 11 from 133 task.
-[10/23/2024 8:22:34 AM] INFO: Starting instruction validation.
-[10/23/2024 8:27:16 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 8:27:16 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_28/AIprobe.json
-[10/23/2024 8:27:16 AM] INFO: Task 28 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_28
-[10/23/2024 8:27:16 AM] INFO: Total task achieved 12 from 133 task.
-[10/23/2024 8:27:16 AM] INFO: Starting instruction validation.
-[10/23/2024 8:35:37 AM] INFO: Stopping instruction validation. instruction found:False
-[10/23/2024 8:35:37 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_29/AIprobe.json
-[10/23/2024 8:35:37 AM] INFO: Total task achieved 12 from 133 task.
-[10/23/2024 8:35:37 AM] INFO: Starting instruction validation.
-[10/23/2024 8:43:28 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 8:43:28 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_30/AIprobe.json
-[10/23/2024 8:43:28 AM] INFO: Task 30 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_30
-[10/23/2024 8:43:28 AM] INFO: Total task achieved 13 from 133 task.
-[10/23/2024 8:43:28 AM] INFO: Starting instruction validation.
-[10/23/2024 8:44:03 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 8:44:03 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_31/AIprobe.json
-[10/23/2024 8:44:03 AM] INFO: Task 31 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_31
-[10/23/2024 8:44:03 AM] INFO: Total task achieved 14 from 133 task.
-[10/23/2024 8:44:03 AM] INFO: Starting instruction validation.
-[10/23/2024 8:48:35 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 8:48:35 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_32/AIprobe.json
-[10/23/2024 8:48:35 AM] INFO: Task 32 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_32
-[10/23/2024 8:48:35 AM] INFO: Total task achieved 15 from 133 task.
-[10/23/2024 8:48:35 AM] INFO: Starting instruction validation.
-[10/23/2024 8:50:22 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 8:50:22 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_33/AIprobe.json
-[10/23/2024 8:50:22 AM] INFO: Task 33 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_33
-[10/23/2024 8:50:22 AM] INFO: Total task achieved 16 from 133 task.
-[10/23/2024 8:50:22 AM] INFO: Starting instruction validation.
-[10/23/2024 8:54:45 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 8:54:45 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_34/AIprobe.json
-[10/23/2024 8:54:45 AM] INFO: Task 34 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_34
-[10/23/2024 8:54:45 AM] INFO: Total task achieved 17 from 133 task.
-[10/23/2024 8:54:45 AM] INFO: Starting instruction validation.
-[10/23/2024 9:00:04 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 9:00:04 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_35/AIprobe.json
-[10/23/2024 9:00:04 AM] INFO: Task 35 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_35
-[10/23/2024 9:00:04 AM] INFO: Total task achieved 18 from 133 task.
-[10/23/2024 9:00:04 AM] INFO: Starting instruction validation.
-[10/23/2024 9:08:24 AM] INFO: Stopping instruction validation. instruction found:False
-[10/23/2024 9:08:24 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_36/AIprobe.json
-[10/23/2024 9:08:24 AM] INFO: Total task achieved 18 from 133 task.
-[10/23/2024 9:08:24 AM] INFO: Starting instruction validation.
-[10/23/2024 9:13:42 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 9:13:42 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_37/AIprobe.json
-[10/23/2024 9:13:42 AM] INFO: Task 37 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_37
-[10/23/2024 9:13:42 AM] INFO: Total task achieved 19 from 133 task.
-[10/23/2024 9:13:42 AM] INFO: Starting instruction validation.
-[10/23/2024 9:14:41 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 9:14:41 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_38/AIprobe.json
-[10/23/2024 9:14:41 AM] INFO: Task 38 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_38
-[10/23/2024 9:14:41 AM] INFO: Total task achieved 20 from 133 task.
-[10/23/2024 9:14:41 AM] INFO: Starting instruction validation.
-[10/23/2024 9:23:02 AM] INFO: Stopping instruction validation. instruction found:False
-[10/23/2024 9:23:02 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_39/AIprobe.json
-[10/23/2024 9:23:02 AM] INFO: Total task achieved 20 from 133 task.
-[10/23/2024 9:23:02 AM] INFO: Starting instruction validation.
-[10/23/2024 9:31:24 AM] INFO: Stopping instruction validation. instruction found:False
-[10/23/2024 9:31:24 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_40/AIprobe.json
-[10/23/2024 9:31:24 AM] INFO: Total task achieved 20 from 133 task.
-[10/23/2024 9:31:24 AM] INFO: Starting instruction validation.
-[10/23/2024 9:39:44 AM] INFO: Stopping instruction validation. instruction found:False
-[10/23/2024 9:39:44 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_41/AIprobe.json
-[10/23/2024 9:39:44 AM] INFO: Total task achieved 20 from 133 task.
-[10/23/2024 9:39:44 AM] INFO: Starting instruction validation.
-[10/23/2024 9:48:05 AM] INFO: Stopping instruction validation. instruction found:False
-[10/23/2024 9:48:05 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_42/AIprobe.json
-[10/23/2024 9:48:05 AM] INFO: Total task achieved 20 from 133 task.
-[10/23/2024 9:48:05 AM] INFO: Starting instruction validation.
-[10/23/2024 9:55:06 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 9:55:06 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_43/AIprobe.json
-[10/23/2024 9:55:06 AM] INFO: Task 43 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_43
-[10/23/2024 9:55:06 AM] INFO: Total task achieved 21 from 133 task.
-[10/23/2024 9:55:06 AM] INFO: Starting instruction validation.
-[10/23/2024 9:58:13 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 9:58:13 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_44/AIprobe.json
-[10/23/2024 9:58:13 AM] INFO: Task 44 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_44
-[10/23/2024 9:58:13 AM] INFO: Total task achieved 22 from 133 task.
-[10/23/2024 9:58:13 AM] INFO: Starting instruction validation.
-[10/23/2024 10:03:53 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 10:03:53 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_45/AIprobe.json
-[10/23/2024 10:03:53 AM] INFO: Task 45 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_45
-[10/23/2024 10:03:53 AM] INFO: Total task achieved 23 from 133 task.
-[10/23/2024 10:03:53 AM] INFO: Starting instruction validation.
-[10/23/2024 10:12:13 AM] INFO: Stopping instruction validation. instruction found:False
-[10/23/2024 10:12:13 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_46/AIprobe.json
-[10/23/2024 10:12:13 AM] INFO: Total task achieved 23 from 133 task.
-[10/23/2024 10:12:13 AM] INFO: Starting instruction validation.
-[10/23/2024 10:17:24 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 10:17:24 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_47/AIprobe.json
-[10/23/2024 10:17:24 AM] INFO: Task 47 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_47
-[10/23/2024 10:17:24 AM] INFO: Total task achieved 24 from 133 task.
-[10/23/2024 10:17:24 AM] INFO: Starting instruction validation.
-[10/23/2024 10:20:20 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 10:20:20 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_48/AIprobe.json
-[10/23/2024 10:20:20 AM] INFO: Task 48 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_48
-[10/23/2024 10:20:20 AM] INFO: Total task achieved 25 from 133 task.
-[10/23/2024 10:20:20 AM] INFO: Starting instruction validation.
-[10/23/2024 10:27:50 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 10:27:50 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_49/AIprobe.json
-[10/23/2024 10:27:50 AM] INFO: Task 49 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_49
-[10/23/2024 10:27:50 AM] INFO: Total task achieved 26 from 133 task.
-[10/23/2024 10:27:50 AM] INFO: Starting instruction validation.
-[10/23/2024 10:36:11 AM] INFO: Stopping instruction validation. instruction found:False
-[10/23/2024 10:36:11 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_50/AIprobe.json
-[10/23/2024 10:36:11 AM] INFO: Total task achieved 26 from 133 task.
-[10/23/2024 10:36:11 AM] INFO: Starting instruction validation.
-[10/23/2024 10:40:30 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 10:40:30 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_51/AIprobe.json
-[10/23/2024 10:40:30 AM] INFO: Task 51 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_51
-[10/23/2024 10:40:30 AM] INFO: Total task achieved 27 from 133 task.
-[10/23/2024 10:40:30 AM] INFO: Starting instruction validation.
-[10/23/2024 10:41:17 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 10:41:17 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_52/AIprobe.json
-[10/23/2024 10:41:17 AM] INFO: Task 52 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_52
-[10/23/2024 10:41:17 AM] INFO: Total task achieved 28 from 133 task.
-[10/23/2024 10:41:17 AM] INFO: Starting instruction validation.
-[10/23/2024 10:49:38 AM] INFO: Stopping instruction validation. instruction found:False
-[10/23/2024 10:49:38 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_53/AIprobe.json
-[10/23/2024 10:49:38 AM] INFO: Total task achieved 28 from 133 task.
-[10/23/2024 10:49:38 AM] INFO: Starting instruction validation.
-[10/23/2024 10:50:02 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 10:50:02 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_54/AIprobe.json
-[10/23/2024 10:50:02 AM] INFO: Task 54 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_54
-[10/23/2024 10:50:02 AM] INFO: Total task achieved 29 from 133 task.
-[10/23/2024 10:50:02 AM] INFO: Starting instruction validation.
-[10/23/2024 10:58:24 AM] INFO: Stopping instruction validation. instruction found:False
-[10/23/2024 10:58:24 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_55/AIprobe.json
-[10/23/2024 10:58:24 AM] INFO: Total task achieved 29 from 133 task.
-[10/23/2024 10:58:24 AM] INFO: Starting instruction validation.
-[10/23/2024 11:06:09 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 11:06:09 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_56/AIprobe.json
-[10/23/2024 11:06:09 AM] INFO: Task 56 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_56
-[10/23/2024 11:06:09 AM] INFO: Total task achieved 30 from 133 task.
-[10/23/2024 11:06:09 AM] INFO: Starting instruction validation.
-[10/23/2024 11:08:42 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 11:08:42 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_57/AIprobe.json
-[10/23/2024 11:08:42 AM] INFO: Task 57 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_57
-[10/23/2024 11:08:42 AM] INFO: Total task achieved 31 from 133 task.
-[10/23/2024 11:08:42 AM] INFO: Starting instruction validation.
-[10/23/2024 11:10:51 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 11:10:51 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_58/AIprobe.json
-[10/23/2024 11:10:51 AM] INFO: Task 58 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_58
-[10/23/2024 11:10:51 AM] INFO: Total task achieved 32 from 133 task.
-[10/23/2024 11:10:51 AM] INFO: Starting instruction validation.
-[10/23/2024 11:15:56 AM] INFO: Stopping instruction validation. instruction found:True
-[10/23/2024 11:15:56 AM] INFO: Results successfully saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_59/AIprobe.json
-[10/23/2024 11:15:56 AM] INFO: Task 59 instructions found saved to /home/projects/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_59
-[10/23/2024 11:15:56 AM] INFO: Total task achieved 33 from 133 task.
-[10/23/2024 11:15:56 AM] INFO: Starting instruction validation.
+Log initialized on 10/25/2024 2:10:11 AM
+[10/25/2024 2:10:11 AM] INFO: Starting AIprobe...
+[10/25/2024 2:10:11 AM] INFO: Initial Environment File Path: Data/13_lava_env/LavaEnv3.xml
+[10/25/2024 2:10:11 AM] INFO: Initial Environment parsed successfully.
+[10/25/2024 2:10:11 AM] INFO: Action Space File Path: /home/mehtara/Documents/Github/AIProbe/csharp/Data/ActionSpace.xml
+[10/25/2024 2:10:11 AM] INFO: Running for seed no 6470 
+[10/25/2024 2:10:11 AM] INFO: Creating new tasks for Environment 1
+[10/25/2024 2:10:11 AM] INFO: Task generation started with a time limit of 1 seconds.
+[10/25/2024 2:10:12 AM] INFO: Task generation completed. 376 tasks were generated within 1 seconds.
+[10/25/2024 2:10:12 AM] INFO: Starting instruction validation.
+[10/25/2024 2:15:17 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 2:15:17 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_0/AIprobe.json
+[10/25/2024 2:15:17 AM] INFO: Total no of state explored: 550
+[10/25/2024 2:15:17 AM] INFO: Total task achieved 0 from 376 task.
+[10/25/2024 2:15:17 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 2:15:17 AM] INFO: Starting instruction validation.
+[10/25/2024 2:20:55 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 2:20:55 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_1/AIprobe.json
+[10/25/2024 2:20:55 AM] INFO: Total no of state explored: 1092
+[10/25/2024 2:20:55 AM] INFO: Total task achieved 0 from 376 task.
+[10/25/2024 2:20:55 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 2:20:55 AM] INFO: Starting instruction validation.
+[10/25/2024 2:25:43 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 2:25:43 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_2/AIprobe.json
+[10/25/2024 2:25:43 AM] INFO: Task 2 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_2
+[10/25/2024 2:25:43 AM] INFO: Total no of state explored: 1598
+[10/25/2024 2:25:43 AM] INFO: Total task achieved 1 from 376 task.
+[10/25/2024 2:25:43 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 2:25:43 AM] INFO: Starting instruction validation.
+[10/25/2024 2:25:44 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 2:25:44 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_3/AIprobe.json
+[10/25/2024 2:25:44 AM] INFO: Total no of state explored: 1599
+[10/25/2024 2:25:44 AM] INFO: Total task achieved 1 from 376 task.
+[10/25/2024 2:25:44 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 2:25:44 AM] INFO: Starting instruction validation.
+[10/25/2024 2:26:17 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 2:26:17 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_4/AIprobe.json
+[10/25/2024 2:26:17 AM] INFO: Task 4 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_4
+[10/25/2024 2:26:17 AM] INFO: Total no of state explored: 1675
+[10/25/2024 2:26:17 AM] INFO: Total task achieved 2 from 376 task.
+[10/25/2024 2:26:17 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 2:26:17 AM] INFO: Starting instruction validation.
+[10/25/2024 2:26:18 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 2:26:18 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_5/AIprobe.json
+[10/25/2024 2:26:18 AM] INFO: Total no of state explored: 1676
+[10/25/2024 2:26:18 AM] INFO: Total task achieved 2 from 376 task.
+[10/25/2024 2:26:18 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 2:26:18 AM] INFO: Starting instruction validation.
+[10/25/2024 2:28:04 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 2:28:04 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_6/AIprobe.json
+[10/25/2024 2:28:04 AM] INFO: Task 6 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_6
+[10/25/2024 2:28:04 AM] INFO: Total no of state explored: 1906
+[10/25/2024 2:28:04 AM] INFO: Total task achieved 3 from 376 task.
+[10/25/2024 2:28:04 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 2:28:04 AM] INFO: Starting instruction validation.
+[10/25/2024 2:31:50 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 2:31:50 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_7/AIprobe.json
+[10/25/2024 2:31:50 AM] INFO: Task 7 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_7
+[10/25/2024 2:31:50 AM] INFO: Total no of state explored: 2337
+[10/25/2024 2:31:50 AM] INFO: Total task achieved 4 from 376 task.
+[10/25/2024 2:31:50 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 2:31:50 AM] INFO: Starting instruction validation.
+[10/25/2024 2:35:58 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 2:35:58 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_8/AIprobe.json
+[10/25/2024 2:35:58 AM] INFO: Task 8 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_8
+[10/25/2024 2:35:58 AM] INFO: Total no of state explored: 2805
+[10/25/2024 2:35:58 AM] INFO: Total task achieved 5 from 376 task.
+[10/25/2024 2:35:58 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 2:35:58 AM] INFO: Starting instruction validation.
+[10/25/2024 2:41:05 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 2:41:05 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_9/AIprobe.json
+[10/25/2024 2:41:05 AM] INFO: Task 9 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_9
+[10/25/2024 2:41:05 AM] INFO: Total no of state explored: 3336
+[10/25/2024 2:41:05 AM] INFO: Total task achieved 6 from 376 task.
+[10/25/2024 2:41:05 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 2:41:05 AM] INFO: Starting instruction validation.
+[10/25/2024 2:41:06 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 2:41:06 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_10/AIprobe.json
+[10/25/2024 2:41:06 AM] INFO: Total no of state explored: 3337
+[10/25/2024 2:41:06 AM] INFO: Total task achieved 6 from 376 task.
+[10/25/2024 2:41:06 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 2:41:06 AM] INFO: Starting instruction validation.
+[10/25/2024 2:44:03 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 2:44:03 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_11/AIprobe.json
+[10/25/2024 2:44:03 AM] INFO: Task 11 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_11
+[10/25/2024 2:44:03 AM] INFO: Total no of state explored: 3683
+[10/25/2024 2:44:03 AM] INFO: Total task achieved 7 from 376 task.
+[10/25/2024 2:44:03 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 2:44:03 AM] INFO: Starting instruction validation.
+[10/25/2024 2:46:38 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 2:46:38 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_12/AIprobe.json
+[10/25/2024 2:46:38 AM] INFO: Task 12 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_12
+[10/25/2024 2:46:38 AM] INFO: Total no of state explored: 4015
+[10/25/2024 2:46:38 AM] INFO: Total task achieved 8 from 376 task.
+[10/25/2024 2:46:38 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 2:46:38 AM] INFO: Starting instruction validation.
+[10/25/2024 2:51:21 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 2:51:21 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_13/AIprobe.json
+[10/25/2024 2:51:21 AM] INFO: Total no of state explored: 4553
+[10/25/2024 2:51:21 AM] INFO: Total task achieved 8 from 376 task.
+[10/25/2024 2:51:21 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 2:51:21 AM] INFO: Starting instruction validation.
+[10/25/2024 2:55:17 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 2:55:17 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_14/AIprobe.json
+[10/25/2024 2:55:17 AM] INFO: Task 14 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_14
+[10/25/2024 2:55:17 AM] INFO: Total no of state explored: 5045
+[10/25/2024 2:55:17 AM] INFO: Total task achieved 9 from 376 task.
+[10/25/2024 2:55:17 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 2:55:17 AM] INFO: Starting instruction validation.
+[10/25/2024 2:58:44 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 2:58:44 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_15/AIprobe.json
+[10/25/2024 2:58:44 AM] INFO: Task 15 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_15
+[10/25/2024 2:58:44 AM] INFO: Total no of state explored: 5475
+[10/25/2024 2:58:44 AM] INFO: Total task achieved 10 from 376 task.
+[10/25/2024 2:58:44 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 2:58:44 AM] INFO: Starting instruction validation.
+[10/25/2024 3:00:13 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 3:00:13 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_16/AIprobe.json
+[10/25/2024 3:00:13 AM] INFO: Task 16 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_16
+[10/25/2024 3:00:13 AM] INFO: Total no of state explored: 5678
+[10/25/2024 3:00:13 AM] INFO: Total task achieved 11 from 376 task.
+[10/25/2024 3:00:13 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:00:13 AM] INFO: Starting instruction validation.
+[10/25/2024 3:05:02 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 3:05:02 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_17/AIprobe.json
+[10/25/2024 3:05:02 AM] INFO: Total no of state explored: 6227
+[10/25/2024 3:05:02 AM] INFO: Total task achieved 11 from 376 task.
+[10/25/2024 3:05:02 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:05:02 AM] INFO: Starting instruction validation.
+[10/25/2024 3:05:02 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 3:05:02 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_18/AIprobe.json
+[10/25/2024 3:05:02 AM] INFO: Total no of state explored: 6228
+[10/25/2024 3:05:02 AM] INFO: Total task achieved 11 from 376 task.
+[10/25/2024 3:05:02 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:05:02 AM] INFO: Starting instruction validation.
+[10/25/2024 3:05:03 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 3:05:03 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_19/AIprobe.json
+[10/25/2024 3:05:03 AM] INFO: Total no of state explored: 6229
+[10/25/2024 3:05:03 AM] INFO: Total task achieved 11 from 376 task.
+[10/25/2024 3:05:03 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:05:03 AM] INFO: Starting instruction validation.
+[10/25/2024 3:09:38 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 3:09:38 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_20/AIprobe.json
+[10/25/2024 3:09:38 AM] INFO: Task 20 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_20
+[10/25/2024 3:09:38 AM] INFO: Total no of state explored: 6774
+[10/25/2024 3:09:38 AM] INFO: Total task achieved 12 from 376 task.
+[10/25/2024 3:09:38 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:09:38 AM] INFO: Starting instruction validation.
+[10/25/2024 3:11:12 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 3:11:12 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_21/AIprobe.json
+[10/25/2024 3:11:12 AM] INFO: Task 21 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_21
+[10/25/2024 3:11:12 AM] INFO: Total no of state explored: 6985
+[10/25/2024 3:11:12 AM] INFO: Total task achieved 13 from 376 task.
+[10/25/2024 3:11:12 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:11:12 AM] INFO: Starting instruction validation.
+[10/25/2024 3:11:13 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 3:11:13 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_22/AIprobe.json
+[10/25/2024 3:11:13 AM] INFO: Total no of state explored: 6986
+[10/25/2024 3:11:13 AM] INFO: Total task achieved 13 from 376 task.
+[10/25/2024 3:11:13 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:11:13 AM] INFO: Starting instruction validation.
+[10/25/2024 3:12:48 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 3:12:48 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_23/AIprobe.json
+[10/25/2024 3:12:48 AM] INFO: Task 23 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_23
+[10/25/2024 3:12:48 AM] INFO: Total no of state explored: 7210
+[10/25/2024 3:12:48 AM] INFO: Total task achieved 14 from 376 task.
+[10/25/2024 3:12:48 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:12:48 AM] INFO: Starting instruction validation.
+[10/25/2024 3:17:01 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 3:17:01 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_24/AIprobe.json
+[10/25/2024 3:17:01 AM] INFO: Total no of state explored: 7714
+[10/25/2024 3:17:01 AM] INFO: Total task achieved 14 from 376 task.
+[10/25/2024 3:17:01 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:17:01 AM] INFO: Starting instruction validation.
+[10/25/2024 3:17:01 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 3:17:01 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_25/AIprobe.json
+[10/25/2024 3:17:01 AM] INFO: Total no of state explored: 7715
+[10/25/2024 3:17:01 AM] INFO: Total task achieved 14 from 376 task.
+[10/25/2024 3:17:01 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:17:01 AM] INFO: Starting instruction validation.
+[10/25/2024 3:17:59 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 3:17:59 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_26/AIprobe.json
+[10/25/2024 3:17:59 AM] INFO: Task 26 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_26
+[10/25/2024 3:17:59 AM] INFO: Total no of state explored: 7855
+[10/25/2024 3:17:59 AM] INFO: Total task achieved 15 from 376 task.
+[10/25/2024 3:17:59 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:17:59 AM] INFO: Starting instruction validation.
+[10/25/2024 3:19:06 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 3:19:06 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_27/AIprobe.json
+[10/25/2024 3:19:06 AM] INFO: Task 27 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_27
+[10/25/2024 3:19:06 AM] INFO: Total no of state explored: 8020
+[10/25/2024 3:19:06 AM] INFO: Total task achieved 16 from 376 task.
+[10/25/2024 3:19:06 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:19:06 AM] INFO: Starting instruction validation.
+[10/25/2024 3:19:14 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 3:19:14 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_28/AIprobe.json
+[10/25/2024 3:19:14 AM] INFO: Task 28 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_28
+[10/25/2024 3:19:14 AM] INFO: Total no of state explored: 8047
+[10/25/2024 3:19:14 AM] INFO: Total task achieved 17 from 376 task.
+[10/25/2024 3:19:14 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:19:14 AM] INFO: Starting instruction validation.
+[10/25/2024 3:23:47 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 3:23:47 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_29/AIprobe.json
+[10/25/2024 3:23:47 AM] INFO: Total no of state explored: 8597
+[10/25/2024 3:23:47 AM] INFO: Total task achieved 17 from 376 task.
+[10/25/2024 3:23:47 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:23:47 AM] INFO: Starting instruction validation.
+[10/25/2024 3:23:48 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 3:23:48 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_30/AIprobe.json
+[10/25/2024 3:23:48 AM] INFO: Total no of state explored: 8598
+[10/25/2024 3:23:48 AM] INFO: Total task achieved 17 from 376 task.
+[10/25/2024 3:23:48 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:23:48 AM] INFO: Starting instruction validation.
+[10/25/2024 3:25:15 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 3:25:15 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_31/AIprobe.json
+[10/25/2024 3:25:15 AM] INFO: Task 31 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_31
+[10/25/2024 3:25:15 AM] INFO: Total no of state explored: 8791
+[10/25/2024 3:25:15 AM] INFO: Total task achieved 18 from 376 task.
+[10/25/2024 3:25:15 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:25:15 AM] INFO: Starting instruction validation.
+[10/25/2024 3:25:15 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 3:25:15 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_32/AIprobe.json
+[10/25/2024 3:25:15 AM] INFO: Total no of state explored: 8792
+[10/25/2024 3:25:15 AM] INFO: Total task achieved 18 from 376 task.
+[10/25/2024 3:25:15 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:25:15 AM] INFO: Starting instruction validation.
+[10/25/2024 3:29:50 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 3:29:50 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_33/AIprobe.json
+[10/25/2024 3:29:50 AM] INFO: Total no of state explored: 9339
+[10/25/2024 3:29:50 AM] INFO: Total task achieved 18 from 376 task.
+[10/25/2024 3:29:50 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:29:50 AM] INFO: Starting instruction validation.
+[10/25/2024 3:30:50 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 3:30:50 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_34/AIprobe.json
+[10/25/2024 3:30:50 AM] INFO: Task 34 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_34
+[10/25/2024 3:30:50 AM] INFO: Total no of state explored: 9497
+[10/25/2024 3:30:50 AM] INFO: Total task achieved 19 from 376 task.
+[10/25/2024 3:30:50 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:30:50 AM] INFO: Starting instruction validation.
+[10/25/2024 3:31:26 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 3:31:26 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_35/AIprobe.json
+[10/25/2024 3:31:26 AM] INFO: Task 35 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_35
+[10/25/2024 3:31:26 AM] INFO: Total no of state explored: 9595
+[10/25/2024 3:31:26 AM] INFO: Total task achieved 20 from 376 task.
+[10/25/2024 3:31:26 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:31:26 AM] INFO: Starting instruction validation.
+[10/25/2024 3:31:27 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 3:31:27 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_36/AIprobe.json
+[10/25/2024 3:31:27 AM] INFO: Total no of state explored: 9596
+[10/25/2024 3:31:27 AM] INFO: Total task achieved 20 from 376 task.
+[10/25/2024 3:31:27 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:31:27 AM] INFO: Starting instruction validation.
+[10/25/2024 3:31:35 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 3:31:35 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_37/AIprobe.json
+[10/25/2024 3:31:35 AM] INFO: Task 37 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_37
+[10/25/2024 3:31:35 AM] INFO: Total no of state explored: 9623
+[10/25/2024 3:31:35 AM] INFO: Total task achieved 21 from 376 task.
+[10/25/2024 3:31:35 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:31:35 AM] INFO: Starting instruction validation.
+[10/25/2024 3:35:53 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 3:35:53 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_38/AIprobe.json
+[10/25/2024 3:35:53 AM] INFO: Task 38 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_38
+[10/25/2024 3:35:53 AM] INFO: Total no of state explored: 10148
+[10/25/2024 3:35:53 AM] INFO: Total task achieved 22 from 376 task.
+[10/25/2024 3:35:53 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:35:53 AM] INFO: Starting instruction validation.
+[10/25/2024 3:39:06 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 3:39:06 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_39/AIprobe.json
+[10/25/2024 3:39:06 AM] INFO: Task 39 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_39
+[10/25/2024 3:39:06 AM] INFO: Total no of state explored: 10571
+[10/25/2024 3:39:06 AM] INFO: Total task achieved 23 from 376 task.
+[10/25/2024 3:39:06 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:39:06 AM] INFO: Starting instruction validation.
+[10/25/2024 3:39:46 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 3:39:46 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_40/AIprobe.json
+[10/25/2024 3:39:46 AM] INFO: Task 40 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_40
+[10/25/2024 3:39:46 AM] INFO: Total no of state explored: 10695
+[10/25/2024 3:39:46 AM] INFO: Total task achieved 24 from 376 task.
+[10/25/2024 3:39:46 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:39:46 AM] INFO: Starting instruction validation.
+[10/25/2024 3:43:37 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 3:43:37 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_41/AIprobe.json
+[10/25/2024 3:43:37 AM] INFO: Task 41 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_41
+[10/25/2024 3:43:37 AM] INFO: Total no of state explored: 11211
+[10/25/2024 3:43:37 AM] INFO: Total task achieved 25 from 376 task.
+[10/25/2024 3:43:37 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:43:37 AM] INFO: Starting instruction validation.
+[10/25/2024 3:43:40 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 3:43:40 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_42/AIprobe.json
+[10/25/2024 3:43:40 AM] INFO: Task 42 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_42
+[10/25/2024 3:43:40 AM] INFO: Total no of state explored: 11224
+[10/25/2024 3:43:40 AM] INFO: Total task achieved 26 from 376 task.
+[10/25/2024 3:43:40 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:43:40 AM] INFO: Starting instruction validation.
+[10/25/2024 3:47:50 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 3:47:50 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_43/AIprobe.json
+[10/25/2024 3:47:50 AM] INFO: Total no of state explored: 11756
+[10/25/2024 3:47:50 AM] INFO: Total task achieved 26 from 376 task.
+[10/25/2024 3:47:50 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:47:50 AM] INFO: Starting instruction validation.
+[10/25/2024 3:52:08 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 3:52:08 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_44/AIprobe.json
+[10/25/2024 3:52:08 AM] INFO: Total no of state explored: 12308
+[10/25/2024 3:52:08 AM] INFO: Total task achieved 26 from 376 task.
+[10/25/2024 3:52:08 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:52:08 AM] INFO: Starting instruction validation.
+[10/25/2024 3:52:09 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 3:52:09 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_45/AIprobe.json
+[10/25/2024 3:52:09 AM] INFO: Total no of state explored: 12309
+[10/25/2024 3:52:09 AM] INFO: Total task achieved 26 from 376 task.
+[10/25/2024 3:52:09 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:52:09 AM] INFO: Starting instruction validation.
+[10/25/2024 3:55:58 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 3:55:58 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_46/AIprobe.json
+[10/25/2024 3:55:58 AM] INFO: Task 46 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_46
+[10/25/2024 3:55:58 AM] INFO: Total no of state explored: 12823
+[10/25/2024 3:55:58 AM] INFO: Total task achieved 27 from 376 task.
+[10/25/2024 3:55:58 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:55:58 AM] INFO: Starting instruction validation.
+[10/25/2024 3:55:58 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 3:55:58 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_47/AIprobe.json
+[10/25/2024 3:55:58 AM] INFO: Total no of state explored: 12824
+[10/25/2024 3:55:58 AM] INFO: Total task achieved 27 from 376 task.
+[10/25/2024 3:55:58 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:55:58 AM] INFO: Starting instruction validation.
+[10/25/2024 3:57:25 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 3:57:25 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_48/AIprobe.json
+[10/25/2024 3:57:25 AM] INFO: Task 48 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_48
+[10/25/2024 3:57:25 AM] INFO: Total no of state explored: 13040
+[10/25/2024 3:57:25 AM] INFO: Total task achieved 28 from 376 task.
+[10/25/2024 3:57:25 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 3:57:25 AM] INFO: Starting instruction validation.
+[10/25/2024 4:01:39 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 4:01:39 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_49/AIprobe.json
+[10/25/2024 4:01:39 AM] INFO: Total no of state explored: 13595
+[10/25/2024 4:01:39 AM] INFO: Total task achieved 28 from 376 task.
+[10/25/2024 4:01:39 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:01:39 AM] INFO: Starting instruction validation.
+[10/25/2024 4:01:40 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 4:01:40 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_50/AIprobe.json
+[10/25/2024 4:01:40 AM] INFO: Total no of state explored: 13596
+[10/25/2024 4:01:40 AM] INFO: Total task achieved 28 from 376 task.
+[10/25/2024 4:01:40 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:01:40 AM] INFO: Starting instruction validation.
+[10/25/2024 4:05:50 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 4:05:50 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_51/AIprobe.json
+[10/25/2024 4:05:50 AM] INFO: Total no of state explored: 14132
+[10/25/2024 4:05:50 AM] INFO: Total task achieved 28 from 376 task.
+[10/25/2024 4:05:50 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:05:50 AM] INFO: Starting instruction validation.
+[10/25/2024 4:09:22 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 4:09:22 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_52/AIprobe.json
+[10/25/2024 4:09:22 AM] INFO: Task 52 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_52
+[10/25/2024 4:09:22 AM] INFO: Total no of state explored: 14612
+[10/25/2024 4:09:22 AM] INFO: Total task achieved 29 from 376 task.
+[10/25/2024 4:09:22 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:09:22 AM] INFO: Starting instruction validation.
+[10/25/2024 4:13:39 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 4:13:39 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_53/AIprobe.json
+[10/25/2024 4:13:39 AM] INFO: Total no of state explored: 15162
+[10/25/2024 4:13:39 AM] INFO: Total task achieved 29 from 376 task.
+[10/25/2024 4:13:39 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:13:39 AM] INFO: Starting instruction validation.
+[10/25/2024 4:13:39 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 4:13:39 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_54/AIprobe.json
+[10/25/2024 4:13:39 AM] INFO: Total no of state explored: 15163
+[10/25/2024 4:13:39 AM] INFO: Total task achieved 29 from 376 task.
+[10/25/2024 4:13:39 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:13:39 AM] INFO: Starting instruction validation.
+[10/25/2024 4:13:40 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 4:13:40 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_55/AIprobe.json
+[10/25/2024 4:13:40 AM] INFO: Total no of state explored: 15164
+[10/25/2024 4:13:40 AM] INFO: Total task achieved 29 from 376 task.
+[10/25/2024 4:13:40 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:13:40 AM] INFO: Starting instruction validation.
+[10/25/2024 4:13:41 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 4:13:41 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_56/AIprobe.json
+[10/25/2024 4:13:41 AM] INFO: Total no of state explored: 15165
+[10/25/2024 4:13:41 AM] INFO: Total task achieved 29 from 376 task.
+[10/25/2024 4:13:41 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:13:41 AM] INFO: Starting instruction validation.
+[10/25/2024 4:17:39 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 4:17:39 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_57/AIprobe.json
+[10/25/2024 4:17:39 AM] INFO: Task 57 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_57
+[10/25/2024 4:17:39 AM] INFO: Total no of state explored: 15712
+[10/25/2024 4:17:39 AM] INFO: Total task achieved 30 from 376 task.
+[10/25/2024 4:17:39 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:17:39 AM] INFO: Starting instruction validation.
+[10/25/2024 4:20:20 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 4:20:20 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_58/AIprobe.json
+[10/25/2024 4:20:20 AM] INFO: Task 58 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_58
+[10/25/2024 4:20:20 AM] INFO: Total no of state explored: 16116
+[10/25/2024 4:20:20 AM] INFO: Total task achieved 31 from 376 task.
+[10/25/2024 4:20:20 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:20:20 AM] INFO: Starting instruction validation.
+[10/25/2024 4:21:14 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 4:21:14 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_59/AIprobe.json
+[10/25/2024 4:21:14 AM] INFO: Task 59 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_59
+[10/25/2024 4:21:14 AM] INFO: Total no of state explored: 16268
+[10/25/2024 4:21:14 AM] INFO: Total task achieved 32 from 376 task.
+[10/25/2024 4:21:14 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:21:14 AM] INFO: Starting instruction validation.
+[10/25/2024 4:22:15 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 4:22:15 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_60/AIprobe.json
+[10/25/2024 4:22:15 AM] INFO: Task 60 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_60
+[10/25/2024 4:22:15 AM] INFO: Total no of state explored: 16428
+[10/25/2024 4:22:15 AM] INFO: Total task achieved 33 from 376 task.
+[10/25/2024 4:22:15 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:22:15 AM] INFO: Starting instruction validation.
+[10/25/2024 4:23:15 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 4:23:15 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_61/AIprobe.json
+[10/25/2024 4:23:15 AM] INFO: Task 61 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_61
+[10/25/2024 4:23:15 AM] INFO: Total no of state explored: 16599
+[10/25/2024 4:23:15 AM] INFO: Total task achieved 34 from 376 task.
+[10/25/2024 4:23:15 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:23:15 AM] INFO: Starting instruction validation.
+[10/25/2024 4:23:15 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 4:23:15 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_62/AIprobe.json
+[10/25/2024 4:23:15 AM] INFO: Total no of state explored: 16600
+[10/25/2024 4:23:15 AM] INFO: Total task achieved 34 from 376 task.
+[10/25/2024 4:23:15 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:23:15 AM] INFO: Starting instruction validation.
+[10/25/2024 4:25:48 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 4:25:48 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_63/AIprobe.json
+[10/25/2024 4:25:48 AM] INFO: Task 63 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_63
+[10/25/2024 4:25:48 AM] INFO: Total no of state explored: 16992
+[10/25/2024 4:25:48 AM] INFO: Total task achieved 35 from 376 task.
+[10/25/2024 4:25:48 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:25:48 AM] INFO: Starting instruction validation.
+[10/25/2024 4:27:26 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 4:27:26 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_64/AIprobe.json
+[10/25/2024 4:27:26 AM] INFO: Task 64 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_64
+[10/25/2024 4:27:26 AM] INFO: Total no of state explored: 17263
+[10/25/2024 4:27:26 AM] INFO: Total task achieved 36 from 376 task.
+[10/25/2024 4:27:26 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:27:26 AM] INFO: Starting instruction validation.
+[10/25/2024 4:27:26 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 4:27:26 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_65/AIprobe.json
+[10/25/2024 4:27:26 AM] INFO: Total no of state explored: 17264
+[10/25/2024 4:27:26 AM] INFO: Total task achieved 36 from 376 task.
+[10/25/2024 4:27:26 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:27:26 AM] INFO: Starting instruction validation.
+[10/25/2024 4:28:11 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 4:28:11 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_66/AIprobe.json
+[10/25/2024 4:28:11 AM] INFO: Task 66 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_66
+[10/25/2024 4:28:11 AM] INFO: Total no of state explored: 17400
+[10/25/2024 4:28:11 AM] INFO: Total task achieved 37 from 376 task.
+[10/25/2024 4:28:11 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:28:11 AM] INFO: Starting instruction validation.
+[10/25/2024 4:28:53 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 4:28:53 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_67/AIprobe.json
+[10/25/2024 4:28:53 AM] INFO: Task 67 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_67
+[10/25/2024 4:28:53 AM] INFO: Total no of state explored: 17514
+[10/25/2024 4:28:53 AM] INFO: Total task achieved 38 from 376 task.
+[10/25/2024 4:28:53 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:28:53 AM] INFO: Starting instruction validation.
+[10/25/2024 4:29:45 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 4:29:45 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_68/AIprobe.json
+[10/25/2024 4:29:45 AM] INFO: Task 68 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_68
+[10/25/2024 4:29:45 AM] INFO: Total no of state explored: 17670
+[10/25/2024 4:29:45 AM] INFO: Total task achieved 39 from 376 task.
+[10/25/2024 4:29:45 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:29:45 AM] INFO: Starting instruction validation.
+[10/25/2024 4:30:09 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 4:30:09 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_69/AIprobe.json
+[10/25/2024 4:30:09 AM] INFO: Task 69 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_69
+[10/25/2024 4:30:09 AM] INFO: Total no of state explored: 17758
+[10/25/2024 4:30:09 AM] INFO: Total task achieved 40 from 376 task.
+[10/25/2024 4:30:09 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:30:09 AM] INFO: Starting instruction validation.
+[10/25/2024 4:31:10 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 4:31:10 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_70/AIprobe.json
+[10/25/2024 4:31:10 AM] INFO: Task 70 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_70
+[10/25/2024 4:31:10 AM] INFO: Total no of state explored: 17946
+[10/25/2024 4:31:10 AM] INFO: Total task achieved 41 from 376 task.
+[10/25/2024 4:31:10 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:31:10 AM] INFO: Starting instruction validation.
+[10/25/2024 4:33:25 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 4:33:25 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_71/AIprobe.json
+[10/25/2024 4:33:25 AM] INFO: Task 71 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_71
+[10/25/2024 4:33:25 AM] INFO: Total no of state explored: 18293
+[10/25/2024 4:33:25 AM] INFO: Total task achieved 42 from 376 task.
+[10/25/2024 4:33:25 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:33:25 AM] INFO: Starting instruction validation.
+[10/25/2024 4:36:38 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 4:36:38 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_72/AIprobe.json
+[10/25/2024 4:36:38 AM] INFO: Task 72 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_72
+[10/25/2024 4:36:38 AM] INFO: Total no of state explored: 18764
+[10/25/2024 4:36:38 AM] INFO: Total task achieved 43 from 376 task.
+[10/25/2024 4:36:38 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:36:38 AM] INFO: Starting instruction validation.
+[10/25/2024 4:36:38 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 4:36:38 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_73/AIprobe.json
+[10/25/2024 4:36:38 AM] INFO: Total no of state explored: 18765
+[10/25/2024 4:36:38 AM] INFO: Total task achieved 43 from 376 task.
+[10/25/2024 4:36:38 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:36:38 AM] INFO: Starting instruction validation.
+[10/25/2024 4:36:39 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 4:36:39 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_74/AIprobe.json
+[10/25/2024 4:36:39 AM] INFO: Total no of state explored: 18766
+[10/25/2024 4:36:39 AM] INFO: Total task achieved 43 from 376 task.
+[10/25/2024 4:36:39 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:36:39 AM] INFO: Starting instruction validation.
+[10/25/2024 4:40:34 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 4:40:34 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_75/AIprobe.json
+[10/25/2024 4:40:34 AM] INFO: Task 75 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_75
+[10/25/2024 4:40:34 AM] INFO: Total no of state explored: 19318
+[10/25/2024 4:40:34 AM] INFO: Total task achieved 44 from 376 task.
+[10/25/2024 4:40:34 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:40:34 AM] INFO: Starting instruction validation.
+[10/25/2024 4:42:34 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 4:42:34 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_76/AIprobe.json
+[10/25/2024 4:42:34 AM] INFO: Task 76 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_76
+[10/25/2024 4:42:34 AM] INFO: Total no of state explored: 19640
+[10/25/2024 4:42:34 AM] INFO: Total task achieved 45 from 376 task.
+[10/25/2024 4:42:34 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:42:34 AM] INFO: Starting instruction validation.
+[10/25/2024 4:42:35 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 4:42:35 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_77/AIprobe.json
+[10/25/2024 4:42:35 AM] INFO: Total no of state explored: 19641
+[10/25/2024 4:42:35 AM] INFO: Total task achieved 45 from 376 task.
+[10/25/2024 4:42:35 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:42:35 AM] INFO: Starting instruction validation.
+[10/25/2024 4:42:35 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 4:42:35 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_78/AIprobe.json
+[10/25/2024 4:42:35 AM] INFO: Total no of state explored: 19642
+[10/25/2024 4:42:35 AM] INFO: Total task achieved 45 from 376 task.
+[10/25/2024 4:42:35 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:42:35 AM] INFO: Starting instruction validation.
+[10/25/2024 4:42:41 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 4:42:41 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_79/AIprobe.json
+[10/25/2024 4:42:41 AM] INFO: Task 79 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_79
+[10/25/2024 4:42:41 AM] INFO: Total no of state explored: 19666
+[10/25/2024 4:42:41 AM] INFO: Total task achieved 46 from 376 task.
+[10/25/2024 4:42:41 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:42:41 AM] INFO: Starting instruction validation.
+[10/25/2024 4:45:53 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 4:45:53 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_80/AIprobe.json
+[10/25/2024 4:45:53 AM] INFO: Task 80 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_80
+[10/25/2024 4:45:53 AM] INFO: Total no of state explored: 20140
+[10/25/2024 4:45:53 AM] INFO: Total task achieved 47 from 376 task.
+[10/25/2024 4:45:53 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:45:53 AM] INFO: Starting instruction validation.
+[10/25/2024 4:47:00 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 4:47:00 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_81/AIprobe.json
+[10/25/2024 4:47:00 AM] INFO: Task 81 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_81
+[10/25/2024 4:47:00 AM] INFO: Total no of state explored: 20326
+[10/25/2024 4:47:00 AM] INFO: Total task achieved 48 from 376 task.
+[10/25/2024 4:47:00 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:47:00 AM] INFO: Starting instruction validation.
+[10/25/2024 4:48:18 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 4:48:18 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_82/AIprobe.json
+[10/25/2024 4:48:18 AM] INFO: Task 82 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_82
+[10/25/2024 4:48:18 AM] INFO: Total no of state explored: 20559
+[10/25/2024 4:48:18 AM] INFO: Total task achieved 49 from 376 task.
+[10/25/2024 4:48:18 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:48:18 AM] INFO: Starting instruction validation.
+[10/25/2024 4:51:43 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 4:51:43 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_83/AIprobe.json
+[10/25/2024 4:51:43 AM] INFO: Task 83 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_83
+[10/25/2024 4:51:43 AM] INFO: Total no of state explored: 21035
+[10/25/2024 4:51:43 AM] INFO: Total task achieved 50 from 376 task.
+[10/25/2024 4:51:43 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:51:43 AM] INFO: Starting instruction validation.
+[10/25/2024 4:54:00 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 4:54:00 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_84/AIprobe.json
+[10/25/2024 4:54:00 AM] INFO: Task 84 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_84
+[10/25/2024 4:54:00 AM] INFO: Total no of state explored: 21391
+[10/25/2024 4:54:00 AM] INFO: Total task achieved 51 from 376 task.
+[10/25/2024 4:54:00 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:54:00 AM] INFO: Starting instruction validation.
+[10/25/2024 4:55:17 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 4:55:17 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_85/AIprobe.json
+[10/25/2024 4:55:17 AM] INFO: Task 85 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_85
+[10/25/2024 4:55:17 AM] INFO: Total no of state explored: 21607
+[10/25/2024 4:55:17 AM] INFO: Total task achieved 52 from 376 task.
+[10/25/2024 4:55:17 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:55:17 AM] INFO: Starting instruction validation.
+[10/25/2024 4:55:17 AM] INFO: Stopping instruction validation. instruction found:False
+[10/25/2024 4:55:17 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_86/AIprobe.json
+[10/25/2024 4:55:17 AM] INFO: Total no of state explored: 21608
+[10/25/2024 4:55:17 AM] INFO: Total task achieved 52 from 376 task.
+[10/25/2024 4:55:17 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:55:17 AM] INFO: Starting instruction validation.
+[10/25/2024 4:55:38 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 4:55:38 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_87/AIprobe.json
+[10/25/2024 4:55:38 AM] INFO: Task 87 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_87
+[10/25/2024 4:55:38 AM] INFO: Total no of state explored: 21679
+[10/25/2024 4:55:38 AM] INFO: Total task achieved 53 from 376 task.
+[10/25/2024 4:55:38 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:55:38 AM] INFO: Starting instruction validation.
+[10/25/2024 4:56:30 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 4:56:30 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_88/AIprobe.json
+[10/25/2024 4:56:30 AM] INFO: Task 88 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_88
+[10/25/2024 4:56:30 AM] INFO: Total no of state explored: 21818
+[10/25/2024 4:56:30 AM] INFO: Total task achieved 54 from 376 task.
+[10/25/2024 4:56:30 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:56:30 AM] INFO: Starting instruction validation.
+[10/25/2024 4:58:32 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 4:58:32 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_89/AIprobe.json
+[10/25/2024 4:58:32 AM] INFO: Task 89 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_89
+[10/25/2024 4:58:32 AM] INFO: Total no of state explored: 22127
+[10/25/2024 4:58:32 AM] INFO: Total task achieved 55 from 376 task.
+[10/25/2024 4:58:32 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 4:58:32 AM] INFO: Starting instruction validation.
+[10/25/2024 5:00:34 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 5:00:34 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_90/AIprobe.json
+[10/25/2024 5:00:34 AM] INFO: Task 90 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_90
+[10/25/2024 5:00:34 AM] INFO: Total no of state explored: 22434
+[10/25/2024 5:00:34 AM] INFO: Total task achieved 56 from 376 task.
+[10/25/2024 5:00:34 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 5:00:34 AM] INFO: Starting instruction validation.
+[10/25/2024 5:01:56 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 5:01:56 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_91/AIprobe.json
+[10/25/2024 5:01:56 AM] INFO: Task 91 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_91
+[10/25/2024 5:01:56 AM] INFO: Total no of state explored: 22652
+[10/25/2024 5:01:56 AM] INFO: Total task achieved 57 from 376 task.
+[10/25/2024 5:01:56 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 5:01:56 AM] INFO: Starting instruction validation.
+[10/25/2024 5:02:49 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 5:02:49 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_92/AIprobe.json
+[10/25/2024 5:02:49 AM] INFO: Task 92 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_92
+[10/25/2024 5:02:49 AM] INFO: Total no of state explored: 22804
+[10/25/2024 5:02:49 AM] INFO: Total task achieved 58 from 376 task.
+[10/25/2024 5:02:49 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 5:02:49 AM] INFO: Starting instruction validation.
+[10/25/2024 5:04:01 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 5:04:01 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_93/AIprobe.json
+[10/25/2024 5:04:01 AM] INFO: Task 93 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_93
+[10/25/2024 5:04:01 AM] INFO: Total no of state explored: 23007
+[10/25/2024 5:04:01 AM] INFO: Total task achieved 59 from 376 task.
+[10/25/2024 5:04:01 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 5:04:01 AM] INFO: Starting instruction validation.
+[10/25/2024 5:05:45 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 5:05:45 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_94/AIprobe.json
+[10/25/2024 5:05:45 AM] INFO: Task 94 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_94
+[10/25/2024 5:05:45 AM] INFO: Total no of state explored: 23296
+[10/25/2024 5:05:45 AM] INFO: Total task achieved 60 from 376 task.
+[10/25/2024 5:05:45 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 5:05:45 AM] INFO: Starting instruction validation.
+[10/25/2024 5:07:01 AM] INFO: Stopping instruction validation. instruction found:True
+[10/25/2024 5:07:01 AM] INFO: Results successfully saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_95/AIprobe.json
+[10/25/2024 5:07:01 AM] INFO: Task 95 instructions found saved to /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/Task_95
+[10/25/2024 5:07:01 AM] INFO: Total no of state explored: 23510
+[10/25/2024 5:07:01 AM] INFO: Total task achieved 61 from 376 task.
+[10/25/2024 5:07:01 AM] INFO:  Unsafe states data stored at /home/mehtara/Documents/Github/AIProbe/csharp/results/Result_LavaEnv3_6470/unsafeSate.json
+[10/25/2024 5:07:01 AM] INFO: Starting instruction validation.

@@ -4,17 +4,5 @@
       "forward"
     ],
     "Result": "Unsafe"
-  },
-  "2": {
-    "Instructions": [
-      "left, forward, right, forward"
-    ],
-    "Result": "Unsafe"
-  },
-  "3": {
-    "Instructions": [
-      "right, forward, right, forward"
-    ],
-    "Result": "Safe"
   }
 }

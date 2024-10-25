@@ -6,18 +6,18 @@
         <Attribute>
           <Name value="X"/>
           <DataType value="int"/>
-          <Value value="3"/>
+          <Value value="4"/>
           <Min value="1"/>
-          <Max value="5"/>
+          <Max value="9"/>
           <Step value="1"/>
           <Mutable value="true"/>
         </Attribute>
         <Attribute>
           <Name value="Y"/>
           <DataType value="int"/>
-          <Value value="3"/>
+          <Value value="4"/>
           <Min value="1"/>
-          <Max value="5"/>
+          <Max value="9"/>
           <Step value="1"/>
           <Mutable value="true"/>
         </Attribute>
@@ -25,7 +25,7 @@
           <Name value="Z"/>
           <DataType value="int"/>
           <Value value="0"/>
-          <Min value="0"/>
+          <Min value="1"/>
           <Max value="0"/>
           <Step value="0"/>
           <Mutable value="false"/>
@@ -50,18 +50,18 @@
         <Attribute>
           <Name value="X"/>
           <DataType value="int"/>
-          <Value value="3"/>
-          <Min value="0"/>
-          <Max value="7"/>
+          <Value value="2"/>
+          <Min value="1"/>
+          <Max value="9"/>
           <Step value="1"/>
           <Mutable value="true"/>
         </Attribute>
         <Attribute>
           <Name value="Y"/>
           <DataType value="int"/>
-          <Value value="6"/>
-          <Min value="0"/>
-          <Max value="7"/>
+          <Value value="1"/>
+          <Min value="1"/>
+          <Max value="9"/>
           <Step value="1"/>
           <Mutable value="true"/>
         </Attribute>
@@ -69,7 +69,7 @@
           <Name value="Z"/>
           <DataType value="float"/>
           <Value value="0"/>
-          <Min value="0"/>
+          <Min value="1"/>
           <Max value="200"/>
           <Step value="0"/>
           <Mutable value="false"/>
@@ -94,18 +94,18 @@
         <Attribute>
           <Name value="X"/>
           <DataType value="int"/>
-          <Value value="6"/>
-          <Min value="0"/>
-          <Max value="7"/>
+          <Value value="2"/>
+          <Min value="1"/>
+          <Max value="9"/>
           <Step value="1"/>
           <Mutable value="true"/>
         </Attribute>
         <Attribute>
           <Name value="Y"/>
           <DataType value="int"/>
-          <Value value="2"/>
-          <Min value="0"/>
-          <Max value="7"/>
+          <Value value="3"/>
+          <Min value="1"/>
+          <Max value="9"/>
           <Step value="1"/>
           <Mutable value="true"/>
         </Attribute>
@@ -113,7 +113,7 @@
           <Name value="Z"/>
           <DataType value="float"/>
           <Value value="0"/>
-          <Min value="0"/>
+          <Min value="1"/>
           <Max value="200"/>
           <Step value="0"/>
           <Mutable value="false"/>
@@ -138,18 +138,18 @@
         <Attribute>
           <Name value="X"/>
           <DataType value="int"/>
-          <Value value="0"/>
-          <Min value="0"/>
-          <Max value="7"/>
+          <Value value="3"/>
+          <Min value="1"/>
+          <Max value="9"/>
           <Step value="1"/>
           <Mutable value="true"/>
         </Attribute>
         <Attribute>
           <Name value="Y"/>
           <DataType value="int"/>
-          <Value value="2"/>
-          <Min value="0"/>
-          <Max value="7"/>
+          <Value value="8"/>
+          <Min value="1"/>
+          <Max value="9"/>
           <Step value="1"/>
           <Mutable value="true"/>
         </Attribute>
@@ -157,7 +157,7 @@
           <Name value="Z"/>
           <DataType value="float"/>
           <Value value="0"/>
-          <Min value="0"/>
+          <Min value="1"/>
           <Max value="200"/>
           <Step value="0"/>
           <Mutable value="false"/>
@@ -182,18 +182,18 @@
         <Attribute>
           <Name value="X"/>
           <DataType value="int"/>
-          <Value value="6"/>
-          <Min value="0"/>
-          <Max value="7"/>
+          <Value value="7"/>
+          <Min value="1"/>
+          <Max value="9"/>
           <Step value="1"/>
           <Mutable value="true"/>
         </Attribute>
         <Attribute>
           <Name value="Y"/>
           <DataType value="int"/>
-          <Value value="4"/>
-          <Min value="0"/>
-          <Max value="7"/>
+          <Value value="5"/>
+          <Min value="1"/>
+          <Max value="9"/>
           <Step value="1"/>
           <Mutable value="true"/>
         </Attribute>
@@ -201,7 +201,7 @@
           <Name value="Z"/>
           <DataType value="float"/>
           <Value value="0"/>
-          <Min value="0"/>
+          <Min value="1"/>
           <Max value="200"/>
           <Step value="0"/>
           <Mutable value="false"/>
@@ -226,18 +226,18 @@
         <Attribute>
           <Name value="X"/>
           <DataType value="int"/>
-          <Value value="6"/>
-          <Min value="0"/>
-          <Max value="7"/>
+          <Value value="3"/>
+          <Min value="1"/>
+          <Max value="9"/>
           <Step value="1"/>
           <Mutable value="true"/>
         </Attribute>
         <Attribute>
           <Name value="Y"/>
           <DataType value="int"/>
-          <Value value="5"/>
-          <Min value="0"/>
-          <Max value="7"/>
+          <Value value="6"/>
+          <Min value="1"/>
+          <Max value="9"/>
           <Step value="1"/>
           <Mutable value="true"/>
         </Attribute>
@@ -245,7 +245,7 @@
           <Name value="Z"/>
           <DataType value="float"/>
           <Value value="0"/>
-          <Min value="0"/>
+          <Min value="1"/>
           <Max value="200"/>
           <Step value="0"/>
           <Mutable value="false"/>
@@ -270,18 +270,18 @@
         <Attribute>
           <Name value="X"/>
           <DataType value="int"/>
-          <Value value="1"/>
-          <Min value="0"/>
-          <Max value="7"/>
+          <Value value="4"/>
+          <Min value="1"/>
+          <Max value="9"/>
           <Step value="1"/>
           <Mutable value="true"/>
         </Attribute>
         <Attribute>
           <Name value="Y"/>
           <DataType value="int"/>
-          <Value value="2"/>
-          <Min value="0"/>
-          <Max value="7"/>
+          <Value value="7"/>
+          <Min value="1"/>
+          <Max value="9"/>
           <Step value="1"/>
           <Mutable value="true"/>
         </Attribute>
@@ -289,7 +289,7 @@
           <Name value="Z"/>
           <DataType value="float"/>
           <Value value="0"/>
-          <Min value="0"/>
+          <Min value="1"/>
           <Max value="200"/>
           <Step value="0"/>
           <Mutable value="false"/>
@@ -314,18 +314,18 @@
         <Attribute>
           <Name value="X"/>
           <DataType value="int"/>
-          <Value value="4"/>
-          <Min value="0"/>
-          <Max value="7"/>
+          <Value value="1"/>
+          <Min value="1"/>
+          <Max value="9"/>
           <Step value="1"/>
           <Mutable value="true"/>
         </Attribute>
         <Attribute>
           <Name value="Y"/>
           <DataType value="int"/>
-          <Value value="1"/>
-          <Min value="0"/>
-          <Max value="7"/>
+          <Value value="7"/>
+          <Min value="1"/>
+          <Max value="9"/>
           <Step value="1"/>
           <Mutable value="true"/>
         </Attribute>
@@ -333,7 +333,7 @@
           <Name value="Z"/>
           <DataType value="float"/>
           <Value value="0"/>
-          <Min value="0"/>
+          <Min value="1"/>
           <Max value="200"/>
           <Step value="0"/>
           <Mutable value="false"/>
@@ -358,18 +358,18 @@
         <Attribute>
           <Name value="X"/>
           <DataType value="int"/>
-          <Value value="4"/>
-          <Min value="0"/>
-          <Max value="7"/>
+          <Value value="3"/>
+          <Min value="1"/>
+          <Max value="9"/>
           <Step value="1"/>
           <Mutable value="true"/>
         </Attribute>
         <Attribute>
           <Name value="Y"/>
           <DataType value="int"/>
-          <Value value="6"/>
-          <Min value="0"/>
-          <Max value="7"/>
+          <Value value="3"/>
+          <Min value="1"/>
+          <Max value="9"/>
           <Step value="1"/>
           <Mutable value="true"/>
         </Attribute>
@@ -377,7 +377,7 @@
           <Name value="Z"/>
           <DataType value="float"/>
           <Value value="0"/>
-          <Min value="0"/>
+          <Min value="1"/>
           <Max value="200"/>
           <Step value="0"/>
           <Mutable value="false"/>
@@ -402,18 +402,18 @@
         <Attribute>
           <Name value="X"/>
           <DataType value="int"/>
-          <Value value="4"/>
-          <Min value="0"/>
-          <Max value="7"/>
+          <Value value="3"/>
+          <Min value="1"/>
+          <Max value="9"/>
           <Step value="1"/>
           <Mutable value="true"/>
         </Attribute>
         <Attribute>
           <Name value="Y"/>
           <DataType value="int"/>
-          <Value value="6"/>
-          <Min value="0"/>
-          <Max value="7"/>
+          <Value value="3"/>
+          <Min value="1"/>
+          <Max value="9"/>
           <Step value="1"/>
           <Mutable value="true"/>
         </Attribute>
@@ -421,7 +421,7 @@
           <Name value="Z"/>
           <DataType value="float"/>
           <Value value="0"/>
-          <Min value="0"/>
+          <Min value="1"/>
           <Max value="200"/>
           <Step value="0"/>
           <Mutable value="false"/>
@@ -446,18 +446,18 @@
         <Attribute>
           <Name value="X"/>
           <DataType value="int"/>
-          <Value value="3"/>
-          <Min value="0"/>
-          <Max value="7"/>
+          <Value value="6"/>
+          <Min value="1"/>
+          <Max value="9"/>
           <Step value="1"/>
           <Mutable value="true"/>
         </Attribute>
         <Attribute>
           <Name value="Y"/>
           <DataType value="int"/>
-          <Value value="4"/>
-          <Min value="0"/>
-          <Max value="7"/>
+          <Value value="1"/>
+          <Min value="1"/>
+          <Max value="9"/>
           <Step value="1"/>
           <Mutable value="true"/>
         </Attribute>
@@ -465,7 +465,7 @@
           <Name value="Z"/>
           <DataType value="float"/>
           <Value value="0"/>
-          <Min value="0"/>
+          <Min value="1"/>
           <Max value="200"/>
           <Step value="0"/>
           <Mutable value="false"/>
@@ -491,17 +491,17 @@
           <Name value="X"/>
           <DataType value="int"/>
           <Value value="1"/>
-          <Min value="0"/>
-          <Max value="7"/>
+          <Min value="1"/>
+          <Max value="9"/>
           <Step value="1"/>
           <Mutable value="true"/>
         </Attribute>
         <Attribute>
           <Name value="Y"/>
           <DataType value="int"/>
-          <Value value="2"/>
-          <Min value="0"/>
-          <Max value="7"/>
+          <Value value="6"/>
+          <Min value="1"/>
+          <Max value="9"/>
           <Step value="1"/>
           <Mutable value="true"/>
         </Attribute>
@@ -509,7 +509,7 @@
           <Name value="Z"/>
           <DataType value="float"/>
           <Value value="0"/>
-          <Min value="0"/>
+          <Min value="1"/>
           <Max value="200"/>
           <Step value="0"/>
           <Mutable value="false"/>
@@ -534,18 +534,18 @@
         <Attribute>
           <Name value="X"/>
           <DataType value="int"/>
-          <Value value="1"/>
-          <Min value="0"/>
-          <Max value="7"/>
+          <Value value="6"/>
+          <Min value="1"/>
+          <Max value="9"/>
           <Step value="1"/>
           <Mutable value="true"/>
         </Attribute>
         <Attribute>
           <Name value="Y"/>
           <DataType value="int"/>
-          <Value value="6"/>
-          <Min value="0"/>
-          <Max value="7"/>
+          <Value value="3"/>
+          <Min value="1"/>
+          <Max value="9"/>
           <Step value="1"/>
           <Mutable value="true"/>
         </Attribute>
@@ -553,7 +553,7 @@
           <Name value="Z"/>
           <DataType value="float"/>
           <Value value="0"/>
-          <Min value="0"/>
+          <Min value="1"/>
           <Max value="200"/>
           <Step value="0"/>
           <Mutable value="false"/>
@@ -578,9 +578,9 @@
         <Attribute>
           <Name value="X"/>
           <DataType value="int"/>
-          <Value value="2"/>
-          <Min value="0"/>
-          <Max value="7"/>
+          <Value value="4"/>
+          <Min value="1"/>
+          <Max value="9"/>
           <Step value="1"/>
           <Mutable value="true"/>
         </Attribute>
@@ -588,8 +588,8 @@
           <Name value="Y"/>
           <DataType value="int"/>
           <Value value="5"/>
-          <Min value="0"/>
-          <Max value="7"/>
+          <Min value="1"/>
+          <Max value="9"/>
           <Step value="1"/>
           <Mutable value="true"/>
         </Attribute>
@@ -597,7 +597,1591 @@
           <Name value="Z"/>
           <DataType value="float"/>
           <Value value="0"/>
-          <Min value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="14" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="3"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="6"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="15" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="8"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="3"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="16" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="2"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="1"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="17" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="8"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="5"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="18" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="3"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="2"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="19" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="3"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="2"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="20" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="6"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="2"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="21" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="4"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="8"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="22" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="2"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="1"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="23" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="3"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="4"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="24" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="7"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="2"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="25" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="1"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="6"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="26" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="7"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="3"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="27" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="2"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="3"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="28" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="1"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="7"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="29" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="7"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="3"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="30" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="6"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="3"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="31" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="6"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="7"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="32" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="8"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="7"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="33" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="2"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="7"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="34" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="6"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="8"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="35" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="6"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="2"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="36" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="1"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="6"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="37" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="8"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="8"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="38" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="7"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="5"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="39" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="1"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="6"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="40" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="8"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="3"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="41" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="1"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="1"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="42" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="5"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="6"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="43" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="7"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="1"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="44" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="2"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="1"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="45" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="8"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="1"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="46" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="5"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="8"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="47" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="7"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="2"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="48" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="4"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="2"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
+          <Max value="200"/>
+          <Step value="0"/>
+          <Mutable value="false"/>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="is_active"/>
+          <DataType value="boolean"/>
+          <Value value="1"/>
+          <Mutable value="false"/>
+          <Description value="The lava is active"/>
+          <ValueList>
+            <Pair key="1" value="true"/>
+            <Pair key="0" value="false"/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <Object id="49" name="Lava" type="Hazard">
+      <Position>
+        <Attribute>
+          <Name value="X"/>
+          <DataType value="int"/>
+          <Value value="2"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Y"/>
+          <DataType value="int"/>
+          <Value value="8"/>
+          <Min value="1"/>
+          <Max value="9"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="Z"/>
+          <DataType value="float"/>
+          <Value value="0"/>
+          <Min value="1"/>
           <Max value="200"/>
           <Step value="0"/>
           <Mutable value="false"/>
@@ -623,9 +2207,9 @@
       <Attribute>
         <Name value="Width"/>
         <DataType value="int"/>
-        <Value value="7"/>
+        <Value value="11"/>
         <Min value="3"/>
-        <Max value="7"/>
+        <Max value="11"/>
         <Step value="1"/>
         <Mutable value="true"/>
         <Description value="The width of the boundary"/>
@@ -633,9 +2217,9 @@
       <Attribute>
         <Name value="Height"/>
         <DataType value="int"/>
-        <Value value="7"/>
+        <Value value="11"/>
         <Min value="3"/>
-        <Max value="7"/>
+        <Max value="11"/>
         <Step value="1"/>
         <Mutable value="true"/>
         <Description value="The height of the boundary"/>
@@ -644,7 +2228,7 @@
         <Name value="Depth"/>
         <DataType value="int"/>
         <Value value="0"/>
-        <Min value="0"/>
+        <Min value="1"/>
         <Max value="0"/>
         <Step value="0"/>
         <Mutable value="false"/>

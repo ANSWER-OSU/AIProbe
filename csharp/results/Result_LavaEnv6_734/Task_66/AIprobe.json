@@ -4,41 +4,5 @@
       "forward"
     ],
     "Result": "Unsafe"
-  },
-  "2": {
-    "Instructions": [
-      "left, left, forward"
-    ],
-    "Result": "Unsafe"
-  },
-  "3": {
-    "Instructions": [
-      "right, forward, forward, forward"
-    ],
-    "Result": "Unsafe"
-  },
-  "4": {
-    "Instructions": [
-      "right, forward, left, forward"
-    ],
-    "Result": "Unsafe"
-  },
-  "5": {
-    "Instructions": [
-      "left, forward, left, forward, left, forward"
-    ],
-    "Result": "Unsafe"
-  },
-  "6": {
-    "Instructions": [
-      "left, forward, right, forward, forward, forward"
-    ],
-    "Result": "Unsafe"
-  },
-  "7": {
-    "Instructions": [
-      "left, forward, right, forward, forward, right"
-    ],
-    "Result": "Safe"
   }
 }

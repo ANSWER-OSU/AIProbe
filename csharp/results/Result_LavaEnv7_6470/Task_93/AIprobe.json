@@ -1,8 +1,8 @@
 {
   "1": {
     "Instructions": [
-      "left, left"
+      "forward"
     ],
-    "Result": "Safe"
+    "Result": "Unsafe"
   }
 }

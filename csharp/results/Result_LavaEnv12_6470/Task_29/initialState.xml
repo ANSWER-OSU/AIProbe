@@ -6,18 +6,18 @@
         <Attribute>
           <Name value="X"/>
           <DataType value="int"/>
-          <Value value="8139"/>
-          <Min value="1"/>
-          <Max value="20000"/>
+          <Value value="9275056"/>
+          <Min value="0"/>
+          <Max value="24748364"/>
           <Step value="1"/>
           <Mutable value="true"/>
         </Attribute>
         <Attribute>
           <Name value="Y"/>
           <DataType value="int"/>
-          <Value value="18304"/>
-          <Min value="1"/>
-          <Max value="20000"/>
+          <Value value="18095451"/>
+          <Min value="0"/>
+          <Max value="24748364"/>
           <Step value="1"/>
           <Mutable value="true"/>
         </Attribute>
@@ -35,7 +35,7 @@
         <Attribute>
           <Name value="Angle"/>
           <DataType value="int"/>
-          <Value value="1"/>
+          <Value value="0"/>
           <Min value="0"/>
           <Max value="3"/>
           <Step value="1"/>
@@ -50,9 +50,9 @@
       <Attribute>
         <Name value="Width"/>
         <DataType value="int"/>
-        <Value value="20000"/>
-        <Min value="3"/>
-        <Max value="20000"/>
+        <Value value="24748364"/>
+        <Min value="0"/>
+        <Max value="24748364"/>
         <Step value="1"/>
         <Mutable value="true"/>
         <Description value="The width of the boundary"/>
@@ -60,9 +60,9 @@
       <Attribute>
         <Name value="Height"/>
         <DataType value="int"/>
-        <Value value="20000"/>
-        <Min value="3"/>
-        <Max value="20000"/>
+        <Value value="24748364"/>
+        <Min value="0"/>
+        <Max value="24748364"/>
         <Step value="1"/>
         <Mutable value="true"/>
         <Description value="The height of the boundary"/>

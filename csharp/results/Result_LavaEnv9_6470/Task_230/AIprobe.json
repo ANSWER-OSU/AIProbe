@@ -1,0 +1,86 @@
+{
+  "1": {
+    "Instructions": [
+      "forward"
+    ],
+    "Result": "Unsafe"
+  },
+  "2": {
+    "Instructions": [
+      "left, forward"
+    ],
+    "Result": "Unsafe"
+  },
+  "3": {
+    "Instructions": [
+      "left, left, forward, right, forward, right, forward"
+    ],
+    "Result": "Unsafe"
+  },
+  "4": {
+    "Instructions": [
+      "left, left, forward, right, forward, forward, right, forward"
+    ],
+    "Result": "Unsafe"
+  },
+  "5": {
+    "Instructions": [
+      "left, left, forward, right, forward, forward, forward, right, forward"
+    ],
+    "Result": "Unsafe"
+  },
+  "6": {
+    "Instructions": [
+      "left, left, forward, right, forward, forward, forward, forward, right, forward, forward"
+    ],
+    "Result": "Unsafe"
+  },
+  "7": {
+    "Instructions": [
+      "left, left, forward, right, forward, forward, forward, forward, right, forward, right, forward"
+    ],
+    "Result": "Unsafe"
+  },
+  "8": {
+    "Instructions": [
+      "left, left, forward, right, forward, forward, forward, forward, forward, right, forward, forward, right, forward"
+    ],
+    "Result": "Unsafe"
+  },
+  "9": {
+    "Instructions": [
+      "left, left, forward, right, forward, forward, forward, forward, forward, right, forward, forward, forward, forward, right, forward"
+    ],
+    "Result": "Unsafe"
+  },
+  "10": {
+    "Instructions": [
+      "left, left, forward, right, forward, forward, forward, forward, forward, right, forward, forward, forward, right, forward, forward"
+    ],
+    "Result": "Unsafe"
+  },
+  "11": {
+    "Instructions": [
+      "left, left, forward, right, forward, forward, forward, forward, forward, right, forward, forward, forward, right, forward, left, forward"
+    ],
+    "Result": "Unsafe"
+  },
+  "12": {
+    "Instructions": [
+      "left, left, forward, right, forward, forward, forward, forward, forward, right, forward, forward, forward, right, forward, right, forward"
+    ],
+    "Result": "Unsafe"
+  },
+  "13": {
+    "Instructions": [
+      "left, left, forward, right, forward, forward, forward, forward, forward, right, forward, forward, forward, forward, forward, right, forward, forward"
+    ],
+    "Result": "Unsafe"
+  },
+  "14": {
+    "Instructions": [
+      "left, left, forward, right, forward, forward, forward, forward, forward, right, forward, forward, forward, forward, forward, right, forward, right, forward"
+    ],
+    "Result": "Unsafe"
+  }
+}
