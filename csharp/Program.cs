@@ -32,7 +32,7 @@ namespace AIprobe
             
             if (aiprobe_root_path == null)
             {
-                aiprobe_root_path = "/Users/rahil/Documents/GitHub/AIProbe/csharp";
+                //aiprobe_root_path = "/Users/rahil/Documents/GitHub/AIProbe/csharp";
              
                 Console.WriteLine(
                     "Error! please set AIPROBE_HOME env variable to point to \"<path-to>AIProbe/csharp\" directory.");
@@ -42,7 +42,7 @@ namespace AIprobe
             string py_path = System.Environment.GetEnvironmentVariable("PYTHON_HOME");
             if (py_path == null)
             {
-                py_path = "/opt/anaconda3/envs/aiprobe/bin/python";
+                //py_path = "/opt/anaconda3/envs/aiprobe/bin/python";
                 Console.WriteLine(
                     "Error! please set PYTHON_HOME env variable to point to \"<path-to-aiprobe conda env>/bin/python\" file.");
             }
@@ -136,34 +136,34 @@ namespace AIprobe
                 File.Create(initalStateTaskPath).Dispose();
                 File.Create(finalStateTaskPath).Dispose();
 
-                //EnvironmentParser initalStateTaskPasser = new EnvironmentParser(initalStateTaskPath);
-                //initalStateTaskPasser.WriteEnvironment(task.Item1, out string intialStateHashValue);
+                EnvironmentParser initalStateTaskPasser = new EnvironmentParser(initalStateTaskPath);
+                initalStateTaskPasser.WriteEnvironment(task.Item1, out string intialStateHashValue);
+                 //
+                EnvironmentParser finalStateTaskPasser = new EnvironmentParser(finalStateTaskPath);
+                finalStateTaskPasser.WriteEnvironment(task.Item2, out string finalStateHashValue);
+
+
+                // EnvironmentParser initalxml = new EnvironmentParser("/Users/rahil/Downloads/Archive/Task_10/initialState.xml");
+                // AIprobe.Models.Environment initialEnvironmentxml = initalxml.ParseEnvironment();
+                // // //
+                // EnvironmentParser finalxml = new EnvironmentParser("/Users/rahil/Downloads/Archive/Task_10/finalState.xml");
+                // AIprobe.Models.Environment finaEnvironmentxml = finalxml.ParseEnvironment();
                 // //
-                //EnvironmentParser finalStateTaskPasser = new EnvironmentParser(finalStateTaskPath);
-                //finalStateTaskPasser.WriteEnvironment(task.Item2, out string finalStateHashValue);
-
-
-                EnvironmentParser initalxml = new EnvironmentParser("/Users/rahil/Downloads/Archive/Task_10/initialState.xml");
-                AIprobe.Models.Environment initialEnvironmentxml = initalxml.ParseEnvironment();
+                // initalxml.WriteEnvironment(initialEnvironmentxml,out string intialStateHashValue);
                 // //
-                EnvironmentParser finalxml = new EnvironmentParser("/Users/rahil/Downloads/Archive/Task_10/finalState.xml");
-                AIprobe.Models.Environment finaEnvironmentxml = finalxml.ParseEnvironment();
+                // //
+                // finalxml.WriteEnvironment(finaEnvironmentxml,out string finalStateHashValue);
                 //
-                initalxml.WriteEnvironment(initialEnvironmentxml,out string intialStateHashValue);
-                //
-                //
-                finalxml.WriteEnvironment(finaEnvironmentxml,out string finalStateHashValue);
-                
-                List<object[]> taskResults = instructionChecker.InstructionExists(initialEnvironmentxml, finaEnvironmentxml, actionSpace,
-                    config.TimeSettings.InstructionGenerationTime, intialStateHashValue, finalStateHashValue,
-                    out bool instructionExists);
-                
-                //
-                //
-
-                // List<object[]> taskResults = instructionChecker.InstructionExists(task.Item1, task.Item2, actionSpace,
+                // List<object[]> taskResults = instructionChecker.InstructionExists(initialEnvironmentxml, finaEnvironmentxml, actionSpace,
                 //     config.TimeSettings.InstructionGenerationTime, intialStateHashValue, finalStateHashValue,
                 //     out bool instructionExists);
+                //
+                //
+                //
+
+                List<object[]> taskResults = instructionChecker.InstructionExists(task.Item1, task.Item2, actionSpace,
+                    config.TimeSettings.InstructionGenerationTime, intialStateHashValue, finalStateHashValue,
+                    out bool instructionExists);
                 ResultSaver.SaveTaskResults(taskResults, instructionsPath);
                 if (instructionExists)
                 {
