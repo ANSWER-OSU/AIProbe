@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Environment name="" type="">
+  <Agents>
+    <Agent id="" name="" type="">
+      <Position>
+        <Attribute>
+          <Name value="x"/>
+          <DataType value="int"/>
+          <Value value="150"/>
+          <Min value="30"/>
+          <Max value="300"/>
+          <Step value="10"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="y"/>
+          <DataType value="int"/>
+          <Value value="4"/>
+          <Min value="0"/>
+          <Max value="10"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+          <Attribute>
+        <Name value="time_step"/>
+        <DataType value="int"/>
+        <Value value="0"/>
+        <Min value="0"/>
+        <Max value="Maxint"/>
+        <Step value="1"/>
+        <Mutable value="true"/>
+      </Attribute>
+      </Position>
+    </Agent>
+  </Agents>
+  <Objects>
+    <Object id="1" name="Pipe 1" type="Pipe">
+      <ObjectAttributes>
+        <Attribute>
+          <Name value="gap_start"/>
+          <DataType value="int"/>
+          <Value value="100"/>
+          <Min value="0"/>
+          <Max value="500"/>
+          <Step value="10"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="gap_size"/>
+          <DataType value="int"/>
+          <Value value="120"/>
+          <Min value="0"/>
+          <Max value="500"/>
+          <Step value="10"/>
+          <Mutable value="true"/>
+        </Attribute>
+        <Attribute>
+          <Name value="offset"/>
+          <DataType value="int"/>
+          <Value value="75"/>
+          <Min value="0"/>
+          <Max value="340"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+    <!-- You can define more pipe objects similarly -->
+  </Objects>
+  <EnvironmentalProperties>
+    <Property name="boundary">
+      <Attribute>
+        <Name value="Width"/>
+        <DataType value="int"/>
+        <Value value="300"/>
+        <Min value="100"/>
+        <Max value="800"/>
+        <Step value="10"/>
+        <Mutable value="true"/>
+      </Attribute>
+      <Attribute>
+        <Name value="Height"/>
+        <DataType value="int"/>
+        <Value value="800"/>
+        <Min value="100"/>
+        <Max value="1000"/>
+        <Step value="10"/>
+        <Mutable value="true"/>
+      </Attribute>
+    </Property>
+    <Property name="Gravity">
+      <Attribute>
+        <Name value="Gravity"/>
+        <DataType value="int"/>
+        <Value value="7"/>
+        <Min value="0"/>
+        <Max value="Maxint"/>
+        <Step value="1"/>
+        <Mutable value="true"/>
+      </Attribute>
+    </Property>
+    <Property name="Max_Drop_speed">
+      <Attribute>
+        <Name value="Max_Drop_speed"/>
+        <DataType value="int"/>
+        <Value value="8"/>
+        <Min value="0"/>
+        <Max value="Maxint"/>
+        <Step value="1"/>
+        <Mutable value="true"/>
+      </Attribute>
+    </Property>
+  </EnvironmentalProperties>
+</Environment>
