@@ -8,8 +8,8 @@
     </ResultSetting>
 
     <FileSettings>
-	    <FinalEnviromentFilePath>Data/13_lava_env/LavaEnv7.xml</FinalEnviromentFilePath>
-	    <InitialEnvironmentFilePath>Data/13_lava_env/LavaEnv7.xml</InitialEnvironmentFilePath>
+	    <FinalEnviromentFilePath>Data/NewLavaEnv.xml</FinalEnviromentFilePath>
+	    <InitialEnvironmentFilePath>Data/NewLavaEnv.xml</InitialEnvironmentFilePath>
         <ActionSpaceFilePath>Data/ActionSpace.xml</ActionSpaceFilePath>
     </FileSettings>
 

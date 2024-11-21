@@ -7,6 +7,7 @@ using AIprobe.Models;
 using AIprobe.Parsers;
 using AIprobe.TaskGenerator;
 using AIprobe.InstructionGenerator;
+using AIprobe.Preprocessing;
 using Action = System.Action;
 using Environment = AIprobe.Models.Environment;
 
@@ -75,6 +76,9 @@ namespace AIprobe
             Console.WriteLine(envConfigFile);
             EnvironmentParser intialParser = new EnvironmentParser(envConfigFile);
             AIprobe.Models.Environment initialEnvironment = intialParser.ParseEnvironment();
+            
+            AttributePreprocessor attributePreprocessor = new AttributePreprocessor();
+            attributePreprocessor.ProcessAttributes(initialEnvironment);
 
             if (initialEnvironment == null)
             {
@@ -95,7 +99,8 @@ namespace AIprobe
 
 
             EnvConfigGenerator envConfigGenerator = new EnvConfigGenerator();
-            EnvTaskGenerator envTaskGenerator = new EnvTaskGenerator(config.RandomSettings.Seed);
+            //EnvTaskGenerator envTaskGenerator = new EnvTaskGenerator(config.RandomSettings.Seed);
+            EnvTaskGenerator envTaskGenerator = new EnvTaskGenerator();
             Logger.LogInfo($"Running for seed no {config.RandomSettings.Seed} ");
             InstructionChecker instructionChecker = new InstructionChecker();
 
@@ -113,80 +118,80 @@ namespace AIprobe
             //Directory.CreateDirectory(Path.GetDirectoryName(resultEnviromentPath));
             // Generating new tasks list
             Logger.LogInfo($"Creating new tasks for Environment {count}");
-            List<(AIprobe.Models.Environment, Environment)> tasksList =
-                envTaskGenerator.GenerateTasks(initialEnvironment, config.TimeSettings.TaskGenerationTime);
+            // List<(AIprobe.Models.Environment, Environment)> tasksList =
+            //     envTaskGenerator.GenerateTasks(initialEnvironment, config.TimeSettings.TaskGenerationTime);
             DateTime startTime = DateTime.Now;
             
             
             int tasksCount = 0;
             int totaltaskachieved = 0;
-            foreach (var task in tasksList)
-            {
-                
-                
-                string taskFolder = Path.Combine(resultFolder, $"Task_{tasksCount}");
-                string initalStateTaskPath = Path.Combine(taskFolder, "initialState.xml");
-                string finalStateTaskPath = Path.Combine(taskFolder, "finalState.xml");
-                string instructionsPath = Path.Combine(taskFolder, "AIprobe.json");
-                tempFolder = Path.Combine(taskFolder, $"Temp_{tasksCount}");
-                Directory.CreateDirectory(tempFolder);
-                Directory.CreateDirectory(Path.GetDirectoryName(initalStateTaskPath));
-                Directory.CreateDirectory(Path.GetDirectoryName(tempFolder));
-
-                File.Create(initalStateTaskPath).Dispose();
-                File.Create(finalStateTaskPath).Dispose();
-
-                EnvironmentParser initalStateTaskPasser = new EnvironmentParser(initalStateTaskPath);
-                initalStateTaskPasser.WriteEnvironment(task.Item1, out string intialStateHashValue);
-                 //
-                EnvironmentParser finalStateTaskPasser = new EnvironmentParser(finalStateTaskPath);
-                finalStateTaskPasser.WriteEnvironment(task.Item2, out string finalStateHashValue);
-
-
-                // EnvironmentParser initalxml = new EnvironmentParser("/Users/rahil/Downloads/Archive/Task_10/initialState.xml");
-                // AIprobe.Models.Environment initialEnvironmentxml = initalxml.ParseEnvironment();
-                // // //
-                // EnvironmentParser finalxml = new EnvironmentParser("/Users/rahil/Downloads/Archive/Task_10/finalState.xml");
-                // AIprobe.Models.Environment finaEnvironmentxml = finalxml.ParseEnvironment();
-                // //
-                // initalxml.WriteEnvironment(initialEnvironmentxml,out string intialStateHashValue);
-                // //
-                // //
-                // finalxml.WriteEnvironment(finaEnvironmentxml,out string finalStateHashValue);
-                //
-                // List<object[]> taskResults = instructionChecker.InstructionExists(initialEnvironmentxml, finaEnvironmentxml, actionSpace,
-                //     config.TimeSettings.InstructionGenerationTime, intialStateHashValue, finalStateHashValue,
-                //     out bool instructionExists);
-                //
-                //
-                //
-
-                List<object[]> taskResults = instructionChecker.InstructionExists(task.Item1, task.Item2, actionSpace,
-                    config.TimeSettings.InstructionGenerationTime, intialStateHashValue, finalStateHashValue,
-                    out bool instructionExists);
-                ResultSaver.SaveTaskResults(taskResults, instructionsPath);
-                if (instructionExists)
-                {
-                    totaltaskachieved++;
-                    Logger.LogInfo($"Task {tasksCount} instructions found saved to {taskFolder}");
-                }
-                Logger.LogInfo($"Total no of state explored: {totalEnviroementState}");
-
-                tasksCount++;
-
-
-                Logger.LogInfo($"Total task achieved {totaltaskachieved} from {tasksList.Count} task.");
-                
-                string unsafeStateData  = Path.Combine(resultFolder, $"unsafeSate.json");
-                ResultSaver.SaveDictionaryToJson(unsafeStatePosition, unsafeStateData);
-                Logger.LogInfo($" Unsafe states data stored at {unsafeStateData}");
-
-
-                // List<object[]> taskResults = instructionChecker.InstructionExists(initialEnvironment,tasksList[0],actionSpace,config.TimeSettings.InstructionGenerationTime,initalEnviromentHashValue);
-                //
-                // ResultSaver.SaveTaskResults(taskResults,"/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/AIprobe.json");
-                //
-            }
+            // foreach (var task in tasksList)
+            // {
+            //     
+            //     
+            //     string taskFolder = Path.Combine(resultFolder, $"Task_{tasksCount}");
+            //     string initalStateTaskPath = Path.Combine(taskFolder, "initialState.xml");
+            //     string finalStateTaskPath = Path.Combine(taskFolder, "finalState.xml");
+            //     string instructionsPath = Path.Combine(taskFolder, "AIprobe.json");
+            //     tempFolder = Path.Combine(taskFolder, $"Temp_{tasksCount}");
+            //     Directory.CreateDirectory(tempFolder);
+            //     Directory.CreateDirectory(Path.GetDirectoryName(initalStateTaskPath));
+            //     Directory.CreateDirectory(Path.GetDirectoryName(tempFolder));
+            //
+            //     File.Create(initalStateTaskPath).Dispose();
+            //     File.Create(finalStateTaskPath).Dispose();
+            //
+            //     EnvironmentParser initalStateTaskPasser = new EnvironmentParser(initalStateTaskPath);
+            //     initalStateTaskPasser.WriteEnvironment(task.Item1, out string intialStateHashValue);
+            //      //
+            //     EnvironmentParser finalStateTaskPasser = new EnvironmentParser(finalStateTaskPath);
+            //     finalStateTaskPasser.WriteEnvironment(task.Item2, out string finalStateHashValue);
+            //
+            //
+            //     // EnvironmentParser initalxml = new EnvironmentParser("/Users/rahil/Downloads/Archive/Task_10/initialState.xml");
+            //     // AIprobe.Models.Environment initialEnvironmentxml = initalxml.ParseEnvironment();
+            //     // // //
+            //     // EnvironmentParser finalxml = new EnvironmentParser("/Users/rahil/Downloads/Archive/Task_10/finalState.xml");
+            //     // AIprobe.Models.Environment finaEnvironmentxml = finalxml.ParseEnvironment();
+            //     // //
+            //     // initalxml.WriteEnvironment(initialEnvironmentxml,out string intialStateHashValue);
+            //     // //
+            //     // //
+            //     // finalxml.WriteEnvironment(finaEnvironmentxml,out string finalStateHashValue);
+            //     //
+            //     // List<object[]> taskResults = instructionChecker.InstructionExists(initialEnvironmentxml, finaEnvironmentxml, actionSpace,
+            //     //     config.TimeSettings.InstructionGenerationTime, intialStateHashValue, finalStateHashValue,
+            //     //     out bool instructionExists);
+            //     //
+            //     //
+            //     //
+            //
+            //     List<object[]> taskResults = instructionChecker.InstructionExists(task.Item1, task.Item2, actionSpace,
+            //         config.TimeSettings.InstructionGenerationTime, intialStateHashValue, finalStateHashValue,
+            //         out bool instructionExists);
+            //     ResultSaver.SaveTaskResults(taskResults, instructionsPath);
+            //     if (instructionExists)
+            //     {
+            //         totaltaskachieved++;
+            //         Logger.LogInfo($"Task {tasksCount} instructions found saved to {taskFolder}");
+            //     }
+            //     Logger.LogInfo($"Total no of state explored: {totalEnviroementState}");
+            //
+            //     tasksCount++;
+            //
+            //
+            //     Logger.LogInfo($"Total task achieved {totaltaskachieved} from {tasksList.Count} task.");
+            //     
+            //     string unsafeStateData  = Path.Combine(resultFolder, $"unsafeSate.json");
+            //     ResultSaver.SaveDictionaryToJson(unsafeStatePosition, unsafeStateData);
+            //     Logger.LogInfo($" Unsafe states data stored at {unsafeStateData}");
+            //
+            //
+            //     // List<object[]> taskResults = instructionChecker.InstructionExists(initialEnvironment,tasksList[0],actionSpace,config.TimeSettings.InstructionGenerationTime,initalEnviromentHashValue);
+            //     //
+            //     // ResultSaver.SaveTaskResults(taskResults,"/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/AIprobe.json");
+            //     //
+            // }
             
             Logger.LogInfo($" Total {unsafeStatePosition.Keys.Count().ToString()} unsafe state found in the environment");
             string unsafeStateDataPath  = Path.Combine(resultFolder, $"unsafeSate.json");

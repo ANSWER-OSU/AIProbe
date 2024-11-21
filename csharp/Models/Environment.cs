@@ -18,9 +18,8 @@ namespace AIprobe.Models
         [XmlElement("Objects")]
         public Objects Objects { get; set; }
 
-        [XmlElement("EnvironmentalProperties")]
-        public EnvironmentalProperties EnvironmentalProperties { get; set; }
-        
+        [XmlElement("Attribute")]
+        public List<Attribute> Attributes { get; set; }
         
         
     }

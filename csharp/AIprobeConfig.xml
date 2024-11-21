@@ -6,10 +6,9 @@
     <ResultSetting>
         <ResultFolderPath>results/Result_LavaEnv1_8030</ResultFolderPath>
     </ResultSetting>
-
     <FileSettings>
-	    <FinalEnviromentFilePath>Data/13_lava_env/LavaEnv1.xml</FinalEnviromentFilePath>
-	    <InitialEnvironmentFilePath>Data/13_lava_env/LavaEnv1.xml</InitialEnvironmentFilePath>
+	    <FinalEnviromentFilePath>Data/NewLavaEnv.xml</FinalEnviromentFilePath>
+	    <InitialEnvironmentFilePath>Data/NewLavaEnv.xml</InitialEnvironmentFilePath>
         <ActionSpaceFilePath>Data/ActionSpace.xml</ActionSpaceFilePath>
     </FileSettings>
 

@@ -226,16 +226,16 @@ public class InstructionChecker
                 // Console.WriteLine($"updated  agent position {updatedAgent.Position.Attributes[0].Value.ValueData},{updatedAgent.Position.Attributes[1].Value.ValueData} direction {updatedAgent.Direction.Attributes[0].Value.ValueData}");
                 //
                 // Console.WriteLine($"hash{updatedEnviromentHashValue}");
-                if (updatedAgent.Position.Attributes[0].Value.ValueData == "6" && updatedAgent.Position.Attributes[1].Value.ValueData == "2" )
-                {
+                //if (updatedAgent.Position.Attributes[0].Value.ValueData == "6" && updatedAgent.Position.Attributes[1].Value.ValueData == "2" )
+                //{
                 //     
                 //     EnvironmentParser saved = new EnvironmentParser("/Users/rahil/Documents/GitHub/AIProbe/csharp/Result/Task_0/done.xml");
                 //     saved.WriteEnvironment(updatedEnvironment,out string value);
                 //
                 //     if (value.Equals(finalStateHashValue))
                 //     {
-                 Console.WriteLine("found one");
-                }
+                 //Console.WriteLine("found one");
+                //}
                 //     
                 //     
                 //     
