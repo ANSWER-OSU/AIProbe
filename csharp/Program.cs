@@ -77,8 +77,12 @@ namespace AIprobe
             EnvironmentParser intialParser = new EnvironmentParser(envConfigFile);
             AIprobe.Models.Environment initialEnvironment = intialParser.ParseEnvironment();
             
-            AttributePreprocessor attributePreprocessor = new AttributePreprocessor();
-            attributePreprocessor.ProcessAttributes(initialEnvironment);
+            //AttributePreprocessor attributePreprocessor = new AttributePreprocessor();
+            //attributePreprocessor.ProcessAttributes(initialEnvironment);
+
+
+            List<Environment> x =  EnvConfigGenerator.GenerateEnvConfigs(initialEnvironment, 5);
+            
 
             if (initialEnvironment == null)
             {
@@ -98,7 +102,7 @@ namespace AIprobe
             testingHardCoddedEnvs = aiprobe_root_path + "/" + "Data/13_lava_env";
 
 
-            EnvConfigGenerator envConfigGenerator = new EnvConfigGenerator();
+            //EnvConfigGenerator envConfigGenerator = new EnvConfigGenerator();
             //EnvTaskGenerator envTaskGenerator = new EnvTaskGenerator(config.RandomSettings.Seed);
             EnvTaskGenerator envTaskGenerator = new EnvTaskGenerator();
             Logger.LogInfo($"Running for seed no {config.RandomSettings.Seed} ");

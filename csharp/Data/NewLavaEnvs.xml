@@ -34,7 +34,7 @@
                 <Description value=""/>
                 <DataType value="int"/>
                 <Value value="2"/>
-                <Mutable value="false"/>
+                <Mutable value="true"/>
                 <Constraint Min="1" Max="{Grid - 2}" oneOf="" roundOff=""/>
             </Attribute>
             <Attribute>
@@ -42,7 +42,7 @@
                 <Description value=""/>
                 <DataType value="int"/>
                 <Value value="2"/>
-                <Mutable value="false"/>
+                <Mutable value="true"/>
                 <Constraint Min="1" Max="{Grid - 2}" oneOf="" roundOff=""/>
             </Attribute>
             <Attribute>
@@ -60,7 +60,7 @@
                 <Description value="The width of the boundary"/>
                 <DataType value="int"/>
                 <Value value="10"/>
-                <Mutable value="false"/>
+                <Mutable value="true"/>
                 <Constraint Min="3" Max="10" oneOf="" roundOff=""/>
             </Attribute>
     <Attribute>
@@ -68,7 +68,7 @@
         <Description value="The quantity of the lava tiles, dependent on Grid's value."/>
         <DataType value="int"/>
         <Value value="10"/>
-        <Mutable value="false"/>
+        <Mutable value="true"/>
         <Constraint Min="0" Max="{(Grid - 1) * (Grid - 1)}" oneOf="" roundOff=""/>
     </Attribute>
 

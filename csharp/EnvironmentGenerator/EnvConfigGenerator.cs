@@ -1,7 +1,10 @@
+using System.Data;
 using AIprobe.Logging;
+using AIprobe.Models;
 using AIprobe.Parsers;
 using Attribute = AIprobe.Models.Attribute;
 using Environment = AIprobe.Models.Environment;
+using Object = AIprobe.Models.Object;
 
 namespace AIprobe.EnvironmentGenerator
 {
@@ -11,48 +14,354 @@ namespace AIprobe.EnvironmentGenerator
         public static List<Environment> GenerateEnvConfigs(Environment baseEnv, int nSamples)
         {
             // Step 1: Resolve constraints
-            var resolvedParams = ConstraintProcessor.ResolveConstraints(baseEnv);
+            var (resolvedParams, dataTypes) = ResolveConstraintsAsVector(baseEnv); // Updated to unpack the tuple
 
             // Step 2: Perform LHS sampling
-            var lhsSamples = LhsSampler.PerformLhsSampling(resolvedParams, nSamples);
+            var sampledEnvironments = LhsSampler.PerformLhsSamplingAsVector(resolvedParams, nSamples, dataTypes); // Pass dataTypes
 
             // Step 3: Generate sampled environments
-            var sampledEnvironments = new List<Environment>();
-            foreach (var sample in lhsSamples)
-            {
-                var newEnv = CloneEnvironment(baseEnv);
-                ApplySamplesToEnvironment(newEnv, sample);
-                sampledEnvironments.Add(newEnv);
-            }
+            var sampledEnvironmentsList = new List<Environment>();
 
-            return sampledEnvironments;
-        }
-
-        private static Environment CloneEnvironment(Environment env)
-        {
-            // Perform a deep copy of the environment
-            return new Environment
+            foreach (var sample in sampledEnvironments)
             {
-                Name = env.Name,
-                Type = env.Type,
-                Attributes = new List<Attribute>(env.Attributes),
-                Agents = env.Agents,
-                Objects = env.Objects
-            };
-        }
+                var newEnv = CloneEnvironment(baseEnv); // Clone the base environment to avoid overwriting
+                ApplySamplesToEnvironmentAsVector(newEnv, new List<double[]> { sample }); // Pass dataTypes here
+                sampledEnvironmentsList.Add(newEnv);
+                
+                
+                // Print all attribute values in the new environment
+                Console.WriteLine($"Environment: {newEnv.Name}, Type: {newEnv.Type}");
 
-        private static void ApplySamplesToEnvironment(Environment env, Dictionary<string, double> sample)
-        {
-            foreach (var attr in env.Attributes)
-            {
-                if (sample.ContainsKey(attr.Name.Value))
+                // Print global attributes
+                Console.WriteLine("Global Attributes:");
+                foreach (var attr in newEnv.Attributes)
                 {
-                    attr.Value.Content = sample[attr.Name.Value].ToString("F2");
+                    Console.WriteLine($"  {attr.Name.Value}: {attr.Value.Content}");
                 }
+
+                // Print agent attributes
+                Console.WriteLine("Agents:");
+                foreach (var agent in newEnv.Agents.AgentList)
+                {
+                    Console.WriteLine($"  Agent ID: {agent.Id}");
+                    foreach (var attr in agent.Attributes)
+                    {
+                        Console.WriteLine($"    {attr.Name.Value}: {attr.Value.Content}");
+                    }
+                }
+
+                // Print object attributes
+                Console.WriteLine("Objects:");
+                foreach (var obj in newEnv.Objects.ObjectList)
+                {
+                    Console.WriteLine($"  Object ID: {obj.Id}");
+                    foreach (var attr in obj.Attributes)
+                    {
+                        Console.WriteLine($"    {attr.Name.Value}: {attr.Value.Content}");
+                    }
+                }
+
+                Console.WriteLine();
+            }
+
+            return sampledEnvironmentsList;
+        }
+
+        
+    //     public static List<Environment> GenerateEnvConfigs(Environment baseEnv, int nSamples)
+    // {
+    //     // Step 1: Resolve constraints
+    //     //var resolvedParams = ResolveConstraints(baseEnv);
+    //     
+    //     var resolvedParam = ResolveConstraintsAsVector(baseEnv);
+    //
+    //     // Step 2: Perform LHS sampling
+    //     //var lhsSamples = LhsSampler.PerformLhsSampling(resolvedParams, nSamples);
+    //     
+    //     
+    //     var sampledEnvironmentss = LhsSampler.PerformLhsSamplingAsVector(resolvedParam, nSamples);
+    //
+    //     
+    //     // Step 3: Generate sampled environments
+    //     var sampledEnvironments = new List<Environment>();
+    //     
+    //     // Step 3: Apply the samples to the environment
+    //     foreach (var sample in sampledEnvironmentss)
+    //     {
+    //         ApplySamplesToEnvironmentAsVector(baseEnv, new List<double[]> { sample });
+    //         sampledEnvironments.Add(baseEnv);
+    //     }
+    //     
+    //    
+    //     // foreach (var sample in lhsSamples)
+    //     // {
+    //     //     var newEnv = CloneEnvironment(baseEnv);
+    //     //     ApplySamplesToEnvironment(newEnv, sample);
+    //     //     sampledEnvironments.Add(newEnv);
+    //     // }
+    //
+    //     return sampledEnvironments;
+    // }
+
+    private static Environment CloneEnvironment(Environment env)
+    {
+        // Perform a deep copy of the environment
+        return new Environment
+        {
+            Name = env.Name,
+            Type = env.Type,
+            Attributes = new List<Attribute>(env.Attributes),
+            Agents = new Agents
+            {
+                AgentList = env.Agents.AgentList.ConvertAll(agent => new Agent
+                {
+                    Id = agent.Id,
+                    Attributes = new List<Attribute>(agent.Attributes)
+                })
+            },
+            Objects = new Objects
+            {
+                ObjectList = env.Objects.ObjectList.ConvertAll(obj => new Object
+                {
+                    Id = obj.Id,
+                    Attributes = new List<Attribute>(obj.Attributes)
+                })
+            }
+        };
+    }
+
+    
+    
+    
+    
+    
+ public static (double[,], List<string>) ResolveConstraintsAsVector(Environment env)
+{
+    int paramCount = env.Attributes.Count + 
+                     (env.Agents?.AgentList?.Sum(agent => agent.Attributes?.Count ?? 0) ?? 0) + 
+                     (env.Objects?.ObjectList?.Sum(obj => obj.Attributes?.Count ?? 0) ?? 0);
+
+    double[,] resolvedParams = new double[paramCount, 2];
+    List<string> dataTypes = new List<string>(); // To track data types for each parameter
+
+    var context = new Dictionary<string, double>();
+    int index = 0;
+
+    // Add global attributes with "global" context
+    index = ResolveAttributeConstraintsAsVector(env.Attributes, resolvedParams, dataTypes, context, index, "");
+
+    // Add agent attributes with "agent,<id>" context
+    foreach (var agent in env.Agents?.AgentList ?? new List<Agent>())
+    {
+        string agentContext = $"agent,{agent.Id}";
+        index = ResolveAttributeConstraintsAsVector(agent.Attributes, resolvedParams, dataTypes, context, index, agentContext);
+    }
+
+    // Add object attributes with "object,<id>" context
+    foreach (var obj in env.Objects?.ObjectList ?? new List<Object>())
+    {
+        string objectContext = $"object,{obj.Id}";
+        index = ResolveAttributeConstraintsAsVector(obj.Attributes, resolvedParams, dataTypes, context, index, objectContext);
+    }
+
+    return (resolvedParams, dataTypes); // Return both resolved constraints and data types
+}
+
+private static int ResolveAttributeConstraintsAsVector(
+    List<Attribute> attributes,
+    double[,] resolvedParams,
+    List<string> dataTypes,
+    Dictionary<string, double> context,
+    int index,
+    string parentContext)
+{
+    foreach (var attr in attributes)
+    {
+        // Construct a unique context path
+        string contextPath = $"{parentContext},{attr.Name.Value}";
+        if (parentContext == "")
+        {
+            contextPath = attr.Name.Value;
+        }
+
+        // Replace placeholders with actual values in the context
+        var minExpr = attr.Constraint.Min?.Replace("{", "").Replace("}", "") ?? "0";
+        var maxExpr = attr.Constraint.Max?.Replace("{", "").Replace("}", "") ?? "0";
+
+        if (string.IsNullOrEmpty(minExpr) || string.IsNullOrEmpty(maxExpr))
+        {
+            dataTypes.Add(attr.DataType.Value);
+            continue;
+        }
+
+        // Evaluate Min and Max using the context
+        double minValue = EvaluateExpression(minExpr, context);
+        double maxValue = EvaluateExpression(maxExpr, context);
+
+        // Store resolved values
+        resolvedParams[index, 0] = minValue;
+        resolvedParams[index, 1] = maxValue;
+
+        // Track the data type of the attribute
+        dataTypes.Add(attr.DataType.Value); // Assuming `DataType` contains the type (e.g., "int", "float")
+
+        // Update the context dictionary with the resolved value
+        if (double.TryParse(attr.Value.Content, out var currentValue))
+        {
+            context[contextPath] = currentValue; // Use contextPath as the key
+        }
+
+        index++;
+    }
+
+    return index;
+}
+    
+private static void ApplySamplesToEnvironmentAsVector(Environment env, List<double[]> samples)
+{
+    int sampleIndex = 0;
+
+    // Apply sampled values to global attributes
+    foreach (var attr in env.Attributes)
+    {
+        attr.Value.Content = samples[0][sampleIndex].ToString(); // Assign sampled value as-is
+        sampleIndex++;
+    }
+
+    // Apply sampled values to agent attributes
+    foreach (var agent in env.Agents.AgentList)
+    {
+        foreach (var attr in agent.Attributes)
+        {
+            attr.Value.Content = samples[0][sampleIndex].ToString(); // Assign sampled value as-is
+            sampleIndex++;
+        }
+    }
+
+    // Apply sampled values to object attributes
+    foreach (var obj in env.Objects.ObjectList)
+    {
+        foreach (var attr in obj.Attributes)
+        {
+            attr.Value.Content = samples[0][sampleIndex].ToString(); // Assign sampled value as-is
+            sampleIndex++;
+        }
+    }
+}
+    
+    private static void ApplySamplesToEnvironment(Environment env, Dictionary<string, double> sample)
+    {
+        // Apply to global attributes
+        ApplySamplesToAttributes(env.Attributes, sample);
+
+        // Apply to agent attributes
+        foreach (var agent in env.Agents.AgentList)
+        {
+            ApplySamplesToAttributes(agent.Attributes, sample);
+        }
+
+        // Apply to object attributes
+        foreach (var obj in env.Objects.ObjectList)
+        {
+            ApplySamplesToAttributes(obj.Attributes, sample);
+        }
+    }
+
+    private static void ApplySamplesToAttributes(List<Attribute> attributes, Dictionary<string, double> sample)
+    {
+        foreach (var attr in attributes)
+        {
+            if (sample.ContainsKey(attr.Name.Value))
+            {
+                attr.Value.Content = sample[attr.Name.Value].ToString("F2");
             }
         }
-        
-        
+    }
+
+    public static Dictionary<string, (double Min, double Max)> ResolveConstraints(Environment env)
+    {
+        var resolvedParams = new Dictionary<string, (double Min, double Max)>();
+        var context = new Dictionary<string, double>();
+
+        // Parse global attributes
+        foreach (var attr in env.Attributes)
+        {
+            AddAttributeToContext(attr, context);
+        }
+
+        // Parse agent attributes
+        foreach (var agent in env.Agents.AgentList)
+        {
+            foreach (var attr in agent.Attributes)
+            {
+                AddAttributeToContext(attr, context);
+            }
+        }
+
+        // Parse object attributes
+        foreach (var obj in env.Objects.ObjectList)
+        {
+            foreach (var attr in obj.Attributes)
+            {
+                AddAttributeToContext(attr, context);
+            }
+        }
+
+        // Resolve constraints for all attributes
+        ResolveAttributeConstraints(env.Attributes, resolvedParams, context);
+
+        foreach (var agent in env.Agents.AgentList)
+        {
+            ResolveAttributeConstraints(agent.Attributes, resolvedParams, context);
+        }
+
+        foreach (var obj in env.Objects.ObjectList)
+        {
+            ResolveAttributeConstraints(obj.Attributes, resolvedParams, context);
+        }
+
+        return resolvedParams;
+    }
+
+    private static void AddAttributeToContext(Attribute attr, Dictionary<string, double> context)
+    {
+        if (double.TryParse(attr.Value.Content, out var val))
+        {
+            context[attr.Name.Value] = val;
+        }
+    }
+
+    private static void ResolveAttributeConstraints(List<Attribute> attributes, Dictionary<string, (double Min, double Max)> resolvedParams, Dictionary<string, double> context)
+    {
+        foreach (var attr in attributes)
+        {
+            var minExpr = attr.Constraint.Min?.Replace("{", "").Replace("}", "") ?? "0";
+            var maxExpr = attr.Constraint.Max?.Replace("{", "").Replace("}", "") ?? "0";
+
+            if (minExpr == null || maxExpr == null || minExpr == "" || maxExpr == "")
+            {
+                continue;
+            }
+            var minValue = EvaluateExpression(minExpr, context);
+            var maxValue = EvaluateExpression(maxExpr, context);
+
+            resolvedParams[attr.Name.Value] = (minValue, maxValue);
+            context[attr.Name.Value] = maxValue;
+        }
+    }
+
+    private static double EvaluateExpression(string expression, Dictionary<string, double> context)
+    {
+        foreach (var kvp in context)
+        {
+            expression = expression.Replace(kvp.Key, kvp.Value.ToString());
+        }
+
+        var dataTable = new DataTable();
+        return Convert.ToDouble(dataTable.Compute(expression, null));
+    }
+}
+
         
         
         
@@ -261,5 +570,5 @@ namespace AIprobe.EnvironmentGenerator
 
     
     }
-}
+
 
