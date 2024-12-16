@@ -1,10 +1,10 @@
 <AIprobeConfig>
     <LogSettings>
         <LogLevel>Info</LogLevel>
-        <LogFilePath>logs/log_LavaEnv7_6161.txt</LogFilePath>
+        <LogFilePath>logs/log_LavaEnv_6161.txt</LogFilePath>
     </LogSettings>
     <ResultSetting>
-        <ResultFolderPath>results/Result_LavaEnv7_6161</ResultFolderPath>
+        <ResultFolderPath>results/Result_LavaEnv_6161</ResultFolderPath>
     </ResultSetting>
 
     <FileSettings>

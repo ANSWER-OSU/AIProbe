@@ -1,6 +1,8 @@
 using AIprobe.Logging;
 using AIprobe.Models;
 using Environment = AIprobe.Models.Environment;
+using Attribute = AIprobe.Models.Attribute;
+using Object = AIprobe.Models.Object;
 
 namespace AIprobe.TaskGenerator
 {
@@ -343,5 +345,334 @@ namespace AIprobe.TaskGenerator
         // }
         //
 
+        public static List<Environment> TaskGenerator(Environment baseEnv,double envcount, int? seed = null)
+        {
+            // Step 1: Resolve constraints only for mutable attributes
+            var (independentRanges, dependentConstraints, dataTypes) = ResolveMutableConstraints(baseEnv);
+
+            // Determine the number of samples based on the ranges and constraints
+            int nSamples = (independentRanges.Count + dependentConstraints.Count) * 10;
+
+            // Step 2: Perform LHS sampling with dependencies
+            var sampledValues = LhsSampler.PerformLhsWithDependencies(independentRanges, dependentConstraints, nSamples,
+                    seed);
+
+            // Step 3: Save sampled values to CSV (optional)
+            //SaveToCsv(sampledValues, $"/Users/rahil/Documents/GitHub/AIProbe/csharp/Result/re/{seed}/{envcount}/sampled_Taskvalues.csv");
+
+            // Step 4: Generate environments based on the sampled values
+            var sampledEnvironments = new List<Environment>();
+            foreach (var sample in sampledValues)
+            {
+                var newEnv = CloneEnvironment(baseEnv); // Clone the base environment
+                ApplySamplesToEnvironment(newEnv, sample, dataTypes);
+                
+                sampledEnvironments.Add(newEnv);
+            }
+
+            return sampledEnvironments;
+        }
+
+        /// <summary>
+        /// Resolves constraints for attributes marked as mutable.
+        /// </summary>
+       private static (Dictionary<string, (double Min, double Max, string DataType)> independentRanges,
+    Dictionary<string, (string MinExpr, string MaxExpr, string DataType)> dependentConstraints,
+    List<string> dataTypes)
+ResolveMutableConstraints(Environment baseEnv)
+{
+    var independentRanges = new Dictionary<string, (double Min, double Max, string DataType)>();
+    var dependentConstraints = new Dictionary<string, (string MinExpr, string MaxExpr, string DataType)>();
+    var dataTypes = new List<string>();
+
+    // Process global attributes
+    foreach (var attr in baseEnv.Attributes.Where(attr => attr.Mutable.Value))
+    {
+        string attrName = attr.Name.Value;
+        string minExpr = attr.Constraint.Min ?? "0";
+        string maxExpr = attr.Constraint.Max ?? "0";
+        string dataType = attr.DataType.Value;
+
+        if (!minExpr.Contains("{") && !maxExpr.Contains("{"))
+        {
+            independentRanges[attrName] = (double.Parse(minExpr), double.Parse(maxExpr), dataType);
+        }
+        else
+        {
+            string strippedMinExpr = StripBraces(minExpr);
+            string strippedMaxExpr = StripBraces(maxExpr);
+
+            dependentConstraints[attrName] = (MinExpr: strippedMinExpr, MaxExpr: strippedMaxExpr, DataType: dataType);
+        }
+
+        dataTypes.Add(dataType);
+    }
+
+    // Process agent attributes
+    foreach (var agent in baseEnv.Agents.AgentList)
+    {
+        foreach (var attr in agent.Attributes.Where(attr => attr.Mutable.Value))
+        {
+            string key = $"Agent_{agent.Id}_{attr.Name.Value}";
+            string minExpr = attr.Constraint.Min ?? "0";
+            string maxExpr = attr.Constraint.Max ?? "0";
+            string dataType = attr.DataType.Value;
+
+            if (!minExpr.Contains("{") && !maxExpr.Contains("{"))
+            {
+                independentRanges[key] = (double.Parse(minExpr), double.Parse(maxExpr), dataType);
+            }
+            else
+            {
+                string strippedMinExpr = StripBraces(minExpr);
+                string strippedMaxExpr = StripBraces(maxExpr);
+
+                dependentConstraints[key] = (MinExpr: strippedMinExpr, MaxExpr: strippedMaxExpr, DataType: dataType);
+            }
+
+            dataTypes.Add(dataType);
+        }
+    }
+
+    // Process object attributes
+    foreach (var obj in baseEnv.Objects.ObjectList)
+    {
+        foreach (var attr in obj.Attributes.Where(attr => attr.Mutable.Value))
+        {
+            string key = $"Object_{obj.Id}_{attr.Name.Value}";
+            string minExpr = attr.Constraint.Min ?? "0";
+            string maxExpr = attr.Constraint.Max ?? "0";
+            string dataType = attr.DataType.Value;
+
+            if (!minExpr.Contains("{") && !maxExpr.Contains("{"))
+            {
+                independentRanges[key] = (double.Parse(minExpr), double.Parse(maxExpr), dataType);
+            }
+            else
+            {
+                string strippedMinExpr = StripBraces(minExpr);
+                string strippedMaxExpr = StripBraces(maxExpr);
+
+                dependentConstraints[key] = (MinExpr: strippedMinExpr, MaxExpr: strippedMaxExpr, DataType: dataType);
+            }
+
+            dataTypes.Add(dataType);
+        }
+    }
+
+    return (independentRanges, dependentConstraints, dataTypes);
+}
+
+        private static string StripBraces(string expression)
+        {
+            if (expression.StartsWith("{") && expression.EndsWith("}"))
+            {
+                return expression.Substring(1, expression.Length - 2); // Remove the leading and trailing braces
+            }
+
+            return expression;
+        }
+        
+        /// <summary>
+        /// Applies sampled values to environment attributes.
+        /// </summary>
+        private static void ApplySamplesToEnvironment(Environment env, Dictionary<string, double> sample,
+            List<string> dataTypes)
+        {
+            int dataTypeIndex = 0;
+
+            foreach (var attr in env.Attributes.Where(attr => attr.Mutable.Value))
+            {
+                if (sample.ContainsKey(attr.Name.Value))
+                {
+                    attr.Value.Content = Convert.ToString(sample[attr.Name.Value]);
+                    attr.DataType.Value = dataTypes.ElementAtOrDefault(dataTypeIndex++) ?? attr.DataType.Value;
+                }
+            }
+            
+            
+            
+            foreach (var agent in env.Agents.AgentList)
+            {
+                foreach (var attr in agent.Attributes)
+                {
+                    string sampleKey = $"Agent_{agent.Id}_{attr.Name.Value}";
+                    if (sample.ContainsKey(sampleKey))
+                    {
+                        attr.Value.Content = Convert.ToString(sample[sampleKey]);
+                        attr.DataType.Value = dataTypes.ElementAtOrDefault(dataTypeIndex++) ?? attr.DataType.Value;
+                    }
+                }
+            }
+
+           
+        }
+
+// Utility methods: CloneEnvironment, SaveToCsv, AdjustObjectsGlobally, StripBraces, and others are reused as needed.
+
+
+// Generic function to collect mutable attributes
+        private static void CollectMutableAttributes(
+            Environment baseEnv,
+            List<Attribute> mutableAttributes,
+            List<string> dataTypes,
+            List<double[]> resolvedParams,
+            Dictionary<int, Func<double[], double>> dependencies)
+        {
+            int index = 0;
+
+            // Collect attributes from global scope
+            CollectAttributes(baseEnv.Attributes, mutableAttributes, dataTypes, resolvedParams, dependencies,
+                ref index);
+
+            // Collect attributes from agents
+            foreach (var agent in baseEnv.Agents.AgentList)
+            {
+                CollectAttributes(agent.Attributes, mutableAttributes, dataTypes, resolvedParams, dependencies,
+                    ref index);
+            }
+
+            // Collect attributes from objects
+            foreach (var obj in baseEnv.Objects.ObjectList)
+            {
+                CollectAttributes(obj.Attributes, mutableAttributes, dataTypes, resolvedParams, dependencies,
+                    ref index);
+            }
+        }
+
+// Generic function to process attributes and handle constraints/dependencies
+        private static void CollectAttributes(
+            List<Attribute> attributes,
+            List<Attribute> mutableAttributes,
+            List<string> dataTypes,
+            List<double[]> resolvedParams,
+            Dictionary<int, Func<double[], double>> dependencies,
+            ref int index)
+        {
+            foreach (var attr in attributes)
+            {
+                if (attr.Mutable?.Value == true && attr.Constraint != null)
+                {
+                    mutableAttributes.Add(attr);
+                    dataTypes.Add(attr.DataType.Value);
+
+                    // Parse Min and Max constraints
+                    double min = ResolveExpression(attr.Constraint.Min, dependencies, index);
+                    double max = ResolveExpression(attr.Constraint.Max, dependencies, index);
+
+                    resolvedParams.Add(new double[] { min, max });
+                    index++;
+                }
+            }
+        }
+
+// Resolve constraints dynamically
+        private static double ResolveExpression(string expression, Dictionary<int, Func<double[], double>> dependencies,
+            int index)
+        {
+            if (string.IsNullOrEmpty(expression))
+            {
+                return 0; // Default to 0 if no constraint is defined
+            }
+
+            if (expression.Contains("{") && expression.Contains("}"))
+            {
+                // Parse dependency and add to the dictionary
+                string dependency = expression.Trim('{', '}');
+                dependencies[index] = (sample) =>
+                {
+                    // Resolve the dependency dynamically (e.g., "Grid - 1")
+                    var tokens = dependency.Split(' ');
+                    double result = double.Parse(tokens[0]); // Example for "Grid - 1"
+                    if (tokens.Length > 2 && tokens[1] == "-")
+                    {
+                        result -= double.Parse(tokens[2]);
+                    }
+
+                    return result;
+                };
+
+                // Return a placeholder; the actual value will be resolved dynamically during sampling
+                return 0;
+            }
+
+            // Direct numeric value
+            return double.Parse(expression);
+        }
+
+// Deep copy the environment
+        private static Environment CloneEnvironment(Environment env)
+        {
+            return new Environment
+            {
+                Name = env.Name,
+                Type = env.Type,
+                Attributes = new List<Attribute>(env.Attributes.Select(attr => new Attribute
+                {
+                    Name = attr.Name,
+                    DataType = attr.DataType,
+                    Value = new Value { Content = attr.Value.Content },
+                    Constraint = attr.Constraint,
+                    Mutable = attr.Mutable
+                })),
+                Agents = new Agents
+                {
+                    AgentList = env.Agents.AgentList.ConvertAll(agent => new Agent
+                    {
+                        Id = agent.Id,
+                        Type = agent.Type,
+                        Attributes = agent.Attributes.Select(attr => new Attribute
+                        {
+                            Name = attr.Name,
+                            DataType = attr.DataType,
+                            Value = new Value { Content = attr.Value.Content },
+                            Constraint = attr.Constraint,
+                            Mutable = attr.Mutable
+                        }).ToList()
+                    })
+                },
+                Objects = new Objects
+                {
+                    ObjectList = env.Objects.ObjectList.ConvertAll(obj => new Object
+                    {
+                        Id = obj.Id,
+                        Type = obj.Type,
+                        Attributes = obj.Attributes.Select(attr => new Attribute
+                        {
+                            Name = attr.Name,
+                            DataType = attr.DataType,
+                            Value = new Value { Content = attr.Value.Content },
+                            Constraint = attr.Constraint,
+                            Mutable = attr.Mutable
+                        }).ToList()
+                    })
+                }
+            };
+        }
+        
+        
+        
+        private static void SaveToCsv(List<Dictionary<string, double>> sampledValues, string filePath)
+        {
+            // Open a file stream and write the CSV content
+            using (var writer = new System.IO.StreamWriter(filePath))
+            {
+                if (sampledValues.Count > 0)
+                {
+                    // Write the header row (keys of the dictionary)
+                    var headers = string.Join(",", sampledValues[0].Keys);
+                    writer.WriteLine(headers);
+
+                    // Write each sample row (values of the dictionary)
+                    foreach (var sample in sampledValues)
+                    {
+                        var row = string.Join(",",
+                            sample.Values.Select(value =>
+                                value.ToString(System.Globalization.CultureInfo.InvariantCulture)));
+                        writer.WriteLine(row);
+                    }
+                }
+            }
+        }
     }
 }

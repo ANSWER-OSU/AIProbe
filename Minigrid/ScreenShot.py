@@ -531,7 +531,7 @@ def main():
     #action = sys.argv[2]  # Single action to perform
     #output_xml_file = sys.argv[3]  # Temporary output file path
 
-    xml_file = "/Users/rahil/Downloads/Result_LavaEnv7_9957/Task_2/finalState.xml" # Input XML file path
+    xml_file = "/Users/rahil/Documents/GitHub/AIProbe/csharp/Result/re/config.xml" # Input XML file path
     # xml_file = "Result/lava_exp_result/Result_LavaEnv1_329/Task_0/finalState.xml"
     #action = [
     #  "right", "forward", "forward", "left", "right", "forward", "left", "right", "left", "forward", "left", "right", "forward", "left", "left", "right", "forward", "left"
@@ -590,8 +590,6 @@ def save_screenshot(env, screenshot_path):
     if screen:
         pygame.image.save(screen, screenshot_path)  # Save the surface as an image
         print(f"Screenshot saved to {screenshot_path}")
-
-
 
 
 

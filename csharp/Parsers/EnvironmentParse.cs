@@ -64,7 +64,7 @@ namespace AIprobe.Parsers
             }
         }
         
-        public bool WriteEnvironment(AIprobe.Models.Environment environment, out string hashValue)
+        public bool WriteEnvironment(AIprobe.Models.Environment environment,string filepath,out string hashValue)
         {
             try
             {
@@ -93,7 +93,7 @@ namespace AIprobe.Parsers
                 hashValue = GenerateHash(xmlContent);
 
                 // Step 5: Write the serialized XML content to the file with UTF-8 encoding
-                using (StreamWriter writer = new StreamWriter(_filePath, false, Encoding.UTF8))
+                using (StreamWriter writer = new StreamWriter(filepath, false, Encoding.UTF8))
                 {
                     writer.Write(xmlContent);
                 }

@@ -1,0 +1,4 @@
+Log initialized on 12/11/2024 9:05:08 PM
+[12/11/2024 9:05:08 PM] INFO: Starting AIprobe...
+[12/11/2024 9:05:08 PM] INFO: Result folder at: /Users/rahil/Documents/GitHub/AIProbe/csharp/results/Result_LavaEnv_6161
+[12/11/2024 9:05:08 PM] INFO: Initial Environment File Path: Data/NewLavaEnv.xml

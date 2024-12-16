@@ -45,14 +45,6 @@
                 <Mutable value="false"/>
                 <Constraint Min="1" Max="{Grid - 2}" oneOf="" roundOff=""/>
             </Attribute>
-            <Attribute>
-                <Name value="is_present"/>
-                <Description value="The landmine is present and active"/>
-                <DataType value="boolean"/>
-                <Value value="1"/>
-                <Mutable value="false"/>
-                <Constraint Min="" Max="" oneOf="0,1" roundOff=""/>
-            </Attribute>
         </Object>
     </Objects>
             <Attribute>
@@ -61,7 +53,7 @@
                 <DataType value="int"/>
                 <Value value="10"/>
                 <Mutable value="false"/>
-                <Constraint Min="3" Max="10" oneOf="" roundOff=""/>
+                <Constraint Min="3" Max="100" oneOf="" roundOff=""/>
             </Attribute>
     <Attribute>
         <Name value="Lava"/>
@@ -71,6 +63,7 @@
         <Mutable value="false"/>
         <Constraint Min="0" Max="{(Grid - 1) * (Grid - 1)}" oneOf="" roundOff=""/>
     </Attribute>
+    
 
 </Environment>
 

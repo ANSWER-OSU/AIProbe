@@ -1,574 +1,799 @@
+using System;
+using System.Collections.Generic;
 using System.Data;
-using AIprobe.Logging;
+using System.Diagnostics;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using AIprobe.Models;
-using AIprobe.Parsers;
-using Attribute = AIprobe.Models.Attribute;
-using Environment = AIprobe.Models.Environment;
-using Object = AIprobe.Models.Object;
+using Constraint = AIprobe.Models.Constraint;
+using System.Collections.Concurrent;
 
 namespace AIprobe.EnvironmentGenerator
 {
+    using Attribute = AIprobe.Models.Attribute;
+    using Environment = AIprobe.Models.Environment;
+    using Object = AIprobe.Models.Object;
+
     public class EnvConfigGenerator
     {
-        
-        public static List<Environment> GenerateEnvConfigs(Environment baseEnv, int nSamples)
+        public static ConcurrentQueue<Environment> GenerateEnvConfigsQueue(Environment baseEnv, int? seed = null )
         {
-            // Step 1: Resolve constraints
-            var (resolvedParams, dataTypes) = ResolveConstraintsAsVector(baseEnv); // Updated to unpack the tuple
+            // Step 1: Resolve constraints into independent ranges and dependencies
+            var (independentRanges, dependentConstraints, dataTypes) = ResolveConstraints(baseEnv);
 
-            // Step 2: Perform LHS sampling
-            var sampledEnvironments = LhsSampler.PerformLhsSamplingAsVector(resolvedParams, nSamples, dataTypes); // Pass dataTypes
+            int nSamples = (independentRanges.Count + dependentConstraints.Count) * 10;
 
-            // Step 3: Generate sampled environments
-            var sampledEnvironmentsList = new List<Environment>();
+            // Step 2: Perform LHS sampling with dependencies
+            var sampledValues =
+                LhsSampler.PerformLhsWithDependencies(independentRanges, dependentConstraints, nSamples, seed);
 
-            foreach (var sample in sampledEnvironments)
+            // Step 3: Save sampled values to CSV
+            // SaveToCsv(sampledValues,
+            //     $"/Users/rahil/Documents/GitHub/AIProbe/csharp/Result/re/{seed}/_values.csv");
+
+            // Use a queue instead of a list to store sampled environments
+            Queue<Environment> sampledEnvironments = new Queue<Environment>();
+            foreach (var sample in sampledValues)
             {
-                var newEnv = CloneEnvironment(baseEnv); // Clone the base environment to avoid overwriting
-                ApplySamplesToEnvironmentAsVector(newEnv, new List<double[]> { sample }); // Pass dataTypes here
-                sampledEnvironmentsList.Add(newEnv);
-                
-                
-                // Print all attribute values in the new environment
-                Console.WriteLine($"Environment: {newEnv.Name}, Type: {newEnv.Type}");
+                var newEnv = CloneEnvironment(baseEnv); // Clone the base environment
+                ApplySamplesToEnvironment(newEnv, sample, dataTypes);
 
-                // Print global attributes
-                Console.WriteLine("Global Attributes:");
-                foreach (var attr in newEnv.Attributes)
+                // Step 5: Adjust objects based on global attributes
+                AdjustObjectsGlobally(newEnv);
+
+                // Enqueue the environment
+                sampledEnvironments.Enqueue(newEnv);
+            }
+
+            try
+            {
+                Stopwatch totalStopwatch = new Stopwatch();
+                totalStopwatch.Start();
+
+                ConcurrentQueue<Environment> newSampleEnvironments = new ConcurrentQueue<Environment>();
+                int environmentCount = 1;
+
+                while (sampledEnvironments.Count > 0)
                 {
-                    Console.WriteLine($"  {attr.Name.Value}: {attr.Value.Content}");
+                    // Dequeue an environment for processing
+                    var env = sampledEnvironments.Dequeue();
+
+                    Console.WriteLine($"Processing Environment no: {environmentCount}");
+
+                    Stopwatch stopwatch = Stopwatch.StartNew();
+
+                    var (independentRange, dependentConstraint) = ResolveAgentAndObjectConstraints(env);
+                    int nSample = (independentRange.Count + dependentConstraint.Count);
+
+                    var sampledValue =
+                        LhsSampler.PerformLhsWithDependencies(independentRange, dependentConstraint, nSample, seed);
+
+                    Parallel.ForEach(sampledValue, variable =>
+                    {
+                        var newEnv = CloneEnvironment(env); // Clone the base environment
+                        ApplySamplesToEnvironment(newEnv, variable, dataTypes);
+
+                        // Enqueue the new environment
+                        lock (newSampleEnvironments)
+                        {
+                            newSampleEnvironments.Enqueue(newEnv);
+                        }
+                    });
+
+                    stopwatch.Stop();
+                    TimeSpan elapsed = stopwatch.Elapsed;
+                    Console.WriteLine($"Environment no: {environmentCount} took: {elapsed}");
+                    environmentCount++;
                 }
 
-                // Print agent attributes
-                Console.WriteLine("Agents:");
-                foreach (var agent in newEnv.Agents.AgentList)
+                totalStopwatch.Stop();
+                Console.WriteLine($"Total time for processing all environments: {totalStopwatch.Elapsed}");
+
+                return newSampleEnvironments; // Return the queue
+            }
+            catch (COMException ex)
+            {
+                Console.WriteLine($"Error HRESULT: {ex.ErrorCode}");
+                Console.WriteLine($"Message: {ex.Message}");
+                Console.WriteLine($"Stack Trace: {ex.StackTrace}");
+                throw;
+            }
+        }
+
+
+        public static List<Environment> GenerateEnvConfigs(Environment baseEnv, int? seed = null)
+        {
+            // Step 1: Resolve constraints into independent ranges and dependencies
+            var (independentRanges, dependentConstraints, dataTypes) = ResolveConstraints(baseEnv);
+
+            int nSamples = (independentRanges.Count + dependentConstraints.Count) * 10;
+
+            // Step 2: Perform LHS sampling with dependencies
+            var sampledValues =
+                LhsSampler.PerformLhsWithDependencies(independentRanges, dependentConstraints, nSamples,
+                    seed);
+
+            // Step 3: Save sampled values to CSV
+            SaveToCsv(sampledValues,
+                $"/Users/rahil/Documents/GitHub/AIProbe/csharp/Result/re/{seed}/sampled_values.csv");
+
+            var sampledEnvironments = new List<Environment>();
+            foreach (var sample in sampledValues)
+            {
+                var newEnv = CloneEnvironment(baseEnv); // Clone the base environment
+                ApplySamplesToEnvironment(newEnv, sample, dataTypes);
+
+
+                // Step 5: Adjust objects based on global attributes
+                AdjustObjectsGlobally(newEnv);
+
+
+                sampledEnvironments.Add(newEnv);
+            }
+
+            var newSampleEnvironments = new List<Environment>();
+            int Environmentcount = 1;
+            try
+            {
+                Stopwatch totalStopwatch = new Stopwatch();
+                totalStopwatch.Start();
+
+                Parallel.ForEach(sampledEnvironments, env =>
                 {
-                    Console.WriteLine($"  Agent ID: {agent.Id}");
-                    foreach (var attr in agent.Attributes)
+                    int envNumber;
+                    lock (sampledEnvironments)
                     {
-                        Console.WriteLine($"    {attr.Name.Value}: {attr.Value.Content}");
+                        envNumber = Environmentcount++;
+
+                        Console.WriteLine($"Processing Environment no: {envNumber}");
+                    }
+
+                    Stopwatch stopwatch = new Stopwatch();
+                    stopwatch.Start();
+
+                    var (independentRange, dependentConstraint) = ResolveAgentAndObjectConstraints(env);
+                    int nSample = (independentRange.Count + dependentConstraint.Count);
+
+                    var sampledValue =
+                        LhsSampler.PerformLhsWithDependencies(independentRange, dependentConstraint, nSample,
+                            seed);
+
+                    Parallel.ForEach(sampledValue, VARIABLE =>
+                    {
+                        var newEnv = CloneEnvironment(env); // Clone the base environment
+                        ApplySamplesToEnvironment(newEnv, VARIABLE, dataTypes);
+
+                        // Thread-safe addition to collection
+                        lock (newSampleEnvironments)
+                        {
+                            newSampleEnvironments.Add(newEnv);
+                        }
+                    });
+
+                    stopwatch.Stop();
+                    TimeSpan elapsed = stopwatch.Elapsed;
+
+                    Console.WriteLine($"Environment no: {envNumber} took: {elapsed}");
+                });
+
+                totalStopwatch.Stop();
+                Console.WriteLine($"Total time for processing all environments: {totalStopwatch.Elapsed}");
+            }
+            catch (COMException ex)
+            {
+                Console.WriteLine($"Error HRESULT: {ex.ErrorCode}");
+                Console.WriteLine($"Message: {ex.Message}");
+                Console.WriteLine($"Stack Trace: {ex.StackTrace}");
+            }
+
+
+            // foreach (var env in sampledEnvironments)
+            // {
+            //     Console.WriteLine($"Enviroemnt no : {Environmentcount}");
+            //     Stopwatch stopwatch = new Stopwatch();
+            //     stopwatch.Start();
+            //     var (independentRange, dependentConstraint) = ResolveAgentAndObjectConstraints(env);
+            //
+            //     int nSample = (independentRange.Count + dependentConstraint.Count) * 10;
+            //
+            //     var sampledValue =
+            //         LhsSampler.PerformLhsWithDependencies(independentRange, dependentConstraint, nSample,
+            //             seed);
+            //
+            //
+            //     Parallel.ForEach(sampledValue, VARIABLE =>
+            //     {
+            //         var newEnv = CloneEnvironment(env); // Clone the base environment
+            //         ApplySamplesToEnvironment(newEnv, VARIABLE, dataTypes);
+            //
+            //         // Use thread-safe collection or lock for shared resources
+            //         lock (newSampleEnvironments)
+            //         {
+            //             newSampleEnvironments.Add(newEnv);
+            //         }
+            //     });
+            //
+            //     stopwatch.Stop();
+            //
+            //     // Get elapsed time
+            //     TimeSpan elapsed = stopwatch.Elapsed;
+            //
+            //     Environmentcount += 1;
+            //     Console.WriteLine($"took : {elapsed}");
+            // }
+
+
+            //     //     Console.WriteLine($"Environment Name: {env.Name}");
+            //     //
+            //     //     // Iterate through agents and print their attributes along with constraints
+            //     //     Console.WriteLine("Agents:");
+            //     //     foreach (var agent in env.Agents.AgentList)
+            //     //     {
+            //     //         Console.WriteLine($"\tAgent ID: {agent.Id}");
+            //     //         foreach (var attr in agent.Attributes)
+            //     //         {
+            //     //             Console.WriteLine($"\t\tAttribute Name: {attr.Name.Value}, Value: {attr.Value.Content}, DataType: {attr.DataType.Value}");
+            //     //             Console.WriteLine($"\t\t\tConstraints - Min: {attr.Constraint.Min}, Max: {attr.Constraint.Max}, OneOf: {attr.Constraint.OneOf}, RoundOff: {attr.Constraint.RoundOff}");
+            //     //         }
+            //     //     }
+            //     //
+            //     //     // Iterate through objects and print their attributes along with constraints
+            //     //     Console.WriteLine("Objects:");
+            //     //     foreach (var obj in env.Objects.ObjectList)
+            //     //     {
+            //     //         Console.WriteLine($"\tObject ID: {obj.Id}, Type: {obj.Type}");
+            //     //         foreach (var attr in obj.Attributes)
+            //     //         {
+            //     //             Console.WriteLine($"\t\tAttribute Name: {attr.Name.Value}, Value: {attr.Value.Content}, DataType: {attr.DataType.Value}");
+            //     //             Console.WriteLine($"\t\t\tConstraints - Min: {attr.Constraint.Min}, Max: {attr.Constraint.Max}, OneOf: {attr.Constraint.OneOf}, RoundOff: {attr.Constraint.RoundOff}");
+            //     //         }
+            //     //     }
+            //     //
+            //     //     // Print global attributes along with constraints
+            //     //     Console.WriteLine("Global Attributes:");
+            //     //     foreach (var attr in env.Attributes)
+            //     //     {
+            //     //         Console.WriteLine($"\tAttribute Name: {attr.Name.Value}, Value: {attr.Value.Content}, DataType: {attr.DataType.Value}");
+            //     //         Console.WriteLine($"\t\tConstraints - Min: {attr.Constraint.Min}, Max: {attr.Constraint.Max}, OneOf: {attr.Constraint.OneOf}, RoundOff: {attr.Constraint.RoundOff}");
+            //     //     }
+            //     // }
+            //     
+            //     
+            //     
+            //     
+            //     
+            //     
+            //     
+            // }
+
+
+            return newSampleEnvironments;
+        }
+
+        /// <summary>
+        /// Adjusts objects and attributes dynamically based on global attributes.
+        /// </summary>
+        /// <param name="environment">The environment to adjust.</param>
+        private static void AdjustObjectsGlobally(Environment environment)
+        {
+            // Retrieve all global attributes
+            var globalAttributes = environment.Attributes;
+
+
+            foreach (var agent in environment.Agents.AgentList)
+            {
+                foreach (var attribute in agent.Attributes)
+                {
+                    // Check if the attribute depends on a global attribute
+                    foreach (var globalAttribute in globalAttributes)
+                    {
+                        var x = attribute.Constraint.Max;
+                        var y = globalAttribute.Name.Value;
+                        if (ContainsGlobalAttribute(attribute.Constraint.Max, globalAttribute.Name.Value) ||
+                            ContainsGlobalAttribute(attribute.Constraint.Min, globalAttribute.Name.Value))
+                        {
+                            // Dynamically replace global placeholders in constraints
+                            attribute.Constraint.Min =
+                                ReplaceGlobalPlaceholder(attribute.Constraint.Min, globalAttributes);
+                            attribute.Constraint.Max =
+                                ReplaceGlobalPlaceholder(attribute.Constraint.Max, globalAttributes);
+                        }
                     }
                 }
+            }
 
-                // Print object attributes
-                Console.WriteLine("Objects:");
-                foreach (var obj in newEnv.Objects.ObjectList)
+
+            // Loop through all objects and adjust based on matching global attributes
+            foreach (var obj in environment.Objects.ObjectList)
+            {
+                foreach (var attribute in obj.Attributes)
                 {
-                    Console.WriteLine($"  Object ID: {obj.Id}");
-                    foreach (var attr in obj.Attributes)
+                    // Check if the attribute depends on a global attribute
+                    foreach (var globalAttribute in globalAttributes)
                     {
-                        Console.WriteLine($"    {attr.Name.Value}: {attr.Value.Content}");
+                        var x = attribute.Constraint.Max;
+                        var y = globalAttribute.Name.Value;
+                        if (ContainsGlobalAttribute(attribute.Constraint.Max, globalAttribute.Name.Value) ||
+                            ContainsGlobalAttribute(attribute.Constraint.Min, globalAttribute.Name.Value))
+                        {
+                            // Dynamically replace global placeholders in constraints
+                            attribute.Constraint.Min =
+                                ReplaceGlobalPlaceholder(attribute.Constraint.Min, globalAttributes);
+                            attribute.Constraint.Max =
+                                ReplaceGlobalPlaceholder(attribute.Constraint.Max, globalAttributes);
+                        }
                     }
                 }
-
-                Console.WriteLine();
             }
 
-            return sampledEnvironmentsList;
-        }
-
-        
-    //     public static List<Environment> GenerateEnvConfigs(Environment baseEnv, int nSamples)
-    // {
-    //     // Step 1: Resolve constraints
-    //     //var resolvedParams = ResolveConstraints(baseEnv);
-    //     
-    //     var resolvedParam = ResolveConstraintsAsVector(baseEnv);
-    //
-    //     // Step 2: Perform LHS sampling
-    //     //var lhsSamples = LhsSampler.PerformLhsSampling(resolvedParams, nSamples);
-    //     
-    //     
-    //     var sampledEnvironmentss = LhsSampler.PerformLhsSamplingAsVector(resolvedParam, nSamples);
-    //
-    //     
-    //     // Step 3: Generate sampled environments
-    //     var sampledEnvironments = new List<Environment>();
-    //     
-    //     // Step 3: Apply the samples to the environment
-    //     foreach (var sample in sampledEnvironmentss)
-    //     {
-    //         ApplySamplesToEnvironmentAsVector(baseEnv, new List<double[]> { sample });
-    //         sampledEnvironments.Add(baseEnv);
-    //     }
-    //     
-    //    
-    //     // foreach (var sample in lhsSamples)
-    //     // {
-    //     //     var newEnv = CloneEnvironment(baseEnv);
-    //     //     ApplySamplesToEnvironment(newEnv, sample);
-    //     //     sampledEnvironments.Add(newEnv);
-    //     // }
-    //
-    //     return sampledEnvironments;
-    // }
-
-    private static Environment CloneEnvironment(Environment env)
-    {
-        // Perform a deep copy of the environment
-        return new Environment
-        {
-            Name = env.Name,
-            Type = env.Type,
-            Attributes = new List<Attribute>(env.Attributes),
-            Agents = new Agents
+            // Dynamically add or adjust objects based on global attributes (e.g., count objects like Lava)
+            foreach (var globalAttribute in globalAttributes)
             {
-                AgentList = env.Agents.AgentList.ConvertAll(agent => new Agent
+                foreach (var obj in environment.Objects.ObjectList)
                 {
-                    Id = agent.Id,
-                    Attributes = new List<Attribute>(agent.Attributes)
-                })
-            },
-            Objects = new Objects
+                    // Check if the object's type matches the global attribute name
+                    if (obj.Type == globalAttribute.Name.Value)
+                    {
+                        AdjustObjectCount(environment, globalAttribute);
+                        break; // Break out of the inner loop once a match is found
+                    }
+                }
+            }
+        }
+
+
+        private static (Dictionary<string, (double Min, double Max, string DataType)> independentRanges,
+            Dictionary<string, (string MinExpr, string MaxExpr, string DataType)> dependentConstraints)
+            ClassifyConstraints(List<Attribute> attributes)
+        {
+            var independentRanges = new Dictionary<string, (double Min, double Max, string DataType)>();
+            var dependentConstraints = new Dictionary<string, (string MinExpr, string MaxExpr, string DataType)>();
+
+            foreach (var attr in attributes)
             {
-                ObjectList = env.Objects.ObjectList.ConvertAll(obj => new Object
+                string attrName = attr.Name.Value;
+                string minExpr = attr.Constraint.Min ?? "0";
+                string maxExpr = attr.Constraint.Max ?? "0";
+                string dataType = attr.DataType.Value;
+
+                if (!ContainsGlobalAttribute(minExpr, "{") && !ContainsGlobalAttribute(maxExpr, "{"))
                 {
-                    Id = obj.Id,
-                    Attributes = new List<Attribute>(obj.Attributes)
-                })
+                    // Independent constraint
+                    independentRanges[attrName] = (double.Parse(minExpr), double.Parse(maxExpr), dataType);
+                }
+                else
+                {
+                    // Dependent constraint
+                    dependentConstraints[attrName] = (MinExpr: minExpr, MaxExpr: maxExpr, DataType: dataType);
+                }
             }
-        };
-    }
 
-    
-    
-    
-    
-    
- public static (double[,], List<string>) ResolveConstraintsAsVector(Environment env)
-{
-    int paramCount = env.Attributes.Count + 
-                     (env.Agents?.AgentList?.Sum(agent => agent.Attributes?.Count ?? 0) ?? 0) + 
-                     (env.Objects?.ObjectList?.Sum(obj => obj.Attributes?.Count ?? 0) ?? 0);
-
-    double[,] resolvedParams = new double[paramCount, 2];
-    List<string> dataTypes = new List<string>(); // To track data types for each parameter
-
-    var context = new Dictionary<string, double>();
-    int index = 0;
-
-    // Add global attributes with "global" context
-    index = ResolveAttributeConstraintsAsVector(env.Attributes, resolvedParams, dataTypes, context, index, "");
-
-    // Add agent attributes with "agent,<id>" context
-    foreach (var agent in env.Agents?.AgentList ?? new List<Agent>())
-    {
-        string agentContext = $"agent,{agent.Id}";
-        index = ResolveAttributeConstraintsAsVector(agent.Attributes, resolvedParams, dataTypes, context, index, agentContext);
-    }
-
-    // Add object attributes with "object,<id>" context
-    foreach (var obj in env.Objects?.ObjectList ?? new List<Object>())
-    {
-        string objectContext = $"object,{obj.Id}";
-        index = ResolveAttributeConstraintsAsVector(obj.Attributes, resolvedParams, dataTypes, context, index, objectContext);
-    }
-
-    return (resolvedParams, dataTypes); // Return both resolved constraints and data types
-}
-
-private static int ResolveAttributeConstraintsAsVector(
-    List<Attribute> attributes,
-    double[,] resolvedParams,
-    List<string> dataTypes,
-    Dictionary<string, double> context,
-    int index,
-    string parentContext)
-{
-    foreach (var attr in attributes)
-    {
-        // Construct a unique context path
-        string contextPath = $"{parentContext},{attr.Name.Value}";
-        if (parentContext == "")
-        {
-            contextPath = attr.Name.Value;
+            return (independentRanges, dependentConstraints);
         }
 
-        // Replace placeholders with actual values in the context
-        var minExpr = attr.Constraint.Min?.Replace("{", "").Replace("}", "") ?? "0";
-        var maxExpr = attr.Constraint.Max?.Replace("{", "").Replace("}", "") ?? "0";
 
-        if (string.IsNullOrEmpty(minExpr) || string.IsNullOrEmpty(maxExpr))
+        public static bool ContainsGlobalAttribute(string expression, string attributeName)
         {
-            dataTypes.Add(attr.DataType.Value);
-            continue;
+            // Create a regex pattern to match the attribute name within curly braces
+            string pattern = $@"\{{.*?\b{Regex.Escape(attributeName)}\b.*?\}}";
+
+            // Check if the expression matches the pattern
+            return Regex.IsMatch(expression, pattern);
         }
 
-        // Evaluate Min and Max using the context
-        double minValue = EvaluateExpression(minExpr, context);
-        double maxValue = EvaluateExpression(maxExpr, context);
 
-        // Store resolved values
-        resolvedParams[index, 0] = minValue;
-        resolvedParams[index, 1] = maxValue;
-
-        // Track the data type of the attribute
-        dataTypes.Add(attr.DataType.Value); // Assuming `DataType` contains the type (e.g., "int", "float")
-
-        // Update the context dictionary with the resolved value
-        if (double.TryParse(attr.Value.Content, out var currentValue))
+        /// <summary>
+        /// Replaces placeholders in constraints with actual global values.
+        /// </summary>
+        /// <param name="constraintValue">The constraint value (e.g., "{Grid - 1}").</param>
+        /// <param name="globalAttributes">The list of global attributes.</param>
+        /// <returns>The updated constraint value.</returns>
+        private static string ReplaceGlobalPlaceholder(string constraintValue, IEnumerable<Attribute> globalAttributes)
         {
-            context[contextPath] = currentValue; // Use contextPath as the key
-        }
-
-        index++;
-    }
-
-    return index;
-}
-    
-private static void ApplySamplesToEnvironmentAsVector(Environment env, List<double[]> samples)
-{
-    int sampleIndex = 0;
-
-    // Apply sampled values to global attributes
-    foreach (var attr in env.Attributes)
-    {
-        attr.Value.Content = samples[0][sampleIndex].ToString(); // Assign sampled value as-is
-        sampleIndex++;
-    }
-
-    // Apply sampled values to agent attributes
-    foreach (var agent in env.Agents.AgentList)
-    {
-        foreach (var attr in agent.Attributes)
-        {
-            attr.Value.Content = samples[0][sampleIndex].ToString(); // Assign sampled value as-is
-            sampleIndex++;
-        }
-    }
-
-    // Apply sampled values to object attributes
-    foreach (var obj in env.Objects.ObjectList)
-    {
-        foreach (var attr in obj.Attributes)
-        {
-            attr.Value.Content = samples[0][sampleIndex].ToString(); // Assign sampled value as-is
-            sampleIndex++;
-        }
-    }
-}
-    
-    private static void ApplySamplesToEnvironment(Environment env, Dictionary<string, double> sample)
-    {
-        // Apply to global attributes
-        ApplySamplesToAttributes(env.Attributes, sample);
-
-        // Apply to agent attributes
-        foreach (var agent in env.Agents.AgentList)
-        {
-            ApplySamplesToAttributes(agent.Attributes, sample);
-        }
-
-        // Apply to object attributes
-        foreach (var obj in env.Objects.ObjectList)
-        {
-            ApplySamplesToAttributes(obj.Attributes, sample);
-        }
-    }
-
-    private static void ApplySamplesToAttributes(List<Attribute> attributes, Dictionary<string, double> sample)
-    {
-        foreach (var attr in attributes)
-        {
-            if (sample.ContainsKey(attr.Name.Value))
+            foreach (var globalAttribute in globalAttributes)
             {
-                attr.Value.Content = sample[attr.Name.Value].ToString("F2");
+                if (ContainsGlobalAttribute(constraintValue, globalAttribute.Name.Value))
+                {
+                    var expression = constraintValue.Replace(globalAttribute.Name.Value, globalAttribute.Value.Content);
+                    var x = StripBraces(expression);
+                    var dataTable = new DataTable();
+                    return Convert.ToString(dataTable.Compute(x, null));
+                }
+
+
+                if (constraintValue.Contains($"{{{globalAttribute.Name.Value}}}"))
+                {
+                    var globalValue = int.Parse(globalAttribute.Value.Content);
+                    constraintValue = constraintValue.Replace($"{{{globalAttribute.Name}}}", globalValue.ToString());
+                }
             }
-        }
-    }
 
-    public static Dictionary<string, (double Min, double Max)> ResolveConstraints(Environment env)
-    {
-        var resolvedParams = new Dictionary<string, (double Min, double Max)>();
-        var context = new Dictionary<string, double>();
-
-        // Parse global attributes
-        foreach (var attr in env.Attributes)
-        {
-            AddAttributeToContext(attr, context);
+            // Evaluate any mathematical expression (if applicable)
+            return EvaluateExpression(constraintValue);
         }
 
-        // Parse agent attributes
-        foreach (var agent in env.Agents.AgentList)
+        /// <summary>
+        /// Adjusts the number of objects of a specific type based on a global attribute.
+        /// </summary>
+        /// <param name="environment">The environment to adjust.</param>
+        /// <param name="globalAttribute">The global attribute controlling the object count.</param>
+        private static void AdjustObjectCount(Environment environment, Attribute globalAttribute)
         {
-            foreach (var attr in agent.Attributes)
+            // Find objects of the same type as the global attribute's name
+            var matchingObjects = environment.Objects.ObjectList.Where(o => o.Type == globalAttribute.Name.Value)
+                .ToList();
+            int requiredCount = int.Parse(globalAttribute.Value.Content);
+            int currentCount = matchingObjects.Count;
+
+            if (requiredCount > currentCount)
             {
-                AddAttributeToContext(attr, context);
+                // Add new objects to meet the required count
+                for (int i = 0; i < requiredCount - currentCount; i++)
+                {
+                    var newObject = CloneObject(matchingObjects.First());
+                    newObject.Id = ((environment.Objects.ObjectList.Count) + 1);
+                    environment.Objects.ObjectList.Add(newObject);
+                }
             }
-        }
-
-        // Parse object attributes
-        foreach (var obj in env.Objects.ObjectList)
-        {
-            foreach (var attr in obj.Attributes)
+            else if (requiredCount < currentCount)
             {
-                AddAttributeToContext(attr, context);
+                // Remove excess objects
+                for (int i = 0; i < currentCount - requiredCount; i++)
+                {
+                    environment.Objects.ObjectList.Remove(matchingObjects[i]);
+                }
             }
         }
 
-        // Resolve constraints for all attributes
-        ResolveAttributeConstraints(env.Attributes, resolvedParams, context);
 
-        foreach (var agent in env.Agents.AgentList)
+        /// <summary>
+        /// Creates a clone of an object.
+        /// </summary>
+        /// <param name="sourceObject">The object to clone.</param>
+        /// <returns>The cloned object.</returns>
+        private static Object CloneObject(Object sourceObject)
         {
-            ResolveAttributeConstraints(agent.Attributes, resolvedParams, context);
-        }
-
-        foreach (var obj in env.Objects.ObjectList)
-        {
-            ResolveAttributeConstraints(obj.Attributes, resolvedParams, context);
-        }
-
-        return resolvedParams;
-    }
-
-    private static void AddAttributeToContext(Attribute attr, Dictionary<string, double> context)
-    {
-        if (double.TryParse(attr.Value.Content, out var val))
-        {
-            context[attr.Name.Value] = val;
-        }
-    }
-
-    private static void ResolveAttributeConstraints(List<Attribute> attributes, Dictionary<string, (double Min, double Max)> resolvedParams, Dictionary<string, double> context)
-    {
-        foreach (var attr in attributes)
-        {
-            var minExpr = attr.Constraint.Min?.Replace("{", "").Replace("}", "") ?? "0";
-            var maxExpr = attr.Constraint.Max?.Replace("{", "").Replace("}", "") ?? "0";
-
-            if (minExpr == null || maxExpr == null || minExpr == "" || maxExpr == "")
+            return new Object
             {
-                continue;
-            }
-            var minValue = EvaluateExpression(minExpr, context);
-            var maxValue = EvaluateExpression(maxExpr, context);
-
-            resolvedParams[attr.Name.Value] = (minValue, maxValue);
-            context[attr.Name.Value] = maxValue;
+                Id = sourceObject.Id,
+                Type = sourceObject.Type,
+                Attributes = sourceObject.Attributes.Select(attr => new Attribute
+                {
+                    Name = attr.Name,
+                    DataType = attr.DataType,
+                    Value = attr.Value,
+                    Mutable = attr.Mutable,
+                    Constraint = new Constraint
+                    {
+                        Min = attr.Constraint.Min,
+                        Max = attr.Constraint.Max,
+                        OneOf = attr.Constraint.OneOf,
+                        RoundOff = attr.Constraint.RoundOff
+                    }
+                }).ToList()
+            };
         }
-    }
 
-    private static double EvaluateExpression(string expression, Dictionary<string, double> context)
-    {
-        foreach (var kvp in context)
+        /// <summary>
+        /// Evaluates mathematical expressions (e.g., "Grid - 1") to get numeric values.
+        /// </summary>
+        /// <param name="expression">The mathematical expression as a string.</param>
+        /// <returns>The evaluated result as a string.</returns>
+        private static string EvaluateExpression(string expression)
         {
-            expression = expression.Replace(kvp.Key, kvp.Value.ToString());
+            // Use a simple expression parser or implement basic evaluation logic
+            try
+            {
+                var result = new DataTable().Compute(expression, null);
+                return result.ToString();
+            }
+            catch
+            {
+                return expression; // Return original if unable to evaluate
+            }
         }
 
-        var dataTable = new DataTable();
-        return Convert.ToDouble(dataTable.Compute(expression, null));
+
+        public static (Dictionary<string, (double Min, double Max, string DataType)> independentRanges,
+            Dictionary<string, (string MinExpr, string MaxExpr, string DataType)> dependentConstraints,
+            List<string> dataTypes)
+            ResolveConstraints(Environment baseEnv)
+        {
+            var independentRanges = new Dictionary<string, (double Min, double Max, string DataType)>();
+            var dependentConstraints = new Dictionary<string, (string MinExpr, string MaxExpr, string DataType)>();
+            var dataTypes = new List<string>();
+
+            foreach (var attr in baseEnv.Attributes)
+            {
+                string attrName = attr.Name.Value;
+                string minExpr = attr.Constraint.Min ?? "0";
+                string maxExpr = attr.Constraint.Max ?? "0";
+                string dataType = attr.DataType.Value;
+
+                if (!minExpr.Contains("{") && !maxExpr.Contains("{"))
+                {
+                    // Independent constraint
+                    independentRanges[attrName] = (double.Parse(minExpr), double.Parse(maxExpr), dataType);
+                }
+                else
+                {
+                    // Dependent constraint: Strip enclosing braces and store the raw expressions
+                    string strippedMinExpr = StripBraces(minExpr);
+                    string strippedMaxExpr = StripBraces(maxExpr);
+
+                    dependentConstraints[attrName] = (MinExpr: strippedMinExpr, MaxExpr: strippedMaxExpr,
+                        DataType: dataType);
+                }
+
+                dataTypes.Add(dataType);
+            }
+
+            return (independentRanges, dependentConstraints, dataTypes);
+        }
+
+        private static string StripBraces(string expression)
+        {
+            if (expression.StartsWith("{") && expression.EndsWith("}"))
+            {
+                return expression.Substring(1, expression.Length - 2); // Remove the leading and trailing braces
+            }
+
+            return expression;
+        }
+
+
+        public static (Dictionary<string, (double Min, double Max, string DataType)> independentRanges,
+            Dictionary<string, (string MinExpr, string MaxExpr, string DataType)> dependentConstraints)
+            ResolveAgentAndObjectConstraints(Environment baseEnv)
+        {
+            var independentRanges = new Dictionary<string, (double Min, double Max, string DataType)>();
+            var dependentConstraints = new Dictionary<string, (string MinExpr, string MaxExpr, string DataType)>();
+
+            // Process attributes of agents
+            foreach (var agent in baseEnv.Agents.AgentList)
+            {
+                foreach (var attr in agent.Attributes)
+                {
+                    string key = $"Agent_{agent.Id}_{attr.Name.Value}";
+                    string minExpr = attr.Constraint.Min ?? "0";
+                    string maxExpr = attr.Constraint.Max ?? "0";
+                    string dataType = attr.DataType.Value;
+
+                    if (!minExpr.Contains("{") && !maxExpr.Contains("{"))
+                    {
+                        // Independent constraint
+                        independentRanges[key] = (double.Parse(minExpr), double.Parse(maxExpr), dataType);
+                    }
+                    else
+                    {
+                        // Dependent constraint: Strip enclosing braces and store the raw expressions
+                        string strippedMinExpr = StripBraces(minExpr);
+                        string strippedMaxExpr = StripBraces(maxExpr);
+
+                        dependentConstraints[key] = (MinExpr: strippedMinExpr, MaxExpr: strippedMaxExpr,
+                            DataType: dataType);
+                    }
+                }
+            }
+
+            // Process attributes of objects
+            foreach (var obj in baseEnv.Objects.ObjectList)
+            {
+                foreach (var attr in obj.Attributes)
+                {
+                    string key = $"Object_{obj.Id}_{attr.Name.Value}";
+                    string minExpr = attr.Constraint.Min ?? "0";
+                    string maxExpr = attr.Constraint.Max ?? "0";
+                    string dataType = attr.DataType.Value;
+
+                    if (!minExpr.Contains("{") && !maxExpr.Contains("{"))
+                    {
+                        // Independent constraint
+                        independentRanges[key] = (double.Parse(minExpr), double.Parse(maxExpr), dataType);
+                    }
+                    else
+                    {
+                        // Dependent constraint: Strip enclosing braces and store the raw expressions
+                        string strippedMinExpr = StripBraces(minExpr);
+                        string strippedMaxExpr = StripBraces(maxExpr);
+
+                        dependentConstraints[key] = (MinExpr: strippedMinExpr, MaxExpr: strippedMaxExpr,
+                            DataType: dataType);
+                    }
+                }
+            }
+
+            return (independentRanges, dependentConstraints);
+        }
+
+
+        private static Environment CloneEnvironment(Environment env)
+        {
+            return new Environment
+            {
+                Name = env.Name,
+                Type = env.Type,
+                Attributes = new List<Attribute>(env.Attributes.Select(attr => new Attribute
+                {
+                    Name = attr.Name,
+                    DataType = attr.DataType,
+                    Value = new Value { Content = attr.Value.Content },
+                    Constraint = attr.Constraint,
+                    Mutable = attr.Mutable
+                })),
+                Agents = new Agents
+                {
+                    AgentList = env.Agents.AgentList.ConvertAll(agent => new Agent
+                    {
+                        Id = agent.Id,
+                        Type = agent.Type,
+                        Attributes = agent.Attributes.Select(attr => new Attribute
+                        {
+                            Name = attr.Name,
+                            DataType = attr.DataType,
+                            Value = new Value { Content = attr.Value.Content },
+                            Constraint = attr.Constraint,
+                            Mutable = attr.Mutable
+                        }).ToList()
+                    })
+                },
+                Objects = new Objects
+                {
+                    ObjectList = env.Objects.ObjectList.ConvertAll(obj => new Object
+                    {
+                        Id = obj.Id,
+                        Type = obj.Type,
+                        Attributes = obj.Attributes.Select(attr => new Attribute
+                        {
+                            Name = attr.Name,
+                            DataType = attr.DataType,
+                            Value = new Value { Content = attr.Value.Content },
+                            Constraint = attr.Constraint,
+                            Mutable = attr.Mutable
+                        }).ToList()
+                    })
+                }
+            };
+        }
+
+
+        public static List<Dictionary<string, double>> PerformLhsWithDependencies(
+            Dictionary<string, (double Min, double Max)> independentRanges,
+            Dictionary<string, Func<Dictionary<string, double>, (double Min, double Max)>> dependencies,
+            int nSamples,
+            int? seed = null)
+        {
+            var random = seed.HasValue ? new Random(seed.Value) : new Random();
+
+            // Step 1: Initialize stratified intervals for independent parameters
+            var stratifiedIntervals = new Dictionary<string, List<double>>();
+            foreach (var (key, (minValue, maxValue)) in independentRanges)
+            {
+                double intervalWidth = (maxValue - minValue) / nSamples;
+
+                // Create stratified intervals
+                var intervals = Enumerable.Range(0, nSamples)
+                    .Select(i => minValue + i * intervalWidth)
+                    .OrderBy(_ => random.Next()) // Shuffle intervals
+                    .ToList();
+
+                stratifiedIntervals[key] = intervals;
+            }
+
+            // Step 2: Generate LHS samples for independent parameters
+            var lhsSamples = new List<Dictionary<string, double>>();
+            for (int i = 0; i < nSamples; i++)
+            {
+                var sample = new Dictionary<string, double>();
+
+                // Sample independent parameters
+                foreach (var key in independentRanges.Keys)
+                {
+                    double intervalStart = stratifiedIntervals[key][i];
+                    double intervalWidth = (independentRanges[key].Max - independentRanges[key].Min) / nSamples;
+                    sample[key] = intervalStart + random.NextDouble() * intervalWidth;
+                }
+
+                lhsSamples.Add(sample);
+            }
+
+            // Step 3: Resolve dependent parameters dynamically
+            foreach (var (key, dependencyFunction) in dependencies)
+            {
+                for (int i = 0; i < nSamples; i++)
+                {
+                    // Resolve range dynamically based on already sampled independent values
+                    var (min, max) = dependencyFunction(lhsSamples[i]);
+                    double intervalWidth = (max - min) / nSamples;
+
+                    // Stratify and sample the dependent parameter
+                    double intervalStart = min + i * intervalWidth;
+                    lhsSamples[i][key] = intervalStart + random.NextDouble() * intervalWidth;
+                }
+            }
+
+            return lhsSamples;
+        }
+
+        // private static void ApplySamplesToEnvironment(Environment env, Dictionary<string, double> sample,
+        //     List<string> dataTypes)
+        // {
+        //     int index = 0;
+        //     foreach (var attr in env.Attributes)
+        //     {
+        //         attr.Value.Content = Convert.ToString(sample[attr.Name.Value]);
+        //         attr.DataType.Value = dataTypes[index++];
+        //     }
+        //     
+        // }
+
+
+        private static void ApplySamplesToEnvironment(Environment env, Dictionary<string, double> sample,
+            List<string> dataTypes)
+        {
+            int dataTypeIndex = 0;
+
+            // Update global attributes
+            foreach (var attr in env.Attributes)
+            {
+                if (sample.ContainsKey(attr.Name.Value))
+                {
+                    attr.Value.Content = Convert.ToString(sample[attr.Name.Value]);
+                    attr.DataType.Value = dataTypes.ElementAtOrDefault(dataTypeIndex++) ?? attr.DataType.Value;
+                }
+            }
+
+            // Update agent attributes
+            foreach (var agent in env.Agents.AgentList)
+            {
+                foreach (var attr in agent.Attributes)
+                {
+                    string sampleKey = $"Agent_{agent.Id}_{attr.Name.Value}";
+                    if (sample.ContainsKey(sampleKey))
+                    {
+                        attr.Value.Content = Convert.ToString(sample[sampleKey]);
+                        attr.DataType.Value = dataTypes.ElementAtOrDefault(dataTypeIndex++) ?? attr.DataType.Value;
+                    }
+                }
+            }
+
+            // Update object attributes
+            foreach (var obj in env.Objects.ObjectList)
+            {
+                foreach (var attr in obj.Attributes)
+                {
+                    string sampleKey = $"Object_{obj.Id}_{attr.Name.Value}";
+                    if (sample.ContainsKey(sampleKey))
+                    {
+                        attr.Value.Content = Convert.ToString(sample[sampleKey]);
+                        attr.DataType.Value = dataTypes.ElementAtOrDefault(dataTypeIndex++) ?? attr.DataType.Value;
+                    }
+                }
+            }
+        }
+
+        private static void SaveToCsv(List<Dictionary<string, double>> sampledValues, string filePath)
+        {
+            // Open a file stream and write the CSV content
+            using (var writer = new System.IO.StreamWriter(filePath))
+            {
+                if (sampledValues.Count > 0)
+                {
+                    // Write the header row (keys of the dictionary)
+                    var headers = string.Join(",", sampledValues[0].Keys);
+                    writer.WriteLine(headers);
+
+                    // Write each sample row (values of the dictionary)
+                    foreach (var sample in sampledValues)
+                    {
+                        var row = string.Join(",",
+                            sample.Values.Select(value =>
+                                value.ToString(System.Globalization.CultureInfo.InvariantCulture)));
+                        writer.WriteLine(row);
+                    }
+                }
+            }
+        }
     }
 }
-
-        
-        
-        
-        
-        
-        
-        
-        // /// <summary>
-        // /// Generate various env based on the initial environment provide by user.
-        // /// </summary>
-        // /// <param name="initialEnvironment">initial env object</param>
-        // /// <returns>list of mutated env object</returns>
-        // public List<AIprobe.Models.Environment> GenerateEnvConfigs(Environment initialEnvironment, int seed)
-        // {
-        //     Random random = new Random(seed);
-        //     List<AIprobe.Models.Environment> environments = new List<Environment>();
-        //     
-        //     
-        //     int randomNumberOfEnviroment = random.Next(1, 13);
-        //
-        //     Logger.LogInfo($"Environment generation started.");
-        //
-        //
-        //     environments = hardCodedEnvironments(initialEnvironment);
-        //    
-        //     //0,0
-        //     
-        //     
-        //
-        //     
-        //     
-        //     
-        //     // for (int i = 0; i < randomNumberOfEnviroment-2; i++)  // Generate 10 random environments
-        //     // {
-        //     //     // Deep copy the initial environment to preserve the original state for each iteration
-        //     //     Environment initialEnvironmentCopy = Program.DeepCopy(initialEnvironment);
-        //     //     List<int> objectIdList = CheckNameTagsMatch(initialEnvironmentCopy);
-        //     //
-        //     //     // Loop through the objects in the environment and mutate based on random number for that environment
-        //     //     foreach (int objectId in objectIdList)
-        //     //     {
-        //     //         // Random number for the action (add/remove object)
-        //     //         int randomNumber = random.Next(0, 2);
-        //     //         //Console.WriteLine($"Random number for object {objectId} in environment {i + 1}: {randomNumber}");
-        //     //
-        //     //         if (randomNumber == 1)
-        //     //         {
-        //     //             // Add a new object
-        //     //             AddNewObject(initialEnvironmentCopy);
-        //     //         }
-        //     //         else
-        //     //         {
-        //     //             // Remove an object
-        //     //             RemoveObjectById(initialEnvironmentCopy, objectId);
-        //     //         }
-        //     //       
-        //     //     }
-        //     //     
-        //     //     
-        //     //
-        //     //     // Add the mutated environment to the list
-        //     //     environments.Add(initialEnvironmentCopy);
-        //     //     Logger.LogInfo($"Environment {i + 1} generation completed.");
-        //     // }
-        //     //
-        //     //
-        //     
-        //     // 
-        //     
-        //
-        //     Logger.LogInfo("All environments generated successfully.");
-        //     return environments;
-        // }
-        //
-        //
-        //
-        // private List<AIprobe.Models.Environment>  hardCodedEnvironments(AIprobe.Models.Environment environments)
-        // {
-        //     //0,0
-        //     List<AIprobe.Models.Environment> environmentsList = new List<Environment>();
-        //     
-        //     // Get all XML files from the specified directory
-        //     string[] xmlFiles = Directory.GetFiles(Program.testingHardCoddedEnvs, "*.xml");
-        //
-        //     if (xmlFiles.Length == 0)
-        //     {
-        //         Logger.LogError("No XML files found in the specified directory.");
-        //         return environmentsList; // Return an empty list if no XML files are found
-        //     }
-        //     
-        //     
-        //     foreach (var filePath in xmlFiles)
-        //     {
-        //         EnvironmentParser initialParser = new EnvironmentParser(filePath);
-        //         AIprobe.Models.Environment initialEnvironment = initialParser.ParseEnvironment();
-        //
-        //         // You can now mutate or modify the initialEnvironment as needed
-        //         // For example, you can deep copy it and generate variations
-        //
-        //         // Add the initial environment (parsed from XML) to the environments list
-        //         environmentsList.Add(initialEnvironment);
-        //         Logger.LogInfo($"Parsed environment from file: {filePath}");
-        //     }
-        //     
-        //     Logger.LogInfo($"Edge case environment with 0 objects added.");
-        //     
-        //     
-        //     return environmentsList;
-        //     
-        // }
-        //
-        // /// <summary>
-        // /// Adds a new object to the environment.
-        // /// </summary>
-        // /// <param name="environmentConfig">The environment configuration to modify</param>
-        // /// <summary>
-        // /// Adds a new object to the environment by finding an existing object with the same name and only changing its Id.
-        // /// </summary>
-        // /// <param name="environmentConfig">The environment configuration to modify</param>
-        // private void AddNewObject(Environment environmentConfig)
-        // {
-        //     // Find an object with the same name (can be the first match or a random one)
-        //     var existingObject = environmentConfig.Objects.ObjectList
-        //         .OrderBy(_ => Guid.NewGuid()) // Shuffle the list to randomly pick one
-        //         .FirstOrDefault(obj => obj.Name == "ObjectNameYouAreMatching"); // Replace with the actual matching condition
-        //
-        //     if (existingObject == null)
-        //     {
-        //         Logger.LogError("No matching object found to copy from.");
-        //         return; // Exit if no matching object is found
-        //     }
-        //
-        //     // Create a new object by copying properties from the found object and assigning a new Id
-        //     var newObject = new AIprobe.Models.Object
-        //     {
-        //         Id = environmentConfig.Objects.ObjectList.Max(obj => obj.Id) + 1, // Generate a new Id
-        //         Name = existingObject.Name,  // Keep the same name as the found object
-        //         Position = existingObject.Position,
-        //         ObjectAttributes = existingObject.ObjectAttributes
-        //         
-        //         // Copy other relevant properties as needed
-        //     };
-        //
-        //     environmentConfig.Objects.ObjectList.Add(newObject);
-        //     Logger.LogInfo($"Added new object with Id: {newObject.Id}, copied from object with Id: {existingObject.Id}");
-        // }
-        //
-        //
-        // /// <summary>
-        // /// Removes an object from the environment based on its Id.
-        // /// </summary>
-        // /// <param name="environmentConfig">The environment configuration to modify</param>
-        // /// <param name="objectId">The Id of the object to remove</param>
-        // private void RemoveObjectById(Environment environmentConfig, int objectId)
-        // {
-        //     var objectToRemove = environmentConfig.Objects.ObjectList
-        //         .FirstOrDefault(obj => obj.Id == objectId);
-        //     if (objectToRemove != null)
-        //     {
-        //         environmentConfig.Objects.ObjectList.Remove(objectToRemove);
-        //         Logger.LogInfo($"Removed object with Id: {objectId}");
-        //     }
-        // }
-        //
-        //
-        //
-        //
-        // /// <summary>
-        // /// Checks if the name tags of environment properties and object names match.
-        // /// </summary>
-        // /// <param name="environmentConfig">The environment configuration object containing agents and objects.</param>
-        // /// <returns>A list of tuples indicating whether names match and their corresponding names.</returns>
-        // public List<int> CheckNameTagsMatch(Environment environmentConfig)
-        // {
-        //     var results = new List<int>();
-        //
-        //     // Check names of agents in the environment
-        //
-        //     // Check names of objects in the environment
-        //     foreach (var obj in environmentConfig.Objects.ObjectList)
-        //     {
-        //         // Assuming object has a property Name
-        //         string objectName = obj.Name;
-        //
-        //         // Compare object names with environment property names
-        //         bool isMatch = environmentConfig.Objects.ObjectList
-        //             .Any(agent => agent.Name == objectName);
-        //
-        //         foreach (var env in environmentConfig.EnvironmentalProperties.Properties)
-        //         {
-        //             if (env.Name == objectName)
-        //             {
-        //                 results.Add(obj.Id);
-        //             }
-        //             
-        //         }
-        //         
-        //         //bool isInProperties = environmentConfig.EnvironmentalProperties.PropertiesContains(objectName);
-        //
-        //        ; // Agent names are null for this case
-        //     }
-        //
-        //     Logger.LogInfo("Checked name tags for agents and objects.");
-        //     return results;
-        // }
-
-    
-    }
-
-

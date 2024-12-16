@@ -55,14 +55,14 @@
             </Attribute>
         </Object>
     </Objects>
-            <Attribute>
+    <Attribute>
                 <Name value="Grid"/>
                 <Description value="The width of the boundary"/>
                 <DataType value="int"/>
                 <Value value="10"/>
                 <Mutable value="true"/>
-                <Constraint Min="3" Max="10" oneOf="" roundOff=""/>
-            </Attribute>
+                <Constraint Min="3" Max="100" oneOf="" roundOff=""/>
+     </Attribute>
     <Attribute>
         <Name value="Lava"/>
         <Description value="The quantity of the lava tiles, dependent on Grid's value."/>

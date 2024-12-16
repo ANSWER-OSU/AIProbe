@@ -34,3 +34,7 @@
 /Users/rahil/Documents/GitHub/AIProbe/csharp/obj/Debug/net8.0/AIprobe.pdb
 /Users/rahil/Documents/GitHub/AIProbe/csharp/obj/Debug/net8.0/AIprobe.genruntimeconfig.cache
 /Users/rahil/Documents/GitHub/AIProbe/csharp/obj/Debug/net8.0/ref/AIprobe.dll
+/Users/rahil/Documents/GitHub/AIProbe/csharp/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
+/Users/rahil/Documents/GitHub/AIProbe/csharp/bin/Debug/net8.0/Pipelines.Sockets.Unofficial.dll
+/Users/rahil/Documents/GitHub/AIProbe/csharp/bin/Debug/net8.0/StackExchange.Redis.dll
+/Users/rahil/Documents/GitHub/AIProbe/csharp/bin/Debug/net8.0/System.IO.Pipelines.dll

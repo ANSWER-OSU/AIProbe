@@ -5,6 +5,8 @@ using AIprobe.Parsers;
 using Microsoft.VisualBasic;
 using Environment = AIprobe.Models.Environment;
 
+using StackExchange.Redis;
+using System.Text.Json;
 namespace AIprobe.InstructionGenerator;
 
 public class InstructionChecker
@@ -16,11 +18,14 @@ public class InstructionChecker
     /// <param name="finalEnvironmentState">object of mutated environment</param>
     /// <param name="timeLimitInSeconds">max time to genrate and check is instruction exists which statisfy tha task</param>
     /// <returns>result in form od [arrayOfInstrction[],bool value]</returns>
-    public List<object[]> InstructionExists(AIprobe.Models.Environment initialEnvironmentState,
-        Environment finalEnvironmentState, ActionSpace actionSpace, int timeLimitInSeconds,string initialStateHashValue,string finalStateHashValue,out bool instructionExists)
+    public List<object[]> InstructionExists(Environment initialEnvironmentState, ActionSpace actionSpace, int timeLimitInSeconds,string initialStateHashValue,string finalStateHashValue,out bool instructionExists)
     {
+        
+        
+        
         instructionExists = false;
         List<object[]> results = new List<object[]>();
+        
         
         Logger.LogInfo("Starting instruction validation.");
 
@@ -34,11 +39,10 @@ public class InstructionChecker
 
         // Dictionary to track remaining actions for each environment state
        // Dictionary<AIprobe.Models.Environment, List<string>> completedActionsDictionary =
-        Dictionary<string, List<string>> completedActionsDictionary =
-            new Dictionary<string, List<string>>();
+        Dictionary<string, List<string>> completedActionsDictionary =  new Dictionary<string, List<string>>();
         
         // Queue for BFS traversal of environment states
-        Queue<AIprobe.Models.Environment> environmentQueue = new Queue<AIprobe.Models.Environment>();
+        Queue<Environment> environmentQueue = new Queue<AIprobe.Models.Environment>();
         
         environmentQueue.Enqueue(initialEnvironmentState);
         DateTime startTime = DateTime.Now;
@@ -48,10 +52,12 @@ public class InstructionChecker
             
             // Dequeue the current environment state to explore
             var currentEnvironment = environmentQueue.Dequeue();
+
+            string currentEnviromentHashValues = HashGenerator.ComputeEnvironmentHash(currentEnvironment);
             
             
-            EnvironmentParser parser = new EnvironmentParser(tempFuzzerFilePath);
-            parser.WriteEnvironment(currentEnvironment,out string currentEnviromentHashValues);
+            //EnvironmentParser parser = new EnvironmentParser(tempFuzzerFilePath);
+            //parser.WriteEnvironment(currentEnvironment,"",out string currentEnviromentHashValues);
             
             // Environment secoundIntialEnv = new Environment();
             // // if (counter == 5)
@@ -168,8 +174,9 @@ public class InstructionChecker
                 Environment updatedEnvironment = new Environment();
                 try
                 {
-                    updatedEnvironment =
-                        runner.RunPythonScript( tempFuzzerFilePath,wraperFilePath, action, out safeCondition);
+                    // updatedEnvironment =
+                    //     runner.RunPythonScript( tempFuzzerFilePath,wraperFilePath, action, out safeCondition);
+                    updatedEnvironment = CallPythonWrapperWithRedis( currentEnvironment, action, out safeCondition);
 
                 }
                 catch (Exception e)
@@ -181,11 +188,21 @@ public class InstructionChecker
                 }
                 // Run the Python script to get the updated environment statE
                 
+                //
                 
-                EnvironmentParser current = new EnvironmentParser(dumperFilePath);
-                current.WriteEnvironment(updatedEnvironment,out string currentvalue);
+                string UPDATEnviromentHashValues = HashGenerator.ComputeEnvironmentHash(updatedEnvironment);
+
+                if (UPDATEnviromentHashValues.Equals(currentEnviromentHashValues))
+                {
+                    Console.WriteLine("####Found instruction set###");
+                }
                 
-                string updatedEnviromentHashValue = currentvalue;
+                
+                
+                //EnvironmentParser current = new EnvironmentParser(dumperFilePath);
+                //current.WriteEnvironment(updatedEnvironment,"",out string currentvalue);
+                
+                string updatedEnviromentHashValue = UPDATEnviromentHashValues;
                 
                 if (updatedEnviromentHashValue.Equals(finalStateHashValue))
                 {
@@ -366,4 +383,66 @@ public class InstructionChecker
     }
 
    
+    
+    
+    
+    
+
+    private Environment CallPythonWrapperWithRedis(
+        Environment environment,
+        string action,
+        out bool safeCondition)
+    {
+        safeCondition = false;
+
+        // Connect to Redis
+        var redis = ConnectionMultiplexer.Connect("localhost");
+        var db = redis.GetDatabase();
+
+        // Prepare data to send to Python
+        var payload = new
+        {
+            Environment = environment, // Serialize the environment object
+            Action = action
+        };
+
+        // Serialize and push data to Redis
+        string payloadKey = "environment:payload";
+        string resultKey = "environment:result";
+        db.StringSet(payloadKey, JsonSerializer.Serialize(payload));
+
+        // Wait for Python to process and return the result
+        while (true)
+        {
+            if (db.KeyExists(resultKey))
+            {
+                // Retrieve and deserialize the result
+                var resultJson = db.StringGet(resultKey);
+                var result = JsonSerializer.Deserialize<Result>(resultJson);
+
+                // Clean up Redis keys
+                db.KeyDelete(payloadKey);
+                db.KeyDelete(resultKey);
+
+                // Extract result data
+                safeCondition = result.SafeCondition;
+                return result.UpdatedEnvironment;
+            }
+
+            // Small delay to prevent excessive polling
+            Thread.Sleep(100);
+        }
+    }
+    
+
+// Helper class for deserializing Python's response
+    private class Result
+    {
+        public Environment UpdatedEnvironment { get; set; }
+        public bool SafeCondition { get; set; }
+    }
+    
+    
+    
+    
 }

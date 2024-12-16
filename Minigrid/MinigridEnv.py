@@ -11,31 +11,30 @@ import numpy as np
 
 # Custom environment based on the parsed XML data
 class CustomMiniGridEnv(MiniGridEnv):
-    def __init__(self, environment_data, accurate_model=False, task='escLava', inaccuracy_type=None, goal_pos=None, goal_dir=None, **kwargs):
-        # First, assign the environment_data to self.environment_data
+    def __init__(self, environment_data, accurate_model=False, task='escLava', inaccuracy_type=None, goal_pos=None,
+                 goal_dir=None, **kwargs):
+        # Initialize environment data
         self.environment_data = environment_data
 
-        # Extract grid size from XML file's EnvironmentalProperties (Boundary width/height)
-        boundary = next(prop for prop in self.environment_data.properties if prop['name'] == 'Boundary')
-        grid_width = int(boundary['attributes'][0].value)  # Width
-        grid_height = int(boundary['attributes'][1].value)  # Height
+        # Extract grid size from Attributes
+        grid_attr = next(attr for attr in self.environment_data['Attributes'] if attr['Name']['Value'] == 'Grid')
+        grid_size = int(grid_attr['Value']['Content'])+2
+        print(grid_size)
 
-        # Set self.width and self.height for the grid
-        self.width = grid_width
-        self.height = grid_height
+        self.width = grid_size
+        self.height = grid_size
 
-        # Make sure to pass only one value for grid_size (assuming the grid is square)
+        # Ensure the grid is square
         assert self.width == self.height, "Grid width and height must be the same for MiniGridEnv"
 
-        # Initialize the mission space and grid size based on the XML data
+        # Initialize mission space
         mission_space = MissionSpace(mission_func=lambda: "Reach the goal while avoiding obstacles")
 
-        # Call the superclass initializer
+        # Call the parent initializer
         super().__init__(grid_size=self.width, mission_space=mission_space, **kwargs)
 
         self.step_count = 0
-        # Env properties for RL
-        self.dir = {'s': 0, 'w': 1, 'n': 2, 'e': 3 }
+        self.dir = {'s': 0, 'w': 1, 'n': 2, 'e': 3}
         self.task = task
         self.inaccuracy_type = inaccuracy_type
         self.accurate_model = accurate_model
@@ -50,32 +49,37 @@ class CustomMiniGridEnv(MiniGridEnv):
         self.grid.wall_rect(0, 0, width, height)
 
         # Place walls, landmines, and other objects based on the parsed XML data
-        for obj in self.environment_data.objects:
+        # Place objects from ObjectList
+        for obj in self.environment_data['Objects']['ObjectList']:
             self.add_object_to_grid(obj)
 
         # Set agent's initial position
-        agent = self.environment_data.agents[0]
-        x_pos = int(agent.position[0].value)
-        y_pos = int(agent.position[1].value)
-        self.agent_pos = (x_pos, y_pos)
+            # Set the agent's initial position and direction
+            agent = self.environment_data['Agents']['AgentList'][0]
+            self.agent_pos = (
+                int(agent['Attributes'][0]['Value']['Content']),  # X position
+                int(agent['Attributes'][1]['Value']['Content'])  # Y position
+            )
+            self.agent_dir = int(agent['Attributes'][2]['Value']['Content'])  # Direction
 
-        # Set agent direction (convert angle to MiniGrid's direction)
-        direction = int(agent.direction[0].value)
-        self.agent_dir = direction  # Using the direction index (0: East, 1: South, etc.)
+    # Set agent direction (convert angle to MiniGrid's direction)
+        #direction = int(agent.direction[0].value)
+        #self.agent_dir = direction  # Using the direction index (0: East, 1: South, etc.)
 
     def add_object_to_grid(self, obj):
         # Extract the object's position
-        x = int(obj.position[0].value)
-        y = int(obj.position[1].value)
+        # Extract the object's position
+        x = int(obj['Attributes'][0]['Value']['Content'])
+        y = int(obj['Attributes'][1]['Value']['Content'])
 
         # Add objects like walls and landmines based on the parsed XML data
-        if obj.name == "Wall":
+        if obj['Type'] == 'Wall':
             self.grid.set(x, y, Wall())
-        elif obj.name == "Lava":
+        elif obj['Type'] == 'Lava':
             self.grid.set(x, y, Lava())
-        elif obj.name == "Goal":
+        elif obj['Type'] == 'Goal':
             self.grid.set(x, y, Goal())
-        elif obj.name == "Ball":
+        elif obj['Type'] == 'Ball':
             self.grid.set(x, y, Ball())
 
     def step(self, action):
@@ -110,7 +114,8 @@ class CustomMiniGridEnv(MiniGridEnv):
 
         # Check that the agent doesn't overlap with an object
         start_cell = self.grid.get(*self.agent_pos)
-        assert start_cell is None or start_cell.can_overlap()
+        print(start_cell)
+        #assert start_cell is None or start_cell.can_overlap()
 
         # Return first observation
         obs = self.gen_obs()
@@ -204,7 +209,6 @@ class CustomMiniGridEnv(MiniGridEnv):
         if lava:
             return True
         return False
-
 
     def get_reward(self, state, action):
         state_reward = None

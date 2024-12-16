@@ -1,6 +1,7 @@
 import os
 import xml.etree.ElementTree as ET
 import sys
+from math import trunc
 
 import numpy as np
 import pygame
@@ -442,8 +443,58 @@ def direction_index_to_direction(direction_index):
     return index_map.get(direction_index, "Unknown")  # Default to "Unknown" if index is invalid
 
 
+import redis
+import json
 
+def print_value_tags(environment):
+    if isinstance(environment, dict):
+        for key, value in environment.items():
+            if key == 'Value':  # Check if the key is 'Value'
+                print(f"Value: {value}")
+            else:
+                print_value_tags(value)  # Recursively check deeper structures
+    elif isinstance(environment, list):
+        for item in environment:
+            print_value_tags(item)
+
+def process_environment_with_action(environment, action):
+    # Example: Apply the action to the environment
+    # Modify environment state based on the action
+    print("Initial Environment State:")
+    print_value_tags(environment)
+    safe_condition = True  # Set based on your logic
+
+    run_minigrid_with_single_actions(environment, action)
+
+    
+    return environment, safe_condition
+
+def run_with_redis():
+    r = redis.Redis(host='localhost', port=6379, decode_responses=True)
+    while True:
+        if r.exists("environment:payload"):
+            payload = json.loads(r.get("environment:payload"))
+
+            if "Environment" not in payload or "Action" not in payload:
+                raise KeyError("Payload is missing required keys: 'Environment' or 'Action'")
+
+            environment = payload["Environment"]
+            action = payload["Action"]
+
+            # Process environment and action
+            updated_environment, safe_condition = process_environment_with_action(environment, action)
+
+            result = {
+                "UpdatedEnvironment": updated_environment,
+                "SafeCondition": safe_condition
+            }
+            r.set("environment:result", json.dumps(result))
+            r.delete("environment:payload")
 
 
 if __name__ == "__main__":
-    main()
+    run_with_redis()
+
+
+##if __name__ == "__main__":
+    ##main()
