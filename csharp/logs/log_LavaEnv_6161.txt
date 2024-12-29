@@ -1,4 +1,6 @@
-Log initialized on 12/11/2024 9:05:08 PM
-[12/11/2024 9:05:08 PM] INFO: Starting AIprobe...
-[12/11/2024 9:05:08 PM] INFO: Result folder at: /Users/rahil/Documents/GitHub/AIProbe/csharp/results/Result_LavaEnv_6161
-[12/11/2024 9:05:08 PM] INFO: Initial Environment File Path: Data/NewLavaEnv.xml
+Log initialized on 12/28/2024 1:34:23 PM
+[12/28/2024 1:34:23 PM] INFO: Starting AIprobe...
+[12/28/2024 1:34:23 PM] INFO: Result folder at: /Users/rahil/Documents/GitHub/AIProbe/csharp/results/Result_LavaEnv_6161
+[12/28/2024 1:34:23 PM] INFO: Initial environment File Path: Data/NewLavaEnv.xml
+[12/28/2024 1:35:03 PM] INFO: Initial Environment parsed successfully.
+[12/28/2024 1:35:04 PM] INFO: Action Space File Path: /Users/rahil/Documents/GitHub/AIProbe/csharp/Data/ActionSpace.xml

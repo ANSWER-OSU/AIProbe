@@ -48,12 +48,12 @@
         </Object>
     </Objects>
             <Attribute>
-                <Name value="Grid"/>
+c                <Name value="Grid"/>
                 <Description value="The width of the boundary"/>
                 <DataType value="int"/>
                 <Value value="10"/>
                 <Mutable value="false"/>
-                <Constraint Min="3" Max="100" oneOf="" roundOff=""/>
+                <Constraint Min="3" Max="46" oneOf="" roundOff=""/>
             </Attribute>
     <Attribute>
         <Name value="Lava"/>

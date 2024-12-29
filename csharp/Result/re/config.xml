@@ -4750,9 +4750,9 @@
   <Attribute>
     <Name value="Grid"/>
     <DataType value="int"/>
-    <Value value="20"/>
+    <Value value="90000"/>
     <Mutable value="false"/>
-    <Constraint Min="3" Max="50" oneOf="" roundOff=""/>
+    <Constraint Min="3" Max="4000" oneOf="" roundOff=""/>
   </Attribute>
   <Attribute>
     <Name value="Lava"/>

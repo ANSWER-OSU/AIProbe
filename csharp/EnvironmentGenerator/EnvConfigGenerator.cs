@@ -33,72 +33,82 @@ namespace AIprobe.EnvironmentGenerator
             //     $"/Users/rahil/Documents/GitHub/AIProbe/csharp/Result/re/{seed}/_values.csv");
 
             // Use a queue instead of a list to store sampled environments
-            Queue<Environment> sampledEnvironments = new Queue<Environment>();
+            ConcurrentQueue<Environment> sampledEnvironments = new ConcurrentQueue<Environment>();
+            Console.WriteLine($"Total no of environment generated: {sampledValues.Count}");
+            int sampleCount = 0;
             foreach (var sample in sampledValues)
             {
+              
+                
+                
                 var newEnv = CloneEnvironment(baseEnv); // Clone the base environment
                 ApplySamplesToEnvironment(newEnv, sample, dataTypes);
 
                 // Step 5: Adjust objects based on global attributes
                 AdjustObjectsGlobally(newEnv);
 
+                Console.WriteLine($"Saved the generated sample env no: {sampledEnvironments.Count() + 1}");
+                
                 // Enqueue the environment
                 sampledEnvironments.Enqueue(newEnv);
             }
 
-            try
-            {
-                Stopwatch totalStopwatch = new Stopwatch();
-                totalStopwatch.Start();
+            return sampledEnvironments;
 
-                ConcurrentQueue<Environment> newSampleEnvironments = new ConcurrentQueue<Environment>();
-                int environmentCount = 1;
 
-                while (sampledEnvironments.Count > 0)
-                {
-                    // Dequeue an environment for processing
-                    var env = sampledEnvironments.Dequeue();
-
-                    Console.WriteLine($"Processing Environment no: {environmentCount}");
-
-                    Stopwatch stopwatch = Stopwatch.StartNew();
-
-                    var (independentRange, dependentConstraint) = ResolveAgentAndObjectConstraints(env);
-                    int nSample = (independentRange.Count + dependentConstraint.Count);
-
-                    var sampledValue =
-                        LhsSampler.PerformLhsWithDependencies(independentRange, dependentConstraint, nSample, seed);
-
-                    Parallel.ForEach(sampledValue, variable =>
-                    {
-                        var newEnv = CloneEnvironment(env); // Clone the base environment
-                        ApplySamplesToEnvironment(newEnv, variable, dataTypes);
-
-                        // Enqueue the new environment
-                        lock (newSampleEnvironments)
-                        {
-                            newSampleEnvironments.Enqueue(newEnv);
-                        }
-                    });
-
-                    stopwatch.Stop();
-                    TimeSpan elapsed = stopwatch.Elapsed;
-                    Console.WriteLine($"Environment no: {environmentCount} took: {elapsed}");
-                    environmentCount++;
-                }
-
-                totalStopwatch.Stop();
-                Console.WriteLine($"Total time for processing all environments: {totalStopwatch.Elapsed}");
-
-                return newSampleEnvironments; // Return the queue
-            }
-            catch (COMException ex)
-            {
-                Console.WriteLine($"Error HRESULT: {ex.ErrorCode}");
-                Console.WriteLine($"Message: {ex.Message}");
-                Console.WriteLine($"Stack Trace: {ex.StackTrace}");
-                throw;
-            }
+            // try
+            // {
+            //     Stopwatch totalStopwatch = new Stopwatch();
+            //     totalStopwatch.Start();
+            //
+            //     ConcurrentQueue<Environment> newSampleEnvironments = new ConcurrentQueue<Environment>();
+            //     int environmentCount = 1;
+            //
+            //     while (sampledEnvironments.Count > 0)
+            //     {
+            //         // Dequeue an environment for processing
+            //         var env = sampledEnvironments.Dequeue();
+            //
+            //         Console.WriteLine($"Processing Environment no: {environmentCount}");
+            //
+            //         Stopwatch stopwatch = Stopwatch.StartNew();
+            //
+            //         var (independentRange, dependentConstraint) = ResolveAgentAndObjectConstraints(env);
+            //         int nSample = (independentRange.Count + dependentConstraint.Count);
+            //
+            //         var sampledValue =
+            //             LhsSampler.PerformLhsWithDependencies(independentRange, dependentConstraint, nSample, seed);
+            //
+            //         Parallel.ForEach(sampledValue, variable =>
+            //         {
+            //             var newEnv = CloneEnvironment(env); // Clone the base environment
+            //             ApplySamplesToEnvironment(newEnv, variable, dataTypes);
+            //
+            //             // Enqueue the new environment
+            //             lock (newSampleEnvironments)
+            //             {
+            //                 newSampleEnvironments.Enqueue(newEnv);
+            //             }
+            //         });
+            //
+            //         stopwatch.Stop();
+            //         TimeSpan elapsed = stopwatch.Elapsed;
+            //         Console.WriteLine($"Environment no: {environmentCount} took: {elapsed}");
+            //         environmentCount++;
+            //     }
+            //
+            //     totalStopwatch.Stop();
+            //     Console.WriteLine($"Total time for processing all environments: {totalStopwatch.Elapsed}");
+            //
+            //     return newSampleEnvironments; // Return the queue
+            // }
+            // catch (COMException ex)
+            // {
+            //     Console.WriteLine($"Error HRESULT: {ex.ErrorCode}");
+            //     Console.WriteLine($"Message: {ex.Message}");
+            //     Console.WriteLine($"Stack Trace: {ex.StackTrace}");
+            //     throw;
+            // }
         }
 
 

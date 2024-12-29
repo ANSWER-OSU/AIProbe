@@ -89,7 +89,7 @@ class CustomMiniGridEnv(MiniGridEnv):
 
     def render_pygame(self):
         pygame.init()
-        screen = pygame.display.set_mode((self.width * 32, self.height * 32))
+        screen = pygame.display.set_mode((self.width * 3, self.height * 3))
         screen.fill((255, 255, 255))
 
         # Draw the cells and the grid
@@ -180,13 +180,18 @@ def parse_environment(xml_path):
 def main():
     xml_file = "/Users/rahil/Documents/GitHub/AIProbe/csharp/Result/re/config.xml"  # Update with your XML file path
     environment = parse_environment(xml_file)
-
+    print("Parsing the environment")
     env = CustomMiniGridEnv(environment_data=environment)
-    env.reset()
-    env.render()
+    print("Parsed the environment")
+    print("reset the environment")
 
+    env.reset()
+    print("render the environment")
+    #env.render()
+    print("saving the environment")
     # Save a screenshot
-    pygame.image.save(pygame.display.get_surface(), "screenshot.png")
+    #pygame.image.save(pygame.display.get_surface(), "screenshot.png")
+    print("Saved the environment")
 
     env.close()
 

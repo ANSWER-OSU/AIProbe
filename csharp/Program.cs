@@ -76,8 +76,8 @@ namespace AIprobe
             Console.WriteLine($"Result folder at: {resultFolder}");
             Logger.LogInfo($"Result folder at: {resultFolder}");
             envConfigFile = aiprobe_root_path + "/" + config.FileSettings.InitialEnvironmentFilePath;
-            Logger.LogInfo($"Initial Environment File Path: {config.FileSettings.InitialEnvironmentFilePath}");
-            Console.WriteLine(envConfigFile);
+            Logger.LogInfo($"Initial environment File Path: {config.FileSettings.InitialEnvironmentFilePath}");
+            Console.WriteLine($"Initial environment file path: {envConfigFile}");
             
             // Parse the initial environment file
             EnvironmentParser intialParser = new EnvironmentParser(envConfigFile);
@@ -96,12 +96,18 @@ namespace AIprobe
 
             int seed = config.RandomSettings.Seed;
 
+            ConcurrentQueue<Environment> environmentQueue = EnvConfigGenerator.GenerateEnvConfigsQueue(initialEnvironment, seed);
 
-            List<Environment> environmentsList = EnvConfigGenerator.GenerateEnvConfigs(initialEnvironment, seed);
-            Console.WriteLine($"Enviroment list size: {environmentsList.Count}");
+
+           
+                
+            
+            
+            //List<Environment> environmentsList = EnvConfigGenerator.GenerateEnvConfigs(initialEnvironment, seed);
+            //Console.WriteLine($"Enviroment list size: {environmentsList.Count}");
 
             
-            EnvironmentExporter.SaveEnvironmentsToCsv(environmentsList, "/Users/rahil/Documents/GitHub/AIProbe/csharp/results/Result_LavaEnv_6161/sampled_values.csv");
+            //EnvironmentExporter.SaveEnvironmentsToCsv(environmentsList, "/Users/rahil/Documents/GitHub/AIProbe/csharp/results/Result_LavaEnv_6161/sampled_values.csv");
             
             
             // List<Environment> reduceList =  OrthogonalSampler.ReduceSampleSize(environmentsList,10);
@@ -109,7 +115,7 @@ namespace AIprobe
             // EnvironmentExporter.SaveEnvironmentsToCsv(reduceList, "/Users/rahil/Documents/GitHub/AIProbe/csharp/results/Result_LavaEnv_6161/reduces_sampled_values.csv");
 
             
-            ConcurrentQueue<Environment> environmentQueue = EnvConfigGenerator.GenerateEnvConfigsQueue(initialEnvironment, seed);
+            
             long envCounter = 1;
 
           
@@ -247,86 +253,85 @@ namespace AIprobe
             // }
 
 
-            foreach (var env in environmentsList)
-            {
-               
-                
-                Stopwatch envStopwatch = Stopwatch.StartNew(); // Measure time for the current environment
+            // foreach (var env in environmentsList)
+            // {
+            //    
+            //     
+            //     Stopwatch envStopwatch = Stopwatch.StartNew(); // Measure time for the current environment
+            //
+            //     EnvCount += 1;
+            //     
+            //     string environmentDirPath = $"/Users/rahil/Documents/GitHub/AIProbe/csharp/Result/re/{seed}/{EnvCount}";
+            //     if (!Directory.Exists(environmentDirPath))
+            //     {
+            //         Directory.CreateDirectory(environmentDirPath); // Create the directory if it doesn't exist
+            //     }
+            //
+            //     
+            //     string environmentFilePath = $"{environmentDirPath}/config.xml";
+            //     // string environmentFilePath =
+            //     //     $"/Users/rahil/Documents/GitHub/AIProbe/csharp/Result/re/{seed}/{EnvCount}/config.xml";
+            //     //WriteEnvironment(env, environmentFilePath);
+            //     
+            //     
+            //     
+            //     // Measure task generation time
+            //     Stopwatch taskGeneratorStopwatch = Stopwatch.StartNew();
+            //     List<Environment> tasks = EnvTaskGenerator.TaskGenerator(env, seed);
+            //     taskGeneratorStopwatch.Stop();
+            //     double taskGenerationTime = taskGeneratorStopwatch.Elapsed.TotalSeconds;
+            //
+            //     Console.WriteLine($"Environment {EnvCount} task generation took {taskGenerationTime:F2} seconds.");
+            //
+            //     environmentTaskQueue.Enqueue((env, tasks));
+            //     
+            //     // Process tasks in parallel
+            //     var parallelOptions = new ParallelOptions
+            //     {
+            //         MaxDegreeOfParallelism = System.Environment.ProcessorCount
+            //     };
+            //
+            //     int taskCounter = 1;
+            //     var taskCounterLock = new object();
+            //
+            //     // Parallel.ForEach(tasks, parallelOptions, task =>
+            //     // {
+            //     //     int currentTaskNumber;
+            //     //     lock (taskCounterLock)
+            //     //     {
+            //     //         currentTaskNumber = taskCounter++;
+            //     //     }
+            //     //
+            //     //     string taskPath =
+            //     //         $"/Users/rahil/Documents/GitHub/AIProbe/csharp/Result/re/{seed}/{EnvCount}/task{currentTaskNumber}.xml";
+            //     //     WriteEnvironmentAsync(task, taskPath);
+            //     // });
+            //     //
+            //     // // Update total tasks
+            //     // lock (taskCounterLock)
+            //     // {
+            //     //     totalTasks += tasks.Count;
+            //     // }
+            //
+            //     envStopwatch.Stop(); // Stop the environment stopwatch
+            //     double environmentTime = envStopwatch.Elapsed.TotalSeconds;
+            //
+            //     // Increment the processed environments counter
+            //     processedEnvironments++;
+            //
+            //     // Calculate metrics
+            //     double elapsedTime = overallStopwatch.Elapsed.TotalSeconds;
+            //     double averageTimePerEnvironment = elapsedTime / processedEnvironments;
+            //     double estimatedTimeRemaining = averageTimePerEnvironment * (totalEnvironments - processedEnvironments);
+            //
+            //     // Log metrics for the current environment
+            //     Console.WriteLine($"Environment {EnvCount} processing took {environmentTime:F2} seconds.");
+            //     Console.WriteLine($"Processed: {processedEnvironments}/{totalEnvironments} environments");
+            //     Console.WriteLine($"Elapsed Time: {elapsedTime:F2} seconds");
+            //     Console.WriteLine($"Average Time per Environment: {averageTimePerEnvironment:F2} seconds");
+            //     Console.WriteLine($"Estimated Time Remaining: {estimatedTimeRemaining:F2} seconds");
+            // }
             
-                EnvCount += 1;
-                
-                string environmentDirPath = $"/Users/rahil/Documents/GitHub/AIProbe/csharp/Result/re/{seed}/{EnvCount}";
-                if (!Directory.Exists(environmentDirPath))
-                {
-                    Directory.CreateDirectory(environmentDirPath); // Create the directory if it doesn't exist
-                }
-            
-                
-                string environmentFilePath = $"{environmentDirPath}/config.xml";
-                // string environmentFilePath =
-                //     $"/Users/rahil/Documents/GitHub/AIProbe/csharp/Result/re/{seed}/{EnvCount}/config.xml";
-                //WriteEnvironment(env, environmentFilePath);
-                
-                
-                
-                // Measure task generation time
-                Stopwatch taskGeneratorStopwatch = Stopwatch.StartNew();
-                List<Environment> tasks = EnvTaskGenerator.TaskGenerator(env, seed);
-                taskGeneratorStopwatch.Stop();
-                double taskGenerationTime = taskGeneratorStopwatch.Elapsed.TotalSeconds;
-            
-                Console.WriteLine($"Environment {EnvCount} task generation took {taskGenerationTime:F2} seconds.");
-            
-                environmentTaskQueue.Enqueue((env, tasks));
-                
-                // Process tasks in parallel
-                var parallelOptions = new ParallelOptions
-                {
-                    MaxDegreeOfParallelism = System.Environment.ProcessorCount
-                };
-            
-                int taskCounter = 1;
-                var taskCounterLock = new object();
-            
-                // Parallel.ForEach(tasks, parallelOptions, task =>
-                // {
-                //     int currentTaskNumber;
-                //     lock (taskCounterLock)
-                //     {
-                //         currentTaskNumber = taskCounter++;
-                //     }
-                //
-                //     string taskPath =
-                //         $"/Users/rahil/Documents/GitHub/AIProbe/csharp/Result/re/{seed}/{EnvCount}/task{currentTaskNumber}.xml";
-                //     WriteEnvironmentAsync(task, taskPath);
-                // });
-                //
-                // // Update total tasks
-                // lock (taskCounterLock)
-                // {
-                //     totalTasks += tasks.Count;
-                // }
-            
-                envStopwatch.Stop(); // Stop the environment stopwatch
-                double environmentTime = envStopwatch.Elapsed.TotalSeconds;
-            
-                // Increment the processed environments counter
-                processedEnvironments++;
-            
-                // Calculate metrics
-                double elapsedTime = overallStopwatch.Elapsed.TotalSeconds;
-                double averageTimePerEnvironment = elapsedTime / processedEnvironments;
-                double estimatedTimeRemaining = averageTimePerEnvironment * (totalEnvironments - processedEnvironments);
-            
-                // Log metrics for the current environment
-                Console.WriteLine($"Environment {EnvCount} processing took {environmentTime:F2} seconds.");
-                Console.WriteLine($"Processed: {processedEnvironments}/{totalEnvironments} environments");
-                Console.WriteLine($"Elapsed Time: {elapsedTime:F2} seconds");
-                Console.WriteLine($"Average Time per Environment: {averageTimePerEnvironment:F2} seconds");
-                Console.WriteLine($"Estimated Time Remaining: {estimatedTimeRemaining:F2} seconds");
-            }
-
-            Console.WriteLine("Done!");
 
            
             
@@ -695,6 +700,37 @@ namespace AIprobe
                 }
             }
         }
+
+        private static ConcurrentQueue<Environment> getEnviromentQueue( int seed)
+        {
+            
+            
+            EnvironmentParser intialParser = new EnvironmentParser(envConfigFile);
+            Environment initialEnvironment = intialParser.ParseEnvironment();
+
+            //AttributePreprocessor attributePreprocessor = new AttributePreprocessor();
+            //attributePreprocessor.ProcessAttributes(initialEnvironment);
+            
+            if (initialEnvironment == null)
+            {
+                Console.WriteLine("Error parsing environment. Please check the input file.");
+                Logger.LogError("Error parsing environment. Please check the input file.");
+                return null ;
+            }
+            
+            
+            
+            ConcurrentQueue<Environment> environmentQueue = EnvConfigGenerator.GenerateEnvConfigsQueue(initialEnvironment, seed);
+
+            return environmentQueue;
+
+        }
+        
+        
+        
+        
+        
+        
         private static string SerializeEnvironmentToOneLine(Environment env)
         {
             // Serialize attributes into a single string
