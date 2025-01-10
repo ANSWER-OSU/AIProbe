@@ -39,6 +39,9 @@ namespace AIprobe
 
             string aiprobe_root_path = System.Environment.GetEnvironmentVariable("AIPROBE_HOME");
             string py_path = System.Environment.GetEnvironmentVariable("PYTHON_HOME");
+            
+            Console.WriteLine($"aiprobe_root_path: {aiprobe_root_path}");
+            Console.WriteLine($"py_path: {py_path}");
 
             // Get Aiprobe config path  
             if (aiprobe_root_path == null)
