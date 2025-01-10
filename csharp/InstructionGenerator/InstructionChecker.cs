@@ -20,22 +20,14 @@ public class InstructionChecker
     /// <returns>result in form od [arrayOfInstrction[],bool value]</returns>
     public List<object[]> InstructionExists(Environment initialEnvironmentState, ActionSpace actionSpace, int timeLimitInSeconds,string initialStateHashValue,string finalStateHashValue,out bool instructionExists)
     {
-        
-        
-        
         instructionExists = false;
         List<object[]> results = new List<object[]>();
         
-        
         Logger.LogInfo("Starting instruction validation.");
-
-        string tempFuzzerFilePath = Path.Combine(Program.tempFolder,"tempFuzzer.xml");
-        string wraperFilePath = Path.Combine(Program.tempFolder,"tempWraper.xml");
-        string dumperFilePath = Path.Combine(Program.tempFolder,"tempDumper.xml");
+        
 
         // Dictionary to track instriction that led to each environment state
-        Dictionary<string, List<string>> instructionStateDictionary =
-            new Dictionary<string, List<string>>();
+        Dictionary<string, List<string>> instructionStateDictionary = new Dictionary<string, List<string>>();
 
         // Dictionary to track remaining actions for each environment state
        // Dictionary<AIprobe.Models.Environment, List<string>> completedActionsDictionary =
@@ -54,50 +46,9 @@ public class InstructionChecker
             var currentEnvironment = environmentQueue.Dequeue();
 
             string currentEnviromentHashValues = HashGenerator.ComputeEnvironmentHash(currentEnvironment);
-            
-            
-            //EnvironmentParser parser = new EnvironmentParser(tempFuzzerFilePath);
-            //parser.WriteEnvironment(currentEnvironment,"",out string currentEnviromentHashValues);
-            
-            // Environment secoundIntialEnv = new Environment();
-            // // if (counter == 5)
-            // // {
-            // //     var x = 0;
-            // //     
-            // //     EnvironmentParser intialenvparser = new EnvironmentParser("/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/0onlyLeft.xml");
-            // //     //secoundIntialEnv = intialenvparser.ParseEnvironment();
-            // //
-            // //
-            // //     //var sd = EnvironmentComparer.CompareEnvironments(secoundIntialEnv, currentEnvironment);
-            // //     
-            // //     
-            // //     EnvironmentParser news = new EnvironmentParser("/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/currentAtFive.xml");
-            // //     news.WriteEnvironment(currentEnvironment);
-            // //     
-            // //     EnvironmentParser xc = new EnvironmentParser("/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/inital.xml");
-            // //     xc.WriteEnvironment(initialEnvironmentState);
-            // //     
-            // //     
-            // //     
-            // //     
-            // //     
-            // //
-            // // }
-            // //
-            // // if (counter <= 5)
-            // // {
-            // //     EnvironmentParser tryparser = new EnvironmentParser($"/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/{counter}onlyLeft.xml");
-            // //     tryparser.WriteEnvironment(currentEnvironment);
-            // // }
-            //
-            //
-            // if (counter == 4)
-            // {
-            //     var x = 0;
-            // }           
+          
             if ( currentEnviromentHashValues.Equals(finalStateHashValue))
             {
-                
                 
                 // Get the list of actions that led to this environment state
                 if (instructionStateDictionary.TryGetValue(finalStateHashValue,out  List<string> instructionSet ))
@@ -105,11 +56,11 @@ public class InstructionChecker
                    results.Add(new object[] { string.Join(", ", instructionSet), "Safe" });
                    instructionExists = true;
                    
-                   Console.WriteLine("####Found instruction set###");
+                   Aiprobe.LogAndDisplay("####Found instruction set###");
                    return results;
                 }
                 
-                Console.WriteLine("Found final state but could not found final instructions sets###");
+                Aiprobe.LogAndDisplay("Found final state but could not found final instructions sets###");
                 return results;
             }
             
@@ -119,70 +70,24 @@ public class InstructionChecker
           
             remainingActions = AddEnvironmentAndCheckActions(currentEnviromentHashValues, actionSpace, completedActionsDictionary);
             
-            // else
-            // {
-            //     remainingActions = GetRemaingActions(currentEnvironment, actionSpace, completedActionsDictionary);
-            //     
-            // }
-            
-            // else
-            // {
-            //     if (.(initialEnvironmentState)&& counter !=0 )
-            //     {
-            //         continue;
-            //     }
-            //     Console.WriteLine("aDDING NEW STATE IN ACTION MATRIX");
-            //     foreach (var action in actionSpace.Actions.ActionList)
-            //     {
-            //             remainingActions.Add(action.Name); 
-            //     }
-            //    
-            //     completedActionsDictionary.TryAdd(currentEnvironment, remainingActions);
-            //      
-            //  }
-
-            // if (instructionStateDictionary.Count > 4)
-            // {
-            //     foreach (var action in instructionStateDictionary)
-            //     {
-            //         if (action.Key.Equals(currentEnvironment))
-            //         {
-            //             instructionStateDictionary.Add(currentEnvironment, new List<string>());
-            //             continue;
-            //             
-            //             
-            //         }
-            //     }
-            // }
-
-            // if (!remainingActionsDictionary.TryGetValue(currentEnvironment, out remainingActions))
-            // {
-            //     remainingActions = GetRemaingActions(currentEnvironment, actionSpace, remainingActionsDictionary);
-            //     remainingActionsDictionary[currentEnvironment] = remainingActions;
-            // }
-
-            //List<string> actionRemaing=  GetRemaingActions(currentEnvironment, actionSpace, remainingActionsDictionary);
-
-            List<string> actionsToRemove = new List<string>();
-            PythonRunner runner = new PythonRunner();
 
             foreach (string action in new List<string>(remainingActions))
             {
-                string filePath = Program.envConfigFile;
+                string filePath = Aiprobe.envConfigFile;
 
                 bool safeCondition = true;
                 Environment updatedEnvironment = new Environment();
                 try
                 {
                     // updatedEnvironment =
-                    //     runner.RunPythonScript( tempFuzzerFilePath,wraperFilePath, action, out safeCondition);
+                    // runner.RunPythonScript( tempFuzzerFilePath,wraperFilePath, action, out safeCondition);
                     updatedEnvironment = CallPythonWrapperWithRedis( currentEnvironment, action, out safeCondition);
 
                 }
                 catch (Exception e)
                 {
                     
-                    Console.WriteLine(e.Message);
+                    Aiprobe.LogAndDisplay(e.Message);
                     return results;
 
                 }
@@ -190,25 +95,13 @@ public class InstructionChecker
                 
                 //
                 
-                string UPDATEnviromentHashValues = HashGenerator.ComputeEnvironmentHash(updatedEnvironment);
-
-                if (UPDATEnviromentHashValues.Equals(currentEnviromentHashValues))
-                {
-                    Console.WriteLine("####Found instruction set###");
-                }
-                
-                
-                
-                //EnvironmentParser current = new EnvironmentParser(dumperFilePath);
-                //current.WriteEnvironment(updatedEnvironment,"",out string currentvalue);
-                
-                string updatedEnviromentHashValue = UPDATEnviromentHashValues;
+                string updatedEnviromentHashValue = HashGenerator.ComputeEnvironmentHash(updatedEnvironment);
                 
                 if (updatedEnviromentHashValue.Equals(finalStateHashValue))
                 {
                     if (safeCondition)
                     {
-                        Console.WriteLine("####Found instruction set###");
+                        Aiprobe.LogAndDisplay("####Found instruction set###");
 
                         if (instructionStateDictionary.TryGetValue(currentEnviromentHashValues,
                                 out List<string> instructionSet))
@@ -216,78 +109,17 @@ public class InstructionChecker
                             instructionExists = true;
                             instructionSet.Add(action);
                             results.Add(new object[] { string.Join(", ", instructionSet), "Safe" });
-                            Logger.LogInfo($"Stopping instruction validation. instruction found:{instructionExists}");
+                            Aiprobe.LogAndDisplay($"Stopping instruction validation. instruction found:{instructionExists}");
                             return results;
                         }
                     }
                 }
-
               
                 //bool createdNewKey = instructionStateDictionary.TryAdd(updatedEnviromentHashValue, new List<string>());
 
                 
-                //Console.WriteLine($"Created new {createdNewKey}");
                 
                 bool createdNewActionKey = completedActionsDictionary.TryAdd(updatedEnviromentHashValue,new List<string>());
-                
-                
-                // testing
-                var updatedAgent = updatedEnvironment.Agents.AgentList.FirstOrDefault();
-                // var initialAgent = initialEnvironmentState.Agents.AgentList.FirstOrDefault();
-                // var currentAgent = currentEnvironment.Agents.AgentList.FirstOrDefault();
-                // //
-                // //
-                // Console.WriteLine($"Initial agent position {initialAgent.Position.Attributes[0].Value.ValueData},{initialAgent.Position.Attributes[1].Value.ValueData} direction {initialAgent.Direction.Attributes[0].Value.ValueData}");
-                // Console.WriteLine($"current agent position {currentAgent.Position.Attributes[0].Value.ValueData},{currentAgent.Position.Attributes[1].Value.ValueData} direction {currentAgent.Direction.Attributes[0].Value.ValueData}");
-                // Console.WriteLine(action);
-                // Console.WriteLine($"updated  agent position {updatedAgent.Position.Attributes[0].Value.ValueData},{updatedAgent.Position.Attributes[1].Value.ValueData} direction {updatedAgent.Direction.Attributes[0].Value.ValueData}");
-                //
-                // Console.WriteLine($"hash{updatedEnviromentHashValue}");
-                //if (updatedAgent.Position.Attributes[0].Value.ValueData == "6" && updatedAgent.Position.Attributes[1].Value.ValueData == "2" )
-                //{
-                //     
-                //     EnvironmentParser saved = new EnvironmentParser("/Users/rahil/Documents/GitHub/AIProbe/csharp/Result/Task_0/done.xml");
-                //     saved.WriteEnvironment(updatedEnvironment,out string value);
-                //
-                //     if (value.Equals(finalStateHashValue))
-                //     {
-                 //Console.WriteLine("found one");
-                //}
-                //     
-                //     
-                //     
-                //
-                //     
-                //     
-                //     Console.WriteLine("");
-                // }
-
-                // if (updatedEnvironment.Equals(finalEnvironmentState))
-                // {
-                //     Console.WriteLine("found");
-                //     List<string> instructionSet = new List<string>(instructionStateDictionary[currentEnvironment]);
-                //     instructionSet.Add(action);
-                //     results.Add(new object[] { string.Join(", ", instructionSet), "yes" });
-                //     return results;
-                //     
-                // }
-
-
-                //
-                // if (updatedAgent.Position.Attributes[0].Value.ValueData ==
-                //     finalAgentd.Position.Attributes[0].Value.ValueData &&
-                //     updatedAgent.Position.Attributes[1].Value.ValueData ==
-                //     finalAgent.Position.Attributes[1].Value.ValueData)
-                // {
-                //     Console.WriteLine("found");
-                //     List<string> instructionSet = new List<string>(instructionStateDictionary[currentEnvironment]);
-                //     instructionSet.Add(action);
-                //     results.Add(new object[] { string.Join(", ", instructionSet), "yes" });
-                //     return results;
-                // }
-
-                //Console.WriteLine($"Dictyionary size = {instructionStateDictionary.Count}");
-                //Console.WriteLine($"Que siz bedore exproling dic size = {environmentQueue.Count}");
                 
 
                 List<string> newInstructionSet = new List<string>();
@@ -295,7 +127,7 @@ public class InstructionChecker
                 if (instructionStateDictionary.TryAdd(updatedEnviromentHashValue, new List<string>()))
                 {
 
-                    Program.totalEnviroementState++;
+                    Aiprobe.totalEnviroementState++;
                     
                     if(instructionStateDictionary.TryGetValue(currentEnviromentHashValues, out List<string> previousInstructionSet ))
                         if (previousInstructionSet.Count > 0)
@@ -312,9 +144,9 @@ public class InstructionChecker
                         newInstructionSet.Add(action);
                         instructionStateDictionary[updatedEnviromentHashValue] =  newInstructionSet;
                         results.Add(new object[] { string.Join(", ", newInstructionSet), "Unsafe" });
-                        double keyCount = Program.unsafeStatePosition.Count();
+                        double keyCount = Aiprobe.unsafeStatePosition.Count();
                         keyCount++;
-                        Program.unsafeStatePosition[keyCount] = Program.totalEnviroementState ;
+                        Aiprobe.unsafeStatePosition[keyCount] = Aiprobe.totalEnviroementState ;
 
                     }
                     else
@@ -322,7 +154,6 @@ public class InstructionChecker
                         newInstructionSet.Add(action);
                         instructionStateDictionary[updatedEnviromentHashValue] =  newInstructionSet;
                         //newInstructionSet.Add(action);
-                        Console.WriteLine(newInstructionSet.Count);
                         environmentQueue.Enqueue(updatedEnvironment);
                     }
                     
@@ -332,8 +163,7 @@ public class InstructionChecker
             
             
         }
-        Console.WriteLine($"Stopping instruction validation. instruction found:{instructionExists}");
-        Logger.LogInfo($"Stopping instruction validation. instruction found:{instructionExists}");
+        Aiprobe.LogAndDisplay($"Stopping instruction validation. instruction found:{instructionExists}");
 
         return results;
     }
@@ -359,7 +189,7 @@ public class InstructionChecker
             // Check if the number of actions matches
             if (remainingActions.Count == actionSpace.Actions.ActionList.Count)
             {
-                Console.WriteLine("Environment already exists in the dictionary. Returning empty list.");
+                Aiprobe.LogAndDisplay("Environment already exists in the dictionary. Returning empty list.");
                 return new List<string>(); // Return an empty list
             }
         }

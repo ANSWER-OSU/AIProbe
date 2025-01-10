@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using AIprobe.Models;
 using Constraint = AIprobe.Models.Constraint;
 using System.Collections.Concurrent;
+using AIprobe.TaskGenerator;
 
 namespace AIprobe.EnvironmentGenerator
 {
@@ -34,27 +35,29 @@ namespace AIprobe.EnvironmentGenerator
 
             // Use a queue instead of a list to store sampled environments
             ConcurrentQueue<Environment> sampledEnvironments = new ConcurrentQueue<Environment>();
-            Console.WriteLine($"Total no of environment generated: {sampledValues.Count}");
+            Aiprobe.LogAndDisplay($"Total no of environment generated: {sampledValues.Count}");
             int sampleCount = 0;
+            EnvTaskGenerator gen = new EnvTaskGenerator();
+            
             foreach (var sample in sampledValues)
             {
-              
-                
                 
                 var newEnv = CloneEnvironment(baseEnv); // Clone the base environment
                 ApplySamplesToEnvironment(newEnv, sample, dataTypes);
 
                 // Step 5: Adjust objects based on global attributes
                 AdjustObjectsGlobally(newEnv);
+                
+                Environment modifiedEnv =  gen.MutateObjectProperties(newEnv);
 
-                Console.WriteLine($"Saved the generated sample env no: {sampledEnvironments.Count() + 1}");
+                Aiprobe.LogAndDisplay($"Saved the generated sample env no: {sampledEnvironments.Count() + 1} in memory");
                 
                 // Enqueue the environment
-                sampledEnvironments.Enqueue(newEnv);
+                sampledEnvironments.Enqueue(modifiedEnv);
             }
-
+            
+            Aiprobe.LogAndDisplay($"Total no of environment generated and saved: {sampledEnvironments.Count}");
             return sampledEnvironments;
-
 
             // try
             // {

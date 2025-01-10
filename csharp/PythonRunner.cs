@@ -31,7 +31,7 @@ namespace AIprobe
             ProcessStartInfo psi = new ProcessStartInfo
             {
                 FileName = py_path,
-                Arguments = $"{Program.pythonScriptFilePath} \"{tempInputFilePath}\" \"{action}\" \"{tempOutputFilePath}\"",
+                Arguments = $"{Aiprobe.pythonScriptFilePath} \"{tempInputFilePath}\" \"{action}\" \"{tempOutputFilePath}\"",
                 RedirectStandardOutput = true, // Capture the output (file path) from Python
                 RedirectStandardError = true,
                 UseShellExecute = false,

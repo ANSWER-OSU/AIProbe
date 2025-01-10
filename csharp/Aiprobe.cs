@@ -16,7 +16,7 @@ using System.Collections.Concurrent;
 
 namespace AIprobe
 {
-    internal class Program
+    internal class Aiprobe
     {
         public static string envConfigFile = String.Empty;
         public static string pythonScriptFilePath = String.Empty;
@@ -26,9 +26,115 @@ namespace AIprobe
         public static string testingHardCoddedEnvs = String.Empty;
         public static double totalEnviroementState = 0;
         public static Dictionary<double, double> unsafeStatePosition = new Dictionary<double, double>();
+        public static int seed = 0;
+        private static int taskGenrationTime = 0;
+        private static double processingTime = 0;
+        private static int instructionGenerationTime = 0;
+        private static ActionSpace actionSpace = new ActionSpace();
 
 
-        static void Main(string[] args)
+        static async Task Main(string[] args)
+        {
+            #region EnviromentVariable
+
+            string aiprobe_root_path = System.Environment.GetEnvironmentVariable("AIPROBE_HOME");
+            string py_path = System.Environment.GetEnvironmentVariable("PYTHON_HOME");
+
+            // Get Aiprobe config path  
+            if (aiprobe_root_path == null)
+            {
+                //aiprobe_root_path = "/Users/rahil/Documents/GitHub/AIProbe/csharp";
+                Console.WriteLine(
+                    "Error! please set AIPROBE_HOME env variable to point to \"<path-to>AIProbe/csharp\" directory.");
+                return;
+            }
+
+            // Get the python pathSystem
+            if (py_path == null)
+            {
+                //py_path = "/opt/anaconda3/envs/aiprobe/bin/python";
+                Console.WriteLine("Error! please set PYTHON_HOME env variable to point to \"<path-to-aiprobe conda env>/bin/python\" file.");
+                return;
+            }
+
+            #endregion
+
+            SetStaticVariable(aiprobe_root_path, py_path);
+
+            ConcurrentQueue<Environment> envireomentQueue = getEnviromentQueue();
+
+            CancellationTokenSource cts = new CancellationTokenSource();
+            cts.CancelAfter(TimeSpan.FromSeconds(processingTime)); // Set the timeout to 15 minutes
+
+            try
+            {
+                var envTaskqueue = await GetEnvironmentTaskQueueAsync(envireomentQueue, resultFolder);
+                InstructionChecker instructionChecker = new InstructionChecker();
+                while (envTaskqueue.Count > 0)
+                {
+                    cts.Token.ThrowIfCancellationRequested(); // Check for cancellation
+                    Stopwatch stopwatch = Stopwatch.StartNew();
+                    // Dequeue an item
+                    var (initialPath, finalPath) = envTaskqueue.Dequeue();
+
+                    if (File.Exists(initialPath) && File.Exists(finalPath))
+                    {
+                        Console.WriteLine($"{initialPath}\n{finalPath}");
+                        // Get the directory of the file
+                        string directoryPath = Path.GetDirectoryName(initialPath);
+
+                        // Split the directory path into parts
+                        string[] pathParts = directoryPath.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+
+                        // Get the last two parts
+                        string lastTwoDirectories = string.Join(Path.DirectorySeparatorChar.ToString(), pathParts[^3..^0]);
+                        
+                        string state = Path.Combine(directoryPath, $"AIprobe.json");
+
+                        Console.WriteLine($"Environment: {lastTwoDirectories}");
+                    
+                        EnvironmentParser initialParser = new EnvironmentParser(initialPath);
+                        Environment initialEnvironment = initialParser.ParseEnvironment();
+
+                        EnvironmentParser finalParser = new EnvironmentParser(finalPath);
+                        Environment finalEnvironment = finalParser.ParseEnvironment();
+
+                        string finalEnvironmentHash = HashGenerator.ComputeEnvironmentHash(finalEnvironment);
+                        string initialEnvHash = HashGenerator.ComputeEnvironmentHash(initialEnvironment);
+
+                        List<object[]> taskResults = instructionChecker.InstructionExists(initialEnvironment,
+                            actionSpace,instructionGenerationTime , initialEnvHash, finalEnvironmentHash, out bool instructionExists);
+
+                        Logger.LogInfo($"Total {unsafeStatePosition.Keys.Count()} unsafe states found in the {lastTwoDirectories}");
+                        string unsafeStateDataPath = Path.Combine(Path.GetDirectoryName(initialPath), $"unsafeState.json");
+                        ResultSaver.SaveDictionaryToJson(unsafeStatePosition, unsafeStateDataPath);
+                        Logger.LogInfo($"Unsafe states data stored at {unsafeStateDataPath}");
+                        ResultSaver.SaveTaskResults(taskResults, state);
+                        stopwatch.Stop();
+
+                        // Log execution time
+                        Logger.LogInfo($"Task execution time: {stopwatch.Elapsed.TotalMilliseconds/100} s");
+                    }
+                    else
+                    { 
+                        LogAndDisplay($"One or both files are missing for the task.");
+                    }
+                }
+            }
+            catch (OperationCanceledException)
+            {
+                LogAndDisplay("The operation was canceled due to a timeout.");
+            }
+            finally
+            {
+                LogAndDisplay("The operation was canceled due to a timeout.");
+                cts.Dispose();
+                
+            }
+        }
+
+
+        static void Mainsd(string[] args)
         {
             // get the root path
             string aiprobe_root_path = System.Environment.GetEnvironmentVariable("AIPROBE_HOME");
@@ -72,20 +178,20 @@ namespace AIprobe
             pythonInterpreterPath = py_path; //config.PythonSettings.PythonEnvironment;
             resultFolder = aiprobe_root_path + "/" + config.ResultSetting.ResultFolderPath;
 
-           
+
             Console.WriteLine($"Result folder at: {resultFolder}");
             Logger.LogInfo($"Result folder at: {resultFolder}");
             envConfigFile = aiprobe_root_path + "/" + config.FileSettings.InitialEnvironmentFilePath;
             Logger.LogInfo($"Initial environment File Path: {config.FileSettings.InitialEnvironmentFilePath}");
             Console.WriteLine($"Initial environment file path: {envConfigFile}");
-            
+
             // Parse the initial environment file
             EnvironmentParser intialParser = new EnvironmentParser(envConfigFile);
             Environment initialEnvironment = intialParser.ParseEnvironment();
 
             //AttributePreprocessor attributePreprocessor = new AttributePreprocessor();
             //attributePreprocessor.ProcessAttributes(initialEnvironment);
-            
+
             if (initialEnvironment == null)
             {
                 Console.WriteLine("Error parsing environment. Please check the input file.");
@@ -96,33 +202,29 @@ namespace AIprobe
 
             int seed = config.RandomSettings.Seed;
 
-            ConcurrentQueue<Environment> environmentQueue = EnvConfigGenerator.GenerateEnvConfigsQueue(initialEnvironment, seed);
+            ConcurrentQueue<Environment> environmentQueue =
+                EnvConfigGenerator.GenerateEnvConfigsQueue(initialEnvironment, seed);
 
 
-           
-                
-            
-            
             //List<Environment> environmentsList = EnvConfigGenerator.GenerateEnvConfigs(initialEnvironment, seed);
             //Console.WriteLine($"Enviroment list size: {environmentsList.Count}");
 
-            
+
             //EnvironmentExporter.SaveEnvironmentsToCsv(environmentsList, "/Users/rahil/Documents/GitHub/AIProbe/csharp/results/Result_LavaEnv_6161/sampled_values.csv");
-            
-            
+
+
             // List<Environment> reduceList =  OrthogonalSampler.ReduceSampleSize(environmentsList,10);
             //
             // EnvironmentExporter.SaveEnvironmentsToCsv(reduceList, "/Users/rahil/Documents/GitHub/AIProbe/csharp/results/Result_LavaEnv_6161/reduces_sampled_values.csv");
 
-            
-            
+
             long envCounter = 1;
 
-          
-             // var task = Task.Run(() => ProcessEnvironments(environmentsList,seed,envCounter));
-             //  task.Wait(); // Block until the task completes
-             //  
-              
+
+            // var task = Task.Run(() => ProcessEnvironments(environmentsList,seed,envCounter));
+            //  task.Wait(); // Block until the task completes
+            //  
+
             //  // Start from 1 for environment numbering
             //   var envCounterLock = new object();
             //
@@ -187,17 +289,18 @@ namespace AIprobe
             // Console.Write(envTaskMapping.Count);
 
             double EnvCount = 0;
-            
-            
-            Queue<(Environment Env, List<Environment> Tasks)> environmentTaskQueue = new Queue<(Environment, List<Environment>)>();
-            
+
+
+            Queue<(Environment Env, List<Environment> Tasks)> environmentTaskQueue =
+                new Queue<(Environment, List<Environment>)>();
+
             Stopwatch overallStopwatch = Stopwatch.StartNew(); // Start the stopwatch for total processing time
             int processedEnvironments = 0; // Track processed environments
             int totalTasks = 0; // Track total tasks
             int totalEnvironments = environmentQueue.Count; // Total number of environments
             int envCount = 0; // Counter for environments
-            
-            
+
+
             // Start from the current cursor position
             int cursorTop = Console.CursorTop;
             Stopwatch progressStopwatch = Stopwatch.StartNew(); // Measure time since the last progress update
@@ -331,10 +434,6 @@ namespace AIprobe
             //     Console.WriteLine($"Average Time per Environment: {averageTimePerEnvironment:F2} seconds");
             //     Console.WriteLine($"Estimated Time Remaining: {estimatedTimeRemaining:F2} seconds");
             // }
-            
-
-           
-            
 
 
             Logger.LogInfo("Initial Environment parsed successfully.");
@@ -373,61 +472,58 @@ namespace AIprobe
             DateTime startTime = DateTime.Now;
 
 
-
-
             envCount = 1;
             int tasksCount = 1;
             int totaltaskachieved = 0;
-            
+
             while (environmentTaskQueue.Count > 0)
             {
                 var currentEnviroment = environmentTaskQueue.Dequeue();
-                
+
                 Environment initialEnv = currentEnviroment.Env;
                 string initialEnvironmentHash = HashGenerator.ComputeEnvironmentHash(initialEnv);
-                
-                
+
+
                 string environmentDirPath = $"{resultFolder}/Env_{envCount}";
                 if (!Directory.Exists(environmentDirPath))
                 {
                     Directory.CreateDirectory(environmentDirPath); // Create the directory if it doesn't exist
                 }
-            
-                
+
+
                 tasksCount = 0;
-                
-                foreach (var task  in currentEnviroment.Tasks)
+
+                foreach (var task in currentEnviroment.Tasks)
                 {
-                    
                     string finalEnvironmentHash = HashGenerator.ComputeEnvironmentHash(task);
-                    
+
                     Console.WriteLine($"{initialEnvironmentHash} : {finalEnvironmentHash}");
-                    
-                    
+
+
                     string folderPath = $"{environmentDirPath}/Task_{tasksCount}";
                     if (!Directory.Exists(folderPath))
                     {
                         Directory.CreateDirectory(folderPath); // Create the directory if it doesn't exist
                     }
-                    
-                    
+
+
                     string environmentFilePath = $"{folderPath}/initialState.xml";
-                
-                    WriteEnvironment(initialEnv,environmentFilePath);
+
+                    WriteEnvironment(initialEnv, environmentFilePath);
 
 
                     string taskFilePath = $"{folderPath}//finalState.xml";
-                    WriteEnvironment(task,taskFilePath);
-                    
-                    
+                    WriteEnvironment(task, taskFilePath);
+
+
                     tasksCount++;
                     //Console.WriteLine($"{initialEnvironmentHash} : {finalEnvironmentHash}");
-                   List<object[]> taskResults = instructionChecker.InstructionExists(initialEnv, actionSpace, config.TimeSettings.InstructionGenerationTime, initialEnvironmentHash, finalEnvironmentHash,out bool instructionExists);
-                    
+                    List<object[]> taskResults = instructionChecker.InstructionExists(initialEnv, actionSpace,
+                        config.TimeSettings.InstructionGenerationTime, initialEnvironmentHash, finalEnvironmentHash,
+                        out bool instructionExists);
                 }
-                
-                
-               
+
+
                 envCount++;
             }
             // foreach (var task in tasksList)
@@ -571,27 +667,23 @@ namespace AIprobe
         }
 
 
-
         private static void GenrateInstruction(ConcurrentDictionary<Environment, List<Environment>> envTaskMap)
         {
             InstructionChecker instructionChecker = new InstructionChecker();
-            
+
             foreach (var envTask in envTaskMap)
             {
                 Environment initalEnviroment = envTask.Key;
-                
+
                 foreach (var env in envTask.Value)
                 {
                     Environment finalEnviroment = env;
-                    
-                    
-                    
+
+
                     //List<object[]> taskResults = instructionChecker.InstructionExists(initalEnviroment, finalEnviroment, actionSpace,
                     //     //     config.TimeSettings.InstructionGenerationTime, intialStateHashValue, finalStateHashValue,
                     //     //     out bool instructionExists);
-                    
                 }
-
             }
         }
 
@@ -619,15 +711,15 @@ namespace AIprobe
             catch (Exception ex)
             {
                 // Log or handle exceptions
-                Console.WriteLine($"Error writing environment to file: {ex.Message}");
+                LogErrorAndDisplay($"Error writing environment to file: {ex.Message}");
             }
         }
 
-        public static void WriteEnvironment(AIprobe.Models.Environment environment, string resultFilePath)
+        public static void WriteEnvironment(Environment environment, string resultFilePath)
         {
             try
             {
-                XmlSerializer serializer = new XmlSerializer(typeof(AIprobe.Models.Environment));
+                XmlSerializer serializer = new XmlSerializer(typeof(Environment));
 
                 // Step 1: Create a custom namespace manager with no namespaces to exclude unwanted xmlns declarations
                 XmlSerializerNamespaces namespaces = new XmlSerializerNamespaces();
@@ -660,7 +752,7 @@ namespace AIprobe
             }
             catch (Exception ex)
             {
-                Logger.LogError($"Error writing the environment XML file: {ex.Message}");
+                LogErrorAndDisplay($"Error writing the environment XML file: {ex.Message}");
             }
         }
 
@@ -678,13 +770,9 @@ namespace AIprobe
                 ms.Position = 0;
                 return (T)serializer.Deserialize(ms);
             }
-            
-            
-            
-            
         }
-        
-        
+
+
         private static void SaveEnvironmentsToCsv(List<Environment> environments, string filePath)
         {
             using (var writer = new System.IO.StreamWriter(filePath))
@@ -701,40 +789,226 @@ namespace AIprobe
             }
         }
 
-        private static ConcurrentQueue<Environment> getEnviromentQueue( int seed)
+
+        private static void SetStaticVariable(string aiprobe_root_path, string py_path)
         {
-            
-            
+            ConfigParser configParser = new ConfigParser();
+            AIprobeConfig config = configParser.ParseConfig();
+            if (config == null)
+            {
+                LogErrorAndDisplay("Failed to parse Aiprobe's configuration file. Exiting...");
+                return;
+            }
+
+            // Set the log file path
+            string logFilePath = aiprobe_root_path + "/" + config.LogSettings.LogFilePath;
+            //string logFilePath = "/tmp/aiprobe_log.txt";
+
+            Logger.Initialize(logFilePath);
+
+            pythonScriptFilePath = aiprobe_root_path + "/../" + config.PythonSettings.ScriptFilePath;
+            pythonInterpreterPath = py_path; //config.PythonSettings.PythonEnvironment;
+            resultFolder = aiprobe_root_path + "/" + config.ResultSetting.ResultFolderPath;
+            LogAndDisplay($"Result folder at: {resultFolder}");
+            envConfigFile = aiprobe_root_path + "/" + config.FileSettings.InitialEnvironmentFilePath;
+            LogAndDisplay($"Initial environment file path: {envConfigFile}");
+            seed = config.RandomSettings.Seed;
+            LogAndDisplay($"Aiprobe running with seed {seed}");
+            taskGenrationTime = config.TimeSettings.TaskGenerationTime;
+            LogAndDisplay($"Tasks generation time: {taskGenrationTime}");
+            processingTime = config.TimeSettings.Timeout;
+            instructionGenerationTime = config.TimeSettings.InstructionGenerationTime;
+
+
+            Logger.LogInfo(
+                $"Action Space File Path: {aiprobe_root_path + "/" + config.FileSettings.ActionSpaceFilePath}");
+            ActionSpaceParser actionSpaceParser =
+                new ActionSpaceParser(aiprobe_root_path + "/" + config.FileSettings.ActionSpaceFilePath);
+            actionSpace = actionSpaceParser.ParseActionSpace();
+        }
+
+        private static ConcurrentQueue<Environment> getEnviromentQueue()
+        {
             EnvironmentParser intialParser = new EnvironmentParser(envConfigFile);
             Environment initialEnvironment = intialParser.ParseEnvironment();
 
             //AttributePreprocessor attributePreprocessor = new AttributePreprocessor();
             //attributePreprocessor.ProcessAttributes(initialEnvironment);
-            
+
             if (initialEnvironment == null)
             {
-                Console.WriteLine("Error parsing environment. Please check the input file.");
-                Logger.LogError("Error parsing environment. Please check the input file.");
-                return null ;
+                LogErrorAndDisplay("Error parsing environment. Please check the input file.");
+                return null;
             }
-            
-            
-            
-            ConcurrentQueue<Environment> environmentQueue = EnvConfigGenerator.GenerateEnvConfigsQueue(initialEnvironment, seed);
+
+
+            ConcurrentQueue<Environment> environmentQueue =
+                EnvConfigGenerator.GenerateEnvConfigsQueue(initialEnvironment, seed);
 
             return environmentQueue;
-
         }
-        
-        
-        
-        
-        
-        
+
+
+        private static async Task<ConcurrentQueue<(Environment Env, List<Environment> Tasks)>>
+            GetEnvironmentTaskQueueAsyncs(
+                ConcurrentQueue<Environment> environmentQueue, string resultFolderPath)
+        {
+            var environmentTaskQueue = new ConcurrentQueue<(Environment Env, List<Environment> Tasks)>();
+            int maxDegreeOfParallelism = System.Environment.ProcessorCount;
+
+            // Convert the queue to a list for index-based processing
+            var environments = environmentQueue.ToList();
+
+            var tasks = new List<Task>(); // List to hold asynchronous tasks
+
+            EnvTaskGenerator envTaskGenerator = new EnvTaskGenerator();
+
+            await Task.WhenAll(Enumerable.Range(0, environments.Count).Select(async i =>
+            {
+                Stopwatch envStopwatch = Stopwatch.StartNew(); // Measure time for the current environment
+                try
+                {
+                    var env = environments[i];
+
+                    // Generate tasks for the environment
+                    Stopwatch taskGeneratorStopwatch = Stopwatch.StartNew();
+                    List<(Environment, Environment)> tasksForEnvironment = envTaskGenerator.GenerateTasks(env, taskGenrationTime);
+                    taskGeneratorStopwatch.Stop();
+
+                    // Save tasks asynchronously in parallel
+                    for (int taskIndex = 0; taskIndex < tasksForEnvironment.Count; taskIndex++)
+                    {
+                        var task = tasksForEnvironment[taskIndex];
+                        string environmentFolder = Path.Combine(resultFolderPath, $"Env_{i + 1}");
+                        string taskFolder = Path.Combine(environmentFolder, $"Task_{taskIndex + 1}");
+
+                        // Ensure directories exist
+                        Directory.CreateDirectory(taskFolder);
+
+                        // File path for the final state
+                        string resultFilePath = Path.Combine(taskFolder, "finalState.xml");
+
+                        tasks.Add(WriteEnvironmentAsync(task.Item1,
+                            resultFilePath)); // Add each save operation as an asynchronous task
+                    }
+
+                    // Enqueue the environment and its tasks
+                    //environmentTaskQueue.Enqueue((env, tasksForEnvironment));
+                }
+                catch (Exception ex)
+                {
+                    LogErrorAndDisplay($"Error processing environment: {ex.Message}");
+                }
+                finally
+                {
+                    envStopwatch.Stop();
+                }
+            }));
+
+            // Await all the file save tasks
+            await Task.WhenAll(tasks);
+
+            return environmentTaskQueue;
+        }
+
+
+        private static async Task<Queue<(string intialPath, string finalPath)>> GetEnvironmentTaskQueueAsync(
+            ConcurrentQueue<Environment> environmentQueue, string resultFolderPath)
+        {
+            var environmentTaskQueue = new Queue<(string intialPath, string finalPath)>();
+
+            // Convert the queue to a list for index-based processing
+            var environments = environmentQueue.ToList();
+
+            EnvTaskGenerator envTaskGenerator = new EnvTaskGenerator();
+
+            LogAndDisplay($"Starting sequential processing of {environments.Count} environments...");
+
+            for (int i = 0; i < environments.Count; i++)
+            {
+                Stopwatch envStopwatch = Stopwatch.StartNew(); // Measure time for the current environment
+                try
+                {
+                    var env = environments[i];
+                    
+                    LogAndDisplay($"Processing environment {i + 1}/{environments.Count}...");
+
+                    // Generate tasks for the environment
+                    Stopwatch taskGeneratorStopwatch = Stopwatch.StartNew();
+                    LogAndDisplay($"Generating tasks for environment {i + 1}...");
+                    List<(Environment, Environment)> tasksForEnvironment = envTaskGenerator.GenerateTasks(env, taskGenrationTime);
+                    taskGeneratorStopwatch.Stop();
+                    LogAndDisplay(
+                        $"Generated {tasksForEnvironment.Count} tasks for environment {i + 1} in {taskGeneratorStopwatch.ElapsedMilliseconds} ms.");
+
+                    // Save tasks in parallel
+                    var saveTasks = tasksForEnvironment.Select((task, taskIndex) =>
+                    {
+                        string environmentFolder = Path.Combine(resultFolderPath, $"Env_{i + 1}");
+                        string taskFolder = Path.Combine(environmentFolder, $"Task_{taskIndex + 1}");
+
+                        // Ensure directories exist
+                        Directory.CreateDirectory(taskFolder);
+                        LogAndDisplay($"Created folder: {taskFolder}");
+
+                        // File paths for the initial and final states
+                        string initialResultFilePath = Path.Combine(taskFolder, "initialState.xml");
+                        string finalResultFilePath = Path.Combine(taskFolder, "finalState.xml");
+
+                        LogAndDisplay(
+                            $"Saving task {taskIndex + 1}/{tasksForEnvironment.Count} for environment {i + 1}...");
+
+                        // Write both states and return a combined task
+                        var initialStateTask = WriteEnvironmentAsync(task.Item1, initialResultFilePath);
+                        var finalStateTask = WriteEnvironmentAsync(task.Item2, finalResultFilePath);
+
+                        environmentTaskQueue.Enqueue((initialResultFilePath, finalResultFilePath));
+
+
+                        return Task.WhenAll(initialStateTask, finalStateTask); // Combine both tasks
+                    });
+
+                    // Wait for all save operations to complete
+                    await Task.WhenAll(saveTasks);
+
+                    // Enqueue the environment and its tasks
+                    //environmentTaskQueue.Enqueue((env, tasksForEnvironment));
+                    LogAndDisplay($"Completed processing for environment {i + 1}.");
+                }
+                catch (Exception ex)
+                {
+                    LogErrorAndDisplay($"Error processing environment {i + 1}: {ex.Message}");
+                }
+                finally
+                {
+                    envStopwatch.Stop();
+                    LogAndDisplay(
+                        $"Environment {i + 1} processing completed in {envStopwatch.ElapsedMilliseconds / 100} s.");
+                }
+            }
+
+            LogAndDisplay("All environments processed sequentially with parallel task saving.");
+           
+            return environmentTaskQueue;
+        }
+
+
+        internal static void LogAndDisplay(string text)
+        {
+            Logger.LogInfo(text);
+            Console.WriteLine(text);
+        }
+
+        private static void LogErrorAndDisplay(string text)
+        {
+            Logger.LogError(text);
+            Console.WriteLine(text);
+        }
+
         private static string SerializeEnvironmentToOneLine(Environment env)
         {
             // Serialize attributes into a single string
-            string attributes = string.Join("; ", env.Attributes?.ConvertAll(attr => 
+            string attributes = string.Join("; ", env.Attributes?.ConvertAll(attr =>
                 $"{attr.Name.Value}={attr.Value.Content} (Type={attr.DataType.Value})") ?? new List<string>());
 
             // Serialize agents into a single string

@@ -19,7 +19,7 @@ class CustomMiniGridEnv(MiniGridEnv):
         # Extract grid size from Attributes
         grid_attr = next(attr for attr in self.environment_data['Attributes'] if attr['Name']['Value'] == 'Grid')
         grid_size = int(grid_attr['Value']['Content'])+2
-        print(grid_size)
+
 
         self.width = grid_size
         self.height = grid_size
@@ -113,8 +113,7 @@ class CustomMiniGridEnv(MiniGridEnv):
         )
 
         # Check that the agent doesn't overlap with an object
-        start_cell = self.grid.get(*self.agent_pos)
-        print(start_cell)
+        start_cell = self.agent_pos
         #assert start_cell is None or start_cell.can_overlap()
 
         # Return first observation

@@ -316,7 +316,7 @@ def run_minigrid_with_single_action(environment_data, action):
     if isinstance(env.grid.get(*env.agent_pos), MinigridEnv.Lava):
         print("Condition: unsafe (Agent starting on Lava tile)")
         env.close()  # Make sure to close the environment
-        return environment_data, True
+        return environment_data, False
 
         # Map action from the input to MiniGrid action
     mapped_action = MinigridEnv.map_user_input_to_action(action)
@@ -324,46 +324,56 @@ def run_minigrid_with_single_action(environment_data, action):
     # Step through the environment with the mapped action
     obs, reward, terminated, info = env.step(mapped_action)
 
-    new_enviroment_data = getEnvFromCustomMiniGridEnv(env,environment_data)
+    #new_enviroment_data = getEnvFromCustomMiniGridEnv(env,environment_data)
+    # Update the agent's position and direction in the environment_data
+    for agent in environment_data['Agents']['AgentList']:
+        if 'Attributes' in agent:
+            # Update X position
+            if len(agent['Attributes']) > 0:
+                agent['Attributes'][0]['Value']['Content'] = str(env.agent_pos[0])  # X position
+            # Update Y position
+            if len(agent['Attributes']) > 1:
+                agent['Attributes'][1]['Value']['Content'] = str(env.agent_pos[1])  # Y position
+            # Update direction (angle)
+            if len(agent['Attributes']) > 2:
+                agent['Attributes'][2]['Value']['Content'] = str(env.agent_dir)  # Direction (angle)
 
     # Save the environment image after performing the action
     #save_minigrid_image(env, "minigrid_after_action.png")
+
+    if isinstance(env.grid.get(*env.agent_pos), MinigridEnv.Lava):
+        print("Condition: unsafe (Agent starting on Lava tile)")
+        env.close()  # Make sure to close the environment
+        return environment_data, True
 
     # Close environment after execution
     env.close()
 
     # Return the updated environment data (as an XML object)
-    return new_enviroment_data , terminated
+    return environment_data , terminated ,
 
 
 def getEnvFromCustomMiniGridEnv(env, environment_data):
 
     # Update agents
-    for i, agent in enumerate(environment_data.agents):
-        # Assuming env.agent_pos is a tuple (x, y)
-        # Update position (env.agent_pos gives (x, y))
-        agent.position[0].value = str(env.agent_pos[0])  # X position
-        agent.position[1].value = str(env.agent_pos[1])  # Y position
+    # Update agents
+    for i, agent in enumerate(environment_data['Agents']['AgentList']):
+        # Ensure the agent has a 'position' attribute with at least two entries
+        if 'Attributes' in agent:
+            # Update X and Y positions
+            if len(agent['Attributes']) > 0:
+                agent['Attributes'][0]['Value'] = str(env.agent_pos[0])  # X position
+            if len(agent['Attributes']) > 1:
+                agent['Attributes'][1]['Value'] = str(env.agent_pos[1])  # Y position
 
-        # Assuming env.agent_dir is an integer representing the direction
-        agent.direction[0].value = str(env.agent_dir)
+            # Update direction (assuming it exists and maps to agent direction)
+            if len(agent['Attributes']) > 2:
+                agent['Attributes'][2]['Value'] = str(env.agent_dir)
+
 
     # Update objects
-    for i, obj in enumerate(environment_data.objects):
-        # Find the object in the grid
-        for x in range(env.width):
-            for y in range(env.height):
-                grid_obj = env.grid.get(x, y)
-                if grid_obj and isinstance(grid_obj, type(obj)):  # Match the object type
-                    obj.position[0].value = str(x)  # X position
-                    obj.position[1].value = str(y)  # Y position
-                    obj.position[2].value = "0"  # Z position (assuming 2D grid)
 
-        # Update object attributes if they exist in env (assuming env.object_attributes)
-        if hasattr(env, 'object_attributes') and i < len(env.object_attributes):
-            for j, attr in enumerate(obj.object_attributes):
-                if j < len(env.object_attributes[i]):
-                    attr.value = str(env.object_attributes[i][j])
+
 
     if hasattr(env, 'env_properties'):
         for i, prop in enumerate(environment_data.properties):
@@ -460,14 +470,15 @@ def print_value_tags(environment):
 def process_environment_with_action(environment, action):
     # Example: Apply the action to the environment
     # Modify environment state based on the action
-    print("Initial Environment State:")
-    print_value_tags(environment)
+    #print("Initial Environment State:")
+    #print_value_tags(environment)
     safe_condition = True  # Set based on your logic
 
-    run_minigrid_with_single_actions(environment, action)
+    environment_data, terminated =     run_minigrid_with_single_action(environment, action)
 
-    
-    return environment, safe_condition
+    #print("final Environment State:")
+    #print_value_tags(environment)
+    return environment, terminated
 
 def run_with_redis():
     r = redis.Redis(host='localhost', port=6379, decode_responses=True)
@@ -482,7 +493,12 @@ def run_with_redis():
             action = payload["Action"]
 
             # Process environment and action
-            updated_environment, safe_condition = process_environment_with_action(environment, action)
+            updated_environment, terminated = process_environment_with_action(environment, action)
+
+            if(terminated):
+                safe_condition = False
+            else:
+                safe_condition = True
 
             result = {
                 "UpdatedEnvironment": updated_environment,

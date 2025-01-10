@@ -143,3 +143,5 @@ csharp/AIprobe.sln.DotSettings.user
 /csharp/Result/re
 /csharp/Result/re
 /csharp/Result
+*.dll
+/csharp/results
