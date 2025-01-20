@@ -13,7 +13,7 @@
     </FileSettings>
 
     <TimeSettings><!-- Time in seconds-->
-        <TaskGenerationTime>10</TaskGenerationTime>
+        <TaskGenerationTime>1000</TaskGenerationTime>
         <Timeout>2300</Timeout>
         <InstructionGenerationTime>500</InstructionGenerationTime>
     </TimeSettings>

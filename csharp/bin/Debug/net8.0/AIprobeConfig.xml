@@ -14,8 +14,8 @@
     </FileSettings>
 
     <TimeSettings><!-- Time in seconds-->
-        <TaskGenerationTime>1</TaskGenerationTime>
-        <Timeout>130</Timeout>
+        <TaskGenerationTime>1000</TaskGenerationTime>
+        <Timeout>1300</Timeout>
         <InstructionGenerationTime>500</InstructionGenerationTime>
     </TimeSettings>
     <RandomSettings>

@@ -1,0 +1,45 @@
+{
+  "os": "macOS-15.0.1-arm64-arm-64bit",
+  "python": "3.10.15",
+  "startedAt": "2024-10-23T17:44:04.638179Z",
+  "args": [
+    "--env-id",
+    "FlappyBird",
+    "--total-timesteps",
+    "5000000"
+  ],
+  "program": "/Users/yash_mac/workspace/RL-workspace/ANSWERlab/AIProbe/Catcher_Flappy_Continuous/cleanrl/cleanrl/dqn.py",
+  "codePath": "Catcher_Flappy_Continuous/cleanrl/cleanrl/dqn.py",
+  "git": {
+    "remote": "git@github.com:ANSWER-OSU/AIProbe.git",
+    "commit": "e3ba232737aa38521b9dde0b24201490ba958a17"
+  },
+  "email": "anandy@oregonstate.edu",
+  "root": "/Users/yash_mac/workspace/RL-workspace/ANSWERlab/AIProbe/Catcher_Flappy_Continuous",
+  "host": "yash-mac.local",
+  "username": "yash_mac",
+  "executable": "/opt/homebrew/Caskroom/miniforge/base/envs/gym-pygame-3.10/bin/python",
+  "codePathLocal": "cleanrl/cleanrl/dqn.py",
+  "cpu_count": 8,
+  "cpu_count_logical": 8,
+  "disk": {
+    "/": {
+      "total": "245107195904",
+      "used": "236939010048"
+    }
+  },
+  "memory": {
+    "total": "17179869184"
+  },
+  "cpu": {
+    "count": 8,
+    "countLogical": 8
+  },
+  "apple": {
+    "name": "Apple M1",
+    "ecpuCores": 4,
+    "pcpuCores": 4,
+    "gpuCores": 8,
+    "memoryGb": 16
+  }
+}

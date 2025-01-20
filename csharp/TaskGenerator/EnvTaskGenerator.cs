@@ -472,31 +472,63 @@ ResolveMutableConstraints(Environment baseEnv)
         }
     }
 
-    // Process object attributes
-    foreach (var obj in baseEnv.Objects.ObjectList)
+    try
     {
-        foreach (var attr in obj.Attributes.Where(attr => attr.Mutable.Value))
-        {
-            string key = $"Object_{obj.Id}_{attr.Name.Value}";
-            string minExpr = attr.Constraint.Min ?? "0";
-            string maxExpr = attr.Constraint.Max ?? "0";
-            string dataType = attr.DataType.Value;
-
-            if (!minExpr.Contains("{") && !maxExpr.Contains("{"))
-            {
-                independentRanges[key] = (double.Parse(minExpr), double.Parse(maxExpr), dataType);
-            }
-            else
-            {
-                string strippedMinExpr = StripBraces(minExpr);
-                string strippedMaxExpr = StripBraces(maxExpr);
-
-                dependentConstraints[key] = (MinExpr: strippedMinExpr, MaxExpr: strippedMaxExpr, DataType: dataType);
-            }
-
-            dataTypes.Add(dataType);
-        }
+        // foreach (var obj in baseEnv.Objects.ObjectList)
+        // {
+        //     foreach (var attr in obj.Attributes.Where(attr => attr.Mutable.Value))
+        //     {
+        //         string key = $"Object_{obj.Id}_{attr.Name.Value}";
+        //         string minExpr = attr.Constraint.Min ?? "0";
+        //         string maxExpr = attr.Constraint.Max ?? "0";
+        //         string dataType = attr.DataType.Value;
+        //
+        //         if (!minExpr.Contains("{") && !maxExpr.Contains("{"))
+        //         {
+        //             independentRanges[key] = (double.Parse(minExpr), double.Parse(maxExpr), dataType);
+        //         }
+        //         else
+        //         {
+        //             string strippedMinExpr = StripBraces(minExpr);
+        //             string strippedMaxExpr = StripBraces(maxExpr);
+        //
+        //             dependentConstraints[key] = (MinExpr: strippedMinExpr, MaxExpr: strippedMaxExpr, DataType: dataType);
+        //         }
+        //
+        //         dataTypes.Add(dataType);
+        //     }
+        // }
     }
+    catch (Exception e)
+    {
+        Console.WriteLine(e);
+        throw;
+    }
+    // Process object attributes
+    // foreach (var obj in baseEnv.Objects.ObjectList)
+    // {
+    //     foreach (var attr in obj.Attributes.Where(attr => attr.Mutable.Value))
+    //     {
+    //         string key = $"Object_{obj.Id}_{attr.Name.Value}";
+    //         string minExpr = attr.Constraint.Min ?? "0";
+    //         string maxExpr = attr.Constraint.Max ?? "0";
+    //         string dataType = attr.DataType.Value;
+    //
+    //         if (!minExpr.Contains("{") && !maxExpr.Contains("{"))
+    //         {
+    //             independentRanges[key] = (double.Parse(minExpr), double.Parse(maxExpr), dataType);
+    //         }
+    //         else
+    //         {
+    //             string strippedMinExpr = StripBraces(minExpr);
+    //             string strippedMaxExpr = StripBraces(maxExpr);
+    //
+    //             dependentConstraints[key] = (MinExpr: strippedMinExpr, MaxExpr: strippedMaxExpr, DataType: dataType);
+    //         }
+    //
+    //         dataTypes.Add(dataType);
+    //     }
+    // }
 
     return (independentRanges, dependentConstraints, dataTypes);
 }
@@ -688,8 +720,6 @@ ResolveMutableConstraints(Environment baseEnv)
             };
         }
         
-        
-        
         private static void SaveToCsv(List<Dictionary<string, double>> sampledValues, string filePath)
         {
             // Open a file stream and write the CSV content
@@ -712,5 +742,280 @@ ResolveMutableConstraints(Environment baseEnv)
                 }
             }
         }
+        
+        
+        
+        
+        // Testing
+    
+        
+        public List<(Environment, Environment)> GenerateTasksUsingOrthogonalSampling(Environment environmentConfig, int nSamples, int? seed = null, string outputFilePath = null)
+        {
+            // Resolve mutable constraints
+            var (independentRanges, _, _) = ResolveMutableConstraints(environmentConfig);
+            
+            
+
+            // Prepare ranges for sampling
+            Dictionary<string, (double Min, double Max)> ranges = independentRanges.ToDictionary(
+                kvp => kvp.Key,
+                kvp => (kvp.Value.Min, kvp.Value.Max)
+            );
+
+            nSamples = independentRanges.Count * 10;
+            
+            // Generate orthogonal samples
+            List<int[]> orthogonalSamples = GenerateOrthogonalSamples(nSamples, ranges.Count, ranges, seed);
+            
+            
+
+            // Save the generated points to a CSV file (optional)
+            // if (!string.IsNullOrEmpty(outputFilePath))
+            // {
+            //     SaveSamplesToCsv(orthogonalSamples, ranges.Keys.ToList(), outputFilePath);
+            // }
+
+            
+            List<int[]> randomSamples = GenerateRandomSamples(nSamples, ranges.Count, ranges, seed);
+
+            // Save the generated points to a CSV file (optional)
+            // if (!string.IsNullOrEmpty(outputFilePath))
+            // {
+            //     SaveSamplesToCsv(randomSamples, ranges.Keys.ToList(), "generated_Random_samples.csv");
+            // }
+
+
+
+            List<int[]> lHSsampole =  LhsSampler.GenerateLHSSamples(nSamples, ranges, seed);
+            
+            if (!string.IsNullOrEmpty(outputFilePath))
+            {
+                SaveSamplesToCsv(randomSamples, ranges.Keys.ToList(), "generated_LHS_samples.csv");
+            }
+
+            
+            // Generate tasks
+            List<(Environment, Environment)> tasks = new List<(Environment, Environment)>();
+
+            foreach (var sample in orthogonalSamples)
+            {
+                Environment initialState = CloneEnvironment(environmentConfig);
+                Environment finalState = CloneEnvironment(environmentConfig);
+
+                // Apply sampled values to the initial state
+                int index = 0;
+                foreach (var key in ranges.Keys)
+                {
+                    ApplySampleToEnvironment(initialState, key, sample[index]);
+                    index++;
+                }
+
+                // Mutate to create the final state
+                MutateAgentProperties(finalState);
+                //MutateObjectProperties(finalState);
+
+                tasks.Add((initialState, finalState));
+            }
+
+            Logger.LogInfo($"Orthogonal sampling completed. Generated {tasks.Count} tasks.");
+            return tasks;
+        }
+        
+        private void ApplySampleToEnvironment(Environment env, string attributeName, double sampledValue)
+        {
+            // foreach (var attr in env.Attributes)
+            // {
+            //     if (attr.Name.Value == attributeName && attr.Mutable?.Value == true)
+            //     {
+            //         attr.Value.Content = Convert.ToString(sampledValue);
+            //     }
+            // }
+
+            foreach (var agent in env.Agents.AgentList)
+            {
+                string[] parts = attributeName.Split('_');
+
+
+                string lastWord = parts[^1]; // ^1 is the index-from-end operator
+                
+                foreach (var attr in agent.Attributes)
+                {
+                    if (attr.Name.Value == lastWord && attr.Mutable?.Value == true)
+                    {
+                        attr.Value.Content = Convert.ToString(sampledValue);
+                    }
+                }
+            }
+
+            // foreach (var obj in env.Objects.ObjectList)
+            // {
+            //     foreach (var attr in obj.Attributes)
+            //     {
+            //         if (attr.Name.Value == attributeName && attr.Mutable?.Value == true)
+            //         {
+            //             attr.Value.Content = Convert.ToString(sampledValue);
+            //         }
+            //     }
+            // }
+        }
+        private List<int[]> GenerateOrthogonalSamples(int nSamples, int nDimensions, Dictionary<string, (double Min, double Max)> ranges, int? seed = null)
+        {
+            Random random = seed.HasValue ? new Random(seed.Value) : new Random();
+
+            // Step 1: Create an empty matrix for samples
+            List<int[]> samples = new List<int[]>();
+
+            // Step 2: Divide each dimension into equal intervals
+            var intervals = new Dictionary<int, List<int>>();
+            int dimensionIndex = 0;
+            foreach (var range in ranges)
+            {
+                string key = range.Key;
+                double min = range.Value.Min;
+                double max = range.Value.Max;
+
+                // Generate stratified intervals for this dimension as integers
+                List<int> stratifiedIntervals = Enumerable.Range(0, nSamples)
+                    .Select(i => (int)Math.Round(min + (i + random.NextDouble()) * (max - min) / nSamples))
+                    .OrderBy(_ => random.Next()) // Shuffle intervals
+                    .ToList();
+
+                intervals[dimensionIndex] = stratifiedIntervals;
+                dimensionIndex++;
+            }
+
+            // Step 3: Create the orthogonal matrix
+            for (int i = 0; i < nSamples; i++)
+            {
+                int[] sample = new int[nDimensions];
+
+                for (int j = 0; j < nDimensions; j++)
+                {
+                    // Assign intervals in an orthogonal manner
+                    sample[j] = intervals[j][i];
+                }
+
+                samples.Add(sample);
+            }
+
+            // Shuffle rows to introduce randomness
+            samples = samples.OrderBy(_ => random.Next()).ToList();
+
+            return samples;
+        }
+        private void SaveSamplesToCsv(List<int[]> samples, List<string> headers, string filePath)
+        {
+            
+            
+            
+            
+            using (var writer = new System.IO.StreamWriter(filePath))
+            {
+                // Write the headers
+                writer.WriteLine(string.Join(",", headers));
+
+                // Write each sample as a row
+                foreach (var sample in samples)
+                {
+                    writer.WriteLine(string.Join(",", sample.Select(value => value.ToString(System.Globalization.CultureInfo.InvariantCulture))));
+                }
+            }
+
+            Logger.LogInfo($"Generated samples saved to: {filePath}");
+        }
+        
+        
+        private List<int[]> GenerateRandomSamples(int nSamples, int nDimensions, Dictionary<string, (double Min, double Max)> ranges, int? seed = null)
+        {
+            Random random = seed.HasValue ? new Random(seed.Value) : new Random();
+
+            // Create a list to store random samples
+            List<int[]> samples = new List<int[]>();
+
+            for (int i = 0; i < nSamples; i++)
+            {
+                int[] sample = new int[nDimensions];
+                int dimensionIndex = 0;
+
+                // Generate random values for each dimension within the specified range
+                foreach (var range in ranges)
+                {
+                    double min = range.Value.Min;
+                    double max = range.Value.Max;
+
+                    // Generate a random integer value within the range
+                    sample[dimensionIndex] = random.Next((int)Math.Floor(min), (int)Math.Ceiling(max) + 1);
+                    dimensionIndex++;
+                }
+
+                samples.Add(sample);
+            }
+
+            return samples;
+        }
+        
+        
+        private List<int[]> GenerateLHSSamples(int nSamples, int nDimensions, Dictionary<string, (double Min, double Max)> ranges, int? seed = null)
+        {
+            Random random = seed.HasValue ? new Random(seed.Value) : new Random();
+
+            // Create a list to store LHS samples
+            List<int[]> samples = new List<int[]>();
+
+            // Step 1: Divide each dimension into equal intervals
+            var intervals = new Dictionary<int, List<int>>();
+            int dimensionIndex = 0;
+
+            foreach (var range in ranges)
+            {
+                double min = range.Value.Min;
+                double max = range.Value.Max;
+
+                // Create stratified intervals as integers
+                List<int> stratifiedIntervals = Enumerable.Range(0, nSamples)
+                    .Select(i => (int)Math.Round(min + i * (max - min) / nSamples))
+                    .ToList();
+
+                // Shuffle intervals to ensure randomness
+                for (int i = stratifiedIntervals.Count - 1; i > 0; i--)
+                {
+                    int j = random.Next(i + 1);
+                    (stratifiedIntervals[i], stratifiedIntervals[j]) = (stratifiedIntervals[j], stratifiedIntervals[i]);
+                }
+
+                intervals[dimensionIndex] = stratifiedIntervals;
+                dimensionIndex++;
+            }
+
+            // Step 2: Generate the LHS sample matrix
+            for (int i = 0; i < nSamples; i++)
+            {
+                int[] sample = new int[nDimensions];
+
+                for (int j = 0; j < nDimensions; j++)
+                {
+                    // Assign one interval per dimension for this sample
+                    sample[j] = intervals[j][i];
+                }
+
+                samples.Add(sample);
+            }
+
+            return samples;
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
+    
+    
+    
+    
+    
 }

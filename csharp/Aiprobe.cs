@@ -69,9 +69,18 @@ namespace AIprobe
             CancellationTokenSource cts = new CancellationTokenSource();
             cts.CancelAfter(TimeSpan.FromSeconds(processingTime)); // Set the timeout to 15 minutes
 
+            EnvTaskGenerator envTaskGenerator = new EnvTaskGenerator();
             try
             {
+                envireomentQueue.TryDequeue(out Environment env);
+                
+                //var tasks = envTaskGenerator.GenerateTasksUsingOrthogonalSampling(env, 20, seed: 42, outputFilePath: "generated_orthogonal_samples.csv");
+
                 var envTaskqueue = await GetEnvironmentTaskQueueAsync(envireomentQueue, resultFolder);
+                // Queue<(string initialPath, string finalPath)> envTaskqueue = 
+                //     await GetTasksUsingOrthogonalSamplingAsync(envireomentQueue, resultFolder);
+                //
+                //
                 InstructionChecker instructionChecker = new InstructionChecker();
                 while (envTaskqueue.Count > 0)
                 {
@@ -79,6 +88,8 @@ namespace AIprobe
                     Stopwatch stopwatch = Stopwatch.StartNew();
                     // Dequeue an item
                     var (initialPath, finalPath) = envTaskqueue.Dequeue();
+                    
+                  
 
                     if (File.Exists(initialPath) && File.Exists(finalPath))
                     {
@@ -875,7 +886,9 @@ namespace AIprobe
 
                     // Generate tasks for the environment
                     Stopwatch taskGeneratorStopwatch = Stopwatch.StartNew();
-                    List<(Environment, Environment)> tasksForEnvironment = envTaskGenerator.GenerateTasks(env, taskGenrationTime);
+                    List<(Environment, Environment)> tasksForEnvironment = envTaskGenerator.GenerateTasksUsingOrthogonalSampling(
+                        env, 20, seed: i, resultFolderPath);
+                    //List<(Environment, Environment)> tasksForEnvironment = envTaskGenerator.GenerateTasks(env, taskGenrationTime);
                     taskGeneratorStopwatch.Stop();
 
                     // Save tasks asynchronously in parallel
@@ -939,7 +952,9 @@ namespace AIprobe
                     // Generate tasks for the environment
                     Stopwatch taskGeneratorStopwatch = Stopwatch.StartNew();
                     LogAndDisplay($"Generating tasks for environment {i + 1}...");
-                    List<(Environment, Environment)> tasksForEnvironment = envTaskGenerator.GenerateTasks(env, taskGenrationTime);
+                    //List<(Environment, Environment)> tasksForEnvironment = envTaskGenerator.GenerateTasks(env, taskGenrationTime);
+                    List<(Environment, Environment)> tasksForEnvironment = envTaskGenerator.GenerateTasksUsingOrthogonalSampling(
+                        env, 20, seed: i, resultFolderPath);
                     taskGeneratorStopwatch.Stop();
                     LogAndDisplay(
                         $"Generated {tasksForEnvironment.Count} tasks for environment {i + 1} in {taskGeneratorStopwatch.ElapsedMilliseconds} ms.");
@@ -996,6 +1011,91 @@ namespace AIprobe
         }
 
 
+        
+        private static async Task<Queue<(string initialPath, string finalPath)>> GetTasksUsingOrthogonalSamplingAsync(
+    ConcurrentQueue<Environment> environmentQueue, string resultFolderPath)
+{
+    var environmentTaskQueue = new Queue<(string initialPath, string finalPath)>();
+
+    // Convert the queue to a list for index-based processing
+    var environments = environmentQueue.ToList();
+
+    LogAndDisplay($"Starting sequential processing of {environments.Count} environments...");
+
+    EnvTaskGenerator envTaskGenerator = new EnvTaskGenerator();
+    
+    for (int i = 0; i < environments.Count; i++)
+    {
+        Stopwatch envStopwatch = Stopwatch.StartNew(); // Measure time for the current environment
+        try
+        {
+            var env = environments[i];
+            LogAndDisplay($"Processing environment {i + 1}/{environments.Count}...");
+
+            // Generate tasks for the environment using orthogonal sampling
+            Stopwatch taskGeneratorStopwatch = Stopwatch.StartNew();
+            LogAndDisplay($"Generating tasks for environment {i + 1} using orthogonal sampling...");
+
+            // Adjust parameters for task generation as needed
+            int nSamples = 10; // You can customize this based on the number of samples required
+            string outputFilePath = Path.Combine(resultFolderPath, $"Env_{i + 1}_orthogonal_samples.csv");
+
+            List<(Environment, Environment)> tasksForEnvironment = envTaskGenerator.GenerateTasksUsingOrthogonalSampling(
+                env, nSamples, seed: i, outputFilePath: outputFilePath);
+
+            taskGeneratorStopwatch.Stop();
+            LogAndDisplay(
+                $"Generated {tasksForEnvironment.Count} tasks for environment {i + 1} in {taskGeneratorStopwatch.ElapsedMilliseconds} ms.");
+
+            // Save tasks in parallel
+            var saveTasks = tasksForEnvironment.Select((task, taskIndex) =>
+            {
+                string environmentFolder = Path.Combine(resultFolderPath, $"Env_{i + 1}");
+                string taskFolder = Path.Combine(environmentFolder, $"Task_{taskIndex + 1}");
+
+                // Ensure directories exist
+                Directory.CreateDirectory(taskFolder);
+                LogAndDisplay($"Created folder: {taskFolder}");
+
+                // File paths for the initial and final states
+                string initialResultFilePath = Path.Combine(taskFolder, "initialState.xml");
+                string finalResultFilePath = Path.Combine(taskFolder, "finalState.xml");
+
+                LogAndDisplay(
+                    $"Saving task {taskIndex + 1}/{tasksForEnvironment.Count} for environment {i + 1}...");
+
+                // Write both states and return a combined task
+                var initialStateTask = WriteEnvironmentAsync(task.Item1, initialResultFilePath);
+                var finalStateTask = WriteEnvironmentAsync(task.Item2, finalResultFilePath);
+
+                environmentTaskQueue.Enqueue((initialResultFilePath, finalResultFilePath));
+
+                return Task.WhenAll(initialStateTask, finalStateTask); // Combine both tasks
+            });
+
+            // Wait for all save operations to complete
+            await Task.WhenAll(saveTasks);
+
+            LogAndDisplay($"Completed processing for environment {i + 1}.");
+        }
+        catch (Exception ex)
+        {
+            LogErrorAndDisplay($"Error processing environment {i + 1}: {ex.Message}");
+        }
+        finally
+        {
+            envStopwatch.Stop();
+            LogAndDisplay(
+                $"Environment {i + 1} processing completed in {envStopwatch.ElapsedMilliseconds / 1000.0} s.");
+        }
+    }
+
+    LogAndDisplay("All environments processed sequentially with parallel task saving.");
+
+    return environmentTaskQueue;
+}
+        
+        
         internal static void LogAndDisplay(string text)
         {
             Logger.LogInfo(text);

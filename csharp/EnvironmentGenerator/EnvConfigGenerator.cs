@@ -24,15 +24,29 @@ namespace AIprobe.EnvironmentGenerator
             var (independentRanges, dependentConstraints, dataTypes) = ResolveConstraints(baseEnv);
 
             int nSamples = (independentRanges.Count + dependentConstraints.Count) * 10;
+            //int nSamples = (independentRanges.Count) * 10;
 
             // Step 2: Perform LHS sampling with dependencies
             var sampledValues =
                 LhsSampler.PerformLhsWithDependencies(independentRanges, dependentConstraints, nSamples, seed);
 
             // Step 3: Save sampled values to CSV
-            // SaveToCsv(sampledValues,
-            //     $"/Users/rahil/Documents/GitHub/AIProbe/csharp/Result/re/{seed}/_values.csv");
+            SaveToCsv(sampledValues,
+              $"/Users/rahil/Documents/GitHub/AIProbe/csharp/Result/re/{seed}/_values.csv");
 
+            
+            var randomsample = LhsSampler.PerformRandomSamplingWithDependencies(independentRanges, dependentConstraints, nSamples, seed);
+            
+            SaveToCsv(randomsample,
+                $"/Users/rahil/Documents/GitHub/AIProbe/csharp/Result/re/{seed}/random_values.csv");
+            
+            
+          
+            var improvedLHS = LhsSampler.PerformLhsWithDependenciesImproved(independentRanges, dependentConstraints, nSamples, seed);
+            
+            SaveToCsv(improvedLHS,
+                $"/Users/rahil/Documents/GitHub/AIProbe/csharp/Result/re/{seed}/improvedLHS_values.csv");
+            
             // Use a queue instead of a list to store sampled environments
             ConcurrentQueue<Environment> sampledEnvironments = new ConcurrentQueue<Environment>();
             Aiprobe.LogAndDisplay($"Total no of environment generated: {sampledValues.Count}");
@@ -808,5 +822,12 @@ namespace AIprobe.EnvironmentGenerator
                 }
             }
         }
+        
+        
+        
+        
+        
+        
+        
     }
 }
