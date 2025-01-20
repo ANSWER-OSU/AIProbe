@@ -62,12 +62,13 @@ namespace AIprobe
 
             #endregion
 
+            Console.WriteLine("Reading the config file and Setting environment variables...");
             SetStaticVariable(aiprobe_root_path, py_path);
 
             ConcurrentQueue<Environment> envireomentQueue = getEnviromentQueue();
 
             CancellationTokenSource cts = new CancellationTokenSource();
-            cts.CancelAfter(TimeSpan.FromSeconds(processingTime)); // Set the timeout to 15 minutes
+            cts.CancelAfter(TimeSpan.FromSeconds(processingTime)); 
 
             EnvTaskGenerator envTaskGenerator = new EnvTaskGenerator();
             try
@@ -185,6 +186,7 @@ namespace AIprobe
             string logFilePath = aiprobe_root_path + "/" + config.LogSettings.LogFilePath;
             //string logFilePath = "/tmp/aiprobe_log.txt";
 
+            
             Logger.Initialize(logFilePath);
 
             Logger.LogInfo("Starting AIprobe...");
@@ -812,6 +814,10 @@ namespace AIprobe
             {
                 LogErrorAndDisplay("Failed to parse Aiprobe's configuration file. Exiting...");
                 return;
+            }
+            else
+            {
+                Console.WriteLine("Config file found ");
             }
 
             // Set the log file path
