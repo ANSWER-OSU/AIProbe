@@ -7,7 +7,7 @@
                 <DataType value="int"/>
                 <Value value="2"/>
                 <Mutable value="true"/>
-                <Constraint Min="0" Max="{Grid}" oneOf="" roundOff=""/>
+                <Constraint Min="1" Max="{Grid-2}" oneOf="" roundOff=""/>
             </Attribute>
             <Attribute>
                 <Name value="Y"/>
@@ -15,7 +15,7 @@
                 <DataType value="int"/>
                 <Value value="2"/>
                 <Mutable value="true"/>
-                <Constraint Min="0" Max="{Grid}" oneOf="" roundOff=""/>
+                <Constraint Min="1" Max="{Grid-2}" oneOf="" roundOff=""/>
             </Attribute>
             <Attribute>
                 <Name value="Angle"/>
@@ -35,7 +35,7 @@
                 <DataType value="int"/>
                 <Value value="2"/>
                 <Mutable value="true"/>
-                <Constraint Min="1" Max="{Grid}" oneOf="" roundOff=""/>
+                <Constraint Min="1" Max="{Grid-2}" oneOf="" roundOff=""/>
             </Attribute>
             <Attribute>
                 <Name value="Y"/>
@@ -43,7 +43,7 @@
                 <DataType value="int"/>
                 <Value value="2"/>
                 <Mutable value="true"/>
-                <Constraint Min="1" Max="{Grid}" oneOf="" roundOff=""/>
+                <Constraint Min="1" Max="{Grid-2}" oneOf="" roundOff=""/>
             </Attribute>
         </Object>
     </Objects>
@@ -51,7 +51,7 @@
 c                <Name value="Grid"/>
                 <Description value="The width of the boundary"/>
                 <DataType value="int"/>
-                <Value value="10"/>
+                <Value value="5"/>
                 <Mutable value="false"/>
                 <Constraint Min="3" Max="7" oneOf="" roundOff=""/>
             </Attribute>
@@ -61,7 +61,7 @@ c                <Name value="Grid"/>
         <DataType value="int"/>
         <Value value="10"/>
         <Mutable value="false"/>
-        <Constraint Min="0" Max="{Grid  * Grid }" oneOf="" roundOff=""/>
+        <Constraint Min="0" Max="{(Grid-1)  * (Grid-1) }" oneOf="" roundOff=""/>
     </Attribute>
     
 

@@ -8,9 +8,8 @@ namespace AIprobe.TaskGenerator
 {
     public class EnvTaskGenerator
     {
-        
         Random random = new Random(Aiprobe.seed);
-        
+
         // private Random random;
         //
         // // Constructor with seed parameter
@@ -25,25 +24,23 @@ namespace AIprobe.TaskGenerator
         /// <param name="environmentConfig">environment config object</param>
         /// <param name="timeLimitInSeconds">time</param>
         /// <returns></returns>
-        public List<(Environment,Environment)> GenerateTasks(Environment environmentConfig,
+        public List<(Environment, Environment)> GenerateTasks(Environment environmentConfig,
             int timeLimitInSeconds)
         {
-            
-            
-            List<(AIprobe.Models.Environment,Environment)> tasks = new List<(AIprobe.Models.Environment,Environment)>();
+            List<(AIprobe.Models.Environment, Environment)> tasks =
+                new List<(AIprobe.Models.Environment, Environment)>();
             DateTime startTime = DateTime.Now;
-        
+
             Logger.LogInfo($"Task generation started with a time limit of {timeLimitInSeconds} seconds.");
             Console.WriteLine($"Task generation started with a time limit of {timeLimitInSeconds} seconds.");
             var totalMutableAttributes = 0;
             int taskCount = 0;
-            
+
             CancellationTokenSource cts = new CancellationTokenSource();
             cts.CancelAfter(TimeSpan.FromSeconds(timeLimitInSeconds));
 
             try
             {
-                
                 while (!cts.IsCancellationRequested)
                 {
                     AIprobe.Models.Environment initialState = CloneEnvironment(environmentConfig);
@@ -58,22 +55,20 @@ namespace AIprobe.TaskGenerator
                     //MutateObjectProperties((finalState));
                     tasks.Add((initialState, finalState));
                 }
-                
-
             }
             catch (OperationCanceledException)
             {
-
             }
             finally
             {
                 cts.Dispose();
             }
-            
+
             Logger.LogInfo(
                 $"Task generation completed. {tasks.Count} tasks were generated within {timeLimitInSeconds} seconds.");
             return tasks;
         }
+
         //
         //
         /// <summary>
@@ -82,16 +77,18 @@ namespace AIprobe.TaskGenerator
         /// </summary>
         /// <param name="environmentConfig"></param>
         /// <returns></returns>
-        private Environment MutateAgentProperties(Environment environmentConfig){
+        private Environment MutateAgentProperties(Environment environmentConfig)
+        {
             var mutableAttributes = ProcessAgentListForMutableAttributes(environmentConfig.Agents.AgentList);
-            
-            Dictionary<string, List<string>> selectedAttributess = RandomlySelectValuesFromDictionary(mutableAttributes);
-            
+
+            Dictionary<string, List<string>>
+                selectedAttributess = RandomlySelectValuesFromDictionary(mutableAttributes);
+
             ModifyMutableAttributes(environmentConfig.Agents.AgentList, mutableAttributes);
-        
+
             return environmentConfig;
-            
         }
+
         //
         /// <summary>
         /// Processes a list of agents and identifies mutable attributes.
@@ -100,14 +97,15 @@ namespace AIprobe.TaskGenerator
         /// <returns>
         /// A dictionary where the key is the agent's ID , and the value is a list of mutable attribute names for that agent.
         /// </returns>
-        private Dictionary<string, List<string>> ProcessAgentListForMutableAttributes(List<AIprobe.Models.Agent> agentList)
+        private Dictionary<string, List<string>> ProcessAgentListForMutableAttributes(
+            List<AIprobe.Models.Agent> agentList)
         {
             Dictionary<string, List<string>> agentMutableAttributes = new Dictionary<string, List<string>>();
-        
+
             foreach (var agent in agentList)
             {
                 List<string> mutableAttributeNames = new List<string>();
-        
+
                 // Process Position attributes
                 foreach (var attr in agent.Attributes)
                 {
@@ -116,17 +114,18 @@ namespace AIprobe.TaskGenerator
                         mutableAttributeNames.Add(attr.Name.Value); // Add the name of the mutable attribute
                     }
                 }
-                
-        
+
+
                 // If there are mutable attributes, add them to the dictionary with the agent's ID
                 if (mutableAttributeNames.Count > 0)
                 {
                     agentMutableAttributes[agent.Id.ToString()] = mutableAttributeNames;
                 }
             }
-        
+
             return agentMutableAttributes; // Return the dictionary with agent ID and mutable attribute names
         }
+
         //
         /// <summary>
         /// Randomly selects a subset of values from each key's list in the provided dictionary. 
@@ -137,46 +136,48 @@ namespace AIprobe.TaskGenerator
         /// <returns>
         /// A dictionary where the key is eithe agent id or object id  and the value is a random list of mutable attribute names associated with that entity.
         /// </returns>
-        private Dictionary<string, List<string>> RandomlySelectValuesFromDictionary(Dictionary<string, List<string>> attributesDictionary)
+        private Dictionary<string, List<string>> RandomlySelectValuesFromDictionary(
+            Dictionary<string, List<string>> attributesDictionary)
         {
             Random random = new Random();
             Dictionary<string, List<string>> selectedValuesDictionary = new Dictionary<string, List<string>>();
-        
+
             // Iterate over each key in the dictionary
             foreach (var entry in attributesDictionary)
             {
-                string key = entry.Key;  // The key (Agent or Object ID)
-                List<string> values = entry.Value;  // The list of mutable attribute names for this key
-        
+                string key = entry.Key; // The key (Agent or Object ID)
+                List<string> values = entry.Value; // The list of mutable attribute names for this key
+
                 if (values.Count == 0)
                 {
                     // If there are no values for this key, skip
                     continue;
                 }
-        
+
                 // Randomly decide how many values to select for this key (between 1 and the total number of values)
-                int numberToSelect = random.Next(1, values.Count );
-        
+                int numberToSelect = random.Next(1, values.Count);
+
                 List<string> selectedValues = new List<string>();
-        
+
                 // Randomly select unique values
                 while (selectedValues.Count < numberToSelect)
                 {
-                    int index = random.Next(0, values.Count);  // Random index
+                    int index = random.Next(0, values.Count); // Random index
                     string selectedValue = values[index];
-        
-                    if (!selectedValues.Contains(selectedValue))  // Ensure no duplicates
+
+                    if (!selectedValues.Contains(selectedValue)) // Ensure no duplicates
                     {
                         selectedValues.Add(selectedValue);
                     }
                 }
-        
+
                 // Add the selected values to the result dictionary
                 selectedValuesDictionary[key] = selectedValues;
             }
-        
+
             return selectedValuesDictionary;
         }
+
         //
         //
         /// <summary>
@@ -186,7 +187,8 @@ namespace AIprobe.TaskGenerator
         /// <param name="mutableAttributes">
         /// A dictionary where the key is the agent's id, and the value is a list of mutable attribute names that should be modified for that agent.
         /// </param>
-        private void ModifyMutableAttributes(List<AIprobe.Models.Agent> agentList, Dictionary<string, List<string>> mutableAttributes)
+        private void ModifyMutableAttributes(List<AIprobe.Models.Agent> agentList,
+            Dictionary<string, List<string>> mutableAttributes)
         {
             foreach (var agent in agentList)
             {
@@ -194,15 +196,16 @@ namespace AIprobe.TaskGenerator
                 {
                     // Get the mutable attribute names for this agent
                     List<string> attributesToMutate = mutableAttributes[agent.Id.ToString()];
-        
+
                     // Modify Position attributes and store the selected values
                     ModifyEntityAttributes(agent.Attributes, attributesToMutate);
-        
+
                     // Modify Direction attributes and store the selected values
                     //ModifyEntityAttributes(agent.Direction.Attributes, attributesToMutate);
                 }
             }
         }
+
         //
         //
         // /// <summary>
@@ -211,17 +214,22 @@ namespace AIprobe.TaskGenerator
         // /// </summary>
         // /// <param name="environmentConfig"></param>
         // /// <returns></returns>
-        internal Environment MutateObjectProperties(Environment environmentConfig){
-        var mutableAttributes = ProcessObjectListForMutableAttributes(environmentConfig.Objects.ObjectList);
-            
-        // Randomly select indices from mutable attributes
-        //Dictionary<string, List<string>> selectedAttributess = RandomlySelectValuesFromDictionary(mutableAttributes);
-        
-        ModifyMutableObjects(environmentConfig, mutableAttributes);
-        
-        return environmentConfig;
-        
+        internal Environment MutateObjectProperties(Environment environmentConfig)
+        {
+            var mutableAttributes = ProcessObjectListForMutableAttributes(environmentConfig.Objects.ObjectList);
+
+            // Randomly select indices from mutable attributes
+            //Dictionary<string, List<string>> selectedAttributess = RandomlySelectValuesFromDictionary(mutableAttributes);
+
+            //ModifyMutableObjects(environmentConfig, mutableAttributes);
+            //ModifyMutableObjectsD(environmentConfig, mutableAttributes);
+
+            ModifyMutableObjectsNotRandom(environmentConfig, mutableAttributes);
+            //ModifyMutableObjectsUsingOrthogonalMatrix(environmentConfig, mutableAttributes);
+
+            return environmentConfig;
         }
+
         //
         //
         /// <summary>
@@ -229,15 +237,16 @@ namespace AIprobe.TaskGenerator
         /// </summary>
         /// <param name="objectList"></param>
         /// <returns></returns>
-        private Dictionary<string, List<string>> ProcessObjectListForMutableAttributes(List<AIprobe.Models.Object> objectList)
+        private Dictionary<string, List<string>> ProcessObjectListForMutableAttributes(
+            List<AIprobe.Models.Object> objectList)
         {
             Dictionary<string, List<string>> objectMutableAttributes = new Dictionary<string, List<string>>();
-        
+
             foreach (var obj in objectList)
             {
                 List<string> mutableAttributeNames = new List<string>();
-                
-                
+
+
                 // Process Object attributes
                 foreach (var attr in obj.Attributes)
                 {
@@ -246,18 +255,18 @@ namespace AIprobe.TaskGenerator
                         mutableAttributeNames.Add(attr.Name.Value); // Add the name of the mutable attribute
                     }
                 }
-        
-               
-        
+
+
                 // If there are mutable attributes, add them to the dictionary with the object's ID
                 if (mutableAttributeNames.Count > 0)
                 {
                     objectMutableAttributes[obj.Id.ToString()] = mutableAttributeNames;
                 }
             }
-        
+
             return objectMutableAttributes; // Return the dictionary with object ID and mutable attribute names
         }
+
         //
         //
         /// <summary>
@@ -265,59 +274,213 @@ namespace AIprobe.TaskGenerator
         /// </summary>
         /// <param name="objectList"></param>
         /// <param name="mutableAttributes"></param>
-      
-        
-       private void ModifyMutableObjects(Environment environmentConfig, Dictionary<string, List<string>> mutableAttributes)
-{
-    foreach (var obj in environmentConfig.Objects.ObjectList)
-    {
-        string objectId = obj.Id.ToString();
-
-        // Check if the current object has an entry in mutableAttributes
-        if (mutableAttributes.ContainsKey(objectId))
+        private void ModifyMutableObjects(Environment environmentConfig,
+            Dictionary<string, List<string>> mutableAttributes)
         {
-            List<string> attributesToMutate = mutableAttributes[objectId];
-
-            // Deep copy the attributes to avoid shared references
-            List<Attribute> deepCopiedAttributes = obj.Attributes
-                .Select(attribute => CloneAttribute(attribute))
-                .ToList();
-            obj.Attributes = deepCopiedAttributes;
-
-            foreach (var attribute in obj.Attributes)
+            foreach (var obj in environmentConfig.Objects.ObjectList)
             {
-                // Ensure the attribute matches the list for the current object
-                if (attributesToMutate.Contains(attribute.Name.Value))
+                string objectId = obj.Id.ToString();
+
+                // Check if the current object has an entry in mutableAttributes
+                if (mutableAttributes.ContainsKey(objectId))
                 {
-                    // Generate a new value for the current attribute
-                    var newValue = ChangeAttributeValue(attribute);
+                    List<string> attributesToMutate = mutableAttributes[objectId];
 
-                    // Log original and new values for debugging
-                  
-                    // Assign the mutated value to the attribute
-                    attribute.Value.Content = newValue.ToString();
+                    // Deep copy the attributes to avoid shared references
+                    List<Attribute> deepCopiedAttributes = obj.Attributes
+                        .Select(attribute => CloneAttribute(attribute))
+                        .ToList();
+                    obj.Attributes = deepCopiedAttributes;
 
+                    foreach (var attribute in obj.Attributes)
+                    {
+                        // Ensure the attribute matches the list for the current object
+                        if (attributesToMutate.Contains(attribute.Name.Value))
+                        {
+                            // Generate a new value for the current attribute
+                            var newValue = ChangeAttributeValue(attribute);
+
+                            // Log original and new values for debugging
+
+                            // Assign the mutated value to the attribute
+                            attribute.Value.Content = newValue.ToString();
+                        }
+                    }
                 }
             }
         }
-    }
-    
-}
+        
+        
+        
+        
+        // private void ModifyMutableObjectsNotRandom(Environment environmentConfig, Dictionary<string, List<string>> mutableAttributes)
+        // {
+        //     foreach (var obj in environmentConfig.Objects.ObjectList)
+        //     {
+        //         string objectId = obj.Id.ToString();
+        //
+        //         // Check if the current object has an entry in mutableAttributes
+        //         if (mutableAttributes.ContainsKey(objectId))
+        //         {
+        //             List<string> attributesToMutate = mutableAttributes[objectId];
+        //
+        //             // Deep copy the attributes to avoid shared references
+        //             List<Attribute> deepCopiedAttributes = obj.Attributes
+        //                 .Select(attribute => CloneAttribute(attribute))
+        //                 .ToList();
+        //             obj.Attributes = deepCopiedAttributes;
+        //
+        //             foreach (var attribute in obj.Attributes)
+        //             {
+        //                 // Ensure the attribute matches the list for the current object
+        //                 if (attributesToMutate.Contains(attribute.Name.Value))
+        //                 {
+        //                     // Generate a new value for the current attribute
+        //                     var newValue = ChangeAttributeValue(attribute);
+        //
+        //                     // Log original and new values for debugging
+        //           
+        //                     // Assign the mutated value to the attribute
+        //                     attribute.Value.Content = newValue.ToString();
+        //
+        //                 }
+        //             }
+        //         }
+        //     }
+        //
+        // }
 
-private Attribute CloneAttribute(Attribute original)
-{
-    return new Attribute
-    {
-        Name = original.Name,
-        Value = new Value { Content = original.Value.Content },
-        DataType = original.DataType,
-        Constraint = new Constraint
+
+        private void ModifyMutableObjectsNotRandom(Environment environmentConfig,
+            Dictionary<string, List<string>> mutableAttributes)
         {
-            Min = original.Constraint.Min,
-            Max = original.Constraint.Max
+            // Dictionary to track unique attribute value combinations
+            var attributeValueMap = new Dictionary<string, string>(); // Key: Combination, Value: Object ID
+
+            // Generate all possible combinations for attributes
+            var allCombinations = GenerateAllCombinations(environmentConfig, mutableAttributes);
+            
+            var random = new Random(Aiprobe.seed);
+            allCombinations = allCombinations.OrderBy(_ => random.Next()).ToList();
+
+            
+            int combinationIndex = 0;
+
+            foreach (var obj in environmentConfig.Objects.ObjectList)
+            {
+                string objectId = obj.Id.ToString();
+
+                // Check if the current object has an entry in mutableAttributes
+                if (mutableAttributes.ContainsKey(objectId))
+                {
+                    List<string> attributesToMutate = mutableAttributes[objectId];
+
+                    // Deep copy the attributes to avoid shared references
+                    List<Attribute> deepCopiedAttributes = obj.Attributes
+                        .Select(attribute => CloneAttribute(attribute))
+                        .ToList();
+                    obj.Attributes = deepCopiedAttributes;
+
+                    // Get the next available combination for this object
+                    if (combinationIndex >= allCombinations.Count)
+                    {
+                        throw new InvalidOperationException(
+                            "Not enough unique combinations available for all objects.");
+                    }
+
+                    List<string> selectedCombination = allCombinations[combinationIndex];
+                    combinationIndex++;
+
+                    // Assign the combination values to the object's attributes
+                    for (int i = 0; i < attributesToMutate.Count; i++)
+                    {
+                        string attributeName = attributesToMutate[i];
+                        string attributeValue = selectedCombination[i];
+
+                        // Find the attribute and update its value
+                        var attribute = obj.Attributes.FirstOrDefault(attr => attr.Name.Value == attributeName);
+                        if (attribute != null)
+                        {
+                            attribute.Value.Content = attributeValue;
+                        }
+                    }
+                }
+            }
         }
-    };
-}
+
+
+        // Generate all possible combinations for mutable attributes
+        private List<List<string>> GenerateAllCombinations(Environment environmentConfig,
+            Dictionary<string, List<string>> mutableAttributes)
+        {
+            var combinations = new List<List<string>>();
+
+            foreach (var obj in environmentConfig.Objects.ObjectList)
+            {
+                string objectId = obj.Id.ToString();
+
+                if (mutableAttributes.ContainsKey(objectId))
+                {
+                    var attributeRanges = mutableAttributes[objectId]
+                        .Select(attributeName =>
+                        {
+                            var attribute = obj.Attributes.First(attr => attr.Name.Value == attributeName);
+                            int min = int.Parse(attribute.Constraint.Min);
+                            int max = int.Parse(attribute.Constraint.Max);
+
+                            // Generate range of values
+                            return Enumerable.Range(min, max - min + 1).Select(v => v.ToString()).ToList();
+                        })
+                        .ToList();
+
+                    // Cartesian product for all attribute ranges
+                    combinations.AddRange(CartesianProduct(attributeRanges));
+                }
+            }
+
+            return combinations;
+        }
+
+
+        // Helper to compute the Cartesian product of multiple lists
+        private List<List<string>> CartesianProduct(List<List<string>> lists)
+        {
+            IEnumerable<IEnumerable<string>> result = new[] { Enumerable.Empty<string>() };
+
+            foreach (var list in lists)
+            {
+                result = result.SelectMany(r => list, (r, item) => r.Append(item));
+            }
+
+            return result.Select(r => r.ToList()).ToList();
+        }
+
+
+// Helper method to check for conflicts in the attribute combination
+        private bool IsCombinationConflict(List<string> currentCombination, string newValue,
+            Dictionary<string, string> attributeValueMap)
+        {
+            var tempCombination = new List<string>(currentCombination) { newValue };
+            string tempKey = string.Join(",", tempCombination);
+            return attributeValueMap.ContainsKey(tempKey);
+        }
+
+
+        private Attribute CloneAttribute(Attribute original)
+        {
+            return new Attribute
+            {
+                Name = original.Name,
+                Value = new Value { Content = original.Value.Content },
+                DataType = original.DataType,
+                Constraint = new Constraint
+                {
+                    Min = original.Constraint.Min,
+                    Max = original.Constraint.Max
+                }
+            };
+        }
+
         //
         /// <summary>
         /// to modify entity attributes (used by both Agent and Object) and store selected values
@@ -326,24 +489,21 @@ private Attribute CloneAttribute(Attribute original)
         /// <param name="attributesToMutate"></param>
         private void ModifyEntityAttributes(List<Attribute> attributes, List<string> attributesToMutate)
         {
-            
-            
-            foreach (var attr in attributes )
+            foreach (var attr in attributes)
             {
                 // Check if this attribute's name is in the list of names to mutate
                 if (attributesToMutate.Contains(attr.Name.Value))
                 {
                     // Apply changes to the attribute
                     var newValue = ChangeAttributeValue(attr); // Example of modifying the attribute value
-                    
+
                     // Assign the mutated value back to the attribute
                     attr.Value.Content = newValue.ToString();
-                    
                 }
             }
         }
-        
-        
+
+
         /// <summary>
         /// Randomly change the value of the attribute based on the data type
         /// </summary>
@@ -354,7 +514,6 @@ private Attribute CloneAttribute(Attribute original)
             // Ensure constraints are valid
             if (attr.Constraint.Min == attr.Constraint.Max)
             {
-               
                 return attr.Constraint.Min; // Return Min as fallback
             }
 
@@ -362,13 +521,16 @@ private Attribute CloneAttribute(Attribute original)
             if (attr.DataType.Value == "int")
             {
                 int newValue = random.Next(Convert.ToInt32(attr.Constraint.Min), Convert.ToInt32(attr.Constraint.Max));
-                
+
                 return newValue;
             }
             else if (attr.DataType.Value == "float")
             {
-                float newValue = (float)(random.NextDouble() * (Convert.ToSingle(attr.Constraint.Max) - Convert.ToSingle(attr.Constraint.Min)) + Convert.ToSingle(attr.Constraint.Min));
-                
+                float newValue =
+                    (float)(random.NextDouble() *
+                            (Convert.ToSingle(attr.Constraint.Max) - Convert.ToSingle(attr.Constraint.Min)) +
+                            Convert.ToSingle(attr.Constraint.Min));
+
                 return newValue;
             }
             else if (attr.DataType.Value == "bool")
@@ -383,7 +545,7 @@ private Attribute CloneAttribute(Attribute original)
             return attr.Value.Content;
         }
 
-        public static List<Environment> TaskGenerator(Environment baseEnv,double envcount, int? seed = null)
+        public static List<Environment> TaskGenerator(Environment baseEnv, double envcount, int? seed = null)
         {
             // Step 1: Resolve constraints only for mutable attributes
             var (independentRanges, dependentConstraints, dataTypes) = ResolveMutableConstraints(baseEnv);
@@ -393,7 +555,7 @@ private Attribute CloneAttribute(Attribute original)
 
             // Step 2: Perform LHS sampling with dependencies
             var sampledValues = LhsSampler.PerformLhsWithDependencies(independentRanges, dependentConstraints, nSamples,
-                    seed);
+                seed);
 
             // Step 3: Save sampled values to CSV (optional)
             //SaveToCsv(sampledValues, $"/Users/rahil/Documents/GitHub/AIProbe/csharp/Result/re/{seed}/{envcount}/sampled_Taskvalues.csv");
@@ -404,7 +566,7 @@ private Attribute CloneAttribute(Attribute original)
             {
                 var newEnv = CloneEnvironment(baseEnv); // Clone the base environment
                 ApplySamplesToEnvironment(newEnv, sample, dataTypes);
-                
+
                 sampledEnvironments.Add(newEnv);
             }
 
@@ -414,124 +576,126 @@ private Attribute CloneAttribute(Attribute original)
         /// <summary>
         /// Resolves constraints for attributes marked as mutable.
         /// </summary>
-       private static (Dictionary<string, (double Min, double Max, string DataType)> independentRanges,
-    Dictionary<string, (string MinExpr, string MaxExpr, string DataType)> dependentConstraints,
-    List<string> dataTypes)
-ResolveMutableConstraints(Environment baseEnv)
-{
-    var independentRanges = new Dictionary<string, (double Min, double Max, string DataType)>();
-    var dependentConstraints = new Dictionary<string, (string MinExpr, string MaxExpr, string DataType)>();
-    var dataTypes = new List<string>();
-
-    // Process global attributes
-    foreach (var attr in baseEnv.Attributes.Where(attr => attr.Mutable.Value))
-    {
-        string attrName = attr.Name.Value;
-        string minExpr = attr.Constraint.Min ?? "0";
-        string maxExpr = attr.Constraint.Max ?? "0";
-        string dataType = attr.DataType.Value;
-
-        if (!minExpr.Contains("{") && !maxExpr.Contains("{"))
+        private static (Dictionary<string, (double Min, double Max, string DataType)> independentRanges,
+            Dictionary<string, (string MinExpr, string MaxExpr, string DataType)> dependentConstraints,
+            List<string> dataTypes)
+            ResolveMutableConstraints(Environment baseEnv)
         {
-            independentRanges[attrName] = (double.Parse(minExpr), double.Parse(maxExpr), dataType);
-        }
-        else
-        {
-            string strippedMinExpr = StripBraces(minExpr);
-            string strippedMaxExpr = StripBraces(maxExpr);
+            var independentRanges = new Dictionary<string, (double Min, double Max, string DataType)>();
+            var dependentConstraints = new Dictionary<string, (string MinExpr, string MaxExpr, string DataType)>();
+            var dataTypes = new List<string>();
 
-            dependentConstraints[attrName] = (MinExpr: strippedMinExpr, MaxExpr: strippedMaxExpr, DataType: dataType);
-        }
-
-        dataTypes.Add(dataType);
-    }
-
-    // Process agent attributes
-    foreach (var agent in baseEnv.Agents.AgentList)
-    {
-        foreach (var attr in agent.Attributes.Where(attr => attr.Mutable.Value))
-        {
-            string key = $"Agent_{agent.Id}_{attr.Name.Value}";
-            string minExpr = attr.Constraint.Min ?? "0";
-            string maxExpr = attr.Constraint.Max ?? "0";
-            string dataType = attr.DataType.Value;
-
-            if (!minExpr.Contains("{") && !maxExpr.Contains("{"))
+            // Process global attributes
+            foreach (var attr in baseEnv.Attributes.Where(attr => attr.Mutable.Value))
             {
-                independentRanges[key] = (double.Parse(minExpr), double.Parse(maxExpr), dataType);
-            }
-            else
-            {
-                string strippedMinExpr = StripBraces(minExpr);
-                string strippedMaxExpr = StripBraces(maxExpr);
+                string attrName = attr.Name.Value;
+                string minExpr = attr.Constraint.Min ?? "0";
+                string maxExpr = attr.Constraint.Max ?? "0";
+                string dataType = attr.DataType.Value;
 
-                dependentConstraints[key] = (MinExpr: strippedMinExpr, MaxExpr: strippedMaxExpr, DataType: dataType);
+                if (!minExpr.Contains("{") && !maxExpr.Contains("{"))
+                {
+                    independentRanges[attrName] = (double.Parse(minExpr), double.Parse(maxExpr), dataType);
+                }
+                else
+                {
+                    string strippedMinExpr = StripBraces(minExpr);
+                    string strippedMaxExpr = StripBraces(maxExpr);
+
+                    dependentConstraints[attrName] = (MinExpr: strippedMinExpr, MaxExpr: strippedMaxExpr,
+                        DataType: dataType);
+                }
+
+                dataTypes.Add(dataType);
             }
 
-            dataTypes.Add(dataType);
+            // Process agent attributes
+            foreach (var agent in baseEnv.Agents.AgentList)
+            {
+                foreach (var attr in agent.Attributes.Where(attr => attr.Mutable.Value))
+                {
+                    string key = $"Agent_{agent.Id}_{attr.Name.Value}";
+                    string minExpr = attr.Constraint.Min ?? "0";
+                    string maxExpr = attr.Constraint.Max ?? "0";
+                    string dataType = attr.DataType.Value;
+
+                    if (!minExpr.Contains("{") && !maxExpr.Contains("{"))
+                    {
+                        independentRanges[key] = (double.Parse(minExpr), double.Parse(maxExpr), dataType);
+                    }
+                    else
+                    {
+                        string strippedMinExpr = StripBraces(minExpr);
+                        string strippedMaxExpr = StripBraces(maxExpr);
+
+                        dependentConstraints[key] = (MinExpr: strippedMinExpr, MaxExpr: strippedMaxExpr,
+                            DataType: dataType);
+                    }
+
+                    dataTypes.Add(dataType);
+                }
+            }
+
+            try
+            {
+                // foreach (var obj in baseEnv.Objects.ObjectList)
+                // {
+                //     foreach (var attr in obj.Attributes.Where(attr => attr.Mutable.Value))
+                //     {
+                //         string key = $"Object_{obj.Id}_{attr.Name.Value}";
+                //         string minExpr = attr.Constraint.Min ?? "0";
+                //         string maxExpr = attr.Constraint.Max ?? "0";
+                //         string dataType = attr.DataType.Value;
+                //
+                //         if (!minExpr.Contains("{") && !maxExpr.Contains("{"))
+                //         {
+                //             independentRanges[key] = (double.Parse(minExpr), double.Parse(maxExpr), dataType);
+                //         }
+                //         else
+                //         {
+                //             string strippedMinExpr = StripBraces(minExpr);
+                //             string strippedMaxExpr = StripBraces(maxExpr);
+                //
+                //             dependentConstraints[key] = (MinExpr: strippedMinExpr, MaxExpr: strippedMaxExpr, DataType: dataType);
+                //         }
+                //
+                //         dataTypes.Add(dataType);
+                //     }
+                // }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            // Process object attributes
+            // foreach (var obj in baseEnv.Objects.ObjectList)
+            // {
+            //     foreach (var attr in obj.Attributes.Where(attr => attr.Mutable.Value))
+            //     {
+            //         string key = $"Object_{obj.Id}_{attr.Name.Value}";
+            //         string minExpr = attr.Constraint.Min ?? "0";
+            //         string maxExpr = attr.Constraint.Max ?? "0";
+            //         string dataType = attr.DataType.Value;
+            //
+            //         if (!minExpr.Contains("{") && !maxExpr.Contains("{"))
+            //         {
+            //             independentRanges[key] = (double.Parse(minExpr), double.Parse(maxExpr), dataType);
+            //         }
+            //         else
+            //         {
+            //             string strippedMinExpr = StripBraces(minExpr);
+            //             string strippedMaxExpr = StripBraces(maxExpr);
+            //
+            //             dependentConstraints[key] = (MinExpr: strippedMinExpr, MaxExpr: strippedMaxExpr, DataType: dataType);
+            //         }
+            //
+            //         dataTypes.Add(dataType);
+            //     }
+            // }
+
+            return (independentRanges, dependentConstraints, dataTypes);
         }
-    }
-
-    try
-    {
-        // foreach (var obj in baseEnv.Objects.ObjectList)
-        // {
-        //     foreach (var attr in obj.Attributes.Where(attr => attr.Mutable.Value))
-        //     {
-        //         string key = $"Object_{obj.Id}_{attr.Name.Value}";
-        //         string minExpr = attr.Constraint.Min ?? "0";
-        //         string maxExpr = attr.Constraint.Max ?? "0";
-        //         string dataType = attr.DataType.Value;
-        //
-        //         if (!minExpr.Contains("{") && !maxExpr.Contains("{"))
-        //         {
-        //             independentRanges[key] = (double.Parse(minExpr), double.Parse(maxExpr), dataType);
-        //         }
-        //         else
-        //         {
-        //             string strippedMinExpr = StripBraces(minExpr);
-        //             string strippedMaxExpr = StripBraces(maxExpr);
-        //
-        //             dependentConstraints[key] = (MinExpr: strippedMinExpr, MaxExpr: strippedMaxExpr, DataType: dataType);
-        //         }
-        //
-        //         dataTypes.Add(dataType);
-        //     }
-        // }
-    }
-    catch (Exception e)
-    {
-        Console.WriteLine(e);
-        throw;
-    }
-    // Process object attributes
-    // foreach (var obj in baseEnv.Objects.ObjectList)
-    // {
-    //     foreach (var attr in obj.Attributes.Where(attr => attr.Mutable.Value))
-    //     {
-    //         string key = $"Object_{obj.Id}_{attr.Name.Value}";
-    //         string minExpr = attr.Constraint.Min ?? "0";
-    //         string maxExpr = attr.Constraint.Max ?? "0";
-    //         string dataType = attr.DataType.Value;
-    //
-    //         if (!minExpr.Contains("{") && !maxExpr.Contains("{"))
-    //         {
-    //             independentRanges[key] = (double.Parse(minExpr), double.Parse(maxExpr), dataType);
-    //         }
-    //         else
-    //         {
-    //             string strippedMinExpr = StripBraces(minExpr);
-    //             string strippedMaxExpr = StripBraces(maxExpr);
-    //
-    //             dependentConstraints[key] = (MinExpr: strippedMinExpr, MaxExpr: strippedMaxExpr, DataType: dataType);
-    //         }
-    //
-    //         dataTypes.Add(dataType);
-    //     }
-    // }
-
-    return (independentRanges, dependentConstraints, dataTypes);
-}
 
         private static string StripBraces(string expression)
         {
@@ -542,7 +706,7 @@ ResolveMutableConstraints(Environment baseEnv)
 
             return expression;
         }
-        
+
         /// <summary>
         /// Applies sampled values to environment attributes.
         /// </summary>
@@ -559,9 +723,8 @@ ResolveMutableConstraints(Environment baseEnv)
                     attr.DataType.Value = dataTypes.ElementAtOrDefault(dataTypeIndex++) ?? attr.DataType.Value;
                 }
             }
-            
-            
-            
+
+
             foreach (var agent in env.Agents.AgentList)
             {
                 foreach (var attr in agent.Attributes)
@@ -574,8 +737,6 @@ ResolveMutableConstraints(Environment baseEnv)
                     }
                 }
             }
-
-           
         }
 
 // Utility methods: CloneEnvironment, SaveToCsv, AdjustObjectsGlobally, StripBraces, and others are reused as needed.
@@ -719,7 +880,7 @@ ResolveMutableConstraints(Environment baseEnv)
                 }
             };
         }
-        
+
         private static void SaveToCsv(List<Dictionary<string, double>> sampledValues, string filePath)
         {
             // Open a file stream and write the CSV content
@@ -742,19 +903,17 @@ ResolveMutableConstraints(Environment baseEnv)
                 }
             }
         }
-        
-        
-        
-        
+
+
         // Testing
-    
-        
-        public List<(Environment, Environment)> GenerateTasksUsingOrthogonalSampling(Environment environmentConfig, int nSamples, int? seed = null, string outputFilePath = null)
+
+
+        public List<(Environment, Environment)> GenerateTasksUsingOrthogonalSampling(Environment environmentConfig,
+            int nSamples, int? seed = null, string outputFilePath = null)
         {
             // Resolve mutable constraints
             var (independentRanges, _, _) = ResolveMutableConstraints(environmentConfig);
-            
-            
+
 
             // Prepare ranges for sampling
             Dictionary<string, (double Min, double Max)> ranges = independentRanges.ToDictionary(
@@ -763,37 +922,37 @@ ResolveMutableConstraints(Environment baseEnv)
             );
 
             nSamples = independentRanges.Count * 10;
-            
+
             // Generate orthogonal samples
             List<int[]> orthogonalSamples = GenerateOrthogonalSamples(nSamples, ranges.Count, ranges, seed);
-            
-            
 
-            // Save the generated points to a CSV file (optional)
-            // if (!string.IsNullOrEmpty(outputFilePath))
-            // {
-            //     SaveSamplesToCsv(orthogonalSamples, ranges.Keys.ToList(), outputFilePath);
-            // }
 
+            orthogonalSamples = RemoveDuplicateSamples(orthogonalSamples);
             
+            //Save the generated points to a CSV file (optional)
+            if (!string.IsNullOrEmpty(outputFilePath))
+            {
+                SaveSamplesToCsv(orthogonalSamples, ranges.Keys.ToList(), "generated_orthogoal_samples.csv");
+            }
+
+
             List<int[]> randomSamples = GenerateRandomSamples(nSamples, ranges.Count, ranges, seed);
 
             // Save the generated points to a CSV file (optional)
-            // if (!string.IsNullOrEmpty(outputFilePath))
-            // {
-            //     SaveSamplesToCsv(randomSamples, ranges.Keys.ToList(), "generated_Random_samples.csv");
-            // }
+            if (!string.IsNullOrEmpty(outputFilePath))
+            {
+                SaveSamplesToCsv(randomSamples, ranges.Keys.ToList(), "generated_Random_samples.csv");
+            }
 
 
+            List<int[]> lHSsampole = LhsSampler.GenerateLHSSamples(nSamples, ranges, seed);
 
-            List<int[]> lHSsampole =  LhsSampler.GenerateLHSSamples(nSamples, ranges, seed);
-            
             if (!string.IsNullOrEmpty(outputFilePath))
             {
                 SaveSamplesToCsv(randomSamples, ranges.Keys.ToList(), "generated_LHS_samples.csv");
             }
 
-            
+
             // Generate tasks
             List<(Environment, Environment)> tasks = new List<(Environment, Environment)>();
 
@@ -821,6 +980,57 @@ ResolveMutableConstraints(Environment baseEnv)
             return tasks;
         }
         
+        private List<int[]> RemoveDuplicateSamples(List<int[]> orthogonalSamples)
+        {
+            // Use a HashSet with a custom comparer to ensure uniqueness based on array content
+            var uniqueSamples = new HashSet<int[]>(new ArrayComparer());
+
+            foreach (var sample in orthogonalSamples)
+            {
+                uniqueSamples.Add(sample); // HashSet will automatically handle duplicates
+            }
+
+            // Convert back to a List<int[]> and return
+            return uniqueSamples.ToList();
+        }
+        
+        // Custom comparer for int[] to compare array content
+        private class ArrayComparer : IEqualityComparer<int[]>
+        {
+            public bool Equals(int[] x, int[] y)
+            {
+                if (x == null || y == null) return false;
+                if (x.Length != y.Length) return false;
+
+                // Compare arrays element by element
+                for (int i = 0; i < x.Length; i++)
+                {
+                    if (x[i] != y[i])
+                    {
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+
+            public int GetHashCode(int[] obj)
+            {
+                if (obj == null) return 0;
+
+                // Combine hash codes of all elements in the array
+                unchecked
+                {
+                    int hash = 17;
+                    foreach (int value in obj)
+                    {
+                        hash = hash * 31 + value.GetHashCode();
+                    }
+                    return hash;
+                }
+            }
+        }
+
         private void ApplySampleToEnvironment(Environment env, string attributeName, double sampledValue)
         {
             // foreach (var attr in env.Attributes)
@@ -837,7 +1047,7 @@ ResolveMutableConstraints(Environment baseEnv)
 
 
                 string lastWord = parts[^1]; // ^1 is the index-from-end operator
-                
+
                 foreach (var attr in agent.Attributes)
                 {
                     if (attr.Name.Value == lastWord && attr.Mutable?.Value == true)
@@ -858,7 +1068,9 @@ ResolveMutableConstraints(Environment baseEnv)
             //     }
             // }
         }
-        private List<int[]> GenerateOrthogonalSamples(int nSamples, int nDimensions, Dictionary<string, (double Min, double Max)> ranges, int? seed = null)
+
+        private List<int[]> GenerateOrthogonalSamples(int nSamples, int nDimensions,
+            Dictionary<string, (double Min, double Max)> ranges, int? seed = null)
         {
             Random random = seed.HasValue ? new Random(seed.Value) : new Random();
 
@@ -903,12 +1115,9 @@ ResolveMutableConstraints(Environment baseEnv)
 
             return samples;
         }
+
         private void SaveSamplesToCsv(List<int[]> samples, List<string> headers, string filePath)
         {
-            
-            
-            
-            
             using (var writer = new System.IO.StreamWriter(filePath))
             {
                 // Write the headers
@@ -917,15 +1126,17 @@ ResolveMutableConstraints(Environment baseEnv)
                 // Write each sample as a row
                 foreach (var sample in samples)
                 {
-                    writer.WriteLine(string.Join(",", sample.Select(value => value.ToString(System.Globalization.CultureInfo.InvariantCulture))));
+                    writer.WriteLine(string.Join(",",
+                        sample.Select(value => value.ToString(System.Globalization.CultureInfo.InvariantCulture))));
                 }
             }
 
             Logger.LogInfo($"Generated samples saved to: {filePath}");
         }
-        
-        
-        private List<int[]> GenerateRandomSamples(int nSamples, int nDimensions, Dictionary<string, (double Min, double Max)> ranges, int? seed = null)
+
+
+        private List<int[]> GenerateRandomSamples(int nSamples, int nDimensions,
+            Dictionary<string, (double Min, double Max)> ranges, int? seed = null)
         {
             Random random = seed.HasValue ? new Random(seed.Value) : new Random();
 
@@ -953,9 +1164,10 @@ ResolveMutableConstraints(Environment baseEnv)
 
             return samples;
         }
-        
-        
-        private List<int[]> GenerateLHSSamples(int nSamples, int nDimensions, Dictionary<string, (double Min, double Max)> ranges, int? seed = null)
+
+
+        private List<int[]> GenerateLHSSamples(int nSamples, int nDimensions,
+            Dictionary<string, (double Min, double Max)> ranges, int? seed = null)
         {
             Random random = seed.HasValue ? new Random(seed.Value) : new Random();
 
@@ -1003,19 +1215,125 @@ ResolveMutableConstraints(Environment baseEnv)
 
             return samples;
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+
+        private void ModifyMutableObjectsUsingOrthogonalMatrix(Environment environmentConfig,
+            Dictionary<string, List<string>> mutableAttributes)
+        {
+            // Dictionary to track unique attribute value combinations
+            var attributeValueMap = new Dictionary<string, string>(); // Key: Combination, Value: Object ID
+
+            // Generate all possible combinations for attributes
+            var allCombinations = GenerateAllCombinations(environmentConfig, mutableAttributes);
+
+            if (allCombinations.Count == 0)
+            {
+                return;
+            }
+
+            // Generate an orthogonal matrix
+            var orthogonalSamples = GenerateOrthogonalMatrix(allCombinations.Count, allCombinations[0].Count);
+
+            // Scale orthogonal samples to match allCombinations
+            var selectedCombinations = MapOrthogonalSamplesToCombinations(allCombinations, orthogonalSamples);
+
+            // Assign combinations to objects
+            int combinationIndex = 0;
+            foreach (var obj in environmentConfig.Objects.ObjectList)
+            {
+                string objectId = obj.Id.ToString();
+
+                // Check if the current object has an entry in mutableAttributes
+                if (mutableAttributes.ContainsKey(objectId) && combinationIndex < selectedCombinations.Count)
+                {
+                    List<string> attributesToMutate = mutableAttributes[objectId];
+
+                    // Deep copy the attributes to avoid shared references
+                    List<Attribute> deepCopiedAttributes = obj.Attributes
+                        .Select(attribute => CloneAttribute(attribute))
+                        .ToList();
+                    obj.Attributes = deepCopiedAttributes;
+
+                    // Get the selected combination for this object
+                    var selectedCombination = selectedCombinations[combinationIndex];
+                    combinationIndex++;
+
+                    int index = 0;
+                    foreach (var attribute in obj.Attributes)
+                    {
+                        // Ensure the attribute matches the list for the current object
+                        if (attributesToMutate.Contains(attribute.Name.Value))
+                        {
+                            // Assign the value from the selected combination
+                            attribute.Value.Content = selectedCombination[index];
+                            index++;
+                        }
+                    }
+                }
+            }
+        }
+
+// Generate an orthogonal matrix
+        private List<List<double>> GenerateOrthogonalMatrix(int numRows, int numCols)
+        {
+            var random = new Random(Aiprobe.seed);
+            var orthogonalMatrix = new List<List<double>>();
+
+            for (int i = 0; i < numRows; i++)
+            {
+                var row = new List<double>();
+                for (int j = 0; j < numCols; j++)
+                {
+                    // Generate values between 0 and 1
+                    row.Add(random.NextDouble());
+                }
+
+                orthogonalMatrix.Add(row);
+            }
+
+            // Ensure orthogonality by normalizing rows
+            orthogonalMatrix = NormalizeOrthogonalMatrix(orthogonalMatrix);
+            return orthogonalMatrix;
+        }
+
+// Normalize the orthogonal matrix
+        private List<List<double>> NormalizeOrthogonalMatrix(List<List<double>> matrix)
+        {
+            var normalizedMatrix = new List<List<double>>();
+
+            foreach (var row in matrix)
+            {
+                double norm = Math.Sqrt(row.Sum(value => value * value));
+                normalizedMatrix.Add(row.Select(value => value / norm).ToList());
+            }
+
+            return normalizedMatrix;
+        }
+
+// Map orthogonal samples to combinations
+        private List<List<string>> MapOrthogonalSamplesToCombinations(List<List<string>> allCombinations,
+            List<List<double>> orthogonalSamples)
+        {
+            var mappedCombinations = new List<List<string>>();
+
+            for (int i = 0; i < orthogonalSamples.Count; i++)
+            {
+                var combination = new List<string>();
+
+                for (int j = 0; j < orthogonalSamples[i].Count; j++)
+                {
+                    // Map normalized value to combination index
+                    int index = (int)(orthogonalSamples[i][j] * allCombinations.Count);
+                    index = Math.Min(index, allCombinations.Count - 1); // Ensure within bounds
+                    combination.Add(allCombinations[index][j]);
+                }
+
+                mappedCombinations.Add(combination);
+            }
+
+            return mappedCombinations;
+        }
+
+// Generate all possible combinations for mutable attributes
     }
-    
-    
-    
-    
-    
 }

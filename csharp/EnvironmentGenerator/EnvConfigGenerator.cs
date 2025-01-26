@@ -18,7 +18,7 @@ namespace AIprobe.EnvironmentGenerator
 
     public class EnvConfigGenerator
     {
-        public static ConcurrentQueue<Environment> GenerateEnvConfigsQueue(Environment baseEnv, int? seed = null )
+        public static ConcurrentQueue<Environment> GenerateEnvConfigsQueue(Environment baseEnv, int? seed = null)
         {
             // Step 1: Resolve constraints into independent ranges and dependencies
             var (independentRanges, dependentConstraints, dataTypes) = ResolveConstraints(baseEnv);
@@ -31,45 +31,48 @@ namespace AIprobe.EnvironmentGenerator
                 LhsSampler.PerformLhsWithDependencies(independentRanges, dependentConstraints, nSamples, seed);
 
             // Step 3: Save sampled values to CSV
-            SaveToCsv(sampledValues,
-              $"/Users/rahil/Documents/GitHub/AIProbe/csharp/Result/re/{seed}/_values.csv");
+            // SaveToCsv(sampledValues,
+            //     $"{Aiprobe.resultFolder}/");
 
-            
-            var randomsample = LhsSampler.PerformRandomSamplingWithDependencies(independentRanges, dependentConstraints, nSamples, seed);
-            
+
+            var randomsample =
+                LhsSampler.PerformRandomSamplingWithDependencies(independentRanges, dependentConstraints, nSamples,
+                    seed);
+
             SaveToCsv(randomsample,
-                $"/Users/rahil/Documents/GitHub/AIProbe/csharp/Result/re/{seed}/random_values.csv");
-            
-            
-          
-            var improvedLHS = LhsSampler.PerformLhsWithDependenciesImproved(independentRanges, dependentConstraints, nSamples, seed);
-            
+                $"{Aiprobe.resultFolder}/random_values.csv");
+
+
+            var improvedLHS =
+                LhsSampler.PerformLhsWithDependenciesImproved(independentRanges, dependentConstraints, nSamples, seed);
+
             SaveToCsv(improvedLHS,
-                $"/Users/rahil/Documents/GitHub/AIProbe/csharp/Result/re/{seed}/improvedLHS_values.csv");
-            
+                $"{Aiprobe.resultFolder}/improvedLHS_values.csv");
+
             // Use a queue instead of a list to store sampled environments
             ConcurrentQueue<Environment> sampledEnvironments = new ConcurrentQueue<Environment>();
             Aiprobe.LogAndDisplay($"Total no of environment generated: {sampledValues.Count}");
             int sampleCount = 0;
             EnvTaskGenerator gen = new EnvTaskGenerator();
-            
-            foreach (var sample in sampledValues)
+
+            foreach (var sample in improvedLHS)
             {
-                
                 var newEnv = CloneEnvironment(baseEnv); // Clone the base environment
                 ApplySamplesToEnvironment(newEnv, sample, dataTypes);
 
                 // Step 5: Adjust objects based on global attributes
                 AdjustObjectsGlobally(newEnv);
-                
-                Environment modifiedEnv =  gen.MutateObjectProperties(newEnv);
 
-                Aiprobe.LogAndDisplay($"Saved the generated sample env no: {sampledEnvironments.Count() + 1} in memory");
-                
+                Environment modifiedEnv = gen.MutateObjectProperties(newEnv);
+
+
+                Aiprobe.LogAndDisplay(
+                    $"Saved the generated sample env no: {sampledEnvironments.Count() + 1} in memory");
+
                 // Enqueue the environment
                 sampledEnvironments.Enqueue(modifiedEnv);
             }
-            
+
             Aiprobe.LogAndDisplay($"Total no of environment generated and saved: {sampledEnvironments.Count}");
             return sampledEnvironments;
 
@@ -646,7 +649,13 @@ namespace AIprobe.EnvironmentGenerator
                     Name = attr.Name,
                     DataType = attr.DataType,
                     Value = new Value { Content = attr.Value.Content },
-                    Constraint = attr.Constraint,
+                    Constraint = new Constraint
+                    {
+                        Min = attr.Constraint.Min,
+                        Max = attr.Constraint.Max,
+                        OneOf = attr.Constraint.OneOf,
+                        RoundOff = attr.Constraint.RoundOff
+                    },
                     Mutable = attr.Mutable
                 })),
                 Agents = new Agents
@@ -660,7 +669,13 @@ namespace AIprobe.EnvironmentGenerator
                             Name = attr.Name,
                             DataType = attr.DataType,
                             Value = new Value { Content = attr.Value.Content },
-                            Constraint = attr.Constraint,
+                            Constraint = new Constraint
+                            {
+                                Min = attr.Constraint.Min,
+                                Max = attr.Constraint.Max,
+                                OneOf = attr.Constraint.OneOf,
+                                RoundOff = attr.Constraint.RoundOff
+                            },
                             Mutable = attr.Mutable
                         }).ToList()
                     })
@@ -676,14 +691,19 @@ namespace AIprobe.EnvironmentGenerator
                             Name = attr.Name,
                             DataType = attr.DataType,
                             Value = new Value { Content = attr.Value.Content },
-                            Constraint = attr.Constraint,
+                            Constraint = new Constraint
+                            {
+                                Min = attr.Constraint.Min,
+                                Max = attr.Constraint.Max,
+                                OneOf = attr.Constraint.OneOf,
+                                RoundOff = attr.Constraint.RoundOff
+                            },
                             Mutable = attr.Mutable
                         }).ToList()
                     })
                 }
             };
         }
-
 
         public static List<Dictionary<string, double>> PerformLhsWithDependencies(
             Dictionary<string, (double Min, double Max)> independentRanges,
@@ -822,12 +842,5 @@ namespace AIprobe.EnvironmentGenerator
                 }
             }
         }
-        
-        
-        
-        
-        
-        
-        
     }
 }

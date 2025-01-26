@@ -38,133 +38,148 @@ public class InstructionChecker
         
         environmentQueue.Enqueue(initialEnvironmentState);
         DateTime startTime = DateTime.Now;
-        
+        CancellationTokenSource cts = new CancellationTokenSource();
+        cts.CancelAfter(TimeSpan.FromSeconds(timeLimitInSeconds));
         while (environmentQueue.Count > 0)
         {
-            
-            // Dequeue the current environment state to explore
-            var currentEnvironment = environmentQueue.Dequeue();
-
-            string currentEnviromentHashValues = HashGenerator.ComputeEnvironmentHash(currentEnvironment);
-          
-            if ( currentEnviromentHashValues.Equals(finalStateHashValue))
+            cts.Token.ThrowIfCancellationRequested();
+            try
             {
-                
-                // Get the list of actions that led to this environment state
-                if (instructionStateDictionary.TryGetValue(finalStateHashValue,out  List<string> instructionSet ))
-                {
-                   results.Add(new object[] { string.Join(", ", instructionSet), "Safe" });
-                   instructionExists = true;
-                   
-                   Aiprobe.LogAndDisplay("####Found instruction set###");
-                   return results;
-                }
-                
-                Aiprobe.LogAndDisplay("Found final state but could not found final instructions sets###");
-                return results;
-            }
-            
-            
-            // Retrieve remaining actions for this state
-            List<string> remainingActions = new List<string>();
-          
-            remainingActions = AddEnvironmentAndCheckActions(currentEnviromentHashValues, actionSpace, completedActionsDictionary);
-            
 
-            foreach (string action in new List<string>(remainingActions))
-            {
-                string filePath = Aiprobe.envConfigFile;
 
-                bool safeCondition = true;
-                Environment updatedEnvironment = new Environment();
-                try
-                {
-                    // updatedEnvironment =
-                    // runner.RunPythonScript( tempFuzzerFilePath,wraperFilePath, action, out safeCondition);
-                    updatedEnvironment = CallPythonWrapperWithRedis( currentEnvironment, action, out safeCondition);
+                // Dequeue the current environment state to explore
+                var currentEnvironment = environmentQueue.Dequeue();
 
-                }
-                catch (Exception e)
-                {
-                    
-                    Aiprobe.LogAndDisplay(e.Message);
-                    return results;
+                string currentEnviromentHashValues = HashGenerator.ComputeEnvironmentHash(currentEnvironment);
 
-                }
-                // Run the Python script to get the updated environment statE
-                
-                //
-                
-                string updatedEnviromentHashValue = HashGenerator.ComputeEnvironmentHash(updatedEnvironment);
-                
-                if (updatedEnviromentHashValue.Equals(finalStateHashValue))
+                if (currentEnviromentHashValues.Equals(finalStateHashValue))
                 {
-                    if (safeCondition)
+
+                    // Get the list of actions that led to this environment state
+                    if (instructionStateDictionary.TryGetValue(finalStateHashValue, out List<string> instructionSet))
                     {
+                        results.Add(new object[] { string.Join(", ", instructionSet), "Safe" });
+                        instructionExists = true;
+
                         Aiprobe.LogAndDisplay("####Found instruction set###");
-
-                        if (instructionStateDictionary.TryGetValue(currentEnviromentHashValues,
-                                out List<string> instructionSet))
-                        {
-                            instructionExists = true;
-                            instructionSet.Add(action);
-                            results.Add(new object[] { string.Join(", ", instructionSet), "Safe" });
-                            Aiprobe.LogAndDisplay($"Stopping instruction validation. instruction found:{instructionExists}");
-                            return results;
-                        }
+                        return results;
                     }
+
+                    Aiprobe.LogAndDisplay("Found final state but could not found final instructions sets###");
+                    return results;
                 }
-              
-                //bool createdNewKey = instructionStateDictionary.TryAdd(updatedEnviromentHashValue, new List<string>());
 
-                
-                
-                bool createdNewActionKey = completedActionsDictionary.TryAdd(updatedEnviromentHashValue,new List<string>());
-                
 
-                List<string> newInstructionSet = new List<string>();
+                // Retrieve remaining actions for this state
+                List<string> remainingActions = new List<string>();
 
-                if (instructionStateDictionary.TryAdd(updatedEnviromentHashValue, new List<string>()))
+                remainingActions = AddEnvironmentAndCheckActions(currentEnviromentHashValues, actionSpace,
+                    completedActionsDictionary);
+
+
+                foreach (string action in new List<string>(remainingActions))
                 {
+                    string filePath = Aiprobe.envConfigFile;
 
-                    Aiprobe.totalEnviroementState++;
-                    
-                    if(instructionStateDictionary.TryGetValue(currentEnviromentHashValues, out List<string> previousInstructionSet ))
-                        if (previousInstructionSet.Count > 0)
+                    bool safeCondition = true;
+                    Environment updatedEnvironment = new Environment();
+                    try
+                    {
+                        // updatedEnvironment =
+                        // runner.RunPythonScript( tempFuzzerFilePath,wraperFilePath, action, out safeCondition);
+                        updatedEnvironment = CallPythonWrapperWithRedis(currentEnvironment, action, out safeCondition);
+
+                    }
+                    catch (Exception e)
+                    {
+
+                        Aiprobe.LogAndDisplay(e.Message);
+                        return results;
+
+                    }
+                    // Run the Python script to get the updated environment statE
+
+                    //
+
+                    string updatedEnviromentHashValue = HashGenerator.ComputeEnvironmentHash(updatedEnvironment);
+
+                    if (updatedEnviromentHashValue.Equals(finalStateHashValue))
+                    {
+                        if (safeCondition)
                         {
-                            foreach (var VARIABLE in previousInstructionSet)
+                            Aiprobe.LogAndDisplay("####Found instruction set###");
+
+                            if (instructionStateDictionary.TryGetValue(currentEnviromentHashValues,
+                                    out List<string> instructionSet))
                             {
-                                newInstructionSet.Add(VARIABLE);
+                                instructionExists = true;
+                                instructionSet.Add(action);
+                                results.Add(new object[] { string.Join(", ", instructionSet), "Safe" });
+                                Aiprobe.LogAndDisplay(
+                                    $"Stopping instruction validation. instruction found:{instructionExists}");
+                                return results;
                             }
                         }
-                    
-                    
-                    if (safeCondition == false)
+                    }
+
+                    //bool createdNewKey = instructionStateDictionary.TryAdd(updatedEnviromentHashValue, new List<string>());
+
+
+
+                    bool createdNewActionKey =
+                        completedActionsDictionary.TryAdd(updatedEnviromentHashValue, new List<string>());
+
+
+                    List<string> newInstructionSet = new List<string>();
+
+                    if (instructionStateDictionary.TryAdd(updatedEnviromentHashValue, new List<string>()))
                     {
-                        newInstructionSet.Add(action);
-                        instructionStateDictionary[updatedEnviromentHashValue] =  newInstructionSet;
-                        results.Add(new object[] { string.Join(", ", newInstructionSet), "Unsafe" });
-                        double keyCount = Aiprobe.unsafeStatePosition.Count();
-                        keyCount++;
-                        Aiprobe.unsafeStatePosition[keyCount] = Aiprobe.totalEnviroementState ;
+
+                        Aiprobe.totalEnviroementState++;
+
+                        if (instructionStateDictionary.TryGetValue(currentEnviromentHashValues,
+                                out List<string> previousInstructionSet))
+                            if (previousInstructionSet.Count > 0)
+                            {
+                                foreach (var VARIABLE in previousInstructionSet)
+                                {
+                                    newInstructionSet.Add(VARIABLE);
+                                }
+                            }
+
+
+                        if (safeCondition == false)
+                        {
+                            newInstructionSet.Add(action);
+                            instructionStateDictionary[updatedEnviromentHashValue] = newInstructionSet;
+                            results.Add(new object[] { string.Join(", ", newInstructionSet), "Unsafe" });
+                            double keyCount = Aiprobe.unsafeStatePosition.Count();
+                            keyCount++;
+                            Aiprobe.unsafeStatePosition[keyCount] = Aiprobe.totalEnviroementState;
+
+                        }
+                        else
+                        {
+                            newInstructionSet.Add(action);
+                            instructionStateDictionary[updatedEnviromentHashValue] = newInstructionSet;
+                            //newInstructionSet.Add(action);
+                            environmentQueue.Enqueue(updatedEnvironment);
+                        }
 
                     }
-                    else
-                    {
-                        newInstructionSet.Add(action);
-                        instructionStateDictionary[updatedEnviromentHashValue] =  newInstructionSet;
-                        //newInstructionSet.Add(action);
-                        environmentQueue.Enqueue(updatedEnvironment);
-                    }
-                    
+
                 }
-
             }
-            
-            
+            catch (OperationCanceledException)
+            {
+                Aiprobe.LogAndDisplay("The instruction generation was canceled due to a timeout.");
+                Aiprobe.LogAndDisplay($"Stopping instruction validation. instruction found:{instructionExists}");
+                cts.Dispose();
+                return results;
+            }
+
         }
         Aiprobe.LogAndDisplay($"Stopping instruction validation. instruction found:{instructionExists}");
-
         return results;
     }
 

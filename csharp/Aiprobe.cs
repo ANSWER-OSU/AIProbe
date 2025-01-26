@@ -71,9 +71,11 @@ namespace AIprobe
             cts.CancelAfter(TimeSpan.FromSeconds(processingTime)); 
 
             EnvTaskGenerator envTaskGenerator = new EnvTaskGenerator();
+            int instructionFound = 0;
+            int totalTasks = 0;
             try
             {
-                envireomentQueue.TryDequeue(out Environment env);
+                //envireomentQueue.TryDequeue(out Environment env);
                 
                 //var tasks = envTaskGenerator.GenerateTasksUsingOrthogonalSampling(env, 20, seed: 42, outputFilePath: "generated_orthogonal_samples.csv");
 
@@ -82,6 +84,7 @@ namespace AIprobe
                 //     await GetTasksUsingOrthogonalSamplingAsync(envireomentQueue, resultFolder);
                 //
                 //
+                totalTasks = envTaskqueue.Count;
                 InstructionChecker instructionChecker = new InstructionChecker();
                 while (envTaskqueue.Count > 0)
                 {
@@ -89,8 +92,6 @@ namespace AIprobe
                     Stopwatch stopwatch = Stopwatch.StartNew();
                     // Dequeue an item
                     var (initialPath, finalPath) = envTaskqueue.Dequeue();
-                    
-                  
 
                     if (File.Exists(initialPath) && File.Exists(finalPath))
                     {
@@ -117,9 +118,11 @@ namespace AIprobe
                         string finalEnvironmentHash = HashGenerator.ComputeEnvironmentHash(finalEnvironment);
                         string initialEnvHash = HashGenerator.ComputeEnvironmentHash(initialEnvironment);
 
-                        List<object[]> taskResults = instructionChecker.InstructionExists(initialEnvironment,
-                            actionSpace,instructionGenerationTime , initialEnvHash, finalEnvironmentHash, out bool instructionExists);
-
+                        List<object[]> taskResults = instructionChecker.InstructionExists(initialEnvironment,actionSpace,instructionGenerationTime , initialEnvHash, finalEnvironmentHash, out bool instructionExists);
+                        if (instructionExists)
+                        {
+                            instructionFound++;
+                        }
                         Logger.LogInfo($"Total {unsafeStatePosition.Keys.Count()} unsafe states found in the {lastTwoDirectories}");
                         string unsafeStateDataPath = Path.Combine(Path.GetDirectoryName(initialPath), $"unsafeState.json");
                         ResultSaver.SaveDictionaryToJson(unsafeStatePosition, unsafeStateDataPath);
@@ -138,13 +141,15 @@ namespace AIprobe
             }
             catch (OperationCanceledException)
             {
+                LogAndDisplay($"Total tasks: {totalTasks}");
+                LogAndDisplay($"Total Instruction found : {instructionFound}");
                 LogAndDisplay("The operation was canceled due to a timeout.");
             }
             finally
             {
-                LogAndDisplay("The operation was canceled due to a timeout.");
+                LogAndDisplay($"Total tasks: {totalTasks}");
+                LogAndDisplay($"Total Instruction found : {instructionFound}");
                 cts.Dispose();
-                
             }
         }
 
@@ -823,6 +828,8 @@ namespace AIprobe
             // Set the log file path
             string logFilePath = aiprobe_root_path + "/" + config.LogSettings.LogFilePath;
             //string logFilePath = "/tmp/aiprobe_log.txt";
+            
+            Console.WriteLine();
 
             Logger.Initialize(logFilePath);
 
