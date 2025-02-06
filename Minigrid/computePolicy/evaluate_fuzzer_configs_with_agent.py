@@ -423,8 +423,11 @@ def direction_index_to_direction(direction_index, get_key=False):
 def evaluate_fuzzer_config():
 
     inaccuracy = {0: '_accurate_reward_accurate_state_rep', 1: '_inaccurate_reward_accurate_state_rep', 2: '_accurate_reward_inaccurate_state_rep', 3: '_inaccurate_reward_inaccurate_state_rep'}
-    env_config_dir = sys.argv[1]
+    #env_config_dir = sys.argv[1]
+    env_config_dir = "/Users/rahil/Documents/GitHub/AIProbe/csharp/results/Result_LavaEnv_6161"
     for env_for_seed in os.listdir(env_config_dir):
+        if(env_for_seed == ".DS_Store"):
+            continue
         task_path = os.path.join(env_config_dir, env_for_seed)
         for task in os.listdir(task_path):
             filepath = os.path.join(task_path, task)
@@ -436,7 +439,8 @@ def evaluate_fuzzer_config():
                 if inaccuracy_type in (1,2,3):
                     accurate_model = False
                 env_number = int(xml_file.split('/')[-3].split('_')[1].replace('LavaEnv', ''))
-                seed = int(xml_file.split('/')[-3].split('_')[2])
+                #seed = int(xml_file.split('/')[-3].split('_')[2])
+                seed = 6161
                 task = int(xml_file.split('/')[-2].split('_')[1])
                 print('Env: ', env_number, 'Seed: ', seed, 'Task: ', task)
                 output_path = 'Minigrid/computePolicy/results_for_fuzzer_gen_configs/Env_'+str(env_number)+model+'.csv'

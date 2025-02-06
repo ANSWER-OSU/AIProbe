@@ -1,86 +1,66 @@
 <Environment name="ComplexEnvironment" type="simulation">
   <Agents>
-    <Agent id="1" type="Robot">
+    <Agent id="1" type="Bird">
       <Attribute>
         <Name value="X"/>
-        <Description value=""/>
         <DataType value="int"/>
         <Value value="200"/>
         <Mutable value="true"/>
-        <Constraint Min="0" Max="300" oneOf="" roundOff=""/>
+        <Constraint Min="0" Max="113"/>
       </Attribute>
       <Attribute>
         <Name value="Y"/>
-        <Description value=""/>
         <DataType value="int"/>
         <Value value="300"/>
         <Mutable value="true"/>
-        <Constraint Min="0" Max="500" oneOf="" roundOff=""/>
+        <Constraint Min="0" Max="400"/>
       </Attribute>
       <Attribute>
         <Name value="FLAP_POWER"/>
-        <Description value=""/>
-        <DataType value="int"/>
-        <Value value="50"/>
+        <DataType value="float"/>
+        <Value value="9.0"/>
         <Mutable value="true"/>
-        <Constraint Min="6" Max="128" oneOf="" roundOff=""/>
+        <Constraint Min="1" Max="15" roundOff="4"/>
+      </Attribute>
+      <Attribute>
+        <Name value="MAX_DROP_SPEED"/>
+        <DataType value="float"/>
+        <Value value="10.0"/>
+        <Mutable value="true"/>
+        <Constraint Min="0" Max="10" roundOff="4"/>
       </Attribute>
     </Agent>
   </Agents>
   <Objects>
     <Object id="1" type="Pipe">
       <Attribute>
-        <Name value="start_gap"/>
-        <Description value="The initial distance between pipes and the bird's start position."/>
-        <DataType value="int"/>
-        <Value value="1"/>
-        <Mutable value="true"/>
-        <Constraint Min="10" Max="392" oneOf="" roundOff=""/>
-      </Attribute>
-      <Attribute>
         <Name value="pipe_gap"/>
-        <Description value="The gap size between the top and bottom pipes."/>
         <DataType value="int"/>
         <Value value="100"/>
         <Mutable value="true"/>
-        <Constraint Min="40" Max="256" oneOf="" roundOff=""/>
-      </Attribute>
-      <Attribute>
-        <Name value="offset"/>
-        <Description value="The random offset applied to pipe heights."/>
-        <DataType value="int"/>
-        <Value value="100"/>
-        <Mutable value="true"/>
-        <Constraint Min="50" Max="144" oneOf="" roundOff=""/>
-      </Attribute>
-      <Attribute>
-        <Name value="speed"/>
-        <Description value="The random offset applied to pipe heights."/>
-        <DataType value="int"/>
-        <Value value="23"/>
-        <Mutable value="true"/>
-        <Constraint Min="2" Max="60" oneOf="" roundOff=""/>
+        <Constraint Min="20" Max="256"/>
       </Attribute>
     </Object>
   </Objects>
   <Attribute>
     <Name value="Gravity"/>
-    <Description value="The width of the boundary"/>
-    <DataType value="int"/>
-    <Value value="6"/>
+    <DataType value="float"/>
+    <Value value="6.0"/>
     <Mutable value="false"/>
-    <Constraint Min="1" Max="20" oneOf="" roundOff=""/>
+    <Constraint Min="1" Max="20" roundOff="4"/>
   </Attribute>
   <Attribute>
-    <Name value="max_drop_speed"/>
-    <Description value="The Speed of the environment moving left ."/>
+    <Name value="Timestep_Count"/>
     <DataType value="int"/>
-    <Value value="10"/>
-    <Mutable value="false"/>
-    <Constraint Min="5" Max="50" oneOf="" roundOff=""/>
+    <Value value="150"/>
+    <Mutable value="true"/>
+    <Constraint Min="50" Max="10000"/>
   </Attribute>
-
+  <Attribute>
+    <Name value="scale"/>
+    <DataType value="float"/>
+    <Value value="1.0"/>
+    <Mutable value="true"/>
+    <Constraint Min="0.1" Max="2.0" roundOff="4"/>
+  </Attribute>
 </Environment>
-
-
-       

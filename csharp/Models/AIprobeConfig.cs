@@ -83,5 +83,16 @@ namespace AIprobe.Models
     {
         [XmlElement("Seed")]
         public int Seed { get; set; }
+        
+        
+        [XmlElement("Bin")]
+        public int Bin { get; set; }
+        
+        [XmlElement("EnviromentSampleConstant")]
+        public int EnviromentSampleConstant { get; set; }
+        
+        [XmlElement("TaskSampleConstant")]
+        public int TaskSampleConstant  {get; set; }
+        
     }
 }

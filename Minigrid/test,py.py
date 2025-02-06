@@ -245,7 +245,7 @@ def parse_environment(xml_path):
 # Main Functionality
 def main():
 
-    xml_file = "/Users/rahil/Documents/GitHub/AIProbe/csharp/results/Result_LavaEnv_6161/Env_12/Task_1/initialState.xml"  # Update with your XML file path
+    xml_file = "/Users/rahil/Downloads/Task_1 2/initialState.xml"  # Update with your XML file path
     environment = parse_environment(xml_file)
     print("Parsing the environment")
     env = CustomMiniGridEnv(environment_data=environment)
@@ -257,7 +257,7 @@ def main():
     env.render()
     print("saving the environment")
     # Save a screenshot
-    pygame.image.save(pygame.display.get_surface(), "screenshot.png")
+    pygame.image.save(pygame.display.get_surface(), "screenshotInital.png")
     print("Saved the environment")
 
     env.close()

@@ -23,12 +23,17 @@ namespace AIprobe.EnvironmentGenerator
             // Step 1: Resolve constraints into independent ranges and dependencies
             var (independentRanges, dependentConstraints, dataTypes) = ResolveConstraints(baseEnv);
 
-            int nSamples = (independentRanges.Count + dependentConstraints.Count) * 10;
+           
+            
+            
+            int nSamples = (independentRanges.Count + dependentConstraints.Count) * Aiprobe.enviromentSampleConstant;
+            Aiprobe.LogAndDisplay($"Total {nSamples} environment samples will be generated");
+            
             //int nSamples = (independentRanges.Count) * 10;
 
             // Step 2: Perform LHS sampling with dependencies
-            var sampledValues =
-                LhsSampler.PerformLhsWithDependencies(independentRanges, dependentConstraints, nSamples, seed);
+            // var sampledValues =
+            //     LhsSampler.PerformLhsWithDependencies(independentRanges, dependentConstraints, nSamples, seed);
 
             // Step 3: Save sampled values to CSV
             // SaveToCsv(sampledValues,
@@ -38,7 +43,12 @@ namespace AIprobe.EnvironmentGenerator
             var randomsample =
                 LhsSampler.PerformRandomSamplingWithDependencies(independentRanges, dependentConstraints, nSamples,
                     seed);
-
+            
+            if (!Directory.Exists(Aiprobe.resultFolder))
+            {
+                Directory.CreateDirectory(Aiprobe.resultFolder);
+            }
+            
             SaveToCsv(randomsample,
                 $"{Aiprobe.resultFolder}/random_values.csv");
 
@@ -51,27 +61,41 @@ namespace AIprobe.EnvironmentGenerator
 
             // Use a queue instead of a list to store sampled environments
             ConcurrentQueue<Environment> sampledEnvironments = new ConcurrentQueue<Environment>();
-            Aiprobe.LogAndDisplay($"Total no of environment generated: {sampledValues.Count}");
+            Aiprobe.LogAndDisplay($"Total no of environment generated: {improvedLHS.Count}");
             int sampleCount = 0;
             EnvTaskGenerator gen = new EnvTaskGenerator();
 
-            foreach (var sample in improvedLHS)
+            if (dependentConstraints.Count != 0)
             {
-                var newEnv = CloneEnvironment(baseEnv); // Clone the base environment
-                ApplySamplesToEnvironment(newEnv, sample, dataTypes);
+                foreach (var sample in improvedLHS)
+                {
+                    var newEnv = CloneEnvironment(baseEnv); // Clone the base environment
+                    ApplySamplesToEnvironment(newEnv, sample, dataTypes);
 
-                // Step 5: Adjust objects based on global attributes
-                AdjustObjectsGlobally(newEnv);
+                    // Step 5: Adjust objects based on global attributes
+                    AdjustObjectsGlobally(newEnv);
 
-                Environment modifiedEnv = gen.MutateObjectProperties(newEnv);
+                    Environment modifiedEnv = gen.MutateObjectProperties(newEnv);
 
 
-                Aiprobe.LogAndDisplay(
-                    $"Saved the generated sample env no: {sampledEnvironments.Count() + 1} in memory");
+                    Aiprobe.LogAndDisplay(
+                        $"Saved the generated sample env no: {sampledEnvironments.Count() + 1} in memory");
 
-                // Enqueue the environment
-                sampledEnvironments.Enqueue(modifiedEnv);
+                    // Enqueue the environment
+                    sampledEnvironments.Enqueue(modifiedEnv);
+                }
             }
+            else
+            {
+                foreach (var sample in improvedLHS)
+                {
+                    var newEnv = CloneEnvironment(baseEnv); // Clone the base environment
+                    ApplySamplesToEnvironment(newEnv, sample, dataTypes);
+                    sampledEnvironments.Enqueue(newEnv);
+                }
+                
+            }
+            
 
             Aiprobe.LogAndDisplay($"Total no of environment generated and saved: {sampledEnvironments.Count}");
             return sampledEnvironments;
@@ -525,13 +549,13 @@ namespace AIprobe.EnvironmentGenerator
         }
 
 
-        public static (Dictionary<string, (double Min, double Max, string DataType)> independentRanges,
-            Dictionary<string, (string MinExpr, string MaxExpr, string DataType)> dependentConstraints,
+        public static (Dictionary<string, (double Min, double Max, string DataType,int RoundOff)> independentRanges,
+            Dictionary<string, (string MinExpr, string MaxExpr, string DataType,int RoundOff)> dependentConstraints,
             List<string> dataTypes)
             ResolveConstraints(Environment baseEnv)
         {
-            var independentRanges = new Dictionary<string, (double Min, double Max, string DataType)>();
-            var dependentConstraints = new Dictionary<string, (string MinExpr, string MaxExpr, string DataType)>();
+            var independentRanges = new Dictionary<string, (double Min, double Max, string DataType,int RoundOff)>();
+            var dependentConstraints = new Dictionary<string, (string MinExpr, string MaxExpr, string DataType,int RoundOff)>();
             var dataTypes = new List<string>();
 
             foreach (var attr in baseEnv.Attributes)
@@ -540,11 +564,12 @@ namespace AIprobe.EnvironmentGenerator
                 string minExpr = attr.Constraint.Min ?? "0";
                 string maxExpr = attr.Constraint.Max ?? "0";
                 string dataType = attr.DataType.Value;
+                string roundOff = string.IsNullOrEmpty(attr.Constraint.RoundOff) ? "0" : attr.Constraint.RoundOff;
 
                 if (!minExpr.Contains("{") && !maxExpr.Contains("{"))
                 {
                     // Independent constraint
-                    independentRanges[attrName] = (double.Parse(minExpr), double.Parse(maxExpr), dataType);
+                    independentRanges[attrName] = (double.Parse(minExpr), double.Parse(maxExpr), dataType,int.Parse(roundOff));
                 }
                 else
                 {
@@ -553,11 +578,48 @@ namespace AIprobe.EnvironmentGenerator
                     string strippedMaxExpr = StripBraces(maxExpr);
 
                     dependentConstraints[attrName] = (MinExpr: strippedMinExpr, MaxExpr: strippedMaxExpr,
-                        DataType: dataType);
+                        DataType: dataType,int.Parse(roundOff));
                 }
 
                 dataTypes.Add(dataType);
             }
+            
+            
+            
+            
+            foreach (var attr in baseEnv.Objects.ObjectList)
+            {
+                foreach (var VARIABLE in attr.Attributes)
+                {
+                    string attrName = VARIABLE.Name.Value;
+                    string minExpr = VARIABLE.Constraint.Min ?? "0";
+                    string maxExpr = VARIABLE.Constraint.Max ?? "0";
+                    string dataType = VARIABLE.DataType.Value;
+                    string roundOff = string.IsNullOrEmpty(VARIABLE.Constraint.RoundOff) ? "0" : VARIABLE.Constraint.RoundOff;
+
+                    if (!minExpr.Contains("{") && !maxExpr.Contains("{"))
+                    {
+                        // Independent constraint
+                        independentRanges[attrName] = (double.Parse(minExpr), double.Parse(maxExpr), dataType,int.Parse(roundOff));
+                    }
+                    else
+                    {
+                        // Dependent constraint: Strip enclosing braces and store the raw expressions
+                        string strippedMinExpr = StripBraces(minExpr);
+                        string strippedMaxExpr = StripBraces(maxExpr);
+
+                        dependentConstraints[attrName] = (MinExpr: strippedMinExpr, MaxExpr: strippedMaxExpr,
+                            DataType: dataType,int.Parse(roundOff));
+                    }
+
+                    dataTypes.Add(dataType);
+                }
+
+                }
+               
+            
+            
+            
 
             return (independentRanges, dependentConstraints, dataTypes);
         }
@@ -573,12 +635,12 @@ namespace AIprobe.EnvironmentGenerator
         }
 
 
-        public static (Dictionary<string, (double Min, double Max, string DataType)> independentRanges,
-            Dictionary<string, (string MinExpr, string MaxExpr, string DataType)> dependentConstraints)
+        public static (Dictionary<string, (double Min, double Max, string DataType,int RoundOff)> independentRanges,
+            Dictionary<string, (string MinExpr, string MaxExpr, string DataType,int RoundOff)> dependentConstraints)
             ResolveAgentAndObjectConstraints(Environment baseEnv)
         {
-            var independentRanges = new Dictionary<string, (double Min, double Max, string DataType)>();
-            var dependentConstraints = new Dictionary<string, (string MinExpr, string MaxExpr, string DataType)>();
+            var independentRanges = new Dictionary<string, (double Min, double Max, string DataType,int RoundOff)>();
+            var dependentConstraints = new Dictionary<string, (string MinExpr, string MaxExpr, string DataType,int RoundOff)>();
 
             // Process attributes of agents
             foreach (var agent in baseEnv.Agents.AgentList)
@@ -589,11 +651,12 @@ namespace AIprobe.EnvironmentGenerator
                     string minExpr = attr.Constraint.Min ?? "0";
                     string maxExpr = attr.Constraint.Max ?? "0";
                     string dataType = attr.DataType.Value;
+                    string roundOff = attr.Constraint.RoundOff ?? "0";
 
                     if (!minExpr.Contains("{") && !maxExpr.Contains("{"))
                     {
                         // Independent constraint
-                        independentRanges[key] = (double.Parse(minExpr), double.Parse(maxExpr), dataType);
+                        independentRanges[key] = (double.Parse(minExpr), double.Parse(maxExpr), dataType,int.Parse(roundOff));
                     }
                     else
                     {
@@ -602,7 +665,7 @@ namespace AIprobe.EnvironmentGenerator
                         string strippedMaxExpr = StripBraces(maxExpr);
 
                         dependentConstraints[key] = (MinExpr: strippedMinExpr, MaxExpr: strippedMaxExpr,
-                            DataType: dataType);
+                            DataType: dataType,int.Parse(roundOff));
                     }
                 }
             }
@@ -616,11 +679,12 @@ namespace AIprobe.EnvironmentGenerator
                     string minExpr = attr.Constraint.Min ?? "0";
                     string maxExpr = attr.Constraint.Max ?? "0";
                     string dataType = attr.DataType.Value;
+                    string roundOff = attr.Constraint.RoundOff ?? "0";
 
                     if (!minExpr.Contains("{") && !maxExpr.Contains("{"))
                     {
                         // Independent constraint
-                        independentRanges[key] = (double.Parse(minExpr), double.Parse(maxExpr), dataType);
+                        independentRanges[key] = (double.Parse(minExpr), double.Parse(maxExpr), dataType,int.Parse(roundOff));
                     }
                     else
                     {
@@ -629,7 +693,7 @@ namespace AIprobe.EnvironmentGenerator
                         string strippedMaxExpr = StripBraces(maxExpr);
 
                         dependentConstraints[key] = (MinExpr: strippedMinExpr, MaxExpr: strippedMaxExpr,
-                            DataType: dataType);
+                            DataType: dataType,int.Parse(roundOff));
                     }
                 }
             }
@@ -810,7 +874,7 @@ namespace AIprobe.EnvironmentGenerator
             {
                 foreach (var attr in obj.Attributes)
                 {
-                    string sampleKey = $"Object_{obj.Id}_{attr.Name.Value}";
+                    string sampleKey = $"{attr.Name.Value}";
                     if (sample.ContainsKey(sampleKey))
                     {
                         attr.Value.Content = Convert.ToString(sample[sampleKey]);

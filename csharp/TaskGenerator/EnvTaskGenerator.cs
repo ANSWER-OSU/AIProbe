@@ -576,26 +576,31 @@ namespace AIprobe.TaskGenerator
         /// <summary>
         /// Resolves constraints for attributes marked as mutable.
         /// </summary>
-        private static (Dictionary<string, (double Min, double Max, string DataType)> independentRanges,
-            Dictionary<string, (string MinExpr, string MaxExpr, string DataType)> dependentConstraints,
+        private static (Dictionary<string, (double Min, double Max, string DataType,int RoundOff)> independentRanges,
+            Dictionary<string, (string MinExpr, string MaxExpr, string DataType,int RoundOff)> dependentConstraints,
             List<string> dataTypes)
             ResolveMutableConstraints(Environment baseEnv)
         {
-            var independentRanges = new Dictionary<string, (double Min, double Max, string DataType)>();
-            var dependentConstraints = new Dictionary<string, (string MinExpr, string MaxExpr, string DataType)>();
+            var independentRanges = new Dictionary<string, (double Min, double Max, string DataType,int RoundOff)>();
+            var dependentConstraints = new Dictionary<string, (string MinExpr, string MaxExpr, string DataType,int RoundOff)>();
             var dataTypes = new List<string>();
 
             // Process global attributes
             foreach (var attr in baseEnv.Attributes.Where(attr => attr.Mutable.Value))
             {
                 string attrName = attr.Name.Value;
+                if (attrName != "Timestep_Count")
+                {
+                    continue;
+                }
                 string minExpr = attr.Constraint.Min ?? "0";
                 string maxExpr = attr.Constraint.Max ?? "0";
                 string dataType = attr.DataType.Value;
+                string roundOff = string.IsNullOrEmpty(attr.Constraint.RoundOff) ? "0" : attr.Constraint.RoundOff;
 
                 if (!minExpr.Contains("{") && !maxExpr.Contains("{"))
                 {
-                    independentRanges[attrName] = (double.Parse(minExpr), double.Parse(maxExpr), dataType);
+                    independentRanges[attrName] = (double.Parse(minExpr), double.Parse(maxExpr), dataType,int.Parse(roundOff));
                 }
                 else
                 {
@@ -603,7 +608,7 @@ namespace AIprobe.TaskGenerator
                     string strippedMaxExpr = StripBraces(maxExpr);
 
                     dependentConstraints[attrName] = (MinExpr: strippedMinExpr, MaxExpr: strippedMaxExpr,
-                        DataType: dataType);
+                        DataType: dataType, RoundOff: int.Parse(roundOff));
                 }
 
                 dataTypes.Add(dataType);
@@ -618,10 +623,11 @@ namespace AIprobe.TaskGenerator
                     string minExpr = attr.Constraint.Min ?? "0";
                     string maxExpr = attr.Constraint.Max ?? "0";
                     string dataType = attr.DataType.Value;
+                    string roundOff = string.IsNullOrEmpty(attr.Constraint.RoundOff) ? "0" : attr.Constraint.RoundOff;
 
                     if (!minExpr.Contains("{") && !maxExpr.Contains("{"))
                     {
-                        independentRanges[key] = (double.Parse(minExpr), double.Parse(maxExpr), dataType);
+                        independentRanges[key] = (double.Parse(minExpr), double.Parse(maxExpr), dataType,int.Parse(roundOff));
                     }
                     else
                     {
@@ -629,7 +635,7 @@ namespace AIprobe.TaskGenerator
                         string strippedMaxExpr = StripBraces(maxExpr);
 
                         dependentConstraints[key] = (MinExpr: strippedMinExpr, MaxExpr: strippedMaxExpr,
-                            DataType: dataType);
+                            DataType: dataType, RoundOff: int.Parse(roundOff));
                     }
 
                     dataTypes.Add(dataType);
@@ -914,14 +920,13 @@ namespace AIprobe.TaskGenerator
             // Resolve mutable constraints
             var (independentRanges, _, _) = ResolveMutableConstraints(environmentConfig);
 
-
             // Prepare ranges for sampling
             Dictionary<string, (double Min, double Max)> ranges = independentRanges.ToDictionary(
                 kvp => kvp.Key,
                 kvp => (kvp.Value.Min, kvp.Value.Max)
             );
 
-            nSamples = independentRanges.Count * 10;
+            nSamples = independentRanges.Count * Aiprobe.taskSampleConstant;
 
             // Generate orthogonal samples
             List<int[]> orthogonalSamples = GenerateOrthogonalSamples(nSamples, ranges.Count, ranges, seed);
@@ -929,10 +934,15 @@ namespace AIprobe.TaskGenerator
 
             orthogonalSamples = RemoveDuplicateSamples(orthogonalSamples);
             
+          
+            if (!Directory.Exists(outputFilePath))
+            {
+                Directory.CreateDirectory(outputFilePath);
+            }
             //Save the generated points to a CSV file (optional)
             if (!string.IsNullOrEmpty(outputFilePath))
             {
-                SaveSamplesToCsv(orthogonalSamples, ranges.Keys.ToList(), "generated_orthogoal_samples.csv");
+                SaveSamplesToCsv(orthogonalSamples, ranges.Keys.ToList(), $"{outputFilePath}/generated_orthogoal_samples.csv");
             }
 
 
@@ -941,16 +951,16 @@ namespace AIprobe.TaskGenerator
             // Save the generated points to a CSV file (optional)
             if (!string.IsNullOrEmpty(outputFilePath))
             {
-                SaveSamplesToCsv(randomSamples, ranges.Keys.ToList(), "generated_Random_samples.csv");
+                SaveSamplesToCsv(randomSamples, ranges.Keys.ToList(), $"{outputFilePath}/generated_Random_samples.csv");
             }
 
 
-            List<int[]> lHSsampole = LhsSampler.GenerateLHSSamples(nSamples, ranges, seed);
-
-            if (!string.IsNullOrEmpty(outputFilePath))
-            {
-                SaveSamplesToCsv(randomSamples, ranges.Keys.ToList(), "generated_LHS_samples.csv");
-            }
+            // List<int[]> lHSsampole = LhsSampler.GenerateLHSSamples(nSamples, ranges, seed);
+            //
+            // if (!string.IsNullOrEmpty(outputFilePath))
+            // {
+            //     SaveSamplesToCsv(randomSamples, ranges.Keys.ToList(), "generated_LHS_samples.csv");
+            // }
 
 
             // Generate tasks
@@ -965,12 +975,15 @@ namespace AIprobe.TaskGenerator
                 int index = 0;
                 foreach (var key in ranges.Keys)
                 {
-                    ApplySampleToEnvironment(initialState, key, sample[index]);
+                    ApplySampleToEnvironment(initialState, key, sample[index],true);
+                    ApplySampleToEnvironment(finalState, key, sample[index],false);
                     index++;
                 }
+                
+                
 
                 // Mutate to create the final state
-                MutateAgentProperties(finalState);
+                //MutateAgentProperties(finalState);
                 //MutateObjectProperties(finalState);
 
                 tasks.Add((initialState, finalState));
@@ -1031,15 +1044,23 @@ namespace AIprobe.TaskGenerator
             }
         }
 
-        private void ApplySampleToEnvironment(Environment env, string attributeName, double sampledValue)
+        private void ApplySampleToEnvironment(Environment env, string attributeName, double sampledValue,bool isinitialState)
         {
-            // foreach (var attr in env.Attributes)
-            // {
-            //     if (attr.Name.Value == attributeName && attr.Mutable?.Value == true)
-            //     {
-            //         attr.Value.Content = Convert.ToString(sampledValue);
-            //     }
-            // }
+            foreach (var attr in env.Attributes)
+            {
+                if (attr.Name.Value == attributeName && attr.Mutable?.Value == true)
+                {
+                    if (isinitialState)
+                    {
+                        attr.Value.Content = "0";
+                    }
+                    else
+                    {
+                        attr.Value.Content = Convert.ToString(sampledValue);
+                    }
+                    
+                }
+            }
 
             foreach (var agent in env.Agents.AgentList)
             {
@@ -1052,6 +1073,7 @@ namespace AIprobe.TaskGenerator
                 {
                     if (attr.Name.Value == lastWord && attr.Mutable?.Value == true)
                     {
+                        
                         attr.Value.Content = Convert.ToString(sampledValue);
                     }
                 }
