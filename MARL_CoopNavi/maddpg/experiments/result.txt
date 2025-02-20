@@ -1,0 +1,421 @@
+WARNING:tensorflow:
+The TensorFlow contrib module will not be included in TensorFlow 2.0.
+For more information, please see:
+  * https://github.com/tensorflow/community/blob/master/rfcs/20180907-contrib-sunset.md
+  * https://github.com/tensorflow/addons
+  * https://github.com/tensorflow/io (for I/O related ops)
+If you depend on functionality not listed there, please file an issue.
+
+WARNING:tensorflow:From test.py:147: The name tf.AUTO_REUSE is deprecated. Please use tf.compat.v1.AUTO_REUSE instead.
+
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/common/tf_util.py:163: The name tf.ConfigProto is deprecated. Please use tf.compat.v1.ConfigProto instead.
+
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/common/tf_util.py:166: The name tf.Session is deprecated. Please use tf.compat.v1.Session instead.
+
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/common/tf_util.py:84: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/trainer/maddpg.py:77: The name tf.random.set_random_seed is deprecated. Please use tf.compat.v1.random.set_random_seed instead.
+
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/trainer/maddpg.py:78: The name tf.variable_scope is deprecated. Please use tf.compat.v1.variable_scope instead.
+
+WARNING:tensorflow:From /scratch/projects/miniconda3/envs/MARL/lib/python3.7/site-packages/tensorflow_core/contrib/layers/python/layers/layers.py:1866: Layer.apply (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `layer.__call__` method instead.
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/common/tf_util.py:179: The name tf.global_variables is deprecated. Please use tf.compat.v1.global_variables instead.
+
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/common/tf_util.py:158: The name tf.get_default_session is deprecated. Please use tf.compat.v1.get_default_session instead.
+
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/common/tf_util.py:180: The name tf.variables_initializer is deprecated. Please use tf.compat.v1.variables_initializer instead.
+
+Number of XML files found: 78125
+Parsed arguments: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=20000, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_6692/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=20000, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[0.68136009, 0.36483448], [-0.77276214, -0.14166175], [-0.86941848, -0.63507695]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_6692/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_12607/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[0.70085546, 0.96886694], [0.21127296, -0.65746915], [0.52891785, 0.57863879]]
+Starting test simulation...
+Test completed. Total collisions: 20 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_12607/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_12704/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[-0.65533477, 0.07762329], [-0.45458594, -0.85904798], [0.74932544, -0.11996008]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_12704/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_6222/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[-0.46406487, 0.05453122], [0.95283931, 0.62934042], [0.62494511, 0.84549531]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_6222/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_6923/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[0.89964941, 0.05817657], [-0.16099747, 0.54414197], [0.43484878, -0.93532466]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_6923/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_2976/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[0.61405418, -0.27898874], [-0.27599092, -0.2121544], [-0.47004776, -0.73091207]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_2976/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_4640/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[0.67830554, -0.76228008], [0.31926053, 0.88447934], [-0.9346146, 0.36701238]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_4640/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_14352/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[-0.52659456, -0.61203637], [-0.45040654, 0.09263805], [-0.8352357, 0.33108867]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_14352/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_7593/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[0.7557047, 0.74961834], [0.52119492, -0.1936747], [0.35731956, 0.4202025]]
+Starting test simulation...
+Test completed. Total collisions: 60 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_7593/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_13954/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[0.65269776, 0.07280466], [0.75188991, -0.48200952], [0.80321347, -0.26963275]]
+Starting test simulation...
+Test completed. Total collisions: 6 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_13954/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_10412/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[-0.13510931, -0.10305542], [0.41324442, 0.94636322], [0.29751726, 0.04147462]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_10412/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_7131/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[-0.78092039, 0.03981582], [0.23513143, 0.54092916], [0.01795765, 0.41277704]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_7131/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_10649/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[0.42162116, -0.05111216], [0.60825315, -0.0655162], [0.89790662, -0.46256408]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_10649/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_13063/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[-0.14321394, 0.91369322], [-0.04914136, 0.42820252], [0.32467639, -0.86735524]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_13063/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_12708/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[-0.09729062, 0.50963862], [-0.88169295, 0.28589219], [0.2974773, 0.56158364]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_12708/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_6188/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[0.86606002, 0.22423719], [0.57471836, -0.83276653], [-0.26631832, 0.74050615]]
+Starting test simulation...
+Test completed. Total collisions: 20 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_6188/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_123/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[-0.02774374, -0.58239397], [0.7377438, 0.09752798], [0.65796048, 0.64516467]]
+Starting test simulation...
+Test completed. Total collisions: 4 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_123/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_11437/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[-0.99602642, 0.0955918], [0.87752108, 0.69974257], [0.30569802, 0.39314681]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_11437/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_10772/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[0.33983687, 0.56471431], [-0.89354641, -0.72898735], [-0.50338702, -0.19213235]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_10772/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_4992/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[0.55194051, -0.2402482], [-0.3920362, 0.0134048], [-0.56603648, 0.70733975]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_4992/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_4691/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[-0.44241373, 0.71381572], [-0.86876542, -0.33903459], [0.65994377, 0.46354328]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_4691/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_15185/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[-0.40726362, -0.17693028], [0.70695897, 0.32850931], [0.40402937, 0.23568508]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_15185/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_14208/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[-0.1143622, 0.47109765], [0.2796962, 0.14185231], [0.51006952, -0.79802978]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_14208/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_1452/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[0.2265586, 0.83121773], [0.94976549, 0.87548599], [-0.26631237, 0.27226337]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_1452/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_1126/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[-0.4649037, 0.68023983], [-0.30151075, -0.02330357], [-0.85371898, -0.55253085]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_1126/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_8992/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[0.78731956, 0.45587839], [0.8852046, -0.85250098], [0.81699584, 0.13890598]]
+Starting test simulation...
+Test completed. Total collisions: 18 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_8992/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_9403/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[0.33385562, 0.47764288], [-0.6450132, -0.50149681], [-0.89746153, -0.22533302]]
+Starting test simulation...
+Test completed. Total collisions: 36 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_9403/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_9099/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[0.03929908, -0.26191856], [-0.43833784, -0.6374045], [0.12230698, -0.07603443]]
+Starting test simulation...
+Test completed. Total collisions: 6 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_9099/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_5012/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[0.80710918, -0.01438306], [0.54984445, 0.88783674], [-0.43494411, 0.63814811]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_5012/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_11591/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[0.26955474, -0.8254152], [-0.72439714, 0.70013693], [0.19297235, 0.22770669]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_11591/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_1183/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[0.17909541, 0.59706625], [0.72003263, -0.67678997], [-0.63536803, -0.98200644]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_1183/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_15509/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[-0.44023497, -0.31558273], [0.41475301, 0.21221339], [0.98939018, -0.31977958]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_15509/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_3400/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[0.10961504, 0.79704396], [0.29159207, 0.0898677], [-0.35772255, 0.78824462]]
+Starting test simulation...
+Test completed. Total collisions: 34 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_3400/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_8676/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[-0.95297479, -0.73093524], [0.38891709, 0.28892552], [0.14560287, -0.05702964]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_8676/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_10323/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[0.20815177, 0.14726174], [0.91543376, 0.39304471], [-0.03271408, -0.734028]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_10323/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_11657/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[-0.67111119, -0.8983204], [0.37053123, -0.55861762], [-0.56426824, -0.53994334]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_11657/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_4047/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[0.05009036, 0.61239126], [0.1333884, 0.96061845], [-0.41648799, -0.14520896]]
+Starting test simulation...
+Test completed. Total collisions: 4 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_4047/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_5724/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[-0.6606772, 0.44815142], [-0.04716665, 0.88636176], [0.74021185, 0.76020695]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_5724/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_4835/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[0.46424021, 0.57572547], [-0.99676566, -0.83091779], [-0.90509548, -0.97650955]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_4835/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_462/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[0.74396291, -0.92528916], [0.36425026, -0.53860763], [-0.77890516, 0.37752206]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_462/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_6505/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[0.3453169, -0.33013601], [0.16884278, 0.46491654], [-0.68529467, -0.6647591]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_6505/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_13386/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[0.89441578, 0.02611638], [0.91762407, -0.52947807], [-0.25523738, 0.42523757]]
+Starting test simulation...
+Test completed. Total collisions: 70 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_13386/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_12428/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[-0.22776807, 0.58229245], [0.03316699, 0.31529727], [0.00181577, -0.68001833]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_12428/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_11966/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[0.44564483, 0.61350501], [-0.21721706, -0.81760185], [-0.7827811, -0.23036008]]
+Starting test simulation...
+Test completed. Total collisions: 8 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_11966/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_15069/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[-0.94771788, -0.71892529], [-0.96621165, -0.62541596], [-0.43509702, -0.51333679]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_15069/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_6896/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[-0.34498803, 0.15390403], [0.1414031, 0.05910375], [0.78741078, 0.13642919]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_6896/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_4919/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[0.28586153, 0.11360405], [-0.73596852, -0.76976619], [0.47998382, 0.67558132]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_4919/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_10828/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[0.71823442, 0.85065002], [0.69706728, 0.54704801], [0.94194111, 0.95337143]]
+Starting test simulation...
+Test completed. Total collisions: 2 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_10828/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_12909/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')
+Agent initial positions: [[-0.49247339, -0.69981417], [0.95021036, 0.26235344], [0.77478094, -0.5851708]]
+Starting test simulation...
+Test completed. Total collisions: 0 in 43001 steps.
+Finished processing /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_12909/finalState.xml, session closed.
+Processing: /scratch/projects/AIProbe/MARL_CoopNavi/Result_MARL_Coop_Navi_5bin_534/Env_3/Task_9851/finalState.xml
+Time Step: Namespace(adv_policy='maddpg', batch_size=1024, gamma=0.95, good_policy='maddpg', load_dir='', lr=0.01, max_episode_len=43001, num_adversaries=0, num_units=64, save_dir='../checkpoints/', scenario='simple_spread')  File "test.py", line 373
+    writer.writerows(results)
+    ^
+IndentationError: unexpected indent
+  File "test.py", line 373
+    writer.writerows(results)
+    ^
+IndentationError: unexpected indent
+WARNING:tensorflow:
+The TensorFlow contrib module will not be included in TensorFlow 2.0.
+For more information, please see:
+  * https://github.com/tensorflow/community/blob/master/rfcs/20180907-contrib-sunset.md
+  * https://github.com/tensorflow/addons
+  * https://github.com/tensorflow/io (for I/O related ops)
+If you depend on functionality not listed there, please file an issue.
+
+WARNING:tensorflow:From test.py:147: The name tf.AUTO_REUSE is deprecated. Please use tf.compat.v1.AUTO_REUSE instead.
+
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/common/tf_util.py:163: The name tf.ConfigProto is deprecated. Please use tf.compat.v1.ConfigProto instead.
+
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/common/tf_util.py:166: The name tf.Session is deprecated. Please use tf.compat.v1.Session instead.
+
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/common/tf_util.py:84: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/trainer/maddpg.py:77: The name tf.random.set_random_seed is deprecated. Please use tf.compat.v1.random.set_random_seed instead.
+
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/trainer/maddpg.py:78: The name tf.variable_scope is deprecated. Please use tf.compat.v1.variable_scope instead.
+
+WARNING:tensorflow:From /scratch/projects/miniconda3/envs/MARL/lib/python3.7/site-packages/tensorflow_core/contrib/layers/python/layers/layers.py:1866: Layer.apply (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `layer.__call__` method instead.
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/common/tf_util.py:179: The name tf.global_variables is deprecated. Please use tf.compat.v1.global_variables instead.
+
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/common/tf_util.py:158: The name tf.get_default_session is deprecated. Please use tf.compat.v1.get_default_session instead.
+
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/common/tf_util.py:180: The name tf.variables_initializer is deprecated. Please use tf.compat.v1.variables_initializer instead.
+
+WARNING:tensorflow:
+The TensorFlow contrib module will not be included in TensorFlow 2.0.
+For more information, please see:
+  * https://github.com/tensorflow/community/blob/master/rfcs/20180907-contrib-sunset.md
+  * https://github.com/tensorflow/addons
+  * https://github.com/tensorflow/io (for I/O related ops)
+If you depend on functionality not listed there, please file an issue.
+
+WARNING:tensorflow:From test.py:147: The name tf.AUTO_REUSE is deprecated. Please use tf.compat.v1.AUTO_REUSE instead.
+
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/common/tf_util.py:163: The name tf.ConfigProto is deprecated. Please use tf.compat.v1.ConfigProto instead.
+
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/common/tf_util.py:166: The name tf.Session is deprecated. Please use tf.compat.v1.Session instead.
+
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/common/tf_util.py:84: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/trainer/maddpg.py:77: The name tf.random.set_random_seed is deprecated. Please use tf.compat.v1.random.set_random_seed instead.
+
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/trainer/maddpg.py:78: The name tf.variable_scope is deprecated. Please use tf.compat.v1.variable_scope instead.
+
+WARNING:tensorflow:From /scratch/projects/miniconda3/envs/MARL/lib/python3.7/site-packages/tensorflow_core/contrib/layers/python/layers/layers.py:1866: Layer.apply (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `layer.__call__` method instead.
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/common/tf_util.py:179: The name tf.global_variables is deprecated. Please use tf.compat.v1.global_variables instead.
+
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/common/tf_util.py:158: The name tf.get_default_session is deprecated. Please use tf.compat.v1.get_default_session instead.
+
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/common/tf_util.py:180: The name tf.variables_initializer is deprecated. Please use tf.compat.v1.variables_initializer instead.
+
+WARNING:tensorflow:
+The TensorFlow contrib module will not be included in TensorFlow 2.0.
+For more information, please see:
+  * https://github.com/tensorflow/community/blob/master/rfcs/20180907-contrib-sunset.md
+  * https://github.com/tensorflow/addons
+  * https://github.com/tensorflow/io (for I/O related ops)
+If you depend on functionality not listed there, please file an issue.
+
+WARNING:tensorflow:From test.py:147: The name tf.AUTO_REUSE is deprecated. Please use tf.compat.v1.AUTO_REUSE instead.
+
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/common/tf_util.py:163: The name tf.ConfigProto is deprecated. Please use tf.compat.v1.ConfigProto instead.
+
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/common/tf_util.py:166: The name tf.Session is deprecated. Please use tf.compat.v1.Session instead.
+
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/common/tf_util.py:84: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/trainer/maddpg.py:77: The name tf.random.set_random_seed is deprecated. Please use tf.compat.v1.random.set_random_seed instead.
+
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/trainer/maddpg.py:78: The name tf.variable_scope is deprecated. Please use tf.compat.v1.variable_scope instead.
+
+WARNING:tensorflow:From /scratch/projects/miniconda3/envs/MARL/lib/python3.7/site-packages/tensorflow_core/contrib/layers/python/layers/layers.py:1866: Layer.apply (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `layer.__call__` method instead.
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/common/tf_util.py:179: The name tf.global_variables is deprecated. Please use tf.compat.v1.global_variables instead.
+
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/common/tf_util.py:158: The name tf.get_default_session is deprecated. Please use tf.compat.v1.get_default_session instead.
+
+WARNING:tensorflow:From /scratch/projects/AIProbe/MARL_CoopNavi/maddpg/maddpg/common/tf_util.py:180: The name tf.variables_initializer is deprecated. Please use tf.compat.v1.variables_initializer instead.
+

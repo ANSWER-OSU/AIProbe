@@ -1,0 +1,6 @@
+{
+    "num_agents": 3,
+    "num_landmarks": 3,
+    "agent_positions": [[-0.5, 0.0], [0.5, 0.0],[0.5, 0.5]],
+    "landmark_positions": [[0.0, -0.5], [0.0, 0.5], [-0.5, -0.5]]
+}
