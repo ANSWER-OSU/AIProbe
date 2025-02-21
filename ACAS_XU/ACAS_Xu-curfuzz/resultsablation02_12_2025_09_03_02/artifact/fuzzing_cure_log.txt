@@ -1,0 +1,1 @@
+Total number of environments generated: 10000

@@ -1,0 +1,4 @@
+160
+:mag: Found 1953125 simulation files in /scratch/projects/AIProbe/csharp/new/csharp/results/NEW/534
+160
+:mag: Found 1953125 simulation files in /scratch/projects/AIProbe/csharp/new/csharp/results/NEW/534

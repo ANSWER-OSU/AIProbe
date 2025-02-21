@@ -167,7 +167,7 @@ def run_on_all_acas_folders(parent_folder):
 # Example Usage:
 if __name__ == "__main__":
     # Define the parent directory containing all `Result_ACAS_Xu_*` folders
-    parent_directory = "/Users/rahil/Documents/GitHub/AIProbe/csharp/results/10_10"
+    parent_directory = "/scratch/projects/AIProbe/Test_Enviroment/ACAS_XU/10_10/"
     
     # Run simulations on all ACAS_Xu result folders
     run_on_all_acas_folders(parent_directory)
