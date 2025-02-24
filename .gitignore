@@ -145,3 +145,4 @@ csharp/AIprobe.sln.DotSettings.user
 /csharp/Result
 *.dll
 /csharp/results
+/csharp/.idea

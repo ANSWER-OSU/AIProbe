@@ -2,9 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Catcher_Flappy_Continuous/PyGame-Learning-Environment" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Catcher_Flappy_Continuous/cleanrl" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Catcher_Flappy_Continuous_old/PyGame-Learning-Environment" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Catcher_Flappy_Continuous_old/PyGame-Learning-Environment/PyGame-Learning-Environment" vcs="Git" />
   </component>
 </project>

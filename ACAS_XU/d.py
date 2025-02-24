@@ -202,7 +202,7 @@ if __name__ == "__main__":
 
     parent_directory = "/scratch/projects/AIProbe/csharp/new/csharp/results/NEW/534"
     num_workers = os.cpu_count()
-    log_file = "simulation_log.txt"
+    log_file = "simulation_log_.txt"
 
     with open(log_file, "w") as log:
         start_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
