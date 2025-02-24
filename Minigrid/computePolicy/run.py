@@ -12,10 +12,6 @@ from Minigrid.computePolicy.helper_functions import get_num_undesired_states
 from Minigrid.computePolicy.loggers import write_metrics
 import os
 
-
-
-
-
 # parameters to change
 accurate_model=True if str(sys.argv[1])=='True' else False
 inaccuracy_type=int(sys.argv[2])

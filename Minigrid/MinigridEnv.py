@@ -19,8 +19,6 @@ class CustomMiniGridEnv(MiniGridEnv):
         # Extract grid size from Attributes
         grid_attr = next(attr for attr in self.environment_data['Attributes'] if attr['Name']['Value'] == 'Grid')
         grid_size = int(grid_attr['Value']['Content'])+2
-
-
         self.width = grid_size
         self.height = grid_size
 
@@ -31,7 +29,8 @@ class CustomMiniGridEnv(MiniGridEnv):
         mission_space = MissionSpace(mission_func=lambda: "Reach the goal while avoiding obstacles")
 
         # Call the parent initializer
-        super().__init__(grid_size=self.width, mission_space=mission_space, **kwargs)
+        kwargs.pop("grid_size", None) # Remove grid_size from kwargs
+        super().__init__(grid_size=grid_size, mission_space=mission_space, render_mode='rgb_array', **kwargs)
 
         self.step_count = 0
         self.dir = {'s': 0, 'w': 1, 'n': 2, 'e': 3}
@@ -53,14 +52,13 @@ class CustomMiniGridEnv(MiniGridEnv):
         for obj in self.environment_data['Objects']['ObjectList']:
             self.add_object_to_grid(obj)
 
-        # Set agent's initial position
-            # Set the agent's initial position and direction
-            agent = self.environment_data['Agents']['AgentList'][0]
-            self.agent_pos = (
-                int(agent['Attributes'][0]['Value']['Content']),  # X position
-                int(agent['Attributes'][1]['Value']['Content'])  # Y position
-            )
-            self.agent_dir = int(agent['Attributes'][2]['Value']['Content'])  # Direction
+        # Set the agent's initial position and direction
+        agent = self.environment_data['Agents']['AgentList'][0]
+        self.agent_pos = (
+            int(agent['Attributes'][0]['Value']['Content']),  # X position
+            int(agent['Attributes'][1]['Value']['Content'])  # Y position
+        )
+        self.agent_dir = int(agent['Attributes'][2]['Value']['Content'])  # Direction
 
     # Set agent direction (convert angle to MiniGrid's direction)
         #direction = int(agent.direction[0].value)
@@ -209,31 +207,43 @@ class CustomMiniGridEnv(MiniGridEnv):
             return True
         return False
 
-    def get_reward(self, state, action):
-        state_reward = None
-        goal_state = 100
-        undesired_state = -200
-        # wrong_key = -10
-        # correct_key = 10
-        step_reward = -1
-        x, y = state[0], state[1]
-
-        if self.action_mapping[action] in self.valid_actions:
+    def get_reward(self, state, action, step_count=1):
+        if self.inaccuracy_type in (0, 2):
+            #  1 - 0.9 * (step_count / max_steps)
             if self.is_goal(state)==True:
-                return goal_state
+                max_steps = 1000
+                state_reward = (1 - 0.9 * (step_count/max_steps))
+                state_reward = 1
+                return state_reward
+            else:
+                return 0
 
-            if self.accurate_model==True:
+        elif self.inaccuracy_type in (1, 3):
+            state_reward = None
+            goal_state = 100
+            undesired_state = -10
+            step_reward = -1
+            x, y = state[0], state[1]
+
+            if self.action_mapping[action] in self.valid_actions:
+                if self.is_goal(state)==True:
+                    return goal_state
+
                 if self.is_terminal(state)==True:
-                    return undesired_state
-                # elif self.grid_list[y][x]!=None and self.grid_list[y][x].type=='key' and self.grid_list[y][x].color!='green':
-                #     return wrong_key
-                # elif self.grid_list[y][x]!=None and self.grid_list[y][x].type=='key' and self.grid_list[y][x].color=='green':
-                #     return correct_key
+                        return undesired_state
+
+                # if self.accurate_model==True:
+                #     if self.is_terminal(state)==True:
+                #         return undesired_state
+                #     ## elif self.grid_list[y][x]!=None and self.grid_list[y][x].type=='key' and self.grid_list[y][x].color!='green':
+                #     ##     return wrong_key
+                #     ## elif self.grid_list[y][x]!=None and self.grid_list[y][x].type=='key' and self.grid_list[y][x].color=='green':
+                #     ##     return correct_key
+                #     else:
+                #         return step_reward
                 else:
                     return step_reward
-            else:
-                return step_reward
-        return state_reward
+            return state_reward
 
     def is_boundary(self, state):
         x, y = state
@@ -401,4 +411,4 @@ def map_user_input_to_action(user_input):
         'drop': Actions.drop,
         'toggle': Actions.toggle
     }
-    return action_map.get(user_input, None)
+#     return action_map.get(user_input, None)

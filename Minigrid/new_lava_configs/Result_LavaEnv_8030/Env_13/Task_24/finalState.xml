@@ -1,0 +1,1192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Environment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ComplexEnvironment" type="simulation">
+  <Agents>
+    <Agent id="1" type="Robot">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="60" />
+        <Mutable value="true" />
+        <Constraint Min="1" Max="80" oneOf="" roundOff="" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="63" />
+        <Mutable value="true" />
+        <Constraint Min="1" Max="80" oneOf="" roundOff="" />
+      </Attribute>
+      <Attribute>
+        <Name value="Angle" />
+        <DataType value="int" />
+        <Value value="2" />
+        <Mutable value="true" />
+        <Constraint Min="0" Max="3" oneOf="" roundOff="" />
+      </Attribute>
+    </Agent>
+  </Agents>
+  <Objects>
+    <Object id="1" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="78" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="30" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="2" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="28" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="38" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="3" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="10" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="7" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="4" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="38" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="51" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="5" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="76" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="6" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="6" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="73" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="39" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="7" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="45" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="19" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="8" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="55" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="55" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="9" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="36" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="43" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="10" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="53" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="80" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="11" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="57" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="72" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="12" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="25" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="33" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="13" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="43" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="59" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="14" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="2" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="66" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="15" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="23" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="75" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="16" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="78" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="68" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="17" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="63" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="68" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="18" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="13" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="35" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="19" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="41" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="33" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="20" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="34" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="3" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="21" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="44" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="67" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="22" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="48" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="15" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="23" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="51" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="3" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="24" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="18" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="8" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="25" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="29" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="54" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="26" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="15" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="44" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="27" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="44" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="14" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="28" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="36" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="42" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="29" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="1" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="69" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="30" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="79" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="68" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="31" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="9" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="33" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="32" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="79" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="20" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="33" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="20" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="62" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="34" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="16" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="79" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="35" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="8" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="59" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="36" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="27" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="19" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="37" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="78" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="14" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="38" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="66" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="35" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="39" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="75" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="61" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="40" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="49" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="28" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="41" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="80" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="50" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="42" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="8" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="46" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="43" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="4" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="16" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="44" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="30" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="33" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="45" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="80" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="47" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="46" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="13" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="69" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="47" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="11" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="67" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="48" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="34" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="26" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="49" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="2" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="71" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="50" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="12" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="45" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="51" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="17" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="38" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="52" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="6" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="33" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="53" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="72" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="69" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="54" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="50" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="7" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="55" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="39" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="69" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="56" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="79" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="74" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="57" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="72" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="14" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="58" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="53" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="13" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="59" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="63" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="4" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="60" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="2" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="78" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="61" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="48" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="23" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="62" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="51" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="63" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="63" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="61" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="63" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="64" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="64" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="16" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="65" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="53" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="18" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="66" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="26" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="47" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="67" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="33" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="23" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="68" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="3" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="73" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="69" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="13" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="9" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="70" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="23" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="1" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="71" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="4" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="57" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="72" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="68" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="49" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="73" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="68" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="18" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="74" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="67" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="19" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="75" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="68" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="59" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="76" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="39" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="20" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="77" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="34" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="2" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="78" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="77" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="12" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="79" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="67" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="44" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="80" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="80" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="43" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="81" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="71" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="70" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+    <Object id="82" type="Lava">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="46" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="51" />
+        <Constraint Min="1" Max="80" />
+      </Attribute>
+    </Object>
+  </Objects>
+  <Attribute>
+    <Name value="Grid" />
+    <DataType value="int" />
+    <Value value="82" />
+    <Mutable value="false" />
+    <Constraint Min="3" Max="100" oneOf="" roundOff="" />
+  </Attribute>
+  <Attribute>
+    <Name value="Lava" />
+    <DataType value="int" />
+    <Value value="82" />
+    <Mutable value="false" />
+    <Constraint Min="0" Max="{(Grid-1)  * (Grid-1) }" oneOf="" roundOff="" />
+  </Attribute>
+</Environment>

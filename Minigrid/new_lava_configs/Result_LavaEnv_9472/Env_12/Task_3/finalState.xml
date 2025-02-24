@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Environment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ComplexEnvironment" type="simulation">
+  <Agents>
+    <Agent id="1" type="Robot">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="int" />
+        <Value value="8" />
+        <Mutable value="true" />
+        <Constraint Min="1" Max="9" oneOf="" roundOff="" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="int" />
+        <Value value="3" />
+        <Mutable value="true" />
+        <Constraint Min="1" Max="9" oneOf="" roundOff="" />
+      </Attribute>
+      <Attribute>
+        <Name value="Angle" />
+        <DataType value="int" />
+        <Value value="1" />
+        <Mutable value="true" />
+        <Constraint Min="0" Max="3" oneOf="" roundOff="" />
+      </Attribute>
+    </Agent>
+  </Agents>
+  <Objects />
+  <Attribute>
+    <Name value="Grid" />
+    <DataType value="int" />
+    <Value value="11" />
+    <Mutable value="false" />
+    <Constraint Min="3" Max="20" oneOf="" roundOff="" />
+  </Attribute>
+  <Attribute>
+    <Name value="Lava" />
+    <DataType value="int" />
+    <Value value="0" />
+    <Mutable value="false" />
+    <Constraint Min="0" Max="{(Grid-1)  * (Grid-1) }" oneOf="" roundOff="" />
+  </Attribute>
+</Environment>

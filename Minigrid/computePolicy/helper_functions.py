@@ -1,6 +1,6 @@
 import numpy as np
 
-def get_num_undesired_states(grid, policy, trials=50):
+def get_num_undesired_states(grid, policy, trials=1):
     times_visited = np.zeros((grid.height, grid.width))
     undesired_states_per_trial = []
     wrong_key_per_trial = []
@@ -18,13 +18,13 @@ def get_num_undesired_states(grid, policy, trials=50):
 
         for step in range(len(trajectory)):
             state = trajectory[step][0]
-            # print(state)
-            # input()
+            x, y = state[0], state[1]
             if grid.is_goal(state):
                 times_goal_reached += 1
+                if (grid.grid_list[x][y]!=None and grid.grid_list[x][y].type=='lava'):
+                    times_goal_reached -= 1
             times_visited[state[0]][state[1]] += 1
             if grid.inaccuracy_type in set([2, 3]):
-                x, y = state[0], state[1]
                 if grid.grid_list[x][y]!=None and grid.grid_list[x][y].type=='lava':
                     num_undesired_states += 1
                 elif grid.task=='keyToGoal' and state[0]==grid.goal_pos[0] and state[1]==grid.goal_pos[1] and state[3]==True and grid.picked_key_color!='green':
@@ -53,10 +53,9 @@ def simulate_trajectory(grid, policy, max_steps=90):
         grid.exe=True
     action = int(policy[grid.agent_curr_state])
     trajectory.append([tuple(grid.agent_curr_state), action])
-    observation, reward, _, terminal = grid.agent_step(action)
-    action = int(policy[observation])
-    trajectory.append([tuple(observation), action])
-    trial_reward += reward
+    if grid.is_terminal(grid.agent_curr_state) or grid.is_goal(grid.agent_curr_state):
+        terminal = True
+        trial_reward += grid.get_reward(grid.agent_curr_state, action)
     while not terminal:
         observation, reward, _, terminal = grid.agent_step(action)
         action = int(policy[observation])
