@@ -13,9 +13,10 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
 
 class CustomACASEnv(gym.Env):
-    def __init__(self, setting="incomplete_reward", acas_speed=600, x2=100, y2=100, auto_theta=0):
+    def __init__(self, setting="incomplete_reward", acas_speed=600, x2=100, y2=100, auto_theta=0,intruder_x, intruder_y, intruder_theta, intruder_speed):
         super(CustomACASEnv, self).__init__()
-        self.sim_env = SimulateEnv(acas_speed, x2, y2, auto_theta, setting=setting)
+        self.sim_env = SimulateEnv(ownship_x = x2, ownship_y=y2, ownship_theta=auto_theta, acas_speed,
+                 intruder_x, intruder_y, intruder_theta, intruder_speed=intruder_speed, setting='accurate')
         self.setting = setting
         self.action_space = gym.spaces.Discrete(5)
 

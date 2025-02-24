@@ -1,9 +1,11 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from environment import env
+#from environment import env
 from matplotlib.animation import FuncAnimation
 from matplotlib.animation import PillowWriter
-from matplotlib.animation import FuncAnimation, FFMpegWriter 
+from matplotlib.animation import FuncAnimation, FFMpegWriter
+
+from creating_env_for_inaccuracies import CustomACASEnv
 
 def animate_flight_paths(ownship_x, ownship_y, intruder_x, intruder_y):
     fig, ax = plt.subplots(figsize=(10, 6))
@@ -73,16 +75,30 @@ def run_simulation(
     #     auto_theta=intruder_theta
     # )
 
-    air_env = env(
-        ownship_x=ownship_x, ownship_y=ownship_y, ownship_theta=ownship_theta, acas_speed=ownship_speed,
-        intruder_x=intruder_x, intruder_y=intruder_y, intruder_theta=intruder_theta, intruder_speed=intruder_speed
+    # air_env = env(
+    #     ownship_x=ownship_x, ownship_y=ownship_y, ownship_theta=ownship_theta, acas_speed=ownship_speed,
+    #     intruder_x=intruder_x, intruder_y=intruder_y, intruder_theta=intruder_theta, intruder_speed=intruder_speed, setting = 'inaccurate_state'
+    # )
+
+    air_env = CustomACASEnv(
+        x2=ownship_x, y2=ownship_y, auto_theta=ownship_theta, acas_speed=ownship_speed,
+        intruder_x=intruder_x, intruder_y=intruder_y, intruder_theta=intruder_theta, intruder_speed=intruder_speed,
+        setting='inaccurate_state'
     )
 
     # Store positions for animation
     ownship_x_positions, ownship_y_positions = [], []
     intruder_x_positions, intruder_y_positions = [], []
 
-    terminate = False 
+    terminate = False
+    is_invalide_state = False
+
+    if air_env.terminated:
+        print("Simulation Terminated")
+        terminate = True
+        is_invalide_state = True
+        return terminate,is_invalide_state
+
 
     # Run the simulation
     for step in range(timestep_count):  # Use timestep count from XML
@@ -106,7 +122,7 @@ def run_simulation(
     #save_flight_paths_video(ownship_x_positions, ownship_y_positions, intruder_x_positions, intruder_y_positions,gif_folder)
 # Save the flight path data as a Pickle file
     save_simulation_data(f"{gif_folder}/flight_data.pkl", ownship_x_positions, ownship_y_positions, intruder_x_positions, intruder_y_positions)
-    return terminate
+    return terminate,is_invalide_state
 
 
 def animate_flight_paths(ownship_x, ownship_y, intruder_x, intruder_y):
