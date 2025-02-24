@@ -124,10 +124,6 @@ def find_xml_files(base_folder):
 
 
 
-
-
-
-
 def parse_args():
     parser = argparse.ArgumentParser("RL experiment with custom initial position")
     parser.add_argument("--scenario", type=str, default="simple_spread", help="Scenario script name")
@@ -342,6 +338,8 @@ def test(arglist, custom_init_agents):
 
             action_n = [agent.action(obs) for agent, obs in zip(trainers, obs_n)]
             obs_n, _, done_n, _ = env.step(action_n)
+            
+
 
             # Count collisions
             step_collisions = 0
@@ -355,13 +353,18 @@ def test(arglist, custom_init_agents):
                     if dist < dist_min:
                         step_collisions += 1
                         total_collisions += 1
+                        break
             
             # Print collision count for the current step
             #print(f"Step {step+1}: {step_collisions} new collisions, Total Collisions: {total_collisions}")
 
             if all(done_n):
                 break
+            break
+        
 
+    
+    
     print(f"Test completed. Total collisions: {total_collisions} in {steps} steps.")
     return total_collisions, steps
 

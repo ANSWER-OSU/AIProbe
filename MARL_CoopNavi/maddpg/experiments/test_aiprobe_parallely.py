@@ -138,6 +138,8 @@ def run_test_for_file_parallel(xml_file, arglist):
     # Run the test in an isolated session
     collisions, steps = test(arglist, custom_init_agents)
 
+
+
     # Parse XML path for metadata
     env_folder, task_folder, seed_number, bin_number = parse_xml_path(xml_file)
 
@@ -183,6 +185,7 @@ def test(arglist, custom_init_agents):
 
             if all(done_n):
                 break
+            break
     print(f"Test completed. Total collisions: {total_collisions} in {steps} steps.")
     return total_collisions, steps
 
