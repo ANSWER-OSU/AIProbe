@@ -1,0 +1,29 @@
+<AIprobeConfig>
+    <LogSettings>
+        <LogFilePath>/scratch/projects/AIProbe/Enviroment_Generation/Logs</LogFilePath>
+    </LogSettings>
+    <ResultSetting>
+        <ResultFolderPath>/scratch/projects/AIProbe/Test_Enviroment/ACAS_XU</ResultFolderPath>
+    </ResultSetting>
+    <FileSettings>
+	    <EnviromentDataFilePath>/scratch/projects/AIProbe/csharp/new/csharp/Data/ACAS _Xu.xml</EnviromentDataFilePath>
+        <ActionSpaceFilePath>Data/ActionSpace.xml</ActionSpaceFilePath>
+    </FileSettings>
+    <EnviromentDetails>
+        <TimeStepPresent>True</TimeStepPresent>
+        <FinalState>False</FinalState>
+    </EnviromentDetails>
+    <RandomSettings>
+        <Seeds>
+            <Seed>7027</Seed>
+            <Seed>534</Seed>
+            <Seed>7907</Seed>
+            <Seed>8030</Seed>
+            <Seed>9472</Seed>
+        </Seeds>
+        <Bin>5</Bin>
+    </RandomSettings>
+    <PythonSettings>
+        <ScriptFilePath>Minigrid/MinigridWrapper.py</ScriptFilePath>
+    </PythonSettings>
+</AIprobeConfig>
