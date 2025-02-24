@@ -2,9 +2,6 @@ import xml.etree.ElementTree as ET
 from gym_pygame.envs.base import BaseEnv
 import time
 
-# from torchgen.api.types import floatT
-
-
 class FlappyBirdEnv(BaseEnv):
     def __init__(self, normalize=False, display=False, agent_params=None, obj_params=None, env_params=None, **kwargs):
         self.game_name = 'FlappyBird'
@@ -13,7 +10,6 @@ class FlappyBirdEnv(BaseEnv):
     def get_ob_normalize(cls, state):
         state_normal = cls.get_ob(state)
         return state_normal
-
 
 def parse_flappy_bird_xml(xml_file):
     """
@@ -48,7 +44,7 @@ def parse_flappy_bird_xml(xml_file):
     return agent_params, obj_params, env_params
 
 
-def create_flappy_bird_env_from_xml(xml_file, modify_env=True):
+def create_flappy_bird_env_from_xml(xml_file, inaccuracy_type, modify_env=True, random_parameters=None):
     """
     Creates a Flappy Bird environment using parameters parsed from the XML file.
     """
@@ -75,54 +71,29 @@ def create_flappy_bird_env_from_xml(xml_file, modify_env=True):
 
         }
     else:
-        agent_params = None
-        obj_params = None
-        env_params = None
+        # Use the values from PLE
+        width = 288
+        height = 512
+        agent_params = {
+            'FLAP_POWER': random_parameters['flap_power'],
+            'MAX_DROP_SPEED': random_parameters['max_drop_speed'],
+            'init_pos': (int(width * 0.2), int(height / 2))
+        }
+        obj_params = {
+            'pipe_gap': random_parameters['pipe_gap'],
+        }
+        env_params = {
+            'Gravity': random_parameters['gravity'],
+            'Scale': random_parameters['scale'],
+
+        }
         # Print the parameters for verification
-        # print("=== Parsed Parameters ===")
-        # print("Agent Parameters:", agent_params)
-        # print("Object Parameters:", obj_params)
-        # print("Environment Parameters:", env_params)
+    print("=== Parsed Parameters ===")
+    print("Agent Parameters:", agent_params)
+    print("Object Parameters:", obj_params)
+    print("Environment Parameters:", env_params)
 
     # Create the Flappy Bird environment
-    env = FlappyBirdEnv(agent_params=agent_params, obj_params=obj_params, env_params=env_params)
+    env = FlappyBirdEnv(agent_params=agent_params, obj_params=obj_params, env_params=env_params, inaccuracy_type=inaccuracy_type)
 
     return env
-
-
-if __name__ == '__main__':
-    # Example XML file path
-    xml_file = "/home/projects/AIProbe/Test_Enviroment/FlappyBird/Bin5/Result_Flappybird_534/Env_1/Task_1/initialState.xml"
-
-    # Create Flappy Bird environment
-    env = create_flappy_bird_env_from_xml(xml_file)
-    bird_should_flap = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
-
-    print('Action space:', env.action_space)
-    print('Action set:', env.action_set)
-    print('Observation space:', env.observation_space)
-    print('Observation space high:', env.observation_space.high)
-    print('Observation space low:', env.observation_space.low)
-    idt = 0
-    seed = 42
-    obs, _ = env.reset(seed)
-    while True:
-        print(idt)
-        action = env.action_space.sample()
-        #action = bird_should_flap[idt]
-        obs, reward, terminated, _, _ = env.step(action)
-        start_time = time.time()
-        obs, reward, terminated, _, _ = env.step(action)
-        time_taken = time.time() - start_time
-        # env.render('human')
-        idt+=1
-
-        print(f"Observation: {obs}")
-        print(f"Reward: {reward}")
-        print(f"Terminated: {terminated}")
-        print(f"Time Taken for Step: {time_taken:.6f} seconds")
-
-        if terminated:
-            obs, _ = env.reset()
-            continue
-    env.close()

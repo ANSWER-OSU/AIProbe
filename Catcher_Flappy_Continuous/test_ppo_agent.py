@@ -1,10 +1,9 @@
 import os
 import gymnasium as gym
-from gymnasium.envs.registration import register
 import torch
 import numpy as np
 import torch.nn as nn
-from initialize_catcher import CatcherEnv
+from helper_functions import create_flappy_bird_env_from_xml
 
 # Load the trained PPO model
 class Agent(nn.Module):
@@ -80,12 +79,12 @@ def test_ppo(agent, env, env_id, num_episodes=10, render=False):
                     special_pipes_high+=1
                 elif game_stats['normal_pipe_high']:
                     normal_pipe_high+=1
-            # print('observation: ', next_obs, 'reward: ', reward)
+            print('observation: ', next_obs, 'reward: ', reward)
             obs = torch.tensor(next_obs).float()
 
             total_reward += reward
-            if render:
-                env.render()
+            # if render:
+            #     env.render()
             # input()
             done = terminated
 
@@ -114,22 +113,24 @@ def test_ppo(agent, env, env_id, num_episodes=10, render=False):
 
 if __name__ == "__main__":
     # Load the environment
-    register(
-                        id='FlappyBird',  # Unique ID for the environment
-                        entry_point='initialize_flappyBird:FlappyBirdEnv',  # Path to the CatcherEnv class
-                        max_episode_steps=100000000,  # Maximum number of steps in an episode
-                    )
-    env = gym.make('FlappyBird',
-                   normalize=False,
-                   display=False,
-                   random_pipe_color=True,
-                   pipe_color='red'
-                   )
+    # register(
+    #                     id='FlappyBird',  # Unique ID for the environment
+    #                     entry_point='initialize_flappyBird:FlappyBirdEnv',  # Path to the CatcherEnv class
+    #                     max_episode_steps=100000000,  # Maximum number of steps in an episode
+    #                 )
+    # env = gym.make('FlappyBird',
+    #                normalize=False,
+    #                display=False,
+    #                random_pipe_color=True,
+    #                pipe_color='red'
+    #                )
+    xml_file = '/home/projects/AIProbe/Test_Enviroment/FlappyBird/Bin5/Result_Flappybird_534/Env_1/Task_1/initialState.xml'
+    env = create_flappy_bird_env_from_xml(xml_file, modify_env=False)
 
     # Load the trained model
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     agent = Agent(env).to(device)
-    checkpoint_path = "wandb/flappyBird/run_acc_state_acc_r/files/flappy_agent_acc_state_acc_r_2.pt"  # Path to the saved model checkpoint
+    checkpoint_path = "wandb/flappyBird/run_inacc_state_acc_r/files/flappy_agent_inacc_state_acc_r_2.pt"  # Path to the saved model checkpoint
     # checkpoint_path = "wandb/run-20241022_015045-3738pp82/files/flappy_agent_acc_state_inacc_r.pt"  # Path to the saved model checkpoint
     agent.load_state_dict(torch.load(checkpoint_path, map_location=device))
     agent.eval()  # Set the agent to evaluation mode
