@@ -1,0 +1,9 @@
+Timestamp,Initial XML Path,Final XML Path,Folder,Status,Found Result,Execute Time
+2025-02-25 10:41:52,ACAS_Xu_Environment,ACAS_Xu_Environment,/scratch/projects/AIProbe/Test_Enviroment/ACAS_XU/12/Env_9/Task_114,Completed,Eplored all,{366.98139905929565}
+2025-02-25 11:35:52,ACAS_Xu_Environment,ACAS_Xu_Environment,/scratch/projects/AIProbe/Test_Enviroment/ACAS_XU/12/Env_43/Task_573,Completed,Eplored all,{3606.2077419757843}
+2025-02-26 12:13:50,ACAS_Xu_Environment,ACAS_Xu_Environment,/scratch/projects/AIProbe/Test_Enviroment/ACAS_XU/12 copy/Env_2/Task_620,Completed,Eplored all,{36.36726117134094}
+2025-02-26 12:15:16,ACAS_Xu_Environment,ACAS_Xu_Environment,/scratch/projects/AIProbe/Test_Enviroment/ACAS_XU/12 copy/Env_1/Task_172,Completed,Eplored all,{122.2095639705658}
+2025-02-26 12:37:22,ACAS_Xu_Environment,ACAS_Xu_Environment,/scratch/projects/AIProbe/Test_Enviroment/ACAS_XU/12 copy/Env_2/Task_620,Completed,Eplored all,{55.41196417808533}
+2025-02-26 12:39:23,ACAS_Xu_Environment,ACAS_Xu_Environment,/scratch/projects/AIProbe/Test_Enviroment/ACAS_XU/12 copy/Env_1/Task_172,Completed,Eplored all,{177.06823182106018}
+2025-02-26 12:43:06,ACAS_Xu_Environment,ACAS_Xu_Environment,/scratch/projects/AIProbe/Test_Enviroment/ACAS_XU/12 copy/Env_1/Task_147,Completed,Not Found,{400.0036964416504}
+2025-02-26 13:48:10,ACAS_Xu_Environment,ACAS_Xu_Environment,/scratch/projects/AIProbe/Test_Enviroment/ACAS_XU/12 copy/Env_1/Task_147,Completed,Not Found,{1800.034023284912}

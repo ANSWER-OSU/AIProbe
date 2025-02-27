@@ -104,7 +104,7 @@ class Autoagent:
 class env:
     def __init__(self, ownship_x, ownship_y, ownship_theta, acas_speed,
                  intruder_x, intruder_y, intruder_theta, intruder_speed=200,
-                 collision_threshold=200, boundary_limit=5000, setting='accurate'):
+                 collision_threshold=200, boundary_limit=12000, setting='accurate'):
         """
         Initialize the environment with aircraft positions and properties.
 
@@ -151,9 +151,11 @@ class env:
             print(f"Collision detected at Distance: {self.row:.2f}")
             self.terminated = True
 
-        # if abs(self.ownship.x) > self.boundary_limit or abs(self.ownship.y) > self.boundary_limit:
-        #     print(f"Ownship exceeded boundary limits. Terminating.")
-        #     self.terminated = True
+        if abs(self.ownship.x) > self.boundary_limit or abs(self.ownship.y) > self.boundary_limit:
+            print(f"Ownship exceeded boundary limits. Terminating.")
+            self.terminated = True
+
+
 
     def step(self):
         """Simulate one time step for both agents."""

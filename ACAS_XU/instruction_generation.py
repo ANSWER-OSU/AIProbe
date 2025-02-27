@@ -146,6 +146,57 @@ def dfs_search(initial_state, final_state):
     return []
 
 
+def dfs_search(initial_state, final_state, gif_folder):
+    """
+    Perform Depth-First Search to find a path from the initial environment to the final state.
+    """
+    stack = [(initial_state, [])]  # Stack holds (current_state, path_taken)
+    visited = set()
+
+    final_hash = final_state.hash_environment()
+
+    while stack:
+        current_state, path = stack.pop()
+
+        # Generate hash for the current state using JSON serialization
+        current_hash = current_state.hash_environment()
+
+        if current_hash in visited:
+            continue
+
+        visited.add(current_hash)
+
+        # Check if current state matches the final state
+        if current_hash == final_hash:
+            print(f"Found path: {' -> '.join(path)}")
+            return path
+
+        # Simulate the environment for the current state
+        terminate, is_invalid_state = run_simulation_from_environment(current_state, gif_folder)
+
+        if terminate:
+            print(f"Termination reached at path: {' -> '.join(path)}")
+            continue  # Skip invalid paths
+
+        # Explore possible actions
+        for action in ["increase_speed", "decrease_speed", "turn_left", "turn_right", "hold_position"]:
+            # Apply the action to modify the current environment
+            new_state = apply_action_to_environment(current_state, action)
+
+            # Simulate the environment after applying the action
+            terminate, is_invalid_state = run_simulation_from_environment(new_state, gif_folder)
+
+            if not is_invalid_state:
+                stack.append((new_state, path + [action]))
+
+    print("No path found.")
+    return []
+
+
+
+
+
+
 if __name__ == "__main__":
     parent_directory = "/scratch/projects/AIProbe/csharp/new/csharp/results/NEW/534"
     num_workers = os.cpu_count()
