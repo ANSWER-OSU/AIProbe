@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Environment name="Catcher" type="">
+  <Agents>
+    <Agent id="1" name="Catcher Agent" type="">
+      <Position>
+        <Attribute>
+          <Name value="x"/>
+          <DataType value="int"/>
+          <Value value="1"/>
+          <Min value="0"/>
+          <Max value="1"/>
+          <Step value="1"/>
+          <Mutable value="true"/>
+        </Attribute>
+      </Position>
+      <Direction>
+        <Attribute>
+        </Attribute>
+      </Direction>
+    </Agent>
+  </Agents>
+  <Objects>
+    <Object id="" name="" type="">
+      <Position>
+       <Attribute>
+        </Attribute>
+      </Position>
+      <ObjectAttributes>
+        <Attribute>
+          <Name value=""/>
+          <DataType value=""/>
+          <Value value=""/>
+          <Mutable value=""/>
+          <Description value=""/>
+          <ValueList>
+            <Pair key="" value=""/>
+            <Pair key="" value=""/>
+          </ValueList>
+        </Attribute>
+      </ObjectAttributes>
+    </Object>
+  </Objects>
+  <EnvironmentalProperties>
+    <Property name="boundary">
+      <Attribute>
+        <Name value="Width"/>
+        <DataType value="int"/>
+        <Value value="300"/>
+        <Min value="100"/>
+        <Max value="800"/>
+        <Step value="10"/>
+        <Mutable value="true"/>
+      </Attribute>
+         <Attribute>
+        <Name value="Height"/>
+        <DataType value=""/>
+        <Value value=""/>
+        <Min value="100"/>
+        <Max value="1000"/>
+        <Step value="10"/>
+        <Mutable value="true"/>
+      </Attribute>
+    </Property>
+      <Property name="Gravity" >
+          <Attribute>
+              <Name value="Gravity"/>
+            <DataType value="int"/>
+            <Value value="7"/>
+            <Min value="0"/>
+            <Max value="Maxint"/>
+            <Step value="1"/>
+            <Mutable value="true"/>
+          </Attribute>
+      </Property>
+      <Property name = "Max_Drop_speed">
+           <Attribute>
+              <Name value="Max_Drop_speed"/>
+            <DataType value="int"/>
+            <Value value="8"/>
+            <Min value="0"/>
+            <Max value="Maxint"/>
+            <Step value="1"/>
+            <Mutable value="true"/>
+          </Attribute>
+      </Property>
+  </EnvironmentalProperties>
+</Environment>

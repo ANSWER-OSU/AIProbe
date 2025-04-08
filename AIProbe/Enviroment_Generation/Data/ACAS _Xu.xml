@@ -1,0 +1,94 @@
+<Environment name="ACAS_Xu_Environment" type="simulation">
+    <Agents>
+        <Agent id="1" type="Aircraft">
+            <Attribute>
+                <Name value="Ownship_Speed"/>
+                <DataType value="float"/>
+                <Value value="300"/>
+                <Mutable value="true"/>
+                <Constraint Min="10" Max="1100" Values="" Choice=""/>
+            </Attribute>
+            <Attribute>
+                <Name value="X"/>
+                <DataType value="float"/>
+                <Value value="0"/>
+                <Mutable value="true"/>
+                <Constraint Min="-10000" Max="10000" Values="" Choice=""/>
+            </Attribute>
+            <Attribute>
+                <Name value="Y"/>
+                <DataType value="float"/>
+                <Value value="0"/>
+                <Mutable value="true"/>
+                <Constraint Min="-10000" Max="10000" Values="" Choice=""/>
+            </Attribute>
+            <Attribute>
+                <Name value="Theta"/>
+                <DataType value="float"/>
+                <Value value="1.5708"/>
+                <Mutable value="true"/>
+                <Constraint Min="-3.14" Max="3.14" Values="" Choice=""/>
+            </Attribute>
+        </Agent>
+    </Agents>
+    <Objects>
+        <Object id="1" type="Intruder">
+            <Attribute>
+                <Name value="Intruder_Speed"/>
+                <DataType value="float"/>
+                <Value value="150"/>
+                <Mutable value="true"/>
+                <Constraint Min="10" Max="1100" Values="" Choice="4"/>
+            </Attribute>
+            <Attribute>
+                <Name value="X"/>
+                <DataType value="float"/>
+                <Value value="500"/>
+                <Mutable value="true"/>
+                <Constraint Min="-10000" Max="10000" Values="" Choice=""/>
+            </Attribute>
+            <Attribute>
+                <Name value="Y"/>
+                <DataType value="float"/>
+                <Value value="500"/>
+                <Mutable value="true"/>
+                <Constraint Min="-10000" Max="10000" Values="" Choice=""/>
+            </Attribute>
+            <Attribute>
+                <Name value="Auto_Theta"/>
+                <DataType value="float"/>
+                <Value value="0.7854"/>
+                <Mutable value="true"/>
+                <Constraint Min="-3.14" Max="3.14" Values="" Choice=""/>
+            </Attribute>
+        </Object>
+    </Objects>
+    <Attribute>
+        <Name value="Timestep_Count"/>
+        <DataType value="int"/>
+        <Value value="150"/>
+        <Mutable value="true"/>
+        <Constraint Min="50" Max="10000" Values="" Choice=""/>
+    </Attribute>
+    <Attribute>
+        <Name value="Row_Distance"/>
+        <DataType value="float"/>
+        <Value value="Unknown"/>
+        <Mutable value="false"/>
+        <Constraint Min="-1" Max="1" Values="" Choice=""/>
+    </Attribute>
+    <Attribute>
+        <Name value="Alpha"/>
+        <DataType value="float"/>
+        <Value value="Unknown"/>
+        <Mutable value="false"/>
+        <Constraint Min="-1" Max="1" Values="" Choice=""/>
+    </Attribute>
+    <Attribute>
+        <Name value="Phi"/>
+        <DataType value="float"/>
+        <Value value="Unknown"/>
+        <Mutable value="false"/>
+        <Constraint Min="-1" Max="1" Values="" Choice=""/>
+    </Attribute>
+</Environment>

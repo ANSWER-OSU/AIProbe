@@ -1,0 +1,212 @@
+<Environment name="Bipedal_Walk" type="simulation">
+ <Agents>
+ <Attribute>
+        <Name value="X"/>
+        <DataType value="float"/>
+        <Value value="0.0"/>
+        <Mutable value="false"/>
+    </Attribute>
+    <Attribute>
+        <Name value="Y"/>
+        <DataType value="float"/>
+        <Value value="0"/>
+        <Mutable value="false"/>
+    </Attribute>
+ <!-- Hull state -->
+    <Attribute>
+        <Name value="Hull_Angle"/>
+        <DataType value="float"/>
+        <Value value="0.0"/>
+        <Mutable value="false"/>
+        <Constraint Min="-3.1416" Max="3.1416" Values="" Choice=""/>
+    </Attribute>
+    <Attribute>
+        <Name value="Hull_Angular_Velocity"/>
+        <DataType value="float"/>
+        <Value value="0.0"/>
+        <Mutable value="false"/>
+        <Constraint Min="-5.0" Max="5.0" Values="" Choice=""/>
+    </Attribute>
+    <Attribute>
+        <Name value="Hull_Velocity_X"/>
+        <DataType value="float"/>
+        <Value value="0.0"/>
+        <Mutable value="false"/>
+        <Constraint Min="-5.0" Max="5.0" Values="" Choice=""/>
+    </Attribute>
+    <Attribute>
+        <Name value="Hull_Velocity_Y"/>
+        <DataType value="float"/>
+        <Value value="0.0"/>
+        <Mutable value="false"/>
+        <Constraint Min="-5.0" Max="5.0" Values="" Choice=""/>
+    </Attribute>
+
+    <!-- Left leg (joint 0 and 1) -->
+    <Attribute>
+        <Name value="Hip_Left_Angle"/>
+        <DataType value="float"/>
+        <Value value="0.0"/>
+        <Mutable value="false"/>
+        <Constraint Min="-3.1416" Max="3.1416" Values="" Choice=""/>
+    </Attribute>
+    <Attribute>
+        <Name value="Hip_Left_Speed"/>
+        <DataType value="float"/>
+        <Value value="0.0"/>
+        <Mutable value="false"/>
+        <Constraint Min="-5.0" Max="5.0" Values="" Choice=""/>
+    </Attribute>
+    <Attribute>
+        <Name value="Knee_Left_Angle"/>
+        <DataType value="float"/>
+        <Value value="1.0"/>
+        <Mutable value="false"/>
+        <Constraint Min="-3.1416" Max="3.1416" Values="" Choice=""/>
+    </Attribute>
+    <Attribute>
+        <Name value="Knee_Left_Speed"/>
+        <DataType value="float"/>
+        <Value value="0.0"/>
+        <Mutable value="false"/>
+        <Constraint Min="-5.0" Max="5.0" Values="" Choice=""/>
+    </Attribute>
+    <Attribute>
+        <Name value="Left_Foot_Contact"/>
+        <DataType value="float"/>
+        <Value value="0.0"/>
+        <Mutable value="false"/>
+        <Constraint Min="0.0" Max="1.0" Values="" Choice=""/>
+    </Attribute>
+
+    <!-- Right leg (joint 2 and 3) -->
+    <Attribute>
+        <Name value="Hip_Right_Angle"/>
+        <DataType value="float"/>
+        <Value value="0.0"/>
+        <Mutable value="false"/>
+        <Constraint Min="-3.1416" Max="3.1416" Values="" Choice=""/>
+    </Attribute>
+    <Attribute>
+        <Name value="Hip_Right_Speed"/>
+        <DataType value="float"/>
+        <Value value="0.0"/>
+        <Mutable value="false"/>
+        <Constraint Min="-5.0" Max="5.0" Values="" Choice=""/>
+    </Attribute>
+    <Attribute>
+        <Name value="Knee_Right_Angle"/>
+        <DataType value="float"/>
+        <Value value="1.0"/>
+        <Mutable value="false"/>
+        <Constraint Min="-3.1416" Max="3.1416" Values="" Choice=""/>
+    </Attribute>
+    <Attribute>
+        <Name value="Knee_Right_Speed"/>
+        <DataType value="float"/>
+        <Value value="0.0"/>
+        <Mutable value="false"/>
+        <Constraint Min="-5.0" Max="5.0" Values="" Choice="" />
+    </Attribute>
+    <Attribute>
+        <Name value="Right_Foot_Contact"/>
+        <DataType value="float"/>
+        <Value value="0.0"/>
+        <Mutable value="false"/>
+        <Constraint Min="0.0" Max="1.0" Values="" Choice="" />
+    </Attribute>
+
+    <!-- LIDAR sensor readings (10) -->
+    <Attribute>
+        <Name value="Lidar_0"/>
+        <DataType value="float"/>
+        <Value value="1.0"/>
+        <Mutable value="false"/>
+        <Constraint Min="0.0" Max="1.0" Values="" Choice=""/>
+    </Attribute>
+    <Attribute>
+        <Name value="Lidar_1"/>
+        <DataType value="float"/>
+        <Value value="1.0"/>
+        <Mutable value="false"/>
+        <Constraint Min="0.0" Max="1.0" Values="" Choice=""/>
+    </Attribute>
+    <Attribute>
+        <Name value="Lidar_2"/>
+        <DataType value="float"/>
+        <Value value="1.0"/>
+        <Mutable value="false"/>
+        <Constraint Min="0.0" Max="1.0" Values="" Choice=""/>
+    </Attribute>
+    <Attribute>
+        <Name value="Lidar_3"/>
+        <DataType value="float"/>
+        <Value value="1.0"/>
+        <Mutable value="false"/>
+        <Constraint Min="0.0" Max="1.0" Values="" Choice=""/>
+    </Attribute>
+    <Attribute>
+        <Name value="Lidar_4"/>
+        <DataType value="float"/>
+        <Value value="1.0"/>
+        <Mutable value="false"/>
+        <Constraint Min="0.0" Max="1.0" Values="" Choice="" />
+    </Attribute>
+    <Attribute>
+        <Name value="Lidar_5"/>
+        <DataType value="float"/>
+        <Value value="1.0"/>
+        <Mutable value="false"/>
+        <Constraint Min="0.0" Max="1.0" Values="" Choice=""/>
+    </Attribute>
+    <Attribute>
+        <Name value="Lidar_6"/>
+        <DataType value="float"/>
+        <Value value="1.0"/>
+        <Mutable value="false"/>
+        <Constraint Min="0.0" Max="1.0" Values="" Choice=""/>
+    </Attribute>
+    <Attribute>
+        <Name value="Lidar_7"/>
+        <DataType value="float"/>
+        <Value value="1.0"/>
+        <Mutable value="false"/>
+        <Constraint Min="0.0" Max="1.0" Values="" Choice=""/>
+    </Attribute>
+    <Attribute>
+        <Name value="Lidar_8"/>
+        <DataType value="float"/>
+        <Value value="1.0"/>
+        <Mutable value="false"/>
+        <Constraint Min="0.0" Max="1.0" Values="" Choice=""/>
+    </Attribute>
+    <Attribute>
+        <Name value="Lidar_9"/>
+        <DataType value="float"/>
+        <Value value="1.0"/>
+        <Mutable value="false"/>
+        <Constraint Min="0.0" Max="1.0" Values="" Choice="" />
+    </Attribute>
+    </Agents>
+  <Objects>
+    <Object id="1" type="Terrain">
+      <Attribute>
+        <Name value="Terrain" />
+        <DataType value="array" />
+        <Value value="[3, 1, 3, 2, 1, 1, 2, 1, 1, 3, 2, 3, 2, 0, 3, 2, 1, 1, 1, 0, 0, 1, 3, 1, 0, 1, 3, 1, 1, 2, 1, 1, 2, 1, 0, 2, 2, 0, 1, 2, 1, 3, 3, 2, 1, 1, 0, 2, 0, 2, 2, 3, 2, 1, 0, 2, 2, 3, 2, 1, 3, 2, 0]" />
+        <Mutable value="true" />
+        <Constraint Min="1" Max="{Total_Terrain}" Values="1,2,3,0" Choice="4" />
+      </Attribute>
+    </Object>
+  </Objects>
+  <Attribute>
+    <Name value="Total_Terrain" />
+    <DataType value="int" />
+    <Value value="89" />
+    <Mutable value="false" />
+    <Constraint Min="1" Max="200" Values="" Choice="" />
+  </Attribute>
+</Environment>
+
+
+       

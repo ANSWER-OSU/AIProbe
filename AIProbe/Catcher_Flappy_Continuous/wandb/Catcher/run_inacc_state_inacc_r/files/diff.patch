@@ -1,0 +1,13 @@
+diff --git a/Fuzzer/main.py b/Fuzzer/main.py
+index 92705fb..c6383e6 100644
+--- a/Fuzzer/main.py
++++ b/Fuzzer/main.py
+@@ -243,7 +243,7 @@ def log_message(message, level='info'):
+ def main():
+ 
+     # Loading the setting
+-    fuzzer = LoadConfig.load_fuzzer_setting('FuzzConfig.xml')
++    fuzzer = LoadConfig.load_fuzzer_setting('Fuzzer/FuzzConfig.xml')
+     parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+     # Setup logging
+     setup_logging(os.path.join(parent_dir,fuzzer.log_file_path,'log.txt'))

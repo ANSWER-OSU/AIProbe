@@ -1,0 +1,27 @@
+<AIprobeConfig>
+    <LogSettings>
+        <LogFilePath>/Users/rahil/Documents/GitHub/AIProbe/Enviroment_Generation/Logs</LogFilePath>
+    </LogSettings>
+    <ResultSetting>
+        <ResultFolderPath>/Users/rahil/Documents/GitHub/AIProbe/Enviroment_Generation/Result</ResultFolderPath>
+    </ResultSetting>
+    <FileSettings>
+	    <EnviromentDataFilePath>/Volumes/External_ssd/Github/AIProbe/Enviroment_Generation/Data/Bipedal_Walk.xml</EnviromentDataFilePath>
+        <ActionSpaceFilePath>Data/ActionSpace.xml</ActionSpaceFilePath>
+    </FileSettings>
+    <EnviromentDetails>
+        <TimeStepPresent>True</TimeStepPresent>
+        <FinalState>False</FinalState>
+    </EnviromentDetails>
+    <RandomSettings>
+        <Seeds>
+            <Seed>7027</Seed>
+            <Seed>534</Seed>
+            <Seed>789</Seed>
+        </Seeds>
+        <Bin>5</Bin>
+    </RandomSettings>
+    <PythonSettings>
+        <ScriptFilePath>Minigrid/MinigridWrapper.py</ScriptFilePath>
+    </PythonSettings>
+</AIprobeConfig>
