@@ -4,28 +4,28 @@
             <Attribute>
                 <Name value="Ownship_Speed"/>
                 <DataType value="float"/>
-                <Value value="300"/>
+                <Value value=""/>
                 <Mutable value="true"/>
                 <Constraint Min="10" Max="1100" Values="" Choice=""/>
             </Attribute>
             <Attribute>
                 <Name value="X"/>
                 <DataType value="float"/>
-                <Value value="0"/>
+                <Value value=""/>
                 <Mutable value="false"/>
                  <Constraint Min="-10000" Max="10000" Values="" Choice=""/>
             </Attribute>
             <Attribute>
                 <Name value="Y"/>
                 <DataType value="float"/>
-                <Value value="0"/>
+                <Value value=""/>
                 <Mutable value="true"/>
                 <Constraint Min="-10000" Max="10000" Values="" Choice=""/>
             </Attribute>
             <Attribute>
                 <Name value="Theta"/>
                 <DataType value="float"/>
-                <Value value="1.5708"/>
+                <Value value=""/>
                 <Mutable value="true"/>
                 <Constraint Min="-3.14" Max="3.14" Values="" Choice=""/>
             </Attribute>
@@ -36,28 +36,28 @@
             <Attribute>
                 <Name value="Intruder_Speed"/>
                 <DataType value="float"/>
-                <Value value="150"/>
+                <Value value=""/>
                 <Mutable value="true"/>
                 <Constraint Min="10" Max="1100" Values="" Choice="4"/>
             </Attribute>
             <Attribute>
                 <Name value="X"/>
                 <DataType value="float"/>
-                <Value value="500"/>
+                <Value value=""/>
                 <Mutable value="true"/>
                 <Constraint Min="-10000" Max="10000" Values="" Choice=""/>
             </Attribute>
             <Attribute>
                 <Name value="Y"/>
                 <DataType value="float"/>
-                <Value value="500"/>
+                <Value value=""/>
                 <Mutable value="true"/>
                 <Constraint Min="-10000" Max="10000" Values="" Choice=""/>
             </Attribute>
             <Attribute>
                 <Name value="Auto_Theta"/>
                 <DataType value="float"/>
-                <Value value="0.7854"/>
+                <Value value=""/>
                 <Mutable value="true"/>
                 <Constraint Min="-3.14" Max="3.14" Values="" Choice=""/>
             </Attribute>
@@ -66,7 +66,7 @@
     <Attribute>
         <Name value="Timestep_Count"/>
         <DataType value="int"/>
-        <Value value="150"/>
+        <Value value=""/>
         <Mutable value="true"/>
         <Constraint Min="50" Max="10000" Values="" Choice=""/>
 </Environment>
