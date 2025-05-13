@@ -69,26 +69,4 @@
         <Value value="150"/>
         <Mutable value="true"/>
         <Constraint Min="50" Max="10000" Values="" Choice=""/>
-    </Attribute>
-        <Attribute>
-        <Name value="Row_Distance"/>
-        <DataType value="float"/>
-        <Value value="0.6"/> 
-        <Mutable value="false"/>
-        <Constraint Min="-1" Max="1" Values="" Choice=""/>
-</Attribute>
-<Attribute>
-        <Name value="Alpha"/>
-        <DataType value="float"/>
-        <Value value="0.5"/>
-        <Mutable value="false"/>
-        <Constraint Min="-1" Max="1" Values="" Choice=""/>
-</Attribute>
-<Attribute>
-        <Name value="Phi"/>
-        <DataType value="float"/>
-        <Value value="0.3"/>
-        <Mutable value="false"/>
-        <Constraint Min="-1" Max="1" Values="" Choice=""/>
-</Attribute>
 </Environment>
