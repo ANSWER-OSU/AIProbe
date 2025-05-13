@@ -3,11 +3,10 @@
         <Agent id="1" type="Robot">
             <Attribute>
                 <Name value="X"/>
-                <Description value=""/>
                 <DataType value="int"/>
                 <Value value=""/>
                 <Mutable value="true"/>
-                <Constraint Min="0" Max="{Grid - 1}" Values="" Choice=""/>
+                <Constraint Min="1" Max="{Grid}" Values="" Choice=""/>
             </Attribute>
             <Attribute>
                 <Name value="Y"/>
@@ -15,7 +14,7 @@
                 <DataType value="int"/>
                 <Value value=""/>
                 <Mutable value="true"/>
-                <Constraint Min="0" Max="{Grid - 1}" Values="" Choice=""/>
+                <Constraint Min="1" Max="{Grid}" Values="" Choice=""/>
             </Attribute>
             <Attribute>
                 <Name value="Angle"/>
@@ -28,43 +27,36 @@
         </Agent>
     </Agents>
     <Objects>
-        <Object id="9" type="Lava">
+        <Object id="1" type="Lava">
             <Attribute>
                 <Name value="X"/>
-                <Description value=""/>
                 <DataType value="int"/>
-                <Value value="2"/>
+                <Value value=""/>
                 <Mutable value="true"/>
-                <Constraint Min="1" Max="{Grid - 2}" Values="" Choice=""/>
+                <Constraint Min="1" Max="{Grid}" Values="" Choice=""/>
             </Attribute>
             <Attribute>
                 <Name value="Y"/>
-                <Description value=""/>
                 <DataType value="int"/>
-                <Value value="2"/>
+                <Value value=""/>
                 <Mutable value="true"/>
-                <Constraint Min="1" Max="{Grid - 2}" Values="" Choice=""/>
+                <Constraint Min="1" Max="{Grid}" Values="" Choice=""/>
             </Attribute>
         </Object>
     </Objects>
     <Attribute>
-                <Name value="Grid"/>
-                <Description value="The width of the boundary"/>
-                <DataType value="int"/>
-                <Value value=""/>
-                <Mutable value="true"/>
-                <Constraint Min="3" Max="100" Values="" Choice=""/>
-     </Attribute>
-    <Attribute>
-        <Name value="Lava"/>
-        <Description value="The quantity of the lava tiles, dependent on Grid's value."/>
+        <Name value="Grid"/>
         <DataType value="int"/>
         <Value value=""/>
         <Mutable value="true"/>
-        <Constraint Min="0" Max="{(Grid - 1) * (Grid - 1)}" Values="" Choice=""/>
+        <Constraint Min="3" Max="50" Values="" Choice=""/>
+     </Attribute>
+    <Attribute>
+        <Name value="Lava"/>
+        <DataType value="int"/>
+        <Value value=""/>
+        <Mutable value="true"/>
+        <Constraint Min="0" Max="{(Grid) * (Grid)}" Values="" Choice=""/>
     </Attribute>
 
 </Environment>
-
-
-       
