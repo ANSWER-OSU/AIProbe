@@ -78,7 +78,7 @@
       </Attribute>
       <Attribute>
         <Name value="Y" />
-        <DataType value="true" />
+        <DataType value="float" />
         <Value value="" />
         <Mutable value="true" />
         <Constraint Min="-1" Max="1" Values="" Choice=""  />
