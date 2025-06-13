@@ -2,18 +2,16 @@ import numpy as np
 from models.load_model import read_onnx
 import copy
 
-# Define ACAS agent (Ownship)
 class ACASagent:
     def __init__(self, x, y, theta, acas_speed, setting='accurate'):
-        self.x = x  # Initial X position
-        self.y = y  # Initial Y position
-        self.theta = theta  # Initial heading angle
+        self.x = x
+        self.y = y
+        self.theta = theta
         self.speed = acas_speed
-        self.interval = 0.1  # Time step interval
+        self.interval = 0.1
         self.setting = setting
 
         if self.setting == 'accurate':
-            # Load ONNX models for different actions
             self.model_1 = read_onnx(1, 9)
             self.model_2 = read_onnx(2, 9)
             self.model_3 = read_onnx(3, 9)
@@ -23,15 +21,15 @@ class ACASagent:
             from stable_baselines3 import PPO
             import torch
             if self.setting == 'inaccurate_reward':
-                ppo_model_path = "inaccuracy_models/ppo_incomplete_reward"
+                ppo_model_path = "inaccurate_models/ppo_incomplete_reward"
             elif self.setting == 'incomplete_state_rep':
-                ppo_model_path = "inaccuracy_models/ppo_incomplete_state_rep"
+                ppo_model_path = "inaccurate_models/ppo_incomplete_state_rep"
             else:
-                ppo_model_path = "inaccuracy_models/ppo_incomplete_state_and_reward"
+                ppo_model_path = "inaccurate_models/ppo_incomplete_state_and_reward"
             self.model = PPO.load(ppo_model_path, device="cpu", custom_objects={"clip_range": 0.1, "lr_schedule": 0.0003})
             self.model_1 = self.model_2 = self.model_3 = self.model_4 = self.model_5 = self.model
 
-        self.prev_action = 0  # Track the previous action
+        self.prev_action = 0
         self.current_active = None
 
     def step(self, action):
@@ -54,28 +52,26 @@ class ACASagent:
 
     def act(self, inputs):
         """Select an action based on model predictions."""
-        inputs = np.array(inputs, dtype=np.float32)  # Convert inputs to numpy array
+        inputs = np.array(inputs, dtype=np.float32)
         model_list = [self.model_1, self.model_2, self.model_3, self.model_4, self.model_5]
-        model = model_list[self.prev_action]  # Select model based on previous action
+        model = model_list[self.prev_action]
 
         if self.setting == 'accurate':
             action, active = model(inputs)
             self.current_active = [action.detach().numpy(), active.detach().numpy()]
-            self.prev_action = np.argmin(action.detach().numpy())  # Choose the action with the smallest value
+            self.prev_action = np.argmin(action.detach().numpy())
         else:
             action, _ = model.predict(inputs, deterministic=True)
             self.prev_action = action
         return self.prev_action
 
-
-# Define Intruder agent
 class Autoagent:
     def __init__(self, x, y, theta, speed=200):
-        self.x = x  # Initial X position
-        self.y = y  # Initial Y position
-        self.theta = theta  # Initial heading angle
+        self.x = x
+        self.y = y
+        self.theta = theta
         self.speed = speed
-        self.interval = 0.1  # Time step
+        self.interval = 0.1
 
     def step(self, action):
         """Update the intruder's position based on action."""
@@ -99,8 +95,6 @@ class Autoagent:
         """Predefined intruder action (straight movement)."""
         return 0
 
-
-# Define the Simulation Environment
 class env:
     def __init__(self, ownship_x, ownship_y, ownship_theta, acas_speed,
                  intruder_x, intruder_y, intruder_theta, intruder_speed=200,
@@ -118,6 +112,7 @@ class env:
         :param intruder_speed: Speed of Intruder
         :param collision_threshold: Minimum distance for collision detection
         :param boundary_limit: Maximum allowed position before termination
+        :param setting: Environment setting ('accurate', 'inaccurate_reward', 'incomplete_state_rep', 'incomplete_state_and_reward')
         """
         self.env_setting = setting
         self.ownship = ACASagent(ownship_x, ownship_y, ownship_theta, acas_speed, setting)
@@ -130,7 +125,6 @@ class env:
         self.update_params()
 
     def update_params(self):
-        """Update distance and angles between the agents."""
         self.row = np.linalg.norm([self.ownship.x - self.intruder.x, self.ownship.y - self.intruder.y])
 
         if self.row != 0:
@@ -152,12 +146,6 @@ class env:
             print(f"Collision detected at Distance: {self.row:.2f}")
             self.terminated = True
 
-        # if abs(self.ownship.x) > self.boundary_limit or abs(self.ownship.y) > self.boundary_limit:
-        #     print(f"Ownship exceeded boundary limits. Terminating.")
-        #     self.terminated = True
-
-
-
     def step(self):
         """Simulate one time step for both agents."""
         if self.env_setting == "incomplete_state_and_reward" or self.env_setting=="incomplete_state_rep":
@@ -173,7 +161,6 @@ class env:
         return (acas_act)
 
     def step_proof(self, direction):
-        """Simulate one time step with a predefined action for debugging."""
         acas_act = direction
         auto_act = self.intruder.act()
 
@@ -221,8 +208,8 @@ class env:
         for j in range(100):
             self.step()
 
-            # Introduce incorrect distance scaling
-            reward = reward * gamma + self.row / 1e6  # Wrong scaling
+            # Introduce distorted distance scaling
+            reward = reward * gamma + self.row / 1e6
 
             if self.env_setting == "incomplete_state_and_reward" or self.env_setting=="incomplete_state_rep":
                 states_seq.append(self.normalize_state([self.alpha, self.phi, self.ownship.speed, self.intruder.speed]))
@@ -231,11 +218,9 @@ class env:
 
             if self.row < dis_threshold:
                 collide_flag = True
-                reward -= 100  # Collision penalty remains
+                reward -= 100
 
         return reward, collide_flag, states_seq
-
-
 
     def incomplete_state(self):
         """
