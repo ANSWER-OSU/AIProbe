@@ -1,0 +1,44 @@
+<AIprobeConfig>
+    <LogSettings>
+        <LogFilePath>/AIProbe-Main/Result/FlappyBird/Flappybird/Approch_1/100_Bin/Logs</LogFilePath>
+    </LogSettings>
+    <ResultSetting>
+        <ResultFolderPath>/AIProbe-Main/Result/FlappyBird/Flappybird/Approch_1/100_Bin</ResultFolderPath>
+    </ResultSetting>
+    <FileSettings>
+	    <EnviromentDataFilePath>/AIProbe-Main/AIProbe/Enviroment_Generation/Data/Flappybird.xml</EnviromentDataFilePath>
+        <ActionSpaceFilePath>Data/ActionSpace.xml</ActionSpaceFilePath>
+    </FileSettings>
+    <EnviromentDetails>
+        <TimeStepPresent>True</TimeStepPresent>
+        <FinalState>True</FinalState>
+    </EnviromentDetails>
+    <RandomSettings>
+        <Seeds>
+  <Seed>534</Seed>
+<Seed>789</Seed>
+<Seed>78901</Seed>
+<Seed>54321</Seed>
+<Seed>12876</Seed>
+<Seed>4532</Seed>
+<Seed>98765</Seed>
+<Seed>21456</Seed>
+<Seed>3768</Seed>
+<Seed>5698</Seed>
+<Seed>11223</Seed>
+<Seed>67890</Seed>
+<Seed>32456</Seed>
+<Seed>90785</Seed>
+<Seed>15098</Seed>
+<Seed>74321</Seed>
+<Seed>8967</Seed>
+<Seed>22589</Seed>
+<Seed>61987</Seed>
+<Seed>37012</Seed>
+        </Seeds>
+        <Bin>100</Bin>
+    </RandomSettings>
+    <PythonSettings>
+        <ScriptFilePath></ScriptFilePath>
+    </PythonSettings>
+</AIprobeConfig>

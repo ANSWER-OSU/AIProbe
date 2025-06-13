@@ -1,0 +1,2 @@
+model_checkpoint_path: "/scratch/projects/AIProbe-Main/AIProbe/MARL_CoopNavi/InaccurateModels/inaccurate_state_reward/checkpoints"
+all_model_checkpoint_paths: "/scratch/projects/AIProbe-Main/AIProbe/MARL_CoopNavi/InaccurateModels/inaccurate_state_reward/checkpoints"
