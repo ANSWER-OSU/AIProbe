@@ -1,6 +1,6 @@
 import os
 import sys
-sys.path.append(os.path.abspath("/scratch/projects/AIProbe-Main/AIProbe/MARL_CoopNavi/multiagent_particle_envs"))
+sys.path.append(os.path.abspath("/AIProbe/MARL_CoopNavi/multiagent_particle_envs"))
 import argparse
 import numpy as np
 import tensorflow as tf
@@ -11,23 +11,14 @@ import maddpg.common.tf_util as U
 from maddpg.trainer.maddpg import MADDPGAgentTester
 import tensorflow.contrib.layers as layers
 from multiagent.environment import MultiAgentEnv
-import multiagent.scenarios as scenarios
-from datetime import datetime
-import re
-import pickle
-import shutil
 import re
 import pickle
 import shutil
 import time
-import gc
 from itertools import islice
-import time
 from gym import spaces
 
-# Suppress TensorFlow warnings
-# Fix sys.path and suppress warnings
-sys.path.insert(0, "/scratch/projects/AIProbe-Main/AIProbe/MARL_CoopNavi/multiagent_particle_envs")
+sys.path.insert(0, "/AIProbe/MARL_CoopNavi/multiagent_particle_envs")
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
@@ -162,7 +153,6 @@ def update_full_environment_xml(final_xml_path, env, current_step):
 def find_xml_files(base_folder, seed_number):
     """Finds all 'finalState.xml' files recursively."""
     full_path = os.path.join(base_folder, seed_number)
-    print(full_path)
     initialState_xml_files, finalState_xml_files = [], []
     for root, _, files in os.walk(full_path):
         if "finalState.xml" in files:
@@ -170,17 +160,6 @@ def find_xml_files(base_folder, seed_number):
         if "initialState.xml" in files:
             initialState_xml_files.append(os.path.join(root, "initialState.xml"))
     return initialState_xml_files, finalState_xml_files
-
-# def find_xml_files(base_folder):
-#     """Finds all 'finalState.xml' files recursively."""
-#     # full_path = os.path.join(base_folder, seed_number)
-#     initialState_xml_files, finalState_xml_files = [], []
-#     for root, _, files in os.walk(base_folder):
-#         if "finalState.xml" in files:
-#             finalState_xml_files.append(os.path.join(root, "finalState.xml"))
-#         if "initialState.xml" in files:
-#             initialState_xml_files.append(os.path.join(root, "initialState.xml"))
-#     return initialState_xml_files, finalState_xml_files
 
 class InaccurateStateEnv(MultiAgentEnv):
     def __init__(self, world, reset_callback, reward_callback, observation_callback, done_callback):
@@ -240,7 +219,6 @@ class Environment:
         self.agents = {}
         self.objects = {}
         self.attributes = {}
-
         self.load_environment()
 
     def load_environment(self):
@@ -283,7 +261,7 @@ def make_env(scenario_name, xml_path, inaccurate_model="original"):
     world = scenario.make_world()
 
     env_config = Environment(xml_path["initial"], xml_path["final"])
-    max_episode_len = env_config.attributes.get("Timestep_Count", 100)  # Default to 100 if not found
+    max_episode_len = env_config.attributes.get("Timestep_Count", 100)
 
     for i, agent in enumerate(world.agents):
         agent_idx = i+1
@@ -304,8 +282,6 @@ def mlp_model(input, num_outputs, scope, reuse=False, num_units=64):
         out = layers.fully_connected(out, num_outputs=num_outputs, activation_fn=None)
         return out
 
-import pickle
-
 def test_policy_parallel(arglist, xml_config, model_type, trained_model, output_file):
     """Runs a trained policy on an inaccurate environment and logs results."""
     os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
@@ -321,9 +297,6 @@ def test_policy_parallel(arglist, xml_config, model_type, trained_model, output_
         tf.compat.v1.disable_eager_execution()
 
         file_name_without_extension = os.path.splitext(os.path.basename(output_file))[0]
-
-       
-
         env = make_env(arglist.scenario, xml_config, inaccurate_model=model_type)
 
         obs_shape_n = [env.observation_space[i].shape for i in range(env.n)]
@@ -394,9 +367,7 @@ def test_policy_parallel(arglist, xml_config, model_type, trained_model, output_
             "BugFound": bug_found
         }
         write_result_to_csv(output_file, result)
-
         save_pickle(xml_config["initial"], model_type, episode_data)
-        
         
         # Update finalState.xml or crash.xml
         final_xml_path = xml_config["final"]
@@ -454,30 +425,24 @@ def init_worker():
 
 if __name__ == "__main__":
     multiprocessing.set_start_method('spawn', force=True)
-    base_folders = ["/scratch/projects/AIProbe-Main/Result/MARL_Coop_Navi/Approch_1/100_Bin"]
+    base_folders = ["AIProbe/Result/MARL_Coop_Navi/100_Bin"]
 
     for base_folder in base_folders:
-        #Ensure that base_folder exists
         log_file_path = os.path.join(base_folder, "log.txt")
-        print(base_folder)
-    # seeds = ['534', '789', '3768', '4532', '5698', '12876', '21456', '54321', '78901', '98765']
-        #
-        # seeds = ['534', '789', '78901', '54321', '12876', '4532', '98765', '21456', '3768', '5698', '11223', '67890', '32456', '90785', '15098', '74321', '8967', '22589', '61987', '37012']
-        seeds = ['534']
+        seeds = ['534', '789', '78901', '54321', '12876', '4532', '98765', '21456', '3768', '5698', '11223', '67890', '32456', '90785', '15098', '74321', '8967', '22589', '61987', '37012']
 
         total_start = time.time()
-
         with open(log_file_path, "a") as log_file:
             log_file.write(f"\n=== Run started at {time.strftime('%Y-%m-%d %H:%M:%S')} ===\n")
             log_file.flush()
 
             for seed_number in seeds:
                 print(f"\nProcessing Seed: {seed_number}")
-                seed_start = time.time() 
-            
+                seed_start = time.time()
+
 
                 initialState_xml_files, finalState_xml_files = find_xml_files(base_folder, seed_number)
-                print(f"  ➤ Found {len(initialState_xml_files)} simulation cases.")
+                print(f"Found {len(initialState_xml_files)} simulation cases.")
                 log_file.write(f"Seed {seed_number}: {len(initialState_xml_files)} cases found\n")
                 log_file.flush()
 
@@ -513,7 +478,7 @@ if __name__ == "__main__":
                         pool.starmap(test_policy_parallel, task_chunk)
 
                 seed_time = (time.time() - seed_start) / 60
-                print(f"✔ Seed {seed_number} completed in {seed_time:.2f} minutes.")
+                print(f"Seed {seed_number} completed in {seed_time:.2f} minutes.")
                 log_file.write(f"✔ Seed {seed_number} completed in {seed_time:.2f} minutes.\n")
                 log_file.flush()
 

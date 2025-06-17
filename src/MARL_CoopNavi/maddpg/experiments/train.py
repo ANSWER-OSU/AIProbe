@@ -5,8 +5,7 @@ import time
 import pickle
 import sys
 import os
-
-sys.path.append(os.path.abspath("/scratch/projects/AIProbe-Main/AIProbe/MARL_CoopNavi/"))
+sys.path.append(os.path.abspath("AIProbe/MARL_CoopNavi/"))
 from modify_env_test import *
 import maddpg.common.tf_util as U
 from maddpg.trainer.maddpg import MADDPGAgentTrainer
