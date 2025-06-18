@@ -1,8 +1,10 @@
 import os
+import argparse
 import pandas as pd
 import xml.etree.ElementTree as ET
 import numpy as np
 from collections import defaultdict
+
 
 def parse_value(value_str, dtype):
     if value_str.lower() == "unknown":
@@ -12,11 +14,13 @@ def parse_value(value_str, dtype):
     except ValueError:
         return None
 
+
 def safe_parse_bound(value):
     try:
         return float(value)
     except (ValueError, TypeError):
         return None
+
 
 def extract_mutable_floats_with_constraints(xml_path):
     if not os.path.exists(xml_path):
@@ -49,6 +53,7 @@ def extract_mutable_floats_with_constraints(xml_path):
     process_attributes(root.findall("Attribute"))
     return values
 
+
 def bin_vector_with_constraints(values_with_bounds, n_bins):
     binned = []
     for value, min_val, max_val in values_with_bounds:
@@ -59,6 +64,7 @@ def bin_vector_with_constraints(values_with_bounds, n_bins):
         bin_idx = int(norm * (n_bins - 1))
         binned.append(bin_idx)
     return tuple(binned)
+
 
 def build_crash_dict_from_csv(csv_path, n_bins=10, model_id=1):
     df = pd.read_csv(csv_path)
@@ -90,9 +96,9 @@ def build_crash_dict_from_csv(csv_path, n_bins=10, model_id=1):
         if crash_bin not in crash_dict[init_bin]:
             crash_dict[init_bin].append(crash_bin)
             per_seed_crash_bins[seed].add(crash_bin)
-    
 
     return crash_dict, per_seed_crash_bins, per_seed_total_crashes, all_seeds
+
 
 def compare_models(base_path, model_versions, n_bins=5):
     model_crash_maps = {}
@@ -118,37 +124,48 @@ def compare_models(base_path, model_versions, n_bins=5):
         print(f"  Total Crashes: {sum(len(v) for v in other_map.values())}")
         print(f"  Unique Crashes not in Model 1: {len(unique_crashes)}")
 
-# Example usage
-if __name__ == "__main__":
-    model_ids = [1, 2, 3,4,5,6,7,8,9]
-    n_bins = 5
-    base_dir = "/scratch/projects/AIProbe-Main/Result/ACAS_XU_Domain/Result/5_bin_copy"
 
+# Example usage
+def main(result_dir, n_bins):
+    model_ids = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     total = 0
+
     for model_id in model_ids:
-        csv_path = os.path.join(base_dir, f"model_{model_id}_simulation_results_parallel.csv")
-        crash_mapping, per_seed_crash_bins, per_seed_total_crashes, all_seeds = build_crash_dict_from_csv(csv_path, n_bins, model_id=model_id)
+        csv_path = os.path.join(result_dir, f"model_{model_id}_simulation_results_parallel.csv")
+        crash_mapping, per_seed_crash_bins, per_seed_total_crashes, all_seeds = build_crash_dict_from_csv(
+            csv_path, n_bins, model_id=model_id
+        )
 
         total_crashes = sum(len(v) for v in crash_mapping.values())
         total += total_crashes
         unique_init_states = len(crash_mapping)
 
-        print(f"\n Model {model_id} Statistics:")
+        print(f"\nModel {model_id} Statistics:")
         print(f"   - Total crash bin entries: {total_crashes}")
         print(f"   - Unique bins: {unique_init_states}")
 
-        per_seed_csv = os.path.join(base_dir, f"model_{model_id}_per_seed_crash_summary.csv")
+        per_seed_csv = os.path.join(result_dir, f"model_{model_id}_per_seed_crash_summary.csv")
         with open(per_seed_csv, "w") as f:
             f.write("Seed,Unique Crash Bins,Total Crash Bins\n")
             for seed in sorted(all_seeds):
                 unique_crashes = len(per_seed_crash_bins[seed]) if seed in per_seed_crash_bins else 0
                 total_crashes = per_seed_total_crashes.get(seed, 0)
                 f.write(f"{seed},{unique_crashes},{total_crashes}\n")
-     
 
         print(f"Per-seed crash summary saved to: {per_seed_csv}")
         for seed in sorted(per_seed_crash_bins.keys(), key=int):
             for crash_bin in per_seed_crash_bins[seed]:
                 print(f"Seed {seed}: Crash Bin = {crash_bin}")
+
     print(total)
-    print(f"Average unique crash: {total/90}")
+    print(f"Average unique crash: {total / 180}")
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Crash summary statistics")
+    parser.add_argument("--result_dir", type=str, required=True,
+                        help="Base directory containing simulation result CSVs")
+    parser.add_argument("--n_bins", type=int, default=100, help="Number of bins used")
+
+    args = parser.parse_args()
+    main(args.result_dir, args.n_bins)
