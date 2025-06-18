@@ -6,7 +6,7 @@ import pickle
 import sys
 import os
 sys.path.append(os.path.abspath("AIProbe/MARL_CoopNavi/"))
-from modify_env_test import *
+from modified_environment import *
 import maddpg.common.tf_util as U
 from maddpg.trainer.maddpg import MADDPGAgentTrainer
 import tensorflow.contrib.layers as layers
