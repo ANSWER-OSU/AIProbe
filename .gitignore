@@ -140,3 +140,7 @@ dmypy.json
 /ACAS_XU/.idea
 /Enviroment_Generation/.idea
 /.idea
+/src/Enviroment_Generation/obj
+/src/Enviroment_Generation/obj
+/src/Enviroment_Generation/bin
+/src/Enviroment_Generation/obj

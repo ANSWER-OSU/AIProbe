@@ -10,8 +10,8 @@
         <ActionSpaceFilePath>Data/ActionSpace.xml</ActionSpaceFilePath>
     </FileSettings>
     <EnviromentDetails>
-        <TimeStepPresent>True</TimeStepPresent>
-        <FinalState>True</FinalState>
+        <TimeStepPresent>true</TimeStepPresent>
+        <FinalState>true</FinalState>
     </EnviromentDetails>
     <RandomSettings>
         <Seeds>

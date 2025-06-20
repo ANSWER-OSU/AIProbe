@@ -32,116 +32,7 @@ namespace AIprobe
         public static int taskSampleConstant = 0;
         public static bool isTimeStep = true;
 
-
-        // public static async Task Main(string[] args)
-        // {
-        //     #region EnvironmentVariable
-
-        //     SetStaticVariable();
-
-        //     #endregion
-
-        //     Console.WriteLine("Reading the config file and setting environment variables...");
-        //     Stopwatch stopwatch = Stopwatch.StartNew();
-
-        //     CancellationTokenSource cts = new CancellationTokenSource();
-        //     cts.CancelAfter(TimeSpan.FromSeconds(processingTime));
-
-        //     EnvTaskGenerator envTaskGenerator = new EnvTaskGenerator();
-        //     int totalTasks = 0;
-        //     int instructionFound = 0;
-        //     double environmentGenerationTime = 0;
-        //     double taskGenerationTime = 0;
-        //     int totalEnvironment = 0;
-        //     long environmentGenerationTimeTicks = 0;
-        //     long taskGenerationTimeTicks = 0;
-        //     Stopwatch localStopwatch = Stopwatch.StartNew();
-        //     Stopwatch timer = Stopwatch.StartNew();
-        //     ConcurrentQueue<Environment> environmentQueue = new ConcurrentQueue<Environment>();
-        //     try
-        //     {
-        //         // Process each seed sequentially
-        //         Parallel.ForEach(seedList, seed =>
-        //         {
-        //             var localQueue = GetEnviromentQueue(envConfigFile, seed);
-
-        //             while (localQueue.TryDequeue(out var env))
-        //             {
-        //                 environmentQueue.Enqueue(env);
-        //             }
-
-        //             int localEnvironmentCount = localQueue.Count;
-        //             double localEnvironmentGenerationTime = localStopwatch.Elapsed.TotalMilliseconds;
-
-        //             Interlocked.Add(ref totalEnvironment, localEnvironmentCount);
-        //             Interlocked.Add(ref environmentGenerationTimeTicks, (long)localEnvironmentGenerationTime);
-        //         });
-        //     }
-        //     catch (OperationCanceledException)
-        //     {
-        //         LogAndDisplay($"Total environment: {totalEnvironment}");
-        //         LogAndDisplay($"Environment generation time: {environmentGenerationTime} ms");
-        //         // LogAndDisplay($"Total tasks: {totalTasks}");
-        //         // LogAndDisplay($"Total instructions found: {instructionFound}");
-        //         LogAndDisplay("The operation was canceled due to a timeout.");
-        //     }
-        //     finally
-        //     {
-        //         LogAndDisplay($"Total environment: {totalEnvironment}");
-        //         LogAndDisplay($"Environment generation time: {environmentGenerationTime} ms");
-        //         // LogAndDisplay($"Total tasks: {totalTasks}");
-        //         // LogAndDisplay($"Task generation + saving time: {taskGenerationTime} ms");
-
-        //         cts.Dispose();
-        //     }
-
-        //     try
-        //     {
-        //         var taskList = seedList.Select(async seed =>
-        //         {
-        //             var localStopwatch = Stopwatch.StartNew();
-        //             var envTaskQueue = await GetEnvironmentTaskQueueAsync(environmentQueue, resultFolder, seed);
-        //             localStopwatch.Stop();
-
-        //             int localTaskCount = envTaskQueue.Count;
-        //             long localTaskGenerationTime = (long)localStopwatch.Elapsed.TotalMilliseconds;
-
-        //             Interlocked.Add(ref totalTasks, localTaskCount);
-        //             Interlocked.Add(ref taskGenerationTimeTicks, localTaskGenerationTime);
-
-        //             Console.WriteLine($"Seed: {seed}, Total Time (Tomr): {localTaskGenerationTime} ms, Environments: {localTaskGenerationTime}, Tasks: {localTaskCount}");
-        //         }).ToList();
-
-        //         await Task.WhenAll(taskList);
-        //     }
-        //     catch (OperationCanceledException)
-        //     {
-        //         LogAndDisplay($"Total Task: {totalTasks}");
-        //         LogAndDisplay($"total task generation time: {taskGenerationTime} ms");
-        //         // LogAndDisplay($"Total tasks: {totalTasks}");
-        //         // LogAndDisplay($"Total instructions found: {instructionFound}");
-        //         LogAndDisplay("The operation was canceled due to a timeout.");
-        //     }
-        //     finally
-        //     {
-                
-        //         LogAndDisplay($"Total Task: {totalTasks}");
-        //         LogAndDisplay($"total task generation time: {taskGenerationTime} ms");
-        //         // LogAndDisplay($"Total tasks: {totalTasks}");
-        //         // LogAndDisplay($"Task generation + saving time: {taskGenerationTime} ms");
-        //         LogAndDisplay($"Total configuration (Environment and Task) generated: {totalTasks }");
-        //         LogAndDisplay($"Total configuration (Environment and Task) generation time: {taskGenerationTime + environmentGenerationTime} ms");
-                
-        //         LogAndDisplay($"Total configuration (Environment and Task) generation time: {timer.Elapsed.TotalMilliseconds } ms");
-                
-               
-                
-        //         cts.Dispose();
-        //     }
-
-        // }
-
-         public static async Task Main(string[] args)
+        public static async Task Main(string[] args)
         {
             #region EnvironmentVariable
 
@@ -181,7 +72,7 @@ namespace AIprobe
                         totalEnvironment += localEnvironmentCount;
                         environmentGenerationTime += localEnvironmentGenerationTime;
                     }
-                    
+
 
                     // Generate tasks asynchronously for the current environment queue
                     localStopwatch.Restart();
@@ -199,7 +90,8 @@ namespace AIprobe
 
                     // Calculate Tomr and print for each seed
                     double tomr = localEnvironmentGenerationTime + localTaskGenerationTime;
-                    Console.WriteLine($"Seed: {seed}, Total Time (Tomr): {tomr} ms, Environments: {localEnvironmentCount}, Tasks: {localTaskCount}");
+                    Console.WriteLine(
+                        $"Seed: {seed}, Total Time (Tomr): {tomr} ms, Environments: {localEnvironmentCount}, Tasks: {localTaskCount}");
                 });
             }
             catch (OperationCanceledException)
@@ -213,85 +105,87 @@ namespace AIprobe
                 LogAndDisplay($"Total environment: {totalEnvironment}");
                 LogAndDisplay($"Total tasks: {totalTasks}");
                 LogAndDisplay($"Total generation time: {environmentGenerationTime} ms");
-                
-
                 cts.Dispose();
             }
         }
-        
-        
-        private static async Task<ConcurrentQueue<(string initialPath, string finalPath)>> GetEnvironmentTaskQueueAsync(ConcurrentQueue<Environment> environmentQueue, string resultFolderPath, int seed)
-{
-    var environmentTaskQueue = new ConcurrentQueue<(string initialPath, string finalPath)>();
 
-    var environments = environmentQueue.ToList();
-    EnvTaskGenerator envTaskGenerator = new EnvTaskGenerator();
 
-    LogAndDisplay($"Starting parallel processing of {environments.Count} environments...");
-    resultFolderPath = $"{resultFolderPath}/{seed}";
-    Directory.CreateDirectory(resultFolderPath);
-
-    var environmentProcessingTasks = environments.Select(async (env, index) =>
-    {
-        Stopwatch envStopwatch = Stopwatch.StartNew();
-        try
+        private static async Task<ConcurrentQueue<(string initialPath, string finalPath)>> GetEnvironmentTaskQueueAsync(
+            ConcurrentQueue<Environment> environmentQueue, string resultFolderPath, int seed)
         {
-            int i = index;
-            LogAndDisplay($"Processing environment {i + 1}/{environments.Count}...");
+            var environmentTaskQueue = new ConcurrentQueue<(string initialPath, string finalPath)>();
 
-            Stopwatch taskGeneratorStopwatch = Stopwatch.StartNew();
-            LogAndDisplay($"Generating tasks for environment {i + 1}...");
+            var environments = environmentQueue.ToList();
+            EnvTaskGenerator envTaskGenerator = new EnvTaskGenerator();
 
-            string environmentFolder = Path.Combine(resultFolderPath, $"Env_{i + 1}");
-            Directory.CreateDirectory(environmentFolder);
+            LogAndDisplay($"Starting parallel processing of {environments.Count} environments...");
+            resultFolderPath = $"{resultFolderPath}/{seed}";
+            Directory.CreateDirectory(resultFolderPath);
 
-            var tasksForEnvironment = envTaskGenerator.GenerateTask(env, seed, environmentFolder);
-
-            taskGeneratorStopwatch.Stop();
-            LogAndDisplay($"Generated {tasksForEnvironment.Count} tasks for environment {i + 1} in {taskGeneratorStopwatch.ElapsedMilliseconds} ms.");
-
-            // Save tasks in parallel
-            var saveTasks = tasksForEnvironment.Select(async (task, taskIndex) =>
+            var environmentProcessingTasks = environments.Select(async (env, index) =>
             {
-                string taskFolder = Path.Combine(environmentFolder, $"Task_{taskIndex + 1}");
-                Directory.CreateDirectory(taskFolder);
-                LogAndDisplay($"Created folder: {taskFolder}");
+                Stopwatch envStopwatch = Stopwatch.StartNew();
+                try
+                {
+                    int i = index;
+                    LogAndDisplay($"Processing environment {i + 1}/{environments.Count}...");
 
-                string initialResultFilePath = Path.Combine(taskFolder, "initialState.xml");
-                string finalResultFilePath = Path.Combine(taskFolder, "finalState.xml");
+                    Stopwatch taskGeneratorStopwatch = Stopwatch.StartNew();
+                    LogAndDisplay($"Generating tasks for environment {i + 1}...");
 
-                LogAndDisplay($"Saving task {taskIndex + 1}/{tasksForEnvironment.Count} for environment {i + 1}...");
+                    string environmentFolder = Path.Combine(resultFolderPath, $"Env_{i + 1}");
+                    Directory.CreateDirectory(environmentFolder);
 
-                var initialStateTask = WriteEnvironmentAsync(task.Item1, initialResultFilePath);
-                var finalStateTask = WriteEnvironmentAsync(task.Item2, finalResultFilePath);
+                    var tasksForEnvironment = envTaskGenerator.GenerateTask(env, seed, environmentFolder);
 
-                await Task.WhenAll(initialStateTask, finalStateTask);
+                    taskGeneratorStopwatch.Stop();
+                    LogAndDisplay(
+                        $"Generated {tasksForEnvironment.Count} tasks for environment {i + 1} in {taskGeneratorStopwatch.ElapsedMilliseconds} ms.");
 
-                environmentTaskQueue.Enqueue((initialResultFilePath, finalResultFilePath));
+                    // Save tasks in parallel
+                    var saveTasks = tasksForEnvironment.Select(async (task, taskIndex) =>
+                    {
+                        string taskFolder = Path.Combine(environmentFolder, $"Task_{taskIndex + 1}");
+                        Directory.CreateDirectory(taskFolder);
+                        LogAndDisplay($"Created folder: {taskFolder}");
+
+                        string initialResultFilePath = Path.Combine(taskFolder, "initialState.xml");
+                        string finalResultFilePath = Path.Combine(taskFolder, "finalState.xml");
+
+                        LogAndDisplay(
+                            $"Saving task {taskIndex + 1}/{tasksForEnvironment.Count} for environment {i + 1}...");
+
+                        var initialStateTask = WriteEnvironmentAsync(task.Item1, initialResultFilePath);
+                        var finalStateTask = WriteEnvironmentAsync(task.Item2, finalResultFilePath);
+
+                        await Task.WhenAll(initialStateTask, finalStateTask);
+
+                        environmentTaskQueue.Enqueue((initialResultFilePath, finalResultFilePath));
+                    });
+
+                    await Task.WhenAll(saveTasks);
+
+                    LogAndDisplay($"Completed processing for environment {i + 1}.");
+                }
+                catch (Exception ex)
+                {
+                    LogErrorAndDisplay($"Error processing environment {index + 1}: {ex.Message}");
+                }
+                finally
+                {
+                    envStopwatch.Stop();
+                    LogAndDisplay(
+                        $"Environment {index + 1} processing completed in {envStopwatch.ElapsedMilliseconds / 100} s.");
+                }
             });
 
-            await Task.WhenAll(saveTasks);
+            await Task.WhenAll(environmentProcessingTasks);
 
-            LogAndDisplay($"Completed processing for environment {i + 1}.");
+            LogAndDisplay("All environments processed in parallel with parallel task saving.");
+
+            return environmentTaskQueue;
         }
-        catch (Exception ex)
-        {
-            LogErrorAndDisplay($"Error processing environment {index + 1}: {ex.Message}");
-        }
-        finally
-        {
-            envStopwatch.Stop();
-            LogAndDisplay($"Environment {index + 1} processing completed in {envStopwatch.ElapsedMilliseconds / 100} s.");
-        }
-    });
 
-    await Task.WhenAll(environmentProcessingTasks);
-
-    LogAndDisplay("All environments processed in parallel with parallel task saving.");
-
-    return environmentTaskQueue;
-}
-       
 
         private static ConcurrentQueue<Environment> GetEnviromentQueue(string envFilePath, int seed)
         {
@@ -304,11 +198,12 @@ namespace AIprobe
                 return null;
             }
 
-            ConcurrentQueue<Environment> environmentQueue =  EnvConfigGenerator.GenerateEnvConfigsQueue(initialEnvironment, seed);
+            ConcurrentQueue<Environment> environmentQueue =
+                EnvConfigGenerator.GenerateEnvConfigsQueue(initialEnvironment, seed);
 
             return environmentQueue;
         }
-        
+
         private static async Task WriteEnvironmentAsync(Environment environment, string resultFilePath)
         {
             try
@@ -336,7 +231,7 @@ namespace AIprobe
                 LogErrorAndDisplay($"Error writing environment to file: {ex.Message}");
             }
         }
-        
+
         private static void SetStaticVariable()
         {
             ConfigParser configParser = new ConfigParser();
@@ -351,6 +246,7 @@ namespace AIprobe
                 Console.WriteLine("Config file found ");
             }
 
+
             // Set the log file path
             string logFilePath = config.LogSettings.LogFilePath + $"Log{DateTime.Now}.txt";
             //string logFilePath = "/tmp/aiprobe_log.txt";
@@ -358,6 +254,7 @@ namespace AIprobe
 
             Logger.Initialize(logFilePath);
 
+            isTimeStep = config.EnviromentDetails.TimeStepPresent;
             pythonScriptFilePath = config.PythonSettings.ScriptFilePath;
             resultFolder = config.ResultSetting.ResultFolderPath;
             LogAndDisplay($"Result folder at: {resultFolder}");
@@ -371,7 +268,6 @@ namespace AIprobe
 
             bin = config.RandomSettings.Bin;
             LogAndDisplay($"Aiprobe running with bin {bin}");
-            
 
 
             Logger.LogInfo($"Action Space File Path: {config.FileSettings.ActionSpaceFilePath}");

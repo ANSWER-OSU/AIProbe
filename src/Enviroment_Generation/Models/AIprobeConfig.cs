@@ -15,7 +15,7 @@ namespace AIprobe.Models
         // public TimeSettings TimeSettings { get; set; }
         
         [XmlElement("EnviromentDetails")]
-        public RandomSettings EnviromentDetails { get; set; }
+        public EnviromentDetails EnviromentDetails { get; set; }
         
         [XmlElement("RandomSettings")]
         public RandomSettings RandomSettings { get; set; }
@@ -26,6 +26,7 @@ namespace AIprobe.Models
         
         [XmlElement("ResultSetting")]
         public ResultSetting ResultSetting { get; set; }
+        
     }
 
     public class ResultSetting
