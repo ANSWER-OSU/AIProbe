@@ -30,6 +30,24 @@ Run `python testing.py` to start fuzz testing.
 installation step
 
 ## 2. Task generator
+Use the provided run.sh script to generate environment and task files.
+```
+cd ..
+cd Enviroment_Generation/publish
+./run.sh <DomainName> <Master_XML_path> <TimeStepPresent>
+cd ../..
+cd MARL_CoopNavi
+
+
+```
+Example:
+```
+./run.sh MARL_CoopNavi ./data/MARL_CoopNavi.xml true
+
+```
+This will:
+•	Create output under AIprobe/Result/MARL_CoopNavi/
+•	Generate XML files (initial and final state)
 
 
 ## 3. Run model on generated task
