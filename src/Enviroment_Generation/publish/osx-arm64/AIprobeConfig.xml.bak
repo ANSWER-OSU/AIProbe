@@ -1,9 +1,9 @@
 <AIprobeConfig>
     <LogSettings>
-        <LogFilePath>/Logs</LogFilePath>
+        <LogFilePath>/Volumes/External_ssd/Github/projects/AIProbe/Result/FlappyBird/Logs</LogFilePath>
     </LogSettings>
     <ResultSetting>
-        <ResultFolderPath></ResultFolderPath>
+        <ResultFolderPath>/Volumes/External_ssd/Github/projects/AIProbe/Result/FlappyBird</ResultFolderPath>
     </ResultSetting>
     <FileSettings>
 	    <EnviromentDataFilePath></EnviromentDataFilePath>
@@ -39,6 +39,6 @@
         <Bin>100</Bin>
     </RandomSettings>
     <PythonSettings>
-        <ScriptFilePath></ScriptFilePath>
+        <ScriptFilePath>/Volumes/External_ssd/Github/projects/AIProbe/script.py</ScriptFilePath>
     </PythonSettings>
 </AIprobeConfig>

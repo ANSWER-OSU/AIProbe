@@ -1,17 +1,17 @@
 <AIprobeConfig>
     <LogSettings>
-        <LogFilePath>/AIProbe-Main/Result/FlappyBird/Flappybird/Approch_1/100_Bin/Logs</LogFilePath>
+        <LogFilePath>/Volumes/External_ssd/Github/projects/AIProbe/Result/FlappyBird/Logs</LogFilePath>
     </LogSettings>
     <ResultSetting>
-        <ResultFolderPath>/AIProbe-Main/Result/FlappyBird/Flappybird/Approch_1/100_Bin</ResultFolderPath>
+        <ResultFolderPath>/Volumes/External_ssd/Github/projects/AIProbe/Result/FlappyBird</ResultFolderPath>
     </ResultSetting>
     <FileSettings>
-	    <EnviromentDataFilePath>/AIProbe-Main/AIProbe/Enviroment_Generation/Data/Flappybird.xml</EnviromentDataFilePath>
+	    <EnviromentDataFilePath>/Volumes/External_ssd/Github/projects/AIProbe/AIProbe/Inital_Enviroment_Config/Flappybird.xml</EnviromentDataFilePath>
         <ActionSpaceFilePath>Data/ActionSpace.xml</ActionSpaceFilePath>
     </FileSettings>
     <EnviromentDetails>
-        <TimeStepPresent>True</TimeStepPresent>
-        <FinalState>True</FinalState>
+        <TimeStepPresent>true</TimeStepPresent>
+        <FinalState>true</FinalState>
     </EnviromentDetails>
     <RandomSettings>
         <Seeds>
@@ -39,5 +39,6 @@
         <Bin>100</Bin>
     </RandomSettings>
     <PythonSettings>
+        <ScriptFilePath>/Volumes/External_ssd/Github/projects/AIProbe/script.py</ScriptFilePath>
     </PythonSettings>
 </AIprobeConfig>
