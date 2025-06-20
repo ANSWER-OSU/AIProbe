@@ -11,16 +11,16 @@ from multiprocessing import Pool, Manager
 from tqdm import tqdm
 from MinigridWrapper import run_minigrid_with_single_action
 from enviroment_parser import parse_xml_to_dict
+import argparse
 
 
 # Constants
 ACTION_SPACE = ["left", "right", "forward"]
 MAX_DEPTH = 200
-BINS = 1
+BINS = 100
 K_SAMPLE = 10
 TRIAL_SEEDS = [825, 386, 543, 230, 40, 925, 325, 361, 494, 720]
 
-# ---- Basic helper functions ----
 def compute_hash(env):
     env_dict = json.loads(json.dumps(env, default=lambda o: getattr(o, '__dict__', str(o))))
     agent_attrs = env_dict['Agents']['AgentList'][0]['Attributes']
@@ -55,7 +55,6 @@ def compute_steps(env1, env2, b=BINS):
         bin_size = max(1, b // 2)
     return max(1, dist // bin_size)
 
-# ----- k-sampling based DFS -----
 def run_dfs_k_sampling_with_retries(S_i, S_f, hash_fn, step_fn, is_crashing_fn, compute_steps_fn,
                                     max_depth, action_space, b=5, k=10, seed=0):
     random.seed(seed)
@@ -103,9 +102,8 @@ def run_dfs_k_sampling_with_retries(S_i, S_f, hash_fn, step_fn, is_crashing_fn, 
 
     return dfs_recursive(S_i, [], 0)
 
-# ------------------------
-# Per-seed trial
-# ------------------------
+
+
 def try_seed(args):
     seed, S_i, S_f, stop_event, mode = args
     if stop_event.is_set():
@@ -141,19 +139,18 @@ def try_seed(args):
 
     if success:
         stop_event.set()
-        return ("✅", seed, path)
+        return (True, seed, path)
     else:
-        return ("❌", seed, None)
+        return (False, seed, None)
 
-# ------------------------
-# Try one task (multiple seeds inside)
-# ------------------------
+
+
 def try_one_task(initial_path, final_path, mode):
     try:
         S_i = parse_xml_to_dict(initial_path)
         S_f = parse_xml_to_dict(final_path)
     except Exception as e:
-        print(f"⚠️ Error parsing {initial_path}: {e}")
+        print(f"Error parsing {initial_path}: {e}")
         return (initial_path, False, 0)
 
     manager = Manager()
@@ -170,30 +167,27 @@ def try_one_task(initial_path, final_path, mode):
 
             status, seed, path = result
 
-            if status == "✅":
+            if status == True:
                 elapsed = time.time() - start_time
-                print(f"✅ Task {initial_path} solved with seed {seed} in {elapsed:.2f} seconds")
+                print(f"Task {initial_path} solved with seed {seed} in {elapsed:.2f} seconds")
 
                 # Save instruction
                 instruction_save_path = os.path.join(os.path.dirname(initial_path), "instruction.json")
                 try:
                     with open(instruction_save_path, 'w') as f_out:
                         json.dump({"instruction": path}, f_out, indent=2)
-                    print(f"💾 Instruction saved to {instruction_save_path}")
+                    print(f" Instruction saved to {instruction_save_path}")
                 except Exception as e:
-                    print(f"⚠️ Failed to save instruction JSON: {e}")
+                    print(f"Failed to save instruction JSON: {e}")
 
                 seed_pool.terminate()
                 seed_pool.join()
                 return (initial_path, True, elapsed)
 
     elapsed = time.time() - start_time
-    print(f"❌ Task {initial_path} unsolved after {elapsed:.2f} seconds")
+    print(f"Task {initial_path} unsolved after {elapsed:.2f} seconds")
     return (initial_path, False, elapsed)
 
-# ------------------------
-# Main from CSV (one task at a time)
-# ------------------------
 def run_from_csv(csv_path, base_dir, mode="new"):
     df = pd.read_csv(csv_path)
     df.columns = df.columns.str.strip()
@@ -201,7 +195,7 @@ def run_from_csv(csv_path, base_dir, mode="new"):
     print("Available columns:", df.columns.tolist())
 
     df_filtered = df[(df['#Lava'] == 1) & (df['#AgentToGoal'] == 0)]
-    print(f"🎯 Total tasks to try: {len(df_filtered)}")
+    print(f"Total tasks to try: {len(df_filtered)}")
 
     # Prepare args for each task
     task_args = []
@@ -227,22 +221,26 @@ def run_from_csv(csv_path, base_dir, mode="new"):
 
     # Save all results
     output_df = pd.DataFrame(output_data)
-    output_path = "dfs_minigrid_parallel_task.csv"
+    output_path = "minigrid_parallel_task.csv"
     output_df.to_csv(output_path, index=False)
 
     total_solved = output_df['Solved'].sum()
-    print(f"\n🏁 Done. {total_solved}/{len(output_data)} tasks solved.")
-    print(f"📝 Results saved to: {output_path}")
+    print(f"\nDone. {total_solved}/{len(output_data)} tasks solved.")
+    print(f"Results saved to: {output_path}")
 
 def try_one_task_wrapper(args):
     initial_path, final_path, mode = args
     return try_one_task(initial_path, final_path, mode)
-# ------------------------
-# Run Example
-# ------------------------
+
+
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Run policy evaluation from CSV")
+    parser.add_argument("--csv_path", type=str, required=True, help="Path to the CSV result file")
+    parser.add_argument("--base_dir", type=str, required=True, help="Base directory for XML results")
+    
+    args = parser.parse_args()
     run_from_csv(
-        csv_path="/scratch/projects/AIProbe-Main/AIProbe/Minigrid/computePolicy/results_for_fuzzer_gen_configs/Seed_3768/_accurate_reward_accurate_state_rep_results.csv",
-        base_dir="/scratch/projects/AIProbe-Main/Result/LavaRoom/Approch_1/100_Bin",
+        csv_path=args.csv_path,
+        base_dir=args.base_dir,
         mode="new"
     )
