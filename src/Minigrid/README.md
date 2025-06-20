@@ -2,7 +2,23 @@
 installation step
 
 ## 2. Task generator
+Use the provided run.sh script to generate environment and task files.
+```
+cd ..
+cd Enviroment_Generation/publish
+./run.sh <DomainName> <Master_XML_path> <TimeStepPresent>
+cd ../..
+cd Minigrid
 
+```
+Example:
+```
+./run.sh Lava_Room ./data/Lava_Room.xml true
+
+```
+This will:
+•	Create output under AIprobe/Result/Lava_Room/
+•	Generate XML files (initial and final state)
 
 ## 3. Run model on generated task
 This script simulation and runs the model on all generated tasks
