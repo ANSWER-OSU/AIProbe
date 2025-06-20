@@ -1,11 +1,10 @@
-# run_dfs_k_sampling_with_retries.py
+
 
 import random
 
 def run_dfs_k_sampling_with_retries(S_i, S_f, hash_fn, step_fn, is_crashing_fn, compute_steps_fn,
                                     max_depth, action_space, b=5, k=3, seed=0):
     """
-    Core DFS with k-sampling retries.
 
     Args:
         S_i: Initial environment state
