@@ -1,0 +1,62 @@
+<Environment name="Lava Enviroment" type="simulation">
+    <Agents>
+        <Agent id="1" type="Robot">
+            <Attribute>
+                <Name value="X"/>
+                <DataType value="int"/>
+                <Value value=""/>
+                <Mutable value="true"/>
+                <Constraint Min="1" Max="{Grid}" Values="" Choice=""/>
+            </Attribute>
+            <Attribute>
+                <Name value="Y"/>
+                <Description value=""/>
+                <DataType value="int"/>
+                <Value value=""/>
+                <Mutable value="true"/>
+                <Constraint Min="1" Max="{Grid}" Values="" Choice=""/>
+            </Attribute>
+            <Attribute>
+                <Name value="Angle"/>
+                <Description value=""/>
+                <DataType value="int"/>
+                <Value value=""/>
+                <Mutable value="true"/>
+                <Constraint Min="0" Max="3" Values="" Choice=""/>
+            </Attribute>
+        </Agent>
+    </Agents>
+    <Objects>
+        <Object id="1" type="Lava">
+            <Attribute>
+                <Name value="X"/>
+                <DataType value="int"/>
+                <Value value=""/>
+                <Mutable value="true"/>
+                <Constraint Min="1" Max="{Grid}" Values="" Choice=""/>
+            </Attribute>
+            <Attribute>
+                <Name value="Y"/>
+                <DataType value="int"/>
+                <Value value=""/>
+                <Mutable value="true"/>
+                <Constraint Min="1" Max="{Grid}" Values="" Choice=""/>
+            </Attribute>
+        </Object>
+    </Objects>
+    <Attribute>
+        <Name value="Grid"/>
+        <DataType value="int"/>
+        <Value value=""/>
+        <Mutable value="true"/>
+        <Constraint Min="3" Max="50" Values="" Choice=""/>
+     </Attribute>
+    <Attribute>
+        <Name value="Lava"/>
+        <DataType value="int"/>
+        <Value value=""/>
+        <Mutable value="true"/>
+        <Constraint Min="0" Max="{(Grid) * (Grid)}" Values="" Choice=""/>
+    </Attribute>
+
+</Environment>

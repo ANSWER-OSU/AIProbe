@@ -1,0 +1,111 @@
+<Environment name="MARL_Coop_Navi" type="simulation">
+  <!-- Multi-Agent Cooperative Navigation with Full State and Interaction Visibility -->
+  <Agents>
+    <Agent id="1" type="Robot">
+      <!-- Position -->
+      <Attribute>
+        <Name value="X" />
+        <DataType value="float" />
+        <Value value="" />
+        <Mutable value="true" />
+        <Constraint Min="-1" Max="1" Values="" Choice="" />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="float" />
+        <Value value="" />
+        <Mutable value="true" />
+        <Constraint Min="-1" Max="1" Values="" Choice="" />
+      </Attribute>
+    </Agent>
+    <Agent id="2" type="Robot">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="float" />
+        <Value value="" />
+        <Mutable value="true" />
+        <Constraint Min="-1" Max="1" Values="" Choice=""  />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="float" />
+        <Value value="" />
+        <Mutable value="true" />
+        <Constraint Min="-1" Max="1" Values="" Choice=""  />
+      </Attribute>
+    </Agent>
+    <Agent id="3" type="Robot">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="float" />
+        <Value value="" />
+        <Mutable value="true" />
+        <Constraint Min="-1" Max="1" Values="" Choice=""  />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="float" />
+        <Value value="" />
+        <Mutable value="true" />
+        <Constraint Min="-1" Max="1" Values="" Choice=""  />
+      </Attribute>
+    </Agent>
+  </Agents>
+  <Objects>
+    <Object id="1" type="Landmark">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="float" />
+        <Value value="" />
+        <Mutable value="true" />
+        <Constraint Min="-1" Max="1" Values="" Choice=""  />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="float" />
+        <Value value="" />
+        <Mutable value="true" />
+        <Constraint Min="-1" Max="1" Values="" Choice=""  />
+      </Attribute>
+    </Object>
+    <Object id="2" type="Landmark">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="float" />
+        <Value value="" />
+        <Mutable value="true" />
+        <Constraint Min="-1" Max="1" Values="" Choice=""  />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="float" />
+        <Value value="" />
+        <Mutable value="true" />
+        <Constraint Min="-1" Max="1" Values="" Choice=""  />
+      </Attribute>
+    </Object>
+    <Object id="3" type="Landmark">
+      <Attribute>
+        <Name value="X" />
+        <DataType value="float" />
+        <Value value="" />
+        <Mutable value="true" />
+        <Constraint Min="-1" Max="1" Values="" Choice=""  />
+      </Attribute>
+      <Attribute>
+        <Name value="Y" />
+        <DataType value="float" />
+        <Value value="" />
+        <Mutable value="true" />
+        <Constraint Min="-1" Max="1" Values="" Choice=""  />
+      </Attribute>
+    </Object>
+  </Objects>
+  <Attribute>
+    <Name value="Timestep_Count" />
+    <DataType value="int" />
+    <Value value="" />
+    <Mutable value="true" />
+    <Constraint Min="50" Max="2000"  Values="" Choice=""   />
+  </Attribute>
+</Environment>
