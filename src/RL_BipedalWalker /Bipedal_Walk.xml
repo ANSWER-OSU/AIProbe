@@ -1,0 +1,34 @@
+<Environment name="Bipedal_Walk" type="simulation">
+ <Agents>
+ <Agent id="1" type="">
+    <Attribute>
+        <Name value="X"/>
+        <DataType value="float"/>
+        <Value value="0.0"/>
+        <Mutable value="false"/>
+       <Constraint Min="0" Max="90" Values="" Choice="" />
+    </Attribute>
+    </Agent>
+  </Agents>
+  <Objects>
+    <Object id="1" type="Terrain">
+      <Attribute>
+        <Name value="Terrain" />
+        <DataType value="array" />
+        <Value value="[]" />
+        <Mutable value="true" />
+        <Constraint Min="1" Max="Total_Terrain" Values="1,2,3,0" Choice="4" />
+      </Attribute>
+    </Object>
+  </Objects>
+  <Attribute>
+    <Name value="Total_Terrain" />
+    <DataType value="int" />
+    <Value value="" />
+    <Mutable value="true" />
+    <Constraint Min="0" Max="200" Values="" Choice="" />
+  </Attribute>
+</Environment>
+
+
+       
