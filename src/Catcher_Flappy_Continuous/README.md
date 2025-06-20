@@ -1,10 +1,26 @@
-# AIProbe for ACAS Xu
+# AIProbe for Flappy Bird domain
 
-## 1. Enviroment installation
+## 1. Environment installation
 installation step
 
 ## 2. Task generator
+Use the provided run.sh script to generate environment and task files.
+```
+cd ..
+cd Enviroment_Generation/publish
+./run.sh <DomainName> <Master_XML_path> <TimeStepPresent>
+cd ../..
+cd Catcher_Flappy_Continuous
 
+```
+Example:
+```
+./run.sh FlappyBird ./data/flappybird.xml true
+
+```
+This will:
+•	Create output under AIprobe/Result/FlappyBird/
+•	Generate XML files (initial and final state)
 
 ## 3. Run model on generated task
 This script simulation and runs the model on all generated tasks
