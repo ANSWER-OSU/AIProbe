@@ -1,7 +1,10 @@
 # AIProbe for Flappy Bird domain
 
 ## 1. Environment installation
-installation step
+```
+conda env create -f flappyEnv.yml
+conda activate flappyEnv
+```
 
 ## 2. Task generator
 Use the provided run.sh script to generate environment and task files.
@@ -26,7 +29,7 @@ This will:
 This script simulation and runs the model on all generated tasks
 
 ```
-
+python run.py
 ```
 
 ## 4. Instruction generation

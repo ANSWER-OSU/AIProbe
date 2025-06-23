@@ -1,7 +1,10 @@
 # AIProbe for ACAS Xu
 
 ## 1. Environment installation
-installation step
+```
+conda env create -f acasEnv.yml
+conda activate acasEnv
+```
 
 ## 2. Task generator
 Use the provided run.sh script to generate environment and task files.
