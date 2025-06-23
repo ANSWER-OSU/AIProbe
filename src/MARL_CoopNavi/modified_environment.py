@@ -1,25 +1,10 @@
 import sys
 import os
-sys.path.append(os.path.abspath("/scratch/projects/AIProbe-Main/AIProbe/MARL_CoopNavi/multiagent_particle_envs"))
+sys.path.append(os.path.abspath("/AIProbe/src/MARL_CoopNavi/multiagent_particle_envs"))
 from multiagent.environment import MultiAgentEnv
 from make_env import make_env
 import numpy as np
 from gym import spaces
-
-'''
-- observation space:[self_vel, self_pos, landmark_rel_positions, other_agent_rel_positions, communication]
-    self_vel = [vel_in_x, vel_in_y]
-    self_pos = [agent_x, agent_y]
-    landmark_rel_positions = [(landmark1_x, landmark1_y), ..., (landmarkN_x, landmarkN_y)] # N is the no. of landmarks (= to no. of agents)
-    other_agent_rel_positions = [(agent1_x, agent1_y), ..., (agentN-1_x, agentN-1_y)]
-    communication = [comm_dim_1, comm_dim_2]
-
-- action space: [no_action, move_left, move_right, move_down, move_up]
-
-- By default there are 3 agents. Each can take 5 discrete actions
-'''
-
-
 
 class InaccurateStateEnv(MultiAgentEnv):
     def __init__(self, world, reset_callback, reward_callback, observation_callback):

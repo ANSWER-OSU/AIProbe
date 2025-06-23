@@ -454,16 +454,16 @@ if __name__ == "__main__":
                         trained_model = ''
                         output_file = '' 
                         if model_type == "state":
-                            trained_model = "/scratch/projects/AIProbe-Main/AIProbe/MARL_CoopNavi/InaccurateModels/inaccurate_state/checkpoints/checkpoints"
+                            trained_model = "src/MARL_CoopNavi/inaccurate_models/inaccurate_state/checkpoints/checkpoints"
                             output_file = f"{base_folder}/inaccurate_state_results.csv"
                         elif model_type == "state-reward":
-                            trained_model = "/scratch/projects/AIProbe-Main/AIProbe/MARL_CoopNavi/InaccurateModels/inaccurate_state_reward/checkpoints/checkpoints"
+                            trained_model = "src/MARL_CoopNavi/inaccurate_models/inaccurate_state_reward/checkpoints/checkpoints"
                             output_file = f"{base_folder}/inaccurate_state_and_reward_results.csv"
                         elif model_type == "reward":
-                            trained_model = "/scratch/projects/AIProbe-Main/AIProbe/MARL_CoopNavi/InaccurateModels/inaccurate_reward/checkpoints/checkpoints"
+                            trained_model = "src/MARL_CoopNavi/inaccurate_models/inaccurate_reward/checkpoints/checkpoints"
                             output_file = f"{base_folder}/inaccurate_reward_results.csv"
                         elif model_type == "accurate":
-                            trained_model = "/scratch/projects/AIProbe-Main/AIProbe/MARL_CoopNavi/maddpg/checkpoints/model.ckpt-1"
+                            trained_model = "src/MARL_CoopNavi/maddpg/checkpoints/model.ckpt-1"
                             output_file = f"{base_folder}/accurate_model.csv"
                         else:
                             continue
@@ -479,7 +479,7 @@ if __name__ == "__main__":
 
                 seed_time = (time.time() - seed_start) / 60
                 print(f"Seed {seed_number} completed in {seed_time:.2f} minutes.")
-                log_file.write(f"✔ Seed {seed_number} completed in {seed_time:.2f} minutes.\n")
+                log_file.write(f"Seed {seed_number} completed in {seed_time:.2f} minutes.\n")
                 log_file.flush()
 
             total_time = (time.time() - total_start) / 60
