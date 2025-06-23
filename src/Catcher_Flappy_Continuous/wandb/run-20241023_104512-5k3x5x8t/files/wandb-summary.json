@@ -1,1 +1,0 @@
-{"charts/episodic_length":174,"charts/SPS":3188,"charts/episodic_return":-2,"_step":230041,"_timestamp":1.729707088814618e+09,"_runtime":1576.499313,"losses/td_loss":0.004579506,"losses/q_values":0.20549409,"global_step":9,"eval/episodic_return":25,"_wandb":{"runtime":1576}}
