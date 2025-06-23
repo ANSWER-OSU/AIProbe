@@ -3,7 +3,7 @@ import numpy as np
 import pickle
 from matplotlib.animation import FuncAnimation
 from matplotlib.animation import FuncAnimation, FFMpegWriter
-from Upload.src.ACAS_XU.inaccurate_environment import CustomACASEnv
+from custom_environment import CustomACASEnv
 
 def run_simulation(ownship_speed, ownship_x, ownship_y, ownship_theta, intruder_speed, intruder_x, intruder_y, intruder_theta, timestep_count,gif_folder, setting):
     """Runs ACAS-Xu flight simulation and visualizes the paths."""

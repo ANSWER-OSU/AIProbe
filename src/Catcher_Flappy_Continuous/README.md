@@ -40,9 +40,8 @@ python heuristic_guided_search.py  --base_dir /path/to/genrated/task   --csv_pat
 ```
 
 ## 5. Crash analysis
-This script analyzes simulation results to identify no of tasks the model failed due to crashes and the unique states .
+This script analyzes simulation results to identify no of tasks the model failed due to crashes and the unique states.
 
 ```
 python crash_summary.py --csv_path /path/to/simulation/results --base_dir /path/to/genrated/task
 ```
-

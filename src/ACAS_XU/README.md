@@ -45,6 +45,4 @@ This script analyzes simulation results to identify no of tasks the model failed
 
 ```
 python crash_summary.py --result_dir /path/to/simulation/results --n_bins 100
-
 ```
-
