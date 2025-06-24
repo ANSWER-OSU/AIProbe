@@ -5,10 +5,9 @@ from stable_baselines3 import PPO
 from stable_baselines3.common.utils import set_random_seed
 from stable_baselines3.common.env_util import make_vec_env
 
-
 # ---- Configuration ----
 ENV_ID = "BipedalWalkerHardcore-v3"
-MODEL_PATH = "/scratch/projects/AIProbe-Main/AIProbe/RL_BipedalWalkerTraining/BipedalInaccuratePPOModels/"
+MODEL_PATH = "src/RL_BipedalWalkerTraining/inaccurate_models/"
 N_TIMESTEPS = 2000000
 SEED = 42
 NUM_WORKERS = 16
@@ -87,28 +86,17 @@ def run_experiment(env, model_path):
 def main():
     set_random_seed(SEED)
 
-    # ---- Experiment 1: Train with Modified Observation Space ----
-    # env = make_vec_env(lambda: ModifyEnv(gym.make(ENV_ID)), n_envs=NUM_WORKERS)
-    # train_agent(env, MODEL_PATH+"ppo_bipedalwalker_modified_obs")
+    # ---- Training 1: Train with Modified Observation Space ----
+    env = make_vec_env(lambda: ModifyEnv(gym.make(ENV_ID)), n_envs=NUM_WORKERS)
+    train_agent(env, MODEL_PATH+"ppo_bipedalwalker_modified_obs")
 
-    # # ---- Experiment 2: Train with Modified Reward Function ----
-    # env = make_vec_env(lambda: ModifyRewardWrapper(gym.make(ENV_ID)), n_envs=NUM_WORKERS)
-    # train_agent(env, MODEL_PATH+"ppo_bipedalwalker_modified_reward")
+    # # ---- Training 2: Train with Modified Reward Function ----
+    env = make_vec_env(lambda: ModifyRewardWrapper(gym.make(ENV_ID)), n_envs=NUM_WORKERS)
+    train_agent(env, MODEL_PATH+"ppo_bipedalwalker_modified_reward")
 
-    # # ---- Experiment 3: Train with Modified Observation and Modified Reward ----
-    # env = make_vec_env(lambda: ModifyEnv(ModifyRewardWrapper(gym.make(ENV_ID))), n_envs=NUM_WORKERS)
-    # train_agent(env, MODEL_PATH+"ppo_bipedalwalker_modified_obs_modified_reward")
-
-    # ---- Run trained models ----
-    print("\nRunning Experiment 1: Modified Observation")
-    run_experiment(ModifyEnv(gym.make(ENV_ID)), MODEL_PATH+"ppo_bipedalwalker_modified_obs")
-
-    print("\nRunning Experiment 2: Modified Reward")
-    run_experiment(ModifyRewardWrapper(gym.make(ENV_ID)), MODEL_PATH+"ppo_bipedalwalker_modified_reward")
-
-    print("\nRunning Experiment 3: Modified Observation & Modified Reward")
-    run_experiment(ModifyEnv(ModifyRewardWrapper(gym.make(ENV_ID))), MODEL_PATH+"ppo_bipedalwalker_modified_obs_modified_reward")
-
+    # # ---- Training 3: Train with Modified Observation and Modified Reward ----
+    env = make_vec_env(lambda: ModifyEnv(ModifyRewardWrapper(gym.make(ENV_ID))), n_envs=NUM_WORKERS)
+    train_agent(env, MODEL_PATH+"ppo_bipedalwalker_modified_obs_modified_reward")
 
 if __name__ == "__main__":
     main()

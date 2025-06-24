@@ -1,5 +1,3 @@
-
-
 import os
 import time
 import json
@@ -212,12 +210,12 @@ def run_from_csv(csv_path, base_dir, mode="new"):
     # Now parallelize tasks
     output_data = []
     with Pool(processes=min(os.cpu_count(), 4)) as pool:  
-    for result in tqdm(pool.imap_unordered(try_one_task_wrapper, task_args), total=len(task_args), desc="🛠️ Tasks"):
-            output_data.append({
-                "Task_Dir": result[0],
-                "Solved": result[1],
-                "Time_Taken": round(result[2], 2)
-            })
+        for result in tqdm(pool.imap_unordered(try_one_task_wrapper, task_args), total=len(task_args), desc="🛠️ Tasks"):
+                output_data.append({
+                    "Task_Dir": result[0],
+                    "Solved": result[1],
+                    "Time_Taken": round(result[2], 2)
+                })
 
     # Save all results
     output_df = pd.DataFrame(output_data)

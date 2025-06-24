@@ -28,7 +28,7 @@ This will:
 This script simulation and runs the model on all generated tasks
 
 ```
-
+python run.py
 ```
 
 ## 4. Crash analysis

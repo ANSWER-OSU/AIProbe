@@ -1,6 +1,4 @@
-
 import xml.etree.ElementTree as ET
-
 
 def parse_xml_to_dict(xml_file):
     """Parses an XML file and returns a structured dictionary."""

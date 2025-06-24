@@ -1,11 +1,3 @@
-Result/
-AIProbe_backup/
-Catcher_Flappy_Continuous/cleanrl
-Catcher_Flappy_Continuous/PyGame-Learning-Environment/
-Catcher_Flappy_Continuous/Test_Environment/
-.idea/
-
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 **/__pycache__/

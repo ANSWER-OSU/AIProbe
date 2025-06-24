@@ -1,17 +1,7 @@
-import os
+# Wrapper Code
 import xml.etree.ElementTree as ET
 import sys
-from math import trunc
-
-import numpy as np
-import pygame
-from PIL import Image
-
-import MinigridEnv
-
-
-# Wrapper Code
-
+import MinigridEnv_custom as MinigridEnv
 
 class Attribute:
     def __init__(self, name, data_type, value, min_val, max_val, step, mutable, description=None, value_list=None):
@@ -25,7 +15,6 @@ class Attribute:
         self.description = description
         self.value_list = value_list
 
-
 class Agent:
     def __init__(self, agent_id, name, agent_type, position, direction):
         self.agent_id = agent_id
@@ -33,7 +22,6 @@ class Agent:
         self.agent_type = agent_type
         self.position = position
         self.direction = direction
-
 
 class Object:
     def __init__(self, object_id, name, obj_type, position, object_attributes):
@@ -43,7 +31,6 @@ class Object:
         self.position = position
         self.object_attributes = object_attributes
 
-
 class Environment:
     def __init__(self, name, env_type, agents, objects, properties):
         self.name = name
@@ -51,7 +38,6 @@ class Environment:
         self.agents = agents
         self.objects = objects
         self.properties = properties
-
 
 # Parse attribute from XML
 def parse_attribute(attribute_node):
@@ -73,7 +59,6 @@ def parse_attribute(attribute_node):
 
     return Attribute(name, data_type, value, min_val, max_val, step, mutable, description, value_list)
 
-
 # Parse agent from XML
 def parse_agent(agent_node):
     agent_id = agent_node.get('id')
@@ -84,7 +69,6 @@ def parse_agent(agent_node):
     direction = [parse_attribute(attr) for attr in agent_node.find('Direction').findall('Attribute')]
 
     return Agent(agent_id, name, agent_type, position, direction)
-
 
 # Parse object from XML
 def parse_object(object_node):
@@ -97,14 +81,12 @@ def parse_object(object_node):
 
     return Object(object_id, name, obj_type, position, object_attributes)
 
-
 # Parse environmental properties from XML
 def parse_environment_property(property_node):
     name = property_node.get('name')
     attributes = [parse_attribute(attr) for attr in property_node.findall('Attribute')]
 
     return {'name': name, 'attributes': attributes}
-
 
 # Parse the entire environment XML
 def parse_environment(xml_file):
@@ -125,7 +107,6 @@ def parse_environment(xml_file):
     properties = [parse_environment_property(prop_node) for prop_node in root.find('EnvironmentalProperties').findall('Property')]
 
     return Environment(env_name, env_type, agents, objects, properties)
-
 
 # Convert Attribute object to XML element
 def attribute_to_xml(attribute):
@@ -151,7 +132,6 @@ def attribute_to_xml(attribute):
             pair_elem.set("value", value)
     return attr_elem
 
-
 # Convert Agent object to XML element
 def agent_to_xml(agent):
     agent_elem = ET.Element("Agent")
@@ -165,7 +145,6 @@ def agent_to_xml(agent):
     for attr in agent.direction:
         direction_elem.append(attribute_to_xml(attr))
     return agent_elem
-
 
 # Convert Object object to XML element
 def object_to_xml(obj):
@@ -181,7 +160,6 @@ def object_to_xml(obj):
         object_attributes_elem.append(attribute_to_xml(attr))
     return obj_elem
 
-
 # Convert EnvironmentalProperties back to XML
 def property_to_xml(prop):
     prop_elem = ET.Element("Property")
@@ -189,7 +167,6 @@ def property_to_xml(prop):
     for attr in prop['attributes']:
         prop_elem.append(attribute_to_xml(attr))
     return prop_elem
-
 
 # Convert the entire Environment object to XML
 def environment_to_xml(environment):
@@ -215,18 +192,10 @@ def environment_to_xml(environment):
     tree = ET.ElementTree(root)
     return tree
 
-
-
-
-# Save the updated environment to an XML file
-import xml.dom.minidom
-
-
 # Save the updated environment to an XML file
 import xml.dom.minidom
 import re
 
-# Save the updated environment to an XML file
 # Convert the entire Environment object to XML
 def environment_to_xml(environment):
     root = ET.Element("Environment")
@@ -278,28 +247,24 @@ def run_minigrid_with_single_actions(xml_parsed_data, action):
     obs = env.reset()
 
     done = False
-
-    
     env.render()
 
-        # Map the single action from the argument
+    # Map the single action from the argument
     mapped_action = MinigridEnv.map_user_input_to_action(action)
     if mapped_action is None:
-            print(f"Invalid action: {action}. Skipping...")
+        print(f"Invalid action: {action}. Skipping...")
     else:
-            # Perform the action in the environment
-            result = env.step(mapped_action)
+        # Perform the action in the environment
+        result = env.step(mapped_action)
 
-            # Unpack the required values (obs, reward, done, info) and ignore any extras
-            if len(result) == 4:
-                obs, reward, done, info = result
-            else:
-                obs, reward, done, info, *extra = result  # Capturing extra values (if any)
+        # Unpack the required values (obs, reward, done, info) and ignore any extras
+        if len(result) == 4:
+            obs, reward, done, info = result
+        else:
+            obs, reward, done, info, *extra = result  # Capturing extra values (if any)
 
-            print(f"Action: {action}, Reward: {reward}, Done: {done}")
+        print(f"Action: {action}, Reward: {reward}, Done: {done}")
 
-
-     
     for agent in xml_parsed_data['Agents']['AgentList']:
         if 'Attributes' in agent:
             # Update X position
@@ -312,7 +277,6 @@ def run_minigrid_with_single_actions(xml_parsed_data, action):
             if len(agent['Attributes']) > 2:
                 agent['Attributes'][2]['Value']['Content'] = str(env.agent_dir)  # Direction (angle)
     if isinstance(env.grid.get(*env.agent_pos), MinigridEnv.Lava):
-       # print("Condition: unsafe (Agent starting on Lava tile)")
         env.close()  # Make sure to close the environment
         return xml_parsed_data, True
 
@@ -320,55 +284,6 @@ def run_minigrid_with_single_actions(xml_parsed_data, action):
 
     # Return the updated environment data (you can modify this logic as needed)
     return xml_parsed_data , False
-
-
-
-# Run the environment using a single action
-#def run_minigrid_with_single_action(environment_data, action):
-    # Create the custom MiniGrid environment
-    # env = MinigridEnv.CustomMiniGridEnv(environment_data=environment_data)
-    # env.reset()
-
-    # if isinstance(env.grid.get(*env.agent_pos), MinigridEnv.Lava):
-    #     #print("Condition: unsafe (Agent starting on Lava tile)")
-    #     env.close()  # Make sure to close the environment
-    #     return environment_data, False
-
-    #     # Map action from the input to MiniGrid action
-    # mapped_action = MinigridEnv.map_user_input_to_action(action)
-
-    # # Step through the environment with the mapped action
-    # obs, reward, terminated, info = env.step(mapped_action)
-
-    # #new_enviroment_data = getEnvFromCustomMiniGridEnv(env,environment_data)
-    # # Update the agent's position and direction in the environment_data
-    # for agent in environment_data['Agents']['AgentList']:
-    #     if 'Attributes' in agent:
-    #         # Update X position
-    #         if len(agent['Attributes']) > 0:
-    #             agent['Attributes'][0]['Value']['Content'] = str(env.agent_pos[0])  # X position
-    #         # Update Y position
-    #         if len(agent['Attributes']) > 1:
-    #             agent['Attributes'][1]['Value']['Content'] = str(env.agent_pos[1])  # Y position
-    #         # Update direction (angle)
-    #         if len(agent['Attributes']) > 2:
-    #             agent['Attributes'][2]['Value']['Content'] = str(env.agent_dir)  # Direction (angle)
-
-    # Save the environment image after performing the action
-    #save_minigrid_image(env, "minigrid_after_action.png")
-
-    # if isinstance(env.grid.get(*env.agent_pos), MinigridEnv.Lava):
-    #    # print("Condition: unsafe (Agent starting on Lava tile)")
-    #     env.close()  # Make sure to close the environment
-    #     return environment_data, True
-
-    # # Close environment after execution
-    # env.close()
-
-    # # Return the updated environment data (as an XML object)
-    # return environment_data , terminated ,
-
-
 
 def run_minigrid_with_single_action(env, environment_data, action):
     # Step through the existing environment with the mapped action
@@ -388,8 +303,6 @@ def run_minigrid_with_single_action(env, environment_data, action):
     return environment_data, terminated
 
 def getEnvFromCustomMiniGridEnv(env, environment_data):
-
-    # Update agents
     # Update agents
     for i, agent in enumerate(environment_data['Agents']['AgentList']):
         # Ensure the agent has a 'position' attribute with at least two entries
@@ -404,11 +317,7 @@ def getEnvFromCustomMiniGridEnv(env, environment_data):
             if len(agent['Attributes']) > 2:
                 agent['Attributes'][2]['Value'] = str(env.agent_dir)
 
-
     # Update objects
-
-
-
     if hasattr(env, 'env_properties'):
         for i, prop in enumerate(environment_data.properties):
             if i < len(env.env_properties):
@@ -423,12 +332,6 @@ def main():
     xml_file = sys.argv[1]  # Input XML file path
     action = sys.argv[2]  # Single action to perform
     output_xml_file = sys.argv[3]  # Temporary output file path
-
-    #xml_file = "/Users/rahil/Documents/GitHub/AIProbe/csharp/results/Result_LavaEnv6_8030/Task_22/initialState.xml" # Input XML file path
-    #action = "forward"  # Single action to perform
-    #output_xml_file = "/Users/rahil/Documents/GitHub/AIProbe/csharp/Xml FIles/outputTEMPLava.xml"  # Temporary output file path
-
-    #if os.path.exists(output_xml_file): os.remove(output_xml_file)
 
     environment_data = parse_environment(xml_file)
 
@@ -448,9 +351,6 @@ def main():
 
     # Save the updated environment data to the output XML file
     save_environment_to_xml(updated_environment_data, output_xml_file)
-
-    # Print the file path for C# to retrieve
-    #print(output_xml_file)
 
 def get_agent_position(environment_data):
     """Extracts and returns the agent's position and direction from the environment data."""
@@ -486,10 +386,6 @@ def direction_index_to_direction(direction_index):
     }
     return index_map.get(direction_index, "Unknown")  # Default to "Unknown" if index is invalid
 
-
-import redis
-import json
-
 def print_value_tags(environment):
     if isinstance(environment, dict):
         for key, value in environment.items():
@@ -504,47 +400,6 @@ def print_value_tags(environment):
 def process_environment_with_action(environment, action):
     # Example: Apply the action to the environment
     # Modify environment state based on the action
-    #print("Initial Environment State:")
-    #print_value_tags(environment)
     safe_condition = True  # Set based on your logic
-
     environment_data, terminated =     run_minigrid_with_single_action(environment, action)
-
-    #print("final Environment State:")
-    #print_value_tags(environment)
     return environment, terminated
-
-# def run_with_redis():
-#     r = redis.Redis(host='localhost', port=6379, decode_responses=True)
-#     while True:
-#         if r.exists("environment:payload"):
-#             payload = json.loads(r.get("environment:payload"))
-
-#             if "Environment" not in payload or "Action" not in payload:
-#                 raise KeyError("Payload is missing required keys: 'Environment' or 'Action'")
-
-#             environment = payload["Environment"]
-#             action = payload["Action"]
-
-#             # Process environment and action
-#             updated_environment, terminated = process_environment_with_action(environment, action)
-
-#             if(terminated):
-#                 safe_condition = False
-#             else:
-#                 safe_condition = True
-
-#             result = {
-#                 "UpdatedEnvironment": updated_environment,
-#                 "SafeCondition": safe_condition
-#             }
-#             r.set("environment:result", json.dumps(result))
-#             r.delete("environment:payload")
-
-
-# if __name__ == "__main__":
-#     run_with_redis()
-
-
-##if __name__ == "__main__":
-    ##main()
